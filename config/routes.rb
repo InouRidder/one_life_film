@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'passwords/create'
 
   devise_for :users
+
   root to: 'pages#home'
 
   resources :films do
