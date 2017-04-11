@@ -5,4 +5,3 @@
 //= require react_ujs
 //= require components
 //= require_tree .
-//= background_video.js

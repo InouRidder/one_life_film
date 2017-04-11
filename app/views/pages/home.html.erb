@@ -1,12 +1,16 @@
-<div class="homepage-hero-module">
-  <div class="video-container">
-    <div class="filter"></div>
-    <%= video_tag 'Crocodile.mp4', class: 'fillWidth', loop: true, autoplay: true %>
-    <div class="poster hidden">
-      <%= image_tag 'Crocodile.jpg' %>
-      </div>
+<div class="home">
+
+  <div class="home-video-container">
+    <%= video_tag 'Crocodile.mp4', playsinline: true, autoplay: true, muted: true, loop: true, poster: 'Crocodile.jpg', id: 'bgvid' %>
+  </div>
+
+  <div class="home-title-container">
+    <div class="home-title">
+      One Life Film
+    </div>
+    <div class="home-sub-title">
+      Film Productions
     </div>
   </div>
 
-
-
+</div>
