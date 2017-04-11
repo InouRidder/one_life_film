@@ -3,22 +3,42 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-.video-container {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background-position: center;
-  background-image: url(/assets/video/snapshot.jpg);
+
+@media (min-width: 770px) {
+}
+  video#bgvid {
+    position: relative;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(Crocodile.jpg) no-repeat;
+    background-size: cover;
+  }
+
+@media (max-width: 770px) {
+  // background: url(Crocodile.jpg) no-repeat;
+  // background-size: cover;
 }
 
-.home {
-  width: 100%;
-  height: 100%;
+.home-title-container {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    color: #fff;
+    width: 100%;
 }
-
 
 .home-title {
   margin-bottom: 10px;
@@ -26,17 +46,7 @@
   letter-spacing: -2px;
 }
 
-.home-title-container {
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  color: #fff;
-  width: 100%;
-}
-
-.home-subtitle {
+.home-sub-title {
   text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 4px;
@@ -44,3 +54,4 @@
 }
 
 
+// max width bij nicole website =  770px;

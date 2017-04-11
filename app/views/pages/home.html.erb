@@ -1,14 +1,16 @@
 <div class="home">
-  <div class="video-container">
-    <video autoplay loop poster src=""></video>
-  </div>
-  <div class="home-title-container">
-<h1 class="home-title">
-  Welcome to ONELIFEFILM
-</h1>
-<div class="home-subtitle">
-  Film production
-</div>
-  </div>
-</div>
 
+  <div class="home-video-container">
+    <%= video_tag 'Crocodile.mp4', playsinline: true, autoplay: true, muted: true, loop: true, poster: 'Crocodile.jpg', id: 'bgvid' %>
+  </div>
+
+  <div class="home-title-container">
+    <div class="home-title">
+      One Life Film
+    </div>
+    <div class="home-sub-title">
+      Film Productions
+    </div>
+  </div>
+
+</div>

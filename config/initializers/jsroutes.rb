@@ -1,5 +1,4 @@
 # config/initializers/jsroutes.rb
-
 # https://github.com/railsware/js-routes#advanced-setup
 JsRoutes.setup do |config|
   # Whitelist routes to include on the Front-End
