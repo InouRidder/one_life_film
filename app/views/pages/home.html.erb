@@ -1,16 +1,33 @@
-<div class="home">
+<!--Main Wrapper Starts-->
+<div class="main-wrapper animsition">
 
-  <div class="home-video-container">
-    <%= video_tag 'Crocodile.mp4', playsinline: true, autoplay: true, muted: true, loop: true, poster: 'Crocodile.jpg', id: 'bgvid' %>
-  </div>
+    <!--Content Starts-->
+    <div class="main-container">
 
-  <div class="home-title-container">
-    <div class="home-title">
-      One Life Film
+        <!--Background Video Wrapper-->
+        <div class="bg-video-wrapper" data-muted="true" data-property="{videoURL: 'https://www.youtube.com/watch?v=4pSzhZ76GdM&index=3&list=PLD33E5618740295DF'}"></div>
+
+        <!--Cover Wrapper Starts-->
+        <div class="cover-wrapper cover-one video-cover">
+
+            <div class="cover-inner">
+                <h2>WELCOME TO ONELIFE</h2>
+                <p>Film Productions</p>
+            </div>
+
+        </div>
+        <!--Cover Wrapper End-->
+
+        <!--Video Control Wrapper Starts-->
+        <div class="bgvideo-controls">
+            <a href="#" class="vid-playpause fa fa-pause"></a>
+            <!-- <a href="#" class="vid-sound fa fa-volume-up"></a> -->
+        </div>
+        <!--Video Control Wrapper End-->
+
     </div>
-    <div class="home-sub-title">
-      Film Productions
-    </div>
-  </div>
-  <%= link_to 'New Film', new_film_path, class: "btn btn-primary" %>
+    <!--Content End-->
 </div>
+<!--Main Wrapper End-->
+
+

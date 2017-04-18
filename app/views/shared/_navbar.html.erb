@@ -1,76 +1,303 @@
-<div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
-  <% end %>
+        <header class="page-header clearfix">
 
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+            <!--Logo Wrapper-->
+            <a href="index.html" class="logo-wrapper">
+                <img src="images/dark-logo.png" class="dark-logo" />
+                <img src="images/light-logo.png" class="light-logo" />
+            </a>
 
-    <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
+            <!--Mobile Menu Icon-->
+            <a href="#" class="mobile-nav-button">
+                <i class="icon"></i>
+            </a>
 
-    <!-- Different navigation if login or not -->
-    <% if user_signed_in? %>
+            <!--Menu Wrapper Starts-->
+            <nav class="manu-wrapper">
+                <ul>
+                    <li>
+                        <a href="#">HOME</a>
+                        <ul>
+                            <li>
+                                <a href="#">SILDER</a>
+                                <ul>
+                                    <li><a href="home_slider_thumbnails.html">WITH THUMBNAILS</a></li>
+                                    <li><a href="home_slider_with_cover.html">WITH COVER</a></li>
+                                    <li><a href="home_slider_with_caption.html">WITH CAPTION</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">KENBURNS</a>
+                                <ul>
+                                    <li><a href="home_kenburns_with_cover.html">WITH COVER</a></li>
+                                    <li><a href="home_kenburns_with_caption.html">WITH CAPTION</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">VIDEO</a>
+                                <ul>
+                                    <li><a href="home_video_with_cover.html">WITH COVER</a></li>
+                                    <li><a href="home_video_without_cover.html">WITHOUT COVER</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">SINGLE IMAGE</a>
+                                <ul>
+                                    <li><a href="home_single_image_with_cover.html">WITH COVER</a></li>
+                                    <li><a href="home_single_image_with_tittlebox.html">WITH TITTLE BOX</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">GALLERY</a>
+                                <ul>
+                                    <li><a href="home_gallery_horizontal_style.html">HORIZONTAL STYLE</a></li>
+                                    <li><a href="home_gallery_photowall_style.html">PHOTOWALL STYLE</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">PORTFOLIO</a>
+                                <ul>
+                                    <li><a href="home_portfolio_Carousel_style.html">CAROUSEL STYLE</a></li>
+                                    <li><a href="home_portfolio_masonry_style.html">MASONRY STYLE</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">LANDING</a>
+                                <ul>
+                                    <li><a href="landaing_one.html">LANDING ONE</a></li>
+                                    <li><a href="landaing_two.html">LANDING TWO</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#">GALLERY</a>
+                        <ul>
+                            <li class="active">
+                                <a href="#">MASONRY</a>
+                                <ul>
+                                    <li class="active"><a href="gallery_masonry_5_columns.html">5 COLUMNS</a></li>
+                                    <li><a href="gallery_masonry_much_gutter.html">MUCH GUTTER</a></li>
+                                    <li><a href="gallery_masonry_auto_height.html">AUTO HEIGHT</a></li>
+                                    <li><a href="gallery_masonry_fullwidth.html">FULL WIDTH</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">MASONRY ALBUMS</a>
+                                <ul>
+                                    <li><a href="gallery_masonry_albums_4_columns.html">4 COLUMNS</a></li>
+                                    <li><a href="gallery_masonry_albums_much-gutter.html">MUCH GUTTER</a></li>
+                                    <li><a href="gallery_masonry_albums_auto_height.html">AUTO HEIGHT</a></li>
+                                    <li><a href="gallery_masonry_albums_fullwidth.html">FULL WIDTH</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">GRID</a>
+                                <ul>
+                                    <li><a href="gallery_grid_5_columns.html">5 COLUMNS</a></li>
+                                    <li><a href="gallery_grid _much_gutter.html">MUCH GUTTER</a></li>
+                                    <li><a href="gallery_grid_fullwidth.html">FULL WIDTH</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">GRID ALBUMS</a>
+                                <ul>
+                                    <li><a href="gallery_grid_albums_4_columns.html">4 COLUMNS</a></li>
+                                    <li><a href="gallery_grid_albums_much_gutter.html">MUCH GUTTER</a></li>
+                                    <li><a href="gallery_grid_albums_fullwidth.html">FULL WIDTH</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">STRIPED</a>
+                                <ul>
+                                    <li><a href="gallery_striped_with_filter.html">WITH FILTER</a></li>
+                                    <li><a href="gallery_striped_without_filter.html">WITHOUT FILTER</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">STRIPED ALBUMS</a>
+                                <ul>
+                                    <li><a href="gallery_striped_albums_with_filter.html">WITH FILTER</a></li>
+                                    <li><a href="gallery_striped_albums_without_filter.html">WITHOUT FILTER</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">HORIZONTAL</a>
+                                <ul>
+                                    <li><a href="gallery_horizontal_align_center.html">ALIGN CENTER</a></li>
+                                    <li><a href="gallery_horizontal_align_left.html">ALIGN LEFT</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">WIDE</a>
+                                <ul>
+                                    <li><a href="gallery_wide_with_zoom.html">WITH ZOOM</a></li>
+                                    <li><a href="gallery_wide_without_zoom.html">WITHOUT ZOOM</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">WIDE ALBUMS</a>
+                                <ul>
+                                    <li><a href="gallery_wide_albums_with_filter.html">WITH FILTER</a></li>
+                                    <li><a href="gallery_wide_albums_without_filter.html">WITHOUT FILTER</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">SLIDE SHOW</a>
+                                <ul>
+                                    <li><a href="gallery_slideshow_caption.html">WITH CAPTION</a></li>
+                                    <li><a href="gallery_slideshow_default.html">WITHOUT CAPTION</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">KENBURNS</a>
+                                <ul>
+                                    <li><a href="gallery_kenburns_caption.html">WITH CAPTION</a></li>
+                                    <li><a href="gallery_kenburns_default.html">WITHOUT CAPTION</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">PHOTOWALL</a>
+                                <ul>
+                                    <li><a href="gallery_photowall_with_low_gap.html">WITH LOW GAP</a></li>
+                                    <li><a href="gallery_photowall_with_high_gap.html">WITH HIGH GAP</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">PORTFOLIO</a>
+                        <ul>
+                            <li>
+                                <a href="#">MASONRY ONE</a>
+                                <ul>
+                                    <li><a href="portfolio_masonry_one_4_columns.html">4 COLUMNS</a></li>
+                                    <li><a href="portfolio_masonry_one_much_gutter.html">MUCH GUTTER</a></li>
+                                    <li><a href="portfolio_masonry_one_auto_height.html">AUTO HEIGHT</a></li>
+                                    <li><a href="portfolio_masonry_one_fullwidth.html">FULL WIDTH</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">MASONRY TWO</a>
+                                <ul>
+                                    <li><a href="portfolio_masonry_two_4_columns.html">4 COLUMNS</a></li>
+                                    <li><a href="portfolio_masonry_two_much_gutter.html">MUCH GUTTER</a></li>
+                                    <li><a href="portfolio_masonry_two_auto_height.html">AUTO HEIGHT</a></li>
+                                    <li><a href="portfolio_masonry_two_fullwidth.html">FULL WIDTH</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">GRID ONE</a>
+                                <ul>
+                                    <li><a href="portfolio_grid_one_4_columns.html">4 COLUMNS</a></li>
+                                    <li><a href="portfolio_grid_one_much_gutter.html">MUCH GUTTER</a></li>
+                                    <li><a href="portfolio_grid_one_fullwidth.html">FULL WIDTH</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">GRID TWO </a>
+                                <ul>
+                                    <li><a href="portfolio_grid_two_4_columns.html">4 COLUMNS</a></li>
+                                    <li><a href="portfolio_grid_two_much_gutter.html">MUCH GUTTER</a></li>
+                                    <li><a href="portfolio_grid_two_fullwidth.html">FULL WIDTH</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">GRID THREE </a>
+                                <ul>
+                                    <li><a href="portfolio_grid_three_3_columns.html">3 COLUMNS</a></li>
+                                    <li><a href="portfolio_grid_three_fullwidth.html">FULL WIDTH</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">HORIZONTAL ONE</a>
+                                <ul>
+                                    <li><a href="portfolio_horizontal_one_with_filter.html">WITH FILTER</a></li>
+                                    <li><a href="portfolio_horizontal_one_without_filter.html">WITHOUT FILTER</a></li>
+                                    <li><a href="portfolio_horizontal_one_fullheight_width.html">FULL HEIGHT WIDTH</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">HORIZONTAL TWO</a>
+                                <ul>
+                                    <li><a href="portfolio_horizontal_two_with_filter.html">WITH FILTER</a></li>
+                                    <li><a href="portfolio_horizontal_two_without_filter.html">WITHOUT FILTER</a></li>
+                                    <li><a href="portfolio_horizontal_two_fullheight_width.html">FULL HEIGHT WIDTH</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">HORIZONTAL THREE</a>
+                                <ul>
+                                    <li><a href="portfolio_horizontal_three_with_filter.html">WITH FILTER</a></li>
+                                    <li><a href="portfolio_horizontal_three_without_filter.html">WITHOUT FILTER</a></li>
+                                    <li><a href="portfolio_horizontal_three_fullheight_width.html">FULL HEIGHT WIDTH</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">SINGLE </a>
+                                <ul>
+                                    <li><a href="portfolio_single_one.html">SINGLE ONE</a></li>
+                                    <li><a href="portfolio_single_two.html">SINGLE TWO</a></li>
+                                    <li><a href="portfolio_single_three.html">SINGLE THREE</a></li>
+                                    <li><a href="portfolio_single_four.html">SINGLE FOUR</a></li>
+                                    <li><a href="portfolio_single_five.html">SINGLE FIVE</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">WIDE ONE</a>
+                                <ul>
+                                    <li><a href="portfolio_wide_one_with_filter.html">WITH FILTER</a></li>
+                                    <li><a href="portfolio_wide_one_without_filter.html">WITHOUT FILTER</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">WIDE TWO </a>
+                                <ul>
+                                    <li><a href="portfolio_wide_two_with_filter.html">WITH FILTER</a></li>
+                                    <li><a href="portfolio_wide_two_without_filter.html">WITHOUT FILTER</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">ABOUT</a>
+                        <ul>
+                            <li><a href="about_us.html">ABOUT US</a></li>
+                            <li><a href="about_me.html">ABOUT ME</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">BLOG</a>
+                        <ul>
+                            <li><a href="blog_wide_one.html">WIDE ONE</a></li>
+                            <li><a href="blog_wide_two.html">WIDE TWO</a></li>
+                            <li><a href="blog_masonry.html">MASONRY</a></li>
+                            <li>
+                                <a href="#">SINGLE</a>
+                                <ul>
+                                    <li><a href="blog_singel_one.html">SINGLE ONE</a></li>
+                                    <li><a href="blog_singel_two.html">SINGLE TWO</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">CONTACT</a>
+                        <ul>
+                            <li><a href="contact_us.html">CONTACT US</a></li>
+                            <li><a href="contact_me.html">CONTACT ME</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">FEATURES</a>
+                        <ul>
+                            <li><a href="shortcode.html">SHORTCODES</a></li>
+                            <li>
+                                <a href="404_page.html">404 PAGE</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!--Menu Wrapper End-->
 
-      <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
-        </div>
-      <% end %>
-
-      <!-- Profile picture and dropdown -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-    <% else %>
-
-      <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
-    <% end %>
-
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
-  </div>
-
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
+        </header>

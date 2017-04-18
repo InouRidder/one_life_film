@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def portfolio
+    @films = PromoFilm.where(promotion: true)
+  end
+
 end

@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  get 'passwords/create'
-
+  get 'password', to: 'films#password'
+  post 'password', to: 'films#password'
   devise_for :users
+  resources :films
 
   root to: 'pages#home'
 
-  resources :films do
-    resources :password, only: [:create]
-  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
