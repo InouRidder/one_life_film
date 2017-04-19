@@ -1,15 +1,26 @@
 class FilmsController < ApplicationController
-  before_action :set_film, only: [:show, :edit, :update, :destroy]
+  before_action :set_film, only: [:show, :edit, :update, :destroy, :password]
 
   def index
     @films = Film.all
   end
 
   def show
-    if @film.password && params[:password] != @film.password
-      redirect_to password_page(@film)
-    else
-      render :show
+    unless session[:session_access]
+      redirect_to password_path(id: @film.id)
+      session.delete(:session_access)
+      raise
+    end
+  end
+
+  def password
+    if password = params[:password]
+      if @film.password == password[:password]
+        session[:session_access] = "access"
+        redirect_to film_path(@film)
+      else
+        flash[:alert] = "Wrong Password"
+      end
     end
   end
 
@@ -50,7 +61,7 @@ class FilmsController < ApplicationController
   end
 
   def set_film
-    @film = Film.find(params[:id])
+    @film = Film.find(params[:id]||params[:password][:film_id])
   end
 
 end
