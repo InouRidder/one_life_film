@@ -4,8 +4,14 @@ class PagesController < ApplicationController
   def home
   end
 
-  def portfolio
-    @films = Film.where(promotion: true)
+  def gallery
+    @films = Film.where(promo: true)
+  end
+
+  def about
+  end
+
+  def contact
   end
 
 end

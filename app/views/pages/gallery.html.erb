@@ -1,0 +1,192 @@
+    <!--Main Wrapper Starts-->
+    <div class="main-wrapper animsition">
+      <!--Content Starts-->
+      <div class="main-container short-width">
+
+        <!--Filter Wrapper Starts-->
+<!--             <div class="isotope-filter">
+                <ul>
+                    <li>
+                        <a class="active" href="#" data-filter="*">All</a>
+                    </li>
+                    <li>
+                        <a href="#" data-filter="filter-indoor">Indoor</a>
+                    </li>
+                    <li>
+                        <a href="#" data-filter="filter-outdoor">Outdoor</a>
+                    </li>
+                    <li>
+                        <a href="#" data-filter="filter-creative">Creative</a>
+                    </li>
+                    <li>
+                        <a href="#" data-filter="filter-fashion">Fashion</a>
+                    </li>
+                </ul>
+              </div> -->
+              <!--Filter Wrapper End-->
+
+              <!--Masonry Wrapper Starts-->
+              <div class="masonry gallery-default" data-items-columns="5" data-items-gap="8">
+
+                <% @films.each do |film|  %>
+
+                <div class="item double-height filter-outdoor">
+
+                  <a class="video-frame" href=<%= film.video_url %>>
+
+                    <div class="image-wrapper" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947666/802_viecbl.png"><%= film.name %></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+
+                <% end %>
+
+                <!--Items Starts-->
+                <!-- For item sizes use classes (double-width) and (double-height) -->
+
+
+
+
+                <div class="item double-height filter-indoor filter-fashion">
+
+                  <a class="video-frame" href="https://vimeo.com/196341795">
+
+                    <div class="image-wrapper" data-backgroundimage="https://vimeo.com/196341795"></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+
+
+
+
+
+
+
+                <div class="item double-height filter-creative filter-fashion">
+
+                  <a class="preview" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png" title="Image Caption">
+
+                    <div class="image-wrapper" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947666/802_viecbl.png"></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+
+
+
+                <div class="item filter-indoor filter-creative">
+
+                  <a class="preview" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png" title="Image Caption">
+
+                    <div class="image-wrapper" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947667/803_ioxoyo.png"></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+
+
+
+                <div class="item filter-creative filter-fashion">
+
+                  <a class="preview" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png" title="Image Caption">
+
+                    <div class="image-wrapper" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947667/803_ioxoyo.png"></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+
+
+
+                <div class="item double-width filter-indoor filter-outdoor">
+
+                  <a class="preview" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png" title="Image Caption">
+
+                    <div class="image-wrapper" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481955116/1202_wzallg.png"></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+
+
+
+                <div class="item double-height filter-creative">
+
+                  <a class="preview" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png" title="Image Caption">
+
+                    <div class="image-wrapper" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947666/802_viecbl.png"></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+
+
+
+                <div class="item filter-creative filter-indoor filter-fashion">
+
+                  <a class="preview" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png" title="Image Caption">
+
+                    <div class="image-wrapper" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947667/803_ioxoyo.png"></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+
+
+
+                <div class="item filter-creative">
+
+                  <a class="preview" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png" title="Image Caption">
+
+                    <div class="image-wrapper" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947667/803_ioxoyo.png"></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+
+
+
+                <div class="item double-width filter-indoor filter-fashion">
+
+                  <a class="preview" href="http://res.cloudinary.com/codetheatre/image/upload/v1481955116/1202_wzallg.png" title="Image Caption">
+
+                    <div class="image-wrapper" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481955116/1202_wzallg.png"></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+
+
+
+                <div class="item double-width filter-outdoor">
+
+                  <a class="preview" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png" title="Image Caption">
+
+                    <div class="image-wrapper" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481955116/1202_wzallg.png"></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+                <!--Items End-->
+
+              </div>
+              <!--Masonry Wrapper End-->
+
+            </div>
+            <!--Content End-->
+
+          </div>
+
