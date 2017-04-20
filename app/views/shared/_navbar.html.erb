@@ -1,7 +1,7 @@
         <header class="page-header clearfix">
 
             <!--Logo Wrapper-->
-            <a href="index.html" class="logo-wrapper">
+            <a href="<%= root_path %>" class="logo-wrapper">
             ONELIFE FILM
             </a>
 
@@ -11,22 +11,22 @@
             </a>
 
             <!--Menu Wrapper Starts-->
-            <nav class="manu-wrapper">
+              <nav class="manu-wrapper">
                 <ul>
-                    <li class="active">
-                      <%= link_to 'HOME', root_path %>
-                    </li>
-                    <li>
-                      <%= link_to 'GALLERY', gallery_path %>
-                    </li>
-                    <li>
-                      <%= link_to 'ABOUT', about_path %>
-                    </li>
-                    <li>
-                      <%= link_to 'CONTACT', contact_path %>
-                    </li>
+                  <li id="home">
+                    <%= link_to 'HOME', root_path %>
+                  </li>
+                  <li id="gallery">
+                    <%= link_to 'GALLERY', gallery_path %>
+                  </li>
+                  <li id="about">
+                    <%= link_to 'ABOUT', about_path %>
+                  </li>
+                  <li id="contact">
+                    <%= link_to 'CONTACT', contact_path %>
+                  </li>
                 </ul>
-            </nav>
+              </nav>
             <!--Menu Wrapper End-->
 
         </header>

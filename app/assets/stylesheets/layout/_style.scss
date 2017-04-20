@@ -2465,19 +2465,19 @@ a, a:visited,a:after,a:before,button,ul li,ul li a,ol li, ol li a,li:after,.li:b
 .footer-out{
      bottom:-80px;
 }
-.page-footer::before,.page-footer::after{
-    position:absolute;
-    content:"";
-    width:70px;
-    height:70px;
-    background:#fff;
-    left:0;
-    bottom:0;
-}
-.page-footer::after{
-    left:auto;
-    right:0;
-}
+// .page-footer::before,.page-footer::after{
+//     position:absolute;
+//     content:"";
+//     width:70px;
+//     height:70px;
+//     background:#fff;
+//     left:0;
+//     bottom:0;
+// }
+// .page-footer::after{
+//     left:auto;
+//     right:0;
+// }
 .ex-btn{
     left: 20px;
     position: absolute;

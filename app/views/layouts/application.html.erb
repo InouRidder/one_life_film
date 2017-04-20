@@ -21,17 +21,10 @@
   <!--Favicon-->
   <link rel="icon" href="images/favicon.ico" />
 
-  <!--Css Plugins File-->
-  <link type="text/css" rel="stylesheet" href="css/plugins.css">
 
   <!--Google Fonts-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i|Ubuntu:300,300i,400,400i,500,500i,700,700i">
 
-  <!--Main Css File-->
-  <link type="text/css" rel="stylesheet" href="css/style.css">
-
-  <!--Mordanizer js-->
-  <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
 
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
@@ -52,10 +45,6 @@
   <%= yield %>
   <%= render 'shared/footer' %>
   <%= javascript_include_tag 'application' %>
-  <!--Javascript Starts-->
-  <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-  <script type="text/javascript" src="js/plugins.js"></script>
-  <script type="text/javascript" src="js/custom.js"></script>
-  <!--Javascript End-->
+
 </body>
 </html>

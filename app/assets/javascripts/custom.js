@@ -1,8 +1,8 @@
 /*////////////////////////////////////////////////////
-  Template Name: Fungus Photography & Portfolio     
-  Version: 1.0                                      
-  Author: CodeLamp                                  
-  Author URL: https://themeforest.net/user/codelamp 
+  Template Name: Fungus Photography & Portfolio
+  Version: 1.0
+  Author: CodeLamp
+  Author URL: https://themeforest.net/user/codelamp
 ////////////////////////////////////////////////////*/
 
 
@@ -38,7 +38,7 @@ $(function () {
 
 
 
- 
+
 
 // NiceScroll
 
@@ -54,10 +54,13 @@ $(function () {
         cursorborder: "0px solid #fff"
     });
 
-    
-     
+    $(window).load(function(){
+    var id = $(".active-classer").attr('id')
+      $(".manu-wrapper ul li" + "#" + id).addClass('active')
+    });
 
-     
+
+
 
 
 // Background Images
@@ -96,12 +99,12 @@ $(function () {
             fp_btn.toggleClass("pe-7s-close-circle");
         };
     });
-    
 
 
 
 
-//Responsive Videos 
+
+//Responsive Videos
 
     $('.video-container').fitVids();
 
@@ -119,7 +122,7 @@ $(function () {
         $(this).toggleClass("close-btn");
         $(".manu-wrapper").toggleClass("open-menu");
     });
-    
+
     if (win_dow> 1024) {
         drop_down.parent("li").addClass("right-arrow");
     };
@@ -175,7 +178,7 @@ $(function () {
 
 
 
-	
+
 
 
 // Zoom Image  Pop Up
@@ -333,12 +336,12 @@ $(function () {
 
       /*Update Height on Resize*/
          $(window).on("resize", function () {
-     	    if ($(window).width()==w) return; 
+     	    if ($(window).width()==w) return;
 			w = $(window).width();
 			equalHeight("rs");
          });
      };
-	 
+
 	function equalHeight(e) {
         $('.equal-height').parent().addClass("equal-parent");
         $('.equal-parent').each(function () {
@@ -481,8 +484,8 @@ $(function () {
 	    }
 
 	};
-    
-    
+
+
 
 
 
@@ -530,7 +533,7 @@ $(function () {
 
 
 
-// Home Background Youtube Video  
+// Home Background Youtube Video
 
 	if ($(".bg-video-wrapper").length > 0) {
 
@@ -593,7 +596,7 @@ $(function () {
 
 
 
-// Home Gallery PhotoWall & Gallery Photowall 
+// Home Gallery PhotoWall & Gallery Photowall
 
 	var hg_photowall = $('.photowall');
 
@@ -637,7 +640,7 @@ $(function () {
 
 
 // Portfolio & Gallery Horizontal & Gallery Striped Carousel
-		
+
     var ph_Carousel = $(".horizontal");
 
      if (ph_Carousel.length > 0) {
@@ -696,7 +699,7 @@ $(function () {
 	            }
 	        });
         });
-        
+
        /*Carousel Scroll Settings*/
 	    if (ph_scroll == true) {
 	        ph_Carousel.on('mousewheel', '.owl-stage', function (e) {
@@ -721,7 +724,7 @@ $(function () {
 
 	if (pm_masonry.length > 0) {
 	    pm_masonry.each(function () {
-	    	
+
 	        var pm_masonry = $(this),
                 pm_item = pm_masonry.children('.item'),
                 pm_item_d_width = pm_masonry.children('.item.double-width'),
@@ -786,10 +789,10 @@ $(function () {
                         pm_colomns = pm_colomns != undefined ? pm_colomns : 3;
 	                };
 	                pm_item.width(pm_masonry.width() / pm_colomns);
-	                
+
 	            };
 
-	      
+
 	        /*Masonry Grid Style Item Size*/
 	            function masonryItemSizes() {
 	                var pm_window = $(window).width();
@@ -824,7 +827,7 @@ $(function () {
 
 	    });
 	};
-    
+
 
 
 
@@ -900,13 +903,13 @@ $(function () {
 
 
 
-// Portfolio & Gallery & Blog Wide 
+// Portfolio & Gallery & Blog Wide
 
 	var pw_wide = $('.wide');
 
 	if (pw_wide.length > 0) {
 	    pw_wide.each(function () {
-	    	
+
             var pw_item = pw_wide.children('.item'),
 
             /*Data Attributes*/
@@ -947,7 +950,7 @@ $(function () {
 	};
 
 
-      
+
 
 
 
