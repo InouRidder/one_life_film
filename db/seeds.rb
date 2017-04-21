@@ -8,7 +8,7 @@
 Film.destroy_all
 
 
-urls = ['https://vimeo.com/206687022','https://vimeo.com/196769101','https://vimeo.com/196085402','https://vimeo.com/190440614']
+urls = ['https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022']
 urls.each do |url|
   Film.create(name: Faker::Book.title, video_url: url, password: nil, promo: true)
 end
