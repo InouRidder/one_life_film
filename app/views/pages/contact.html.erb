@@ -11,12 +11,13 @@
 
         <div class="text-left">
 
-          <h4>Contact Info</h4>
+          <h4>Contact</h4>
           <i class="d-line d-left mb10"></i>
-          <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-          <p class="phon"><b>PHON :</b><a href="#"> +123546545421</a></p>
-          <p class="addrs"><b>ADDRESS :</b> Chiranji Lal Colony, Dadri, Uttar Pradesh</p>
-          <p class="mail"><b>MAIL :</b><a href="#"> example@site.com</a></p>
+          <p>Wilt u meer informatie over het laten maken van een film van een speciale gebeurtenis? Of wilt u meer informatie over OneLife Film dan kunt u contact met ons opnemen door middel van het onderstaande contactformulier. Maar als u ons belt dan kunnen wij u nog sneller van dienst zijn </p>
+
+          <p class="phon"><b>TELEFOON :</b><a href="#">+31 6 10 55 15 88</a></p>
+          <p class="addrs"><b>ADRES :</b> Middelwaarde 23, Laren</p>
+          <p class="mail"><b>MAIL :</b><a href="#"> info@onelife.nl</a></p>
 
         </div>
 
@@ -28,13 +29,19 @@
 
           <!--form-->
           <div class="message"></div>
+
           <form id="contact" method="post" action="php/contact.php">
 
-            <input type="text" name="user_name" placeholder="NAME" required autocomplete="off">
+            <input type="text" name="user_name" placeholder="NAAM" required autocomplete="off">
             <input type="email" name="user_email" placeholder="EMAIL" required autocomplete="off">
-            <input type="text" name="message_subject" placeholder="SUBJECT" required autocomplete="off">
-            <textarea name="user_message" placeholder="MESSAGE" required></textarea>
-            <button type="submit" name="submit">SUBMIT</button>
+            <input type="text" name="message_subject" placeholder="ONDERWERP" required autocomplete="off">
+            <input type="text" name="phone_number" placeholder="TELEFOON NUMMER" required autocomplete="off">
+            <input type="text" name="location_wedding" placeholder="LOCATIE BRUILOFT" required autocomplete="off">
+            <input type="text" name="phone_number" placeholder="TELEFOON NUMMER" required autocomplete="off">
+            <input type="text" name="date_wedding" placeholder="DATUM BRUILOFT" required autocomplete="off">
+
+            <textarea name="client_message" placeholder="BERICHT" required></textarea>
+            <button type="submit" name="submit">VERZEND</button>
 
           </form>
 
@@ -47,11 +54,3 @@
 
 </div>
 <!--Content End-->
-
-<!--Google Map Wrapper Starts-->
-<div class="g-map">
-
-  <div id="map" data-latitude="28.555769" data-longitude="77.556049"></div>
-
-</div>
-        <!--Google Map Wrapper -->

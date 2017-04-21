@@ -10,10 +10,6 @@
 $(function () {
     'use strict';
 
-
-
-
-
 // Page Loading Animation
 
 	var animsition = $('.animsition');
