@@ -8,9 +8,8 @@ class FilmsController < ApplicationController
   def show
     unless session[:session_access]
       redirect_to password_path(id: @film.id)
-      session.delete(:session_access)
-      raise
     end
+      session.delete(:session_access)
   end
 
   def password
