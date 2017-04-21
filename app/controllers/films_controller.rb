@@ -56,7 +56,7 @@ class FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit(:video_url, :name, :slug, :password)
+    params.require(:film).permit(:video_url, :name, :slug, :password, :promo)
   end
 
   def set_film

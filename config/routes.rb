@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   get 'password', to: 'films#password'
   post 'password', to: 'films#password'
   devise_for :users
