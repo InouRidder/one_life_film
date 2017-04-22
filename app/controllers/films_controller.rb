@@ -6,7 +6,7 @@ class FilmsController < ApplicationController
   end
 
   def show
-    unless session[:session_access]
+    if @film.password && session[:session_access].nil?
       redirect_to password_path(id: @film.id)
     end
       session.delete(:session_access)
