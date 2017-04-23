@@ -1,9 +1,9 @@
 <!-- <div class="container"> -->
-  <!-- <div class="row"> -->
-    <%#= @film.name  %>
-    <%#= @film.video_url %>
-    <%#= link_to 'Edit', edit_film_path(@film), class: "btn btn-primary" %>
-  <!-- </div> -->
+<!-- <div class="row"> -->
+<%#= @film.name  %>
+<%#= @film.video_url %>
+<%#= link_to 'Edit', edit_film_path(@film), class: "btn btn-primary" %>
+<!-- </div> -->
 <!-- </div> -->
 
 <!--Tittle Section Starts-->
@@ -11,108 +11,107 @@
 
   <div class="transparent-bg-8 text-center pt100 pb100 pl20 pr20">
 
-  <h4 class="project-tittle"><%= @film.name %></h4>
+    <h4 class="project-tittle"><%= @film.name %></h4>
     <!-- <p class="project-info"> -->
 <!--       <a href="#">SINGLE PROJECT</a>
       <a href="#">PRESENTATION</a>
       <a href="#">STYLE I</a> -->
-    <!-- </p> -->
-    <i class="i-box mt10"></i>
+      <!-- </p> -->
+      <i class="i-box mt10"></i>
 
-  </div>
-
-</div>
-<!---Tittle Section End-->
-
-
-<!--Content Section Starts-->
-<div class="page-content-wrapper text-center pt80 pb80">
-
-  <!--Container Starts-->
-  <div class="container">
-
-<div class="video-holder">&nbsp;<iframe src="http://player.vimeo.com/video/#####"
-width="561" height="316" frameborder="0" webkitAllowFullScreen mozallowfullscreen
-allowFullScreen></iframe></p> </div>
-
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et accusantium, modi nemo nesciunt quasi quae impedit, suscipit obcaecati dicta, magnam in. Esse, saepe quibusdam, quis nostrum modi iure eveniet perspiciatis ratione reprehenderit.</p>
-
-      </div>
     </div>
 
+  </div>
+  <!---Tittle Section End-->
 
-    <div class="row">
-      <div class="col-sm-12">
 
-        <!--Single Slider Wrapper Starts-->
-        <!--Use class "show-direction" to show the directions alltime-->
-        <div class="single-slider show-direction pb40prcnt" data-slide-interval="3000" data-slide-speed="300" data-slide-animation="fade" data-slider-directions="true" data-dots-navigation="false">
+  <!--Content Section Starts-->
+  <div class="page-content-wrapper text-center pt80 pb80">
 
-          <ul class="slides">
-            <li>
-              <div class="image-wrapp" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png"></div>
-            </li>
-            <li>
-              <div class="image-wrapp" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png"></div>
-            </li>
-            <li>
-              <div class="image-wrapp" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png"></div>
-            </li>
-            <li>
-              <div class="image-wrapp" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png"></div>
-            </li>
-          </ul>
+    <!--Container Starts-->
+    <div class="container">
+    <div class="video-holder">&nbsp;<iframe src="<%= @film.video_url %>"
+        width="561" height="700" frameborder="0" webkitAllowFullScreen mozallowfullscreen
+        allowFullScreen></iframe></p> </div>
 
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et accusantium, modi nemo nesciunt quasi quae impedit, suscipit obcaecati dicta, magnam in. Esse, saepe quibusdam, quis nostrum modi iure eveniet perspiciatis ratione reprehenderit.</p>
+
+          </div>
         </div>
-        <!--Single Slider Wrapper End-->
+
+
+        <div class="row">
+          <div class="col-sm-12">
+
+            <!--Single Slider Wrapper Starts-->
+            <!--Use class "show-direction" to show the directions alltime-->
+            <div class="single-slider show-direction pb40prcnt" data-slide-interval="3000" data-slide-speed="300" data-slide-animation="fade" data-slider-directions="true" data-dots-navigation="false">
+
+              <ul class="slides">
+                <li>
+                  <div class="image-wrapp" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png"></div>
+                </li>
+                <li>
+                  <div class="image-wrapp" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png"></div>
+                </li>
+                <li>
+                  <div class="image-wrapp" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png"></div>
+                </li>
+                <li>
+                  <div class="image-wrapp" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png"></div>
+                </li>
+              </ul>
+
+            </div>
+            <!--Single Slider Wrapper End-->
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h4>Challenge</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et accusantium, modi nemo nesciunt quasi quae impedit, suscipit obcaecati dicta, magnam in. Esse, saepe quibusdam, quis nostrum modi iure eveniet.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6 equal-height">
+
+            <a class="preview" title="Image Caption" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947008/1600_fczy1e.png"><img src="http://res.cloudinary.com/codetheatre/image/upload/v1481947008/1600_fczy1e.png" /></a>
+
+          </div>
+          <div class="col-sm-6 equal-height">
+
+            <a class="preview" title="Image Caption" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947008/1600_fczy1e.png"><img src="http://res.cloudinary.com/codetheatre/image/upload/v1481947008/1600_fczy1e.png" /></a>
+
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-12">
+
+            <a class="preview" title="Image Caption" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png"><img src="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png" /></a>
+
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+
+            <blockquote><p>"Nullam molestie feugiat convallis. Etiam blandit nibh dolor, vel porta ante hendrerit nec. Nam dolor turpis,rutrum at dolor."</p></blockquote>
+
+          </div>
+        </div>
+
 
       </div>
+      <!--Container End-->
+
     </div>
-
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <h4>Challenge</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et accusantium, modi nemo nesciunt quasi quae impedit, suscipit obcaecati dicta, magnam in. Esse, saepe quibusdam, quis nostrum modi iure eveniet.</p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6 equal-height">
-
-        <a class="preview" title="Image Caption" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947008/1600_fczy1e.png"><img src="http://res.cloudinary.com/codetheatre/image/upload/v1481947008/1600_fczy1e.png" /></a>
-
-      </div>
-      <div class="col-sm-6 equal-height">
-
-        <a class="preview" title="Image Caption" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947008/1600_fczy1e.png"><img src="http://res.cloudinary.com/codetheatre/image/upload/v1481947008/1600_fczy1e.png" /></a>
-
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-sm-12">
-
-        <a class="preview" title="Image Caption" href="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png"><img src="http://res.cloudinary.com/codetheatre/image/upload/v1481947843/1201_q6r5l9.png" /></a>
-
-      </div>
-    </div>
-
-
-
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-
-        <blockquote><p>"Nullam molestie feugiat convallis. Etiam blandit nibh dolor, vel porta ante hendrerit nec. Nam dolor turpis,rutrum at dolor."</p></blockquote>
-
-      </div>
-    </div>
-
-
-  </div>
-  <!--Container End-->
-
-</div>
-        <!--Content Section End-->
+    <!--Content Section End-->

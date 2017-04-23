@@ -1,11 +1,12 @@
 class FilmsController < ApplicationController
-  before_action :set_film, only: [:show, :edit, :update, :destroy, :password]
+  before_action :set_film, only: [:edit, :update, :destroy, :password]
 
   def index
     @films = Film.all
   end
 
   def show
+    @film = Film.friendly.find(params[:id])
     if @film.password && session[:session_access].nil?
       redirect_to password_path(id: @film.id)
     end
@@ -56,7 +57,7 @@ class FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit(:video_url, :name, :slug, :password, :promo)
+    params.require(:film).permit(:video_url, :name, :password, :promo, :slug)
   end
 
   def set_film
@@ -64,3 +65,4 @@ class FilmsController < ApplicationController
   end
 
 end
+

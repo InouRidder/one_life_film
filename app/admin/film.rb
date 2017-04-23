@@ -4,6 +4,11 @@ ActiveAdmin.register Film do
 #
  permit_params :name, :slug, :video_url, :promo
 #
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
 # or
 #
 # permit_params do
