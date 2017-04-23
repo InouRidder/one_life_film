@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+
+  devise_scope :user do
+    get '/users/sign_out', to: 'devise/sessions#destroy'
+  end
+
   ActiveAdmin.routes(self)
+
+
   get 'password', to: 'films#password'
   post 'password', to: 'films#password'
-  devise_for :users
   resources :films
 
   # custom pages
