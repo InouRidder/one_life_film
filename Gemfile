@@ -23,8 +23,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
-gem 'js-routes', '~> 1.3'
-gem 'react-rails', '~> 1.8'
+
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-classnames'
@@ -34,6 +33,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
 
+  gem 'letter_opener'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
