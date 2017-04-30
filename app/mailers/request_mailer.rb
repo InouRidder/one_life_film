@@ -6,10 +6,10 @@ class RequestMailer < ApplicationMailer
   #   en.request_mailer.received.subject
   #
 
-  def received
-    @greeting = "Hi"
+  def received(request)
+    @request = request
 
-    mail to: "to@example.org"
+    mail(to: "info@onelifefilm.nl", subject: @request)
   end
 
 

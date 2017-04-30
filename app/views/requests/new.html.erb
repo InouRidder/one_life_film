@@ -1,0 +1,51 @@
+<div class="active-classer" id="contact"></div>
+
+
+<!--Content Starts-->
+<div class="page-content-wrapper">
+
+  <div class="container pt100 pb100">
+    <div class="row">
+
+      <div class="col-sm-6">
+
+        <div class="text-left">
+
+          <h4>Aanvraag</h4>
+          <i class="d-line d-left mb10"></i>
+          <p>Wilt u meer informatie over het laten maken van een film van een speciale gebeurtenis? Of wilt u meer informatie over OneLife Film dan kunt u contact met ons opnemen door middel van het onderstaande contactformulier. Maar als u ons belt dan kunnen wij u nog sneller van dienst zijn </p>
+
+          <p class="phon"><b>TELEFOON :</b><a href="#">+31 6 10 55 15 88</a></p>
+          <p class="mail"><b>MAIL :</b><a href="#"> info@onelife.nl</a></p>
+
+        </div>
+
+      </div>
+
+      <div class="col-sm-6">
+
+        <div class="text-left">
+
+          <!--form-->
+          <div class="message"></div>
+          <%= simple_form_for @request do |f| %>
+          <%= f.input :name %>
+          <%= f.input :emailaddress %>
+          <%= f.input :phonenumber %>
+          <%= f.input :concerns %>
+          <%= f.input :location_wedding %>
+          <%= f.input :date_wedding %>
+          <%= f.input :subject %>
+          <%= f.input :description %>
+          <%= f.submit %>
+          <% end %>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<!--Content End-->
