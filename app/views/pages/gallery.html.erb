@@ -1,9 +1,9 @@
 <div class="active-classer" id="gallery" style="width:100%; margin:10px;"></div>
 
 
-  <!--Preloader Starts-->
-  <div class="preloader"><i class="p-in"></i></div>
-  <!--Preloader End-->
+<!--Preloader Starts-->
+<div class="preloader"><i class="p-in"></i></div>
+<!--Preloader End-->
 
 
 <!--           <iframe src="https://player.vimeo.com/video/202223372" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -45,7 +45,7 @@
 
                   <a class="video-frame" href=<%= film.video_url %>>
 
-                    <div class="image-wrapper" data-backgroundimage="http://res.cloudinary.com/codetheatre/image/upload/v1481947666/802_viecbl.png"></div>
+                    <div class="image-wrapper" data-backgroundimage="<%= film.poster if film.poster %>"></div>
                     <div class="caption-wrapper"></div>
 
                   </a>
@@ -53,8 +53,6 @@
                 </div>
 
                 <% end %>
-
-
 
                 <!--Items Starts-->
                 <!-- For item sizes use classes (double-width) and (double-height) -->
@@ -197,6 +195,6 @@
               </div>
               <!--Masonry Wrapper End-->
             </div>
-          <!--Content End-->
-        </div>
+            <!--Content End-->
+          </div>
 

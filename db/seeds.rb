@@ -10,5 +10,5 @@ Film.destroy_all
 
 urls = ['https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022']
 urls.each do |url|
-  Film.create(name: Faker::Book.title, video_url: url, password: nil, promo: true)
+  Film.create(name: Faker::Book.title, video_url: url, password: nil, promo: true, poster: "https://unsplash.it/g/200/300")
 end
