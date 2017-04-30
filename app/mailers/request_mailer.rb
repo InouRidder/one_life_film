@@ -5,9 +5,12 @@ class RequestMailer < ApplicationMailer
   #
   #   en.request_mailer.received.subject
   #
+
   def received
     @greeting = "Hi"
 
     mail to: "to@example.org"
   end
+
+
 end
