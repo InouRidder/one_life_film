@@ -3854,20 +3854,39 @@ a, a:visited,a:after,a:before,button,ul li,ul li a,ol li, ol li a,li:after,.li:b
 .caption-wrapper{
     opacity:0;
 }
-.portfolio-one .project .caption-wrapper{
+
+@media (min-width: 600px) {
+  .portfolio-one .project .caption-wrapper{
     position:absolute;
     z-index:1;
-    width:100%;
+    width:68%;
+    margin-left: 16%;
     opacity:1;
     left:0;
     top:0;
     height:100%;
     text-align:center;
+  }
 }
+
+@media (max-width: 600px) {
+    .portfolio-one .project .caption-wrapper{
+    position:absolute;
+    z-index:1;
+    width:90%;
+    margin-left: 5%;
+    opacity:1;
+    left:0;
+    top:0;
+    height:75%;
+    text-align:center;
+  }
+}
+
 .portfolio-one .project .caption-wrapper:after{
     content:"";
     position:absolute;
-    background-color:rgba(255,255,255,.9);
+    // background-color:rgba(255,255,255,.9);
     z-index:-1;
     width: calc(100% - 20px);
     height: calc(100% - 20px);
