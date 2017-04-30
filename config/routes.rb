@@ -14,13 +14,14 @@ Rails.application.routes.draw do
   post 'password', to: 'films#password'
 
   resources :films
-  resources :requests
+  resources :requests, only: [:create]
 
   # custom pages
 
   root to: 'pages#home'
   get 'gallery', to: 'pages#gallery'
   get 'about', to: 'pages#about'
+
   get 'contact', to: 'requests#new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
