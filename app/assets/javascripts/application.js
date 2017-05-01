@@ -1,8 +1,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require react
-//= require react_ujs
 //= require components
 //= require custom
 //= require jquery-1.12.4.min

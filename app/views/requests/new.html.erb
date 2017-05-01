@@ -29,19 +29,18 @@
           <!--form-->
           <div class="message"></div>
           <%= simple_form_for @request do |f| %>
-          <%= f.input :name %>
-          <%= f.input :emailaddress %>
-          <%= f.input :phonenumber %>
-          <%= f.input :concerns %>
-          <%= f.input :location_wedding %>
-          <%= f.input :date_wedding %>
-          <%= f.input :subject %>
-          <%= f.input :description %>
+          <%= f.input :name, placeholder: "Naam", label: false %>
+          <%= f.input :emailaddress, placeholder: "E-mail adres", label: false %>
+          <%= f.input :phonenumber, placeholder: "Telefoon nummer", label: false %>
+          <%= f.input :concerns, collection: ["Wij gaan trouwen", "Ik wil wat extra informatie", "Algemeen" ], label: false, placeholder: "Kies een van de onderstaande" %>
+          <%= f.input :location_wedding, placeholder: "Lokatie bruiloft", input_html: { rows: 2 }, label: false %>
+          <%= f.input :date_wedding, placeholder: "Datum bruiloft", input_html: { rows: 2 }, label: false %>
+          <%= f.input :subject, placeholder: "Onderwerp", input_html: { rows: 2 }, label: false %>
+          <%= f.input :description, placeholder: "Bericht", input_html: { rows: 10 }, label: false %>
           <%= f.submit %>
           <% end %>
 
         </div>
-
       </div>
 
     </div>
