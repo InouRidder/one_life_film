@@ -1,5 +1,7 @@
 class FilmsController < ApplicationController
   before_action :set_film, only: [:edit, :update, :destroy, :password]
+  skip_before_action :authenticate_user!, only: [ :show, :password ]
+
 
   def index
     @films = Film.all
