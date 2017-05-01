@@ -1,5 +1,21 @@
-<h1>Request#received</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
 
-<p>
-  <%= @greeting %>, find me in app/views/request_mailer/received.html.erb
-</p>
+      <h2>
+        Aanvraag <%= @request.name %>
+      </h2>
+
+      <div class="request-info">
+        <%= @request.emailaddress %>
+        <%= @request.phonenumber %>
+        <%= @request.concerns %>
+        <%= @request.location_wedding %>
+        <%= @request.date_wedding %>
+        <%= @request.subject %>
+        <%= @request.description %>
+      </div>
+
+    </div>
+  </div>
+</div>
