@@ -6,6 +6,7 @@ class RequestMailer < ApplicationMailer
   #   en.request_mailer.received.subject
   #
 
+
   def received(request)
     @request = request
 
