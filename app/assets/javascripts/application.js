@@ -11,4 +11,12 @@
 $(window).load(function(){
   var id = $(".active-classer").attr('id')
   $(".manu-wrapper ul li" + "#" + id).addClass('active')
+
+  // if (window.innerWidth <= 416) {
+  //   $('#home-background').atrr('style' , "background-image: url('https://farm9.staticflickr.com/8441/28616172163_b4ab4459f1_k.jpg')");
+  // }
+  // else {
+  //   $('#home-background').attr("data-property" , "{videoURL:'https://www.youtube.com/watch?v=4pSzhZ76GdM&index=3&list=PLD33E5618740295DF'}");
+  // }
 });
+
