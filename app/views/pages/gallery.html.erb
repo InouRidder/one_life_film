@@ -39,9 +39,21 @@
               <!--Masonry Wrapper Starts-->
               <div class="masonry gallery-default" data-items-columns="5" data-items-gap="8">
 
-                <% @films.each do |film|  %>
+                <% @films.each_with_index do |film, i|  %>
+                <% if [0,3,5].include?(i)  %>
+                <div class="item  double-height">
 
-                <div class="item filter-outdoor">
+                  <a class="video-frame" href=<%= film.video_url %>>
+
+                    <div class="image-wrapper" data-backgroundimage="<%= film.poster if film.poster %>"></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+                  <% elsif [6,2,11].include?(i) %>
+
+                <div class="item double-width">
 
                   <a class="video-frame" href=<%= film.video_url %>>
 
@@ -52,6 +64,22 @@
 
                 </div>
 
+
+                <% else %>
+
+
+                <div class="item">
+
+                  <a class="video-frame" href=<%= film.video_url %>>
+
+                    <div class="image-wrapper" data-backgroundimage="<%= film.poster if film.poster %>"></div>
+                    <div class="caption-wrapper"></div>
+
+                  </a>
+
+                </div>
+
+                  <% end %>
                 <% end %>
 
                 <!--Items Starts-->
@@ -60,21 +88,10 @@
 
 
 
-<!--                 <div class="item double-height filter-indoor filter-fashion">
-
-                  <a class="video-frame" href="https://vimeo.com/196341795">
-
-                    <div class="image-wrapper" data-backgroundimage="https://vimeo.com/196341795"></div>
-                    <div class="caption-wrapper"></div>
-
-                  </a>
-
-                </div>
 
 
 
-
-
+<!--
 
 
                 <div class="item double-height filter-creative filter-fashion">
