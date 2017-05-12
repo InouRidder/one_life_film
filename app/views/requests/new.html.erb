@@ -34,7 +34,7 @@
           <%= f.input :phonenumber, placeholder: "Telefoon nummer", label: false %>
           <%= f.input :concerns, collection: ["Wij gaan trouwen", "Ik wil wat extra informatie", "Algemeen" ], label: false, as: :radio_buttons %>
           <%= f.input :location_wedding, placeholder: "Lokatie bruiloft", label: false %>
-          <%= f.input :date_wedding, id: 'datepicker', value: Date.today, label: false %>
+          <%= f.input :date_wedding, class: 'datepicker', label: false, as: :date, html5: true%>
           <%= f.text_area :description, placeholder: "Bericht", label: false %>
           <%= f.submit %>
           <% end %>
@@ -47,3 +47,5 @@
 
 </div>
 <!--Content End-->
+
+
