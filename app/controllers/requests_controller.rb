@@ -9,7 +9,6 @@ class RequestsController < ApplicationController
   def create
     # raise
     @request = Request.new(request_params)
-    p  @request.date_wedding
     if @request.save
       redirect_to root_path
       flash[:notice] = "We will address your request shortly"
