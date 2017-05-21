@@ -6,7 +6,6 @@ class Request < ApplicationRecord
   validates :concerns, presence: true
   validates :location_wedding, presence: true
   validates :date_wedding, presence: true #, inclusion: [Date.today..Date.today + 365.days]
-  validates :subject, presence: true
   validates :description, presence: true
 
 end

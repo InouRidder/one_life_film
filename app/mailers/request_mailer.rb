@@ -9,9 +9,7 @@ class RequestMailer < ApplicationMailer
 
   def received(request)
     @request = request
-
     mail(to: "info@onelifefilm.nl", subject: @request)
   end
-
 
 end

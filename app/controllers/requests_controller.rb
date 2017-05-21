@@ -7,6 +7,7 @@ class RequestsController < ApplicationController
 
 
   def create
+    # raise
     @request = Request.new(request_params)
     if @request.save
       redirect_to root_path
@@ -14,6 +15,7 @@ class RequestsController < ApplicationController
       RequestMailer.received(@request).deliver_now
     else
       render :new
+      flash[:alert] = "Please review the errors below"
     end
   end
 
@@ -23,7 +25,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:phonenumber, :location_wedding, :name, :concerns, :emailaddress, :date_wedding, :subject, :description)
+    params.require(:request).permit(:phonenumber, :date_wedding, :location_wedding, :name, :concerns, :emailaddress, :subject, :description)
   end
 
 end
