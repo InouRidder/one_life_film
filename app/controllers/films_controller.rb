@@ -13,6 +13,7 @@ class FilmsController < ApplicationController
       redirect_to password_path(id: @film.id)
     end
       session.delete(:session_access)
+    end
   end
 
   def password
@@ -32,6 +33,7 @@ class FilmsController < ApplicationController
 
   def create
     @film = Film.new(film_params)
+    @film.set_attributes
     if @film.save
       redirect_to film_path(@film)
     else
@@ -44,6 +46,7 @@ class FilmsController < ApplicationController
 
   def update
     @film.update(film_params)
+    @film.set_attributes
     if @film.save
       redirect_to film_path(@film)
     else
@@ -56,10 +59,11 @@ class FilmsController < ApplicationController
     redirect_to films_path
   end
 
+
   private
 
   def film_params
-    params.require(:film).permit(:video_url, :name, :password, :promo, :slug)
+    params.require(:film).permit(:video_url, :name, :password, :promo)
   end
 
   def set_film

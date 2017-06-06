@@ -24,4 +24,6 @@ en:
   about: "ABOUT"
   gallery: "GALLERY"
   contact: "CONTACT"
-
+  time:
+    formats:
+      long: "%Y-%m-%d %H:%M:%S"
