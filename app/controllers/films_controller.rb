@@ -9,11 +9,10 @@ class FilmsController < ApplicationController
 
   def show
     @film = Film.friendly.find(params[:id])
-    if @film.password && session[:session_access].nil?
+    if @film.password && session[:session_access].nil? && @film.password != ""
       redirect_to password_path(id: @film.id)
     end
-      session.delete(:session_access)
-    end
+    session.delete(:session_access)
   end
 
   def password
