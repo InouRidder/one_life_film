@@ -31,8 +31,7 @@ class FilmsController < ApplicationController
   end
 
   def create
-    @film = Film.new(film_params)
-    @film.set_attributes
+    @film = Film.new(film_params).set_attributes
     if @film.save
       redirect_to film_path(@film)
     else
@@ -44,8 +43,7 @@ class FilmsController < ApplicationController
   end
 
   def update
-    @film.update(film_params)
-    @film.set_attributes
+    @film.update(film_params).set_attributes
     if @film.save
       redirect_to film_path(@film)
     else
