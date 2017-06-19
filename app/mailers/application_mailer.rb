@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'info@onelifefilm.eu'
+  default from: ''
 
   layout 'mailer'
 end
