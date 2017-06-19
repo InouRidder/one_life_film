@@ -9,6 +9,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 gem 'faker'
+
+gem 'postmark'
 gem 'postmark-rails'
 
 gem 'sass-rails'
