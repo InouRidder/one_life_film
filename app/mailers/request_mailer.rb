@@ -8,7 +8,7 @@ class RequestMailer < ApplicationMailer
 
   def received(request)
     client = Postmark::ApiClient.new(ENV['POSTMARK_API_KEY'])
-    client.mail(to: to: "inouridder@gmail.com", subject: request)
+    client.mail(to: "inouridder@gmail.com", subject: request)
   end
 
 end
