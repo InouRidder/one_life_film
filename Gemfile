@@ -10,7 +10,7 @@ gem 'devise'
 gem 'redis'
 gem 'faker'
 
-gem 'postmark-rails'
+gem 'mailgun-rails'
 
 gem 'sass-rails'
 gem 'jquery-rails'

@@ -7,8 +7,13 @@ class RequestMailer < ApplicationMailer
   #
 
   def received(request)
-    client = Postmark::ApiClient.new(ENV['POSTMARK_API_KEY'])
-    client.mail(to: "inouridder@gmail.com", subject: request)
-  end
+    mg_client = Mailgun::Client.new ENV['MAILGUN_API_KEY']
+    message_params = {:from    => ENV['ONELIFE_EMAIL'],
+                      :to      => 'inouridder@gmail.com',
+                      :subject => request.subject,
+                      :text    => request.description
 
+                    }
+    mg_client.send_message ENV['MAILGUN_DOMAIN'], message_params
+  end
 end
