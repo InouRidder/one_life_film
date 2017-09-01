@@ -7,13 +7,17 @@ class RequestMailer < ApplicationMailer
   #
 
   def received(request)
-    mg_client = Mailgun::Client.new(ENV['MAILGUN_API_KEY'])
-    message_params = {:from    => ENV['ONELIFE_EMAIL'],
-                      :to      => 'inouridder@gmail.com',
-                      :subject => request.subject,
-                      :text    => request.description
+    @request = request
+    # mg_client = Mailgun::Client.new(ENV['MAILGUN_API_KEY'])
+    # message_params = {:from    => ENV['ONELIFE_EMAIL'],
+    #                   :to      => 'inouridder@gmail.com',
+    #                   :subject => request.subject,
+    #                   :text    => request.description
 
-                    }
-    mg_client.send_message ENV['MAILGUN_DOMAIN'], message_params
+    #                 }
+    # mg_client.send_message ENV['MAILGUN_DOMAIN'], message_params
+
+    mail(to: request.emailaddress, subject: "Request Received!")
+
   end
 end
