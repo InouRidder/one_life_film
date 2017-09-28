@@ -12,7 +12,7 @@ class RequestsController < ApplicationController
     if @request.save
       redirect_to root_path
       flash[:notice] = "We will address your request shortly"
-      RequestMailer.received(@request).deliver_now
+      # RequestMailer.received(@request).deliver_now
     else
       render :new
       flash[:alert] = "Please review the errors below"

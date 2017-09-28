@@ -11,8 +11,6 @@ gem 'redis'
 gem 'faker'
 gem 'coffee-rails'
 
-gem 'bootstrap-datepicker-rails'
-
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'

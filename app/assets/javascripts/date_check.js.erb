@@ -1,0 +1,18 @@
+var contact_button = $('#contact-submit')
+var contact_date = $('#contact-date')
+var error_message = $('#date-error-message')
+
+$(contact_button).on('click', function(event){
+  var current_date = Date.parse($(contact_date).val());
+  if (current_date && current_date < Date.now()) {
+    event.preventDefault();
+    $(contact_date).css('border-color', '#900C3F')
+    var message = error_message.html("<p style='color: #900C3F'> Please fill in a date in the future </p>")
+    message.hide();
+    message.slideDown();
+  }
+  else {
+    error_message.slideUp();
+    $(contact_date).css('border-color', '#ccc')
+  }
+});
