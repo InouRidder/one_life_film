@@ -7,7 +7,7 @@ class RequestsController < ApplicationController
 
 
   def create
-    # raise
+    raise
     @request = Request.new(request_params)
     if @request.save
       redirect_to root_path
@@ -25,7 +25,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:phonenumber, :date_wedding, :location_wedding, :name, :concerns, :emailaddress, :subject, :description)
+    params.require(:request).permit(:phone_number, :date_wedding, :location_wedding, :name, :email_address, :subject, :description)
   end
 
 end

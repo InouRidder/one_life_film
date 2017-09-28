@@ -11,7 +11,7 @@ gem 'redis'
 gem 'faker'
 gem 'coffee-rails'
 
-gem 'mailgun-rails'
+gem 'bootstrap-datepicker-rails'
 
 gem 'sass-rails'
 gem 'jquery-rails'
@@ -26,6 +26,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
+# MAILING
 gem 'postmark-rails'
 
 

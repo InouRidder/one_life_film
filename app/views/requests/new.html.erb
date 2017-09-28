@@ -28,24 +28,24 @@
 
           <!--form-->
           <div class="message"></div>
-          <%= simple_form_for @request do |f| %>
-          <%= f.input :name, placeholder: "Naam", label: false %>
-          <%= f.input :emailaddress, placeholder: "E-mail adres", label: false %>
-          <%= f.input :phonenumber, placeholder: "Telefoon nummer", label: false %>
-          <%= f.input :concerns, collection: ["Wij gaan trouwen", "Ik wil wat extra informatie", "Algemeen" ], label: false, as: :radio_buttons %>
-          <%= f.input :location_wedding, placeholder: "Lokatie bruiloft", label: false %>
-          <%= f.input :date_wedding, class: 'datepicker', label: false, as: :date, html5: true%>
-          <%= f.text_area :description, placeholder: "Bericht", label: false %>
-          <%= f.submit %>
-          <% end %>
+          <form id="name" method="POST" action="/requests" name="request">
+
+            <input type="text" name="request[name]" placeholder="NAME" required autocomplete="off">
+            <input type="email" name="request[email_address]" placeholder="EMAIL" required autocomplete="off">
+            <input type="text" name="request[phone_number]" placeholder="PHONE NUMBER" required autocomplete="off">
+            <input type="text" name="request[concerns]" placeholder="WHAT DO YOU WANT TO DO?" required autocomplete="off">
+            <%= token_tag %>
+            <input type="text" name="request[location]" placeholder="LOCATION" required autocomplete="off">
+            <input type="date" styname="request[date_wedding]" placeholder="DATE" required autocomplete="off" value="<%= Date.today  %>">
+            <textarea name="request[description]" placeholder="MESSAGE" required></textarea>
+            <button type="submit" name="submit">SUBMIT</button>
+
+          </form>
 
         </div>
       </div>
-
     </div>
+
   </div>
-
 </div>
-<!--Content End-->
-
-
+  <!--Content End-->
