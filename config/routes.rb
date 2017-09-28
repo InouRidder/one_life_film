@@ -9,11 +9,12 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
+  resources :requests, only: [:create]
+
   scope '(:locale)', locale: /nl|en/ do
 
     root to: 'pages#home'
     resources :films
-    resources :requests, only: [:create]
 
     # custom pages
     get 'password', to: 'films#password'
