@@ -24,6 +24,8 @@ en:
   about: "ABOUT"
   gallery: "GALLERY"
   contact: "CONTACT"
+  language-link: "/"
+  language: "nl_flag.png"
   time:
     formats:
       long: "%Y-%m-%d %H:%M:%S"
