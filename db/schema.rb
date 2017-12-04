@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926124659) do
+ActiveRecord::Schema.define(version: 20171012181641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,23 @@ ActiveRecord::Schema.define(version: 20170926124659) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "booking_forms", force: :cascade do |t|
+    t.bigint "booking_id"
+    t.string "wedding_plan"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_booking_forms_on_booking_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "music"
+    t.string "location"
+    t.bigint "request_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_bookings_on_request_id"
+  end
+
   create_table "films", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "video_url"
@@ -38,6 +55,14 @@ ActiveRecord::Schema.define(version: 20170926124659) do
     t.string "password"
     t.boolean "promo", default: false
     t.string "poster"
+  end
+
+  create_table "form_lines", force: :cascade do |t|
+    t.string "content"
+    t.bigint "booking_form_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_form_id"], name: "index_form_lines_on_booking_form_id"
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|

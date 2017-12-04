@@ -9,7 +9,18 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
+
   resources :requests, only: [:create]
+
+
+  resources :booking_forms do
+    resources :booking_line
+  end
+
+
+  scope :admin do
+    resources :bookings
+  end
 
   scope '(:locale)', locale: /nl|en/ do
 

@@ -1,0 +1,3 @@
+class BookingsController
+
+end
