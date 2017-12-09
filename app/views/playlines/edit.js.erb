@@ -1,0 +1,2 @@
+var line = document.getElementById('playline-id[<%= @playline.id %>]');
+line.innerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline %>";

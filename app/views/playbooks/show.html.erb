@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <% if @playbook.playlines.any? %>
+    <div id="playlines">
+      <% @playbook.playlines.each do |playline| %>
+        <%= render 'playlines/show', playline: playline %>
+      <% end %>
+    </div>
+    <% end %>
+    <%= render 'playlines/form', playbook: @playbook, playline: @playline %>
+  </div>
+</div>

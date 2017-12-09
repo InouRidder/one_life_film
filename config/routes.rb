@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :requests, only: [:create]
+  resources :playbooks, only: [:show] do
+    resources :playlines, only: [:create]
+  end
+  resources :playlines, only: [:destroy, :edit, :update]
 
   scope '(:locale)', locale: /nl|en/ do
 

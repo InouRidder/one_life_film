@@ -1,0 +1,18 @@
+<div class="line" id="playline-id[<%= playline.id %>]">
+    <p>
+      <%= playline.content %>
+    </p>
+    <p>
+      <%= playline.location %>
+    </p>
+    <p>
+      <%= playline.begin_time %>
+    </p>
+    <p>
+      <%= playline.end_time %>
+    </p>
+      <%= link_to 'Delete line', playline_path(playline), method: :delete, remote: true %>
+      <%= link_to 'Edit line', edit_playline_path(playline), remote: true %>
+      <%#= link_to 'Edit', edit_playline_path(line) # redirect this to an edit ajax call that grabs the id that is in the div per line, then replaces the innerHTML with an edit form %>
+
+</div>

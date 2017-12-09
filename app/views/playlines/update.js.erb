@@ -1,0 +1,7 @@
+var line = document.getElementById('playline-id[<%= @playline.id %>]');
+
+<% if @playline.errors.any? %>
+  line.innerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline %>";
+<% else %>
+  line.innerHTML =  "<%= j render 'playlines/show', playline: @playline %>";
+<% end %>

@@ -1,0 +1,9 @@
+var newLineForm = document.getElementById('new_playline');
+
+<% if @playline.errors.any? %>
+  newLineForm.innerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline %>";
+<% else %>
+  var lines = document.getElementById('playlines');
+  lines.insertAdjacentHTML("beforeend", "<%= j render 'playlines/show', playline: @playline %>");
+  newLineForm.innerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: Playline.new %>";
+<% end %>
