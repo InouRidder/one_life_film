@@ -25,32 +25,6 @@
 
 
 <script>
-var lines = document.querySelectorAll('.line');
-var orderButton = document.getElementById('save-order');
-var token = "<%= form_authenticity_token %>"
-orderButton.addEventListener('click', function(){
-  lines.forEach(function(line){
-    fetch(`/playlines/${line.getAttribute('data-id')}/set_order`, {
-      method: "PATCH",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      //    headers: {
-      //   'X-Requested-With': 'XMLHttpRequest',
-      //   'X-CSRF-Token': token,
-      //   'Content-Type': 'application/json',
-      //   'Accept': 'application/json'
-      // },
-        body: JSON.stringify({
-          order_number: line.getAttribute('data-order'),
-          credentials: 'same-origin'
-        })
-    });
-  });
-
-});
-
 
   function handleDragStart(e) {
   this.style.opacity = '1';  // this / e.target is the source node.
@@ -145,12 +119,26 @@ function handleDrop(e) {
     // Set the source column's HTML to the HTML of the column we dropped on.
     dragSrcEl.innerHTML = this.innerHTML;
     this.innerHTML = e.dataTransfer.getData('text/html');
-    // let tempDiv = dragSrcEl.outerHTML;
-    // dragSrcEl.outerHTML = this.outerHTML;
-    // this.outerHTML = tempDiv;
+    // Add swap their order attribute
     let prevOrder = dragSrcEl.getAttribute('data-order');
     dragSrcEl.setAttribute('data-order', this.getAttribute('data-order'));
     this.setAttribute('data-order', prevOrder);
+    // Update their order_number attribute in the database
+    var lines = [this, dragSrcEl]
+    lines.forEach(function(line){
+      console.log(line.getAttribute('data-order'));
+    fetch(`/playlines/${line.getAttribute('data-id')}/set_order`, {
+      method: "PATCH",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+        body: JSON.stringify({
+          order_number: line.getAttribute('data-order'),
+          credentials: 'same-origin'
+        })
+      });
+    });
   }
   return false;
 }

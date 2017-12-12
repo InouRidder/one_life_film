@@ -6,6 +6,7 @@ class PlaylinesController < ApplicationController
   def create
     @playline = Playline.new(playline_params)
     @playline.playbook = @playbook
+    @playline.set_order
     if @playline.save
       respond_to do |format|
         format.html { redirect_to playbook_path(@playbook) }
