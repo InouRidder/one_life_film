@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   resources :playbooks, only: [:show] do
     resources :playlines, only: [:create]
   end
-  resources :playlines, only: [:destroy, :edit, :update]
+  resources :playlines, only: [:destroy, :edit, :update] do
+    member do
+      patch 'set_order'
+    end
+  end
 
   scope '(:locale)', locale: /nl|en/ do
 

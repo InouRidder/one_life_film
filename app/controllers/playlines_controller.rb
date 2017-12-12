@@ -1,4 +1,6 @@
 class PlaylinesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:set_order]
+  skip_before_action :verify_authenticity_token, only: [:set_order]
   before_action :set_playbook, only: [:create]
   before_action :set_playline, except: [:create]
   def create
@@ -40,6 +42,11 @@ class PlaylinesController < ApplicationController
     end
   end
 
+  def set_order
+    p @playline
+    @playline.order_number = params[:order_number]
+    @playline.save
+  end
 
   def destroy
     playbook = @playline.playbook
