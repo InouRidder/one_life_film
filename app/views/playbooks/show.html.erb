@@ -117,30 +117,45 @@ function handleDrop(e) {
   // Don't do anything if dropping the same column we're dragging.
   if (dragSrcEl != this) {
     // Set the source column's HTML to the HTML of the column we dropped on.
-    dragSrcEl.innerHTML = this.innerHTML;
-    this.innerHTML = e.dataTransfer.getData('text/html');
+    // dragSrcEl.innerHTML = this.innerHTML;
+    // this.innerHTML = e.dataTransfer.getData('text/html');
+
+    function swapDiv(event,elem){
+      elem.parentNode.insertBefore(elem, event);
+    }
+
+    swapDiv(this, dragSrcEl);
     // Add swap their order attribute
     let prevOrder = dragSrcEl.getAttribute('data-order');
     dragSrcEl.setAttribute('data-order', this.getAttribute('data-order'));
     this.setAttribute('data-order', prevOrder);
-    // Update their order_number attribute in the database
-    var lines = [this, dragSrcEl]
-    lines.forEach(function(line){
-      console.log(line.getAttribute('data-order'));
-    fetch(`/playlines/${line.getAttribute('data-id')}/set_order`, {
-      method: "PATCH",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-        body: JSON.stringify({
-          order_number: line.getAttribute('data-order'),
-          credentials: 'same-origin'
-        })
-      });
-    });
+    // Going to try to swap whole divs of place in DOM.
+    // If I do, then the order swap needs to be reversed. No it can actually stay the same.
   }
   return false;
 }
+
+
+const button = document.getElementById('save-order');
+button.addEventListener('click', function(event){
+  var lines = document.querySelectorAll('.line');
+  // console.log(lines);
+  let count = 1
+  // Update their order_number attribute in the database
+  lines.forEach(function(line){
+  fetch(`/playlines/${line.getAttribute('data-id')}/set_order`, {
+    method: "PATCH",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+      body: JSON.stringify({
+        order_number: count,
+        credentials: 'same-origin'
+      })
+    });
+  count ++;
+  });
+})
 
 </script>
