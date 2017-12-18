@@ -1,9 +1,7 @@
-<%= simple_form_for([playbook, playline], remote: true) do |f| %>
-  <div class="form-inputs" style="display: flex; width: 100%; justify-content: space-between;">
-    <%= f.input :location, label: false, placeholder: "Location" %>
-    <%= f.input :content, label: false, placeholder: "What's happening?" %>
+<%= simple_form_for([playbook, playline], remote: true, html: { class: 'line-form' }) do |f| %>
     <%= f.input :begin_time, label: false %>
     <%= f.input :end_time, label: false %>
+    <%= f.input :location, label: false, placeholder: "Location", input_html: { class: 'form-location' } %>
+    <%= f.input :content, label: false, placeholder: "What's happening?", input_html: { class: 'form-content' } %>
     <%= f.submit value: "Save" %>
-  </div>
 <% end %>

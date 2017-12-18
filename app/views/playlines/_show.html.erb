@@ -1,16 +1,28 @@
 <li draggable="true" class="line" id="playline-id[<%= playline.id %>]" data-id="<%= playline.id %>">
-  <p>
-    <%= playline.content %>
-  </p>
-  <p>
-    <%= playline.location %>
-  </p>
-  <p>
-    <%= playline.begin_time %>
-  </p>
-  <p>
-    <%= playline.end_time %>
-  </p>
-  <%= link_to 'Delete line', playline_path(playline), method: :delete, remote: true %>
-  <%= link_to 'Edit line', edit_playline_path(playline), remote: true %>
+  <div class="line-name">
+    <p>
+      <%= playline.begin_time.strftime('%H:%M') %>
+    </p>
+    <p>
+      <%= playline.end_time.strftime('%H:%M') %>
+    </p>
+  </div>
+  <div class="line-body">
+    <p>
+      <strong>
+        <%= playline.content %>
+      </strong>
+    </p>
+    <p>
+      <%= playline.location %>
+    </p>
+  </div>
+  <div class="line-status">
+  <%= link_to  playline_path(playline), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
+    <i class="fa fa-trash-o" aria-hidden="true"></i>
+  <% end %>
+  <%= link_to edit_playline_path(playline), remote: true do %>
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  <% end %>
+  </div>
 </li>
