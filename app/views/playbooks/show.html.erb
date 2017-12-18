@@ -3,8 +3,8 @@
     <% if @playbook.playlines.any? %>
     <div id="playlines">
       <ul ondragstart="" id="playlines">
-      <% @playbook.playlines.sort_by(&:order_number).each_with_index do |playline, index| %>
-        <%= render 'playlines/show', playline: playline, index: index %>
+      <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
+        <%= render 'playlines/show', playline: playline %>
       <% end %>
       </ul>
     </div>

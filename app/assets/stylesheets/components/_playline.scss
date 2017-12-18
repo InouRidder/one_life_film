@@ -7,5 +7,12 @@
   margin: 2px 0px;
   background-color: rgba(240,240,240,0.4);
   border-radius: 4px;
+  transition: all 1s;
+  max-height: 300px;
+}
 
+.line .pre-animation {
+  opacity:0;
+  max-height: 0;
+  background-color: red;
 }

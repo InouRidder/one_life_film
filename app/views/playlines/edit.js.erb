@@ -1,2 +1,6 @@
 var line = document.getElementById('playline-id[<%= @playline.id %>]');
-line.innerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline %>";
+// line.classList.add('pre-animation');
+line.outerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline %>";
+// setTimeout(function(){
+//     line.classList.remove('pre-animation')
+// },4500)

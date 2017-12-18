@@ -44,7 +44,6 @@ class PlaylinesController < ApplicationController
   end
 
   def set_order
-    p @playline
     @playline.order_number = params[:order_number]
     @playline.save
   end
