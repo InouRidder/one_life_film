@@ -7,8 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Film.destroy_all
 
+require 'pry'
+require 'open-uri'
+require 'nokogiri'
 
-urls = ['https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022','https://vimeo.com/206687022']
-urls.each do |url|
-  Film.create(name: Faker::Book.title, video_url: url, password: nil, promo: true, poster: "https://unsplash.it/g/200/300")
+file = open('db/videos.html').read
+html_doc = Nokogiri::HTML(file)
+array = []
+html_doc.search('.video_manager__table_item').each do |element|
+  attributes = element.search('.video_manager__table_cell--greedy').search('a').first.attributes
+  name = attributes["title"].value
+  url = "https://vimeo.com#{attributes["href"].value}"
+
+  film = Film.new(name: name, video_url: url).set_attributes
+  film.save
 end
+
