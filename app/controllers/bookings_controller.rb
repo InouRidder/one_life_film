@@ -2,19 +2,18 @@ class BookingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :new, :create ]
 
   def new
-    @booking = Request.new
+    @booking = Booking.new
   end
 
 
   def create
-    raise
     @booking = Booking.new(booking_params)
     if @booking.save
-      redirect_to root_path
       flash[:notice] = "We will address your request shortly"
+      redirect_to root_path
     else
-      render :new
       flash[:alert] = "Please review the errors below"
+      render :new
     end
   end
 
