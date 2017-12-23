@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20171223135051) do
+ActiveRecord::Schema.define(version: 20171223143415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,12 +29,18 @@ ActiveRecord::Schema.define(version: 20171223135051) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
-  create_table "bookings", force: :cascade do |t|
-    t.date "wedding_date"
-    t.bigint "request_id"
+  create_table "bookings", id: :serial, force: :cascade do |t|
+    t.string "phone_number"
+    t.string "name"
+    t.string "email_address"
+    t.string "concerns"
+    t.string "location_wedding"
+    t.string "subject"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["request_id"], name: "index_bookings_on_request_id"
+    t.date "date_wedding"
+    t.string "status", default: "pending"
   end
 
   create_table "films", id: :serial, force: :cascade do |t|
@@ -62,9 +67,9 @@ ActiveRecord::Schema.define(version: 20171223135051) do
   end
 
   create_table "playbooks", force: :cascade do |t|
-    t.bigint "booking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "booking_id"
     t.index ["booking_id"], name: "index_playbooks_on_booking_id"
   end
 
@@ -78,19 +83,6 @@ ActiveRecord::Schema.define(version: 20171223135051) do
     t.datetime "updated_at", null: false
     t.integer "order_number"
     t.index ["playbook_id"], name: "index_playlines_on_playbook_id"
-  end
-
-  create_table "requests", id: :serial, force: :cascade do |t|
-    t.string "phone_number"
-    t.string "name"
-    t.string "email_address"
-    t.string "concerns"
-    t.string "location_wedding"
-    t.string "subject"
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.date "date_wedding"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -111,7 +103,5 @@ ActiveRecord::Schema.define(version: 20171223135051) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "requests"
-  add_foreign_key "playbooks", "bookings"
   add_foreign_key "playlines", "playbooks"
 end
