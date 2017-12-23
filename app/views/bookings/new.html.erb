@@ -28,17 +28,17 @@
 
           <!--form-->
           <div class="message"></div>
-          <form id="name" method="POST" action="/requests" name="request">
+          <form id="name" method="POST" action="/bookings" name="booking">
 
-            <input type="text" name="request[name]" placeholder="NAME" required autocomplete="off">
-            <input type="email" name="request[email_address]" placeholder="EMAIL" required autocomplete="off">
-            <input type="text" name="request[phone_number]" placeholder="PHONE NUMBER" required autocomplete="off">
-            <input type="text" name="request[concerns]" placeholder="WHAT DO YOU WANT TO DO?" required autocomplete="off">
+            <input type="text" name="booking[name]" placeholder="NAME" required autocomplete="off">
+            <input type="email" name="booking[email_address]" placeholder="EMAIL" required autocomplete="off">
+            <input type="text" name="booking[phone_number]" placeholder="PHONE NUMBER" required autocomplete="off">
+            <input type="text" name="booking[concerns]" placeholder="WHAT DO YOU WANT TO DO?" required autocomplete="off">
             <%= token_tag %>
-            <input type="text" name="request[location]" placeholder="LOCATION" required autocomplete="off">
-            <input type="date" styname="request[date_wedding]" placeholder="DATE" required autocomplete="off" id="contact-date" >
+            <input type="text" name="booking[location]" placeholder="LOCATION" required autocomplete="off">
+            <input type="date" styname="booking[date_wedding]" placeholder="DATE" required autocomplete="off" id="contact-date" >
             <p id="date-error-message"></p>
-            <textarea name="request[description]" placeholder="MESSAGE" required></textarea>
+            <textarea name="booking[description]" placeholder="MESSAGE" required></textarea>
             <button type="submit" name="submit" id="contact-submit">SUBMIT</button>
 
           </form>

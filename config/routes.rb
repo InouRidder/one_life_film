@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  resources :requests, only: [:create]
+  resources :bookings, only: [:create]
   resources :playbooks, only: [:show] do
     resources :playlines, only: [:create, :update]
   end
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     post 'password', to: 'films#password'
     get 'gallery', to: 'pages#gallery'
     get 'about', to: 'pages#about'
-    get 'contact', to: 'requests#new'
+    get 'contact', to: 'bookings#new'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
