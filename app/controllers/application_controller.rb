@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 
   def set_locale
-    I18n.locale = params.fetch(:locale, I18n.default_locale)
+    I18n.locale = params.fetch(:locale, I18n.default_locale).to_sym
   end
 
   def default_url_options

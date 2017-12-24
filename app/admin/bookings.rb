@@ -2,7 +2,7 @@ ActiveAdmin.register Booking do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :phone_number, :date_wedding, :location_wedding, :name, :email_address, :subject, :description
+permit_params :phone_number, :location_wedding, :name, :email_address, :subject, :description
 #
 # or
 #
@@ -14,7 +14,7 @@ permit_params :phone_number, :date_wedding, :location_wedding, :name, :email_add
       f.input :location_wedding
       f.input :subject
       f.input :description
-      f.input :date_wedding
+      # f.input :date_wedding
       f.input :status
     end
     f.actions
