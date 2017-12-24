@@ -7,7 +7,13 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
-  ActiveAdmin.routes(self)
+
+  get '/admin', to: 'admin/dashboards#show'
+
+  namespace :admin do
+    resources :bookings
+    resources :films
+  end
 
   resources :bookings, only: [:create]
   resources :playbooks, only: [:show] do
@@ -23,7 +29,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /nl|en/ do
 
     root to: 'pages#home'
-    resources :films
+    resources :films, only: [:show]
 
     # custom pages
     get 'password', to: 'films#password'

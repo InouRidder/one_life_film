@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin OneLife</title>
+  <meta name="description" content="Admin!">
+
+  <script src="https://use.fontawesome.com/e267d1bbe0.js"></script>
+
+    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <title> Admin </title>
+  <%= csrf_meta_tags %>
+
+</head>
+
+  <body>
+     <div id="wrapper">
+      <%= render 'shared/flashes.html.erb' %>
+      <%= render 'layouts/admin_navbar.html.erb'%>
+      <%= yield %>
+    </div>
+    <%= javascript_include_tag 'admin' %>
+  </body>
+</html>
