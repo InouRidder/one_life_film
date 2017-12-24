@@ -6,7 +6,7 @@
 
 <div class="playbook-date text-center" style="padding: 100px 0px;">
   <h1>
-    <%= @playbook.booking.wedding_date.strftime('%A, %b %d') %>
+    <%= @playbook.booking.date_wedding.strftime('%A, %b %d') %>
   </h1>
   <p>
     By <%= @playbook.booking.name %>
@@ -30,7 +30,7 @@
 
 
 <!-- soon as there is an order change -> pop up appears with 'save order' -->
-  <script>
+<script>
   const changeNotice = document.getElementById('change-notice')
 
 
@@ -168,5 +168,5 @@
     changeNotice.hidden = true;
   })
 
-  </script>
+</script>
 
