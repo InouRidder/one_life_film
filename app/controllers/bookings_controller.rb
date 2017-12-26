@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   def create
     # TODO Booking wedding date not saved !
     @booking = Booking.new(booking_params)
+    binding.pry
     if @booking.save
       flash[:notice] = "We will address your request shortly"
       BookingMailer.received(@booking).deliver_now
