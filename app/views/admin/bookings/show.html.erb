@@ -1,0 +1,27 @@
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class= "card-description">
+        <h2>Name: <%= @booking.name %></h2>
+        <h2>Phone: <%= @booking.phone_number %>€</h2>
+         <h2> email_address:  <%= @booking.email_address %> </h2>
+         <h2> status: <%= @booking.status %></h2>
+
+        <i>
+          <p><%= @booking.description %></p>
+        </i>
+        <%= link_to 'Edit', edit_admin_booking_path(@booking),
+          :class => "btn btn-primary"%>
+        <%= link_to 'Destroy', admin_booking_path(@booking),
+          confirm: 'Are you sure?',
+          method: :delete,
+          :class => "btn btn-danger"%>
+          <%= link_to 'Playbook', playbook_path(@booking.playbook), class: 'btn btn-primary' if @booking.playbook %>
+          <!-- TO DO CHANGE STATUS BUTTONS WITH ACTIONS! -->
+      </div>
+    </div>
+  </div>
+</div>

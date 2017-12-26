@@ -7,17 +7,16 @@ class BookingsController < ApplicationController
 
 
   def create
+    # TODO Booking wedding date not saved !
     @booking = Booking.new(booking_params)
     if @booking.save
       flash[:notice] = "We will address your request shortly"
+      BookingMailer.received(@booking).deliver_now
       redirect_to root_path
     else
       flash[:alert] = "Please review the errors below"
       render :new
     end
-  end
-
-  def destroy
   end
 
   private

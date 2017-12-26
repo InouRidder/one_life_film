@@ -11,8 +11,13 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin/dashboards#show'
 
   namespace :admin do
-    resources :bookings
+    resources :bookings do
+      member do
+        patch 'approve', to: 'bookings#approve'
+      end
+    end
     resources :films
+    get 'aanvragen', to: 'bookings#requests'
   end
 
   resources :bookings, only: [:create]
