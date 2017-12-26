@@ -7,9 +7,27 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
-  ActiveAdmin.routes(self)
+
+  get '/admin', to: 'admin/dashboards#show'
+
+  namespace :admin do
+    resources :bookings do
+      collection do
+        get 'all-bookings'
+        get 'this-week'
+        get 'old-bookings'
+        get 'old-requests'
+      end
+      member do
+        patch 'approve', to: 'bookings#approve'
+      end
+    end
+    resources :films
+    get 'aanvragen', to: 'bookings#requests'
+  end
 
   resources :bookings, only: [:create]
+
   resources :playbooks, only: [:show] do
     resources :playlines, only: [:create, :update]
   end
@@ -23,7 +41,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /nl|en/ do
 
     root to: 'pages#home'
-    resources :films
+    resources :films, only: [:show]
 
     # custom pages
     get 'password', to: 'films#password'

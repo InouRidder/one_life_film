@@ -19,6 +19,11 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+# PAGINATION
+gem 'kaminari'
+
+
+# NAMED ID's
 gem 'friendly_id', '~> 5.1.0'
 
 gem 'activeadmin', github: 'activeadmin/activeadmin'
