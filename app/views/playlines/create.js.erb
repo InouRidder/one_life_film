@@ -1,0 +1,16 @@
+var newLineForm = document.getElementById('new_playline');
+
+<% if @playline.errors.any? %>
+  newLineForm.innerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline %>";
+<% else %>
+  var lines = document.getElementById('playlines');
+  lines.insertAdjacentHTML("beforeend", "<%= j render 'playlines/show', playline: @playline %>");
+  var line = document.getElementById('playline-id[<%= @playline.id %>]');
+  line.addEventListener('dragstart', handleDragStart, false);
+  line.addEventListener('dragenter', handleDragEnter, false)
+  line.addEventListener('dragover', handleDragOver, false);
+  line.addEventListener('dragleave', handleDragLeave, false);
+  line.addEventListener('drop', handleDrop, false);
+  line.addEventListener('dragend', handleDragEnd, false);
+  newLineForm.innerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: Playline.new %>";
+<% end %>

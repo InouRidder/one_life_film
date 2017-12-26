@@ -1,0 +1,9 @@
+var line = document.getElementById('playline-id[<%= @playline.id %>]');
+function remove(element) {
+  element.remove();
+  console.log('hello1231');
+};
+console.log('hello');
+line.classList.toggle('fade');
+window.setTimeout(remove(line), 3000);
+

@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012181641) do
+
+ActiveRecord::Schema.define(version: 20171225143810) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "active_admin_comments", id: :serial, force: :cascade do |t|
+  create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_id", null: false
     t.string "resource_type", null: false
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -29,21 +31,21 @@ ActiveRecord::Schema.define(version: 20171012181641) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
-  create_table "booking_forms", force: :cascade do |t|
-    t.bigint "booking_id"
-    t.string "wedding_plan"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["booking_id"], name: "index_booking_forms_on_booking_id"
-  end
 
-  create_table "bookings", force: :cascade do |t|
-    t.string "music"
-    t.string "location"
-    t.bigint "request_id"
+  create_table "bookings", id: :serial, force: :cascade do |t|
+    t.string "phone_number"
+    t.string "name"
+    t.string "email_address"
+    t.string "concerns"
+    t.string "location_wedding"
+    t.string "subject"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["request_id"], name: "index_bookings_on_request_id"
+    t.date "date_wedding"
+    t.string "status", default: "pending"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "films", id: :serial, force: :cascade do |t|
@@ -57,15 +59,8 @@ ActiveRecord::Schema.define(version: 20171012181641) do
     t.string "poster"
   end
 
-  create_table "form_lines", force: :cascade do |t|
-    t.string "content"
-    t.bigint "booking_form_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["booking_form_id"], name: "index_form_lines_on_booking_form_id"
-  end
 
-  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
+  create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -77,17 +72,23 @@ ActiveRecord::Schema.define(version: 20171012181641) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "requests", id: :serial, force: :cascade do |t|
-    t.string "phone_number"
-    t.string "name"
-    t.string "email_address"
-    t.string "concerns"
-    t.string "location_wedding"
-    t.string "subject"
-    t.string "description"
+  create_table "playbooks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "date_wedding"
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_playbooks_on_booking_id"
+  end
+
+  create_table "playlines", force: :cascade do |t|
+    t.bigint "playbook_id"
+    t.string "content"
+    t.string "location"
+    t.time "begin_time"
+    t.time "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order_number"
+    t.index ["playbook_id"], name: "index_playlines_on_playbook_id"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -108,4 +109,5 @@ ActiveRecord::Schema.define(version: 20171012181641) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "playlines", "playbooks"
 end
