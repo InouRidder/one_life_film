@@ -2,7 +2,7 @@ class Admin::FilmsController < Admin::AdminController
   before_action :set_film, only: [:edit, :update, :destroy]
 
   def index
-    @films = Film.all
+    @films = Film.page(params[:page])
   end
 
   def new
