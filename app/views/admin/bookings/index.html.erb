@@ -1,0 +1,50 @@
+<div id="page-wrapper">
+
+  <div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          Bookings
+        </h1>
+        <ol class="breadcrumb">
+          <li>
+            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+          </li>
+          <li class="active">
+            <i class="fa fa-desktop"></i> bookings
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <p><a href="/admin/bookings/new" class="btn btn-primary" role="button"> Add a new booking! &raquo;</a> </p>
+
+      <div class="tabs">
+        <%= link_to admin_bookings_path, class: "tab active", remote: true do %>
+          <h3><%= @bookings.count %></h3>
+          <p>Aankomende Maand</p>
+        <% end %>
+        <%= link_to this_week_admin_bookings_path, class: "tab", remote: true do %>
+          <h3><%= Booking.approved.this_week.count %></h3>
+          <p>Deze week</p>
+        <% end %>
+        <%= link_to old_bookings_admin_bookings_path, class: "tab", remote: true do %>
+          <h3><%= Booking.approved.old.count %></h3>
+          <p>Oude boekingen</p>
+        <% end %>
+         <%= link_to all_bookings_admin_bookings_path, class: "tab", remote: true do %>
+         <h3><%= Booking.approved.count %></h3>
+         <p>Alle boekingen</p>
+        <% end %>
+      </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container" id="booking-container">
+        <%= render 'bookings', bookings: @bookings %>
+    </div>
+  </div>
+</div>
+</div>
