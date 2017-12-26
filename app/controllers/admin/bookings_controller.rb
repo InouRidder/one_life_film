@@ -2,7 +2,12 @@ class Admin::BookingsController < Admin::AdminController
   before_action :set_booking, only: [:update, :edit, :destroy, :approve, :show]
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.approved.this_month
+    @title = "Aankomende maand"
+    respond_to do |format|
+      format.html
+      format.js {render 'insert_bookings', bookings: @bookings, title: @title }
+    end
   end
 
   def new
@@ -38,12 +43,42 @@ class Admin::BookingsController < Admin::AdminController
   end
 
   def destroy
-    @booking.destroy
+    @booking.decline
     redirect_to admin_bookings_path
   end
 
   def requests
-    @requests = Booking.where(status: 'pending')
+    @bookings = Booking.requests
+    @title = 'Aanvragen'
+    respond_to do |format|
+      format.html
+      format.js { render 'insert_bookings' }
+    end
+  end
+
+  def old_requests
+    @title = 'Oude aanragen'
+    @bookings = Booking.old_requests
+    render 'insert_bookings'
+  end
+# BOOKINGS!
+
+  def this_week
+    @bookings = Booking.approved.this_week
+    @title = 'Deze week'
+    render 'insert_bookings'
+  end
+
+  def old_bookings
+    @bookings = Booking.approved.old
+    @title ='Oude boekingen'
+    render 'insert_bookings'
+  end
+
+  def all_bookings
+    @bookings = Booking.approved
+    @title = 'Alle boekingen'
+    render 'insert_bookings'
   end
 
   def approve

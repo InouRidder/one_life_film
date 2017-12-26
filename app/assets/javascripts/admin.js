@@ -14,16 +14,7 @@
 //= require admin/bootstrap.min.js
 //= require jquery_ujs
 //= require admin/bootstrap.js
+//= require admin/tabs.js
+
 //= require_self
 
-//= require admin/plugins/flot/excanvas.min.js
-//= require admin/plugins/flot/jquery.flot.js
-//= require admin/plugins/flot/jquery.flot.tooltip.min.js
-//= require admin/plugins/flot/jquery.flot.resize.js
-//= require admin/plugins/flot/jquery.flot.pie.js
-//= require admin/plugins/flot/flot-data.js
-
-//= require admin/plugins/morris/raphael.min.js
-//= require admin/plugins/morris/morris.js
-//= require admin/plugins/morris/morris-data.js
-//= require admin/plugins/morris/morris.min.js

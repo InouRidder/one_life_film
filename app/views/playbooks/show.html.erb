@@ -66,13 +66,13 @@
     this.classList.remove('over');  // this / e.target is previous target element.
   }
 
-  var cols = document.querySelectorAll('#playlines .line');
-  [].forEach.call(cols, function(col) {
-    col.addEventListener('dragstart', handleDragStart, false);
-    col.addEventListener('dragenter', handleDragEnter, false);
-    col.addEventListener('dragover', handleDragOver, false);
-    col.addEventListener('dragleave', handleDragLeave, false);
-  });
+  // var cols = document.querySelectorAll('#playlines .line');
+  // [].forEach.call(cols, function(col) {
+  //   col.addEventListener('dragstart', handleDragStart, false);
+  //   col.addEventListener('dragenter', handleDragEnter, false);
+  //   col.addEventListener('dragover', handleDragOver, false);
+  //   col.addEventListener('dragleave', handleDragLeave, false);
+  // });
 
   function handleDrop(e) {
     // this / e.target is current target element.

@@ -12,6 +12,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :bookings do
+      collection do
+        get 'all-bookings'
+        get 'this-week'
+        get 'old-bookings'
+        get 'old-requests'
+      end
       member do
         patch 'approve', to: 'bookings#approve'
       end
@@ -21,6 +27,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:create]
+
   resources :playbooks, only: [:show] do
     resources :playlines, only: [:create, :update]
   end

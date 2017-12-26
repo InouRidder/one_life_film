@@ -19,54 +19,31 @@
       </div>
     </div>
 
+    <p><a href="/admin/bookings/new" class="btn btn-primary" role="button"> Add a new booking! &raquo;</a> </p>
+
+      <div class="tabs">
+        <%= link_to admin_bookings_path, class: "tab active", remote: true do %>
+          <h3><%= @bookings.count %></h3>
+          <p>Aankomende Maand</p>
+        <% end %>
+        <%= link_to this_week_admin_bookings_path, class: "tab", remote: true do %>
+          <h3><%= Booking.approved.this_week.count %></h3>
+          <p>Deze week</p>
+        <% end %>
+        <%= link_to old_bookings_admin_bookings_path, class: "tab", remote: true do %>
+          <h3><%= Booking.approved.old.count %></h3>
+          <p>Oude boekingen</p>
+        <% end %>
+         <%= link_to all_bookings_admin_bookings_path, class: "tab", remote: true do %>
+         <h3><%= Booking.approved.count %></h3>
+         <p>Alle boekingen</p>
+        <% end %>
+      </div>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <div class="container">
-        <table class="table table-striped table-hover">
-          <p><a href="/admin/bookings/new" class="btn btn-primary" role="button"> Add a new booking! &raquo;</a> </p>
-          <thead z>
-            <tr>
-              <th><h2>All bookings</h2></th>
-           </tr>
-         </thead>
-
-         <thead class="thead-inverse">
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Location</th>
-            <th>Phone Number</th>
-            <th>Amount of Playlines</th>
-            <th>Status</th>
-
-            <th>Show</th>
-            <th>Edit</th>
-            <th>Destroy</th>
-          </tr>
-        </thead>
-        <tbody>
-         <% @bookings.each do |booking| %>
-          <tr>
-            <td><%= booking.name %></td>
-            <td><%= booking.email_address %></td>
-            <td><%= booking.location_wedding %></td>
-            <td><%= booking.phone_number %></td>
-            <td><%= booking.playbook.playlines.try(:count) if booking.playbook %></td>
-            <td><%= booking.status %></td>
-
-            <td><%= link_to 'Show', admin_booking_path(booking),
-            :class => "btn btn-primary"%></td>
-            <td><%= link_to 'Edit', edit_admin_booking_path(booking),
-            :class => "btn btn-warning"%></td>
-            <td><%= link_to 'Destroy', admin_booking_path(booking),
-            data: {confirm: 'Are you sure?'},
-            method: :delete,
-            :class => "btn btn-danger"%></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
+      <div class="container" id="booking-container">
+        <%= render 'bookings', bookings: @bookings %>
     </div>
   </div>
 </div>

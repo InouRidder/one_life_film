@@ -9,6 +9,9 @@
         <h2>Phone: <%= @booking.phone_number %>€</h2>
          <h2> email_address:  <%= @booking.email_address %> </h2>
          <h2> status: <%= @booking.status %></h2>
+         <h2>
+            Playbook lines: <%= @booking.playbook.playlines.count if @booking.playbook %></h2>
+
 
         <i>
           <p><%= @booking.description %></p>
