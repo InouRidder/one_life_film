@@ -4,11 +4,11 @@ class BookingServices
   end
 
   def approve
-    user = User.new(email: @booking.email_address, password: "123#{@booking.email_address}")
-    user.save
-    @booking.user = user
+    user = User.find_or_create(@booking.email_address)
     playbook = Playbook.create(booking: @booking)
     playbook.save
+    user.save
+    @booking.user = user
     @booking.save
     BookingMailer.approved(@booking).deliver_now
   end

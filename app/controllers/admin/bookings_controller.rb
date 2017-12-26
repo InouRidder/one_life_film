@@ -48,10 +48,10 @@ class Admin::BookingsController < Admin::AdminController
 
   def approve
     #  TODO fix wedding date being saved upon creation of booking
-    if @booking.approve
+    # if @booking.approve
       BookingServices.new(@booking).approve
       redirect_to admin_bookings_path
-    end
+    # end
   end
 
 
