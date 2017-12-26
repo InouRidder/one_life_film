@@ -27,13 +27,12 @@ class Booking < ApplicationRecord
   end
 
   def approve
-    if name && email_address
-      status = 'approved'
+    if self.name && self.email_address
+      self.status = 'approved'
     end
   end
 
   def decline
-    status = 'declined'
-    save
+    self.status = 'declined'
   end
 end

@@ -44,7 +44,8 @@ class Admin::BookingsController < Admin::AdminController
 
   def destroy
     @booking.decline
-    redirect_to admin_bookings_path
+    @booking.save
+    redirect_to admin_aanvragen_path
   end
 
   def requests

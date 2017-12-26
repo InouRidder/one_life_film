@@ -1,8 +1,8 @@
 
 .tabs {
-  background: #EEEEEE;
+  background: white;
   display: flex;
-  padding: 10px 10px 0 10px
+  padding: 10px 0px 0 0px
 }
 .tabs a {
   color: white;
@@ -38,7 +38,7 @@
   border-radius: 0 10px 0 0;
 }
 .tab.active {
-  background: white;
+  background: #EEEE;
   color: black;
 }
 
