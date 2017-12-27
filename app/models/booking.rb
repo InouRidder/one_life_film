@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user, optional: true
   has_one :playbook
+  has_many :song_choices
 
   include PgSearch
   pg_search_scope :search_by_name_and_location_wedding, :against => [:name, :location_wedding]
