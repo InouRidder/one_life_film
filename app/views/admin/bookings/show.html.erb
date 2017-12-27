@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-xs-9 text-right">
                   <div class="huge"><%= @booking.playbook.playlines.count %></div>
-                  <div>Zinnen in draaiboek</div>
+                  <div>Zie draaiboek</div>
                 </div>
               </div>
             </div>
@@ -93,17 +93,17 @@
             <div class="panel-heading">
               <div class="row">
                 <div class="col-xs-3">
-                  <i class="fa fa-support fa-5x"></i>
+                  <i class="fa fa-music fa-5x"></i>
                 </div>
                 <div class="col-xs-9 text-right">
-                  <div class="huge">13</div>
-                  <div>Support Tickets!</div>
+                  <div class="huge"><%= @booking.songs.count %></div>
+                  <div>Gekozen liedjes</div>
                 </div>
               </div>
             </div>
-            <a href="#">
+            <a href="<%= playbook_path(@booking.playbook) %>">
               <div class="panel-footer">
-                <span class="pull-left">View Details</span>
+                <span class="pull-left">Zie draaiboek</span>
                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                 <div class="clearfix"></div>
               </div>
@@ -117,10 +117,22 @@
         <div class="col-lg-12">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
+              <h3 class="panel-title"><i class="fa fa-book fa-fw"></i> Draaiboek</h3>
             </div>
             <div class="panel-body">
-              <div id="morris-area-chart"></div>
+              <% if @booking.playbook %>
+              <div class="col-sm-6">
+                <div id="playlines-container">
+                  <ul ondragstart="" id="playlines">
+                    <% if @booking.playbook.playlines.any? %>
+                    <% @booking.playbook.playlines.sort_by(&:order_number).each do |playline| %>
+                    <%= render 'playlines/show', playline: playline %>
+                    <% end %>
+                  <% end %>
+                  </ul>
+                </div>
+              </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -269,50 +281,6 @@
 
   </div>
 
-<div id="page-wrapper">
-  <div class="container-fluid">
-    <div class="row">
-
-      <div class="col-sm-6">
-        <div class="card">
-          <div class= "card-description">
-            <h2>Name: <%= @booking.name %></h2>
-            <h2>Phone: <%= @booking.phone_number %>€</h2>
-            <h2> email_address:  <%= @booking.email_address %> </h2>
-            <h2> status: <%= @booking.status %></h2>
-            <h2>
-              Playbook lines: <%= @booking.playbook.playlines.count if @booking.playbook %>
-            </h2>
-            <i>
-              <p><%= @booking.description %></p>
-            </i>
-            <%= link_to 'Edit', edit_admin_booking_path(@booking),
-            :class => "btn btn-primary"%>
-            <%= link_to 'Destroy', admin_booking_path(@booking),
-            confirm: 'Are you sure?',
-            method: :delete,
-            :class => "btn btn-danger"%>
-            <%= link_to 'Playbook', playbook_path(@booking.playbook), class: 'btn btn-primary' if @booking.playbook %>
-            <!-- TO DO CHANGE STATUS BUTTONS WITH ACTIONS! -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <% if @booking.playbook %>
-    <div class="col-sm-6">
-      <div id="playlines-container">
-        <ul ondragstart="" id="playlines">
-          <% if @booking.playbook.playlines.any? %>
-          <% @booking.playbook.playlines.sort_by(&:order_number).each do |playline| %>
-          <%= render 'playlines/show', playline: playline %>
-          <% end %>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <% end %>
-  </div>
-</div>
 
 
 

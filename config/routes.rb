@@ -22,6 +22,13 @@ Rails.application.routes.draw do
         patch 'approve', to: 'bookings#approve'
       end
     end
+    resources :songs, except: [:show] do
+      collection do
+        get 'begin'
+        get 'middle'
+        get 'end'
+      end
+    end
     resources :films
     get 'aanvragen', to: 'bookings#requests'
   end
