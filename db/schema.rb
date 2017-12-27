@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171225143810) do
+ActiveRecord::Schema.define(version: 20171227131806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(version: 20171225143810) do
     t.string "status", default: "pending"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "films", id: :serial, force: :cascade do |t|
@@ -87,6 +93,24 @@ ActiveRecord::Schema.define(version: 20171225143810) do
     t.index ["playbook_id"], name: "index_playlines_on_playbook_id"
   end
 
+  create_table "song_choices", force: :cascade do |t|
+    t.bigint "booking_id"
+    t.bigint "song_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_song_choices_on_booking_id"
+    t.index ["song_id"], name: "index_song_choices_on_song_id"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_songs_on_category_id"
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -106,4 +130,7 @@ ActiveRecord::Schema.define(version: 20171225143810) do
   end
 
   add_foreign_key "playlines", "playbooks"
+  add_foreign_key "song_choices", "bookings"
+  add_foreign_key "song_choices", "songs"
+  add_foreign_key "songs", "categories"
 end
