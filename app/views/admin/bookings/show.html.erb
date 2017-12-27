@@ -29,8 +29,8 @@
                 <i class="fa fa-phone fa-5x"></i>
               </div>
               <div class="col-xs-9 text-right">
-                <div style='font-size: 20px;'><%= @booking.phone_number %></div>
-                <div style='font-size: 20px;'> <%= @booking.email_address %></div>
+                <div style='font-size: 15px;'><%= @booking.phone_number %></div>
+                <div style='font-size: 15px;'> <%= @booking.email_address %></div>
               </div>
             </div>
           </div>
@@ -45,8 +45,8 @@
                 <i class="fa fa-location-arrow fa-5x"></i>
               </div>
               <div class="col-xs-9 text-right">
-                <div style='font-size: 25px;'><%= @booking.location_wedding %></div>
-                <div style='font-size: 25px;'><%= @booking.date_wedding.strftime('%A, %b %d') %></div>
+                <div style='font-size: 15px;'><%= @booking.location_wedding %></div>
+                <div style='font-size: 15px;'><%= @booking.date_wedding.strftime('%A, %b %d') %></div>
               </div>
             </div>
           </div>
@@ -102,6 +102,7 @@
               </div>
             </div>
           </div>
+          <% if @booking.playbook %>
           <a href="<%= playbook_path(@booking.playbook) %>">
             <div class="panel-footer">
               <span class="pull-left">Zie draaiboek</span>
@@ -109,6 +110,7 @@
               <div class="clearfix"></div>
             </div>
           </a>
+          <% end %>
         </div>
       </div>
     </div>
