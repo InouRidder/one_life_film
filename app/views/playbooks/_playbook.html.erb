@@ -1,0 +1,23 @@
+  <div class="playbook-date text-center" style="padding: 100px 0px;">
+    <h1>
+      <%= playbook.booking.date_wedding.strftime('%A, %b %d') %>
+    </h1>
+    <p>
+      By <%= playbook.booking.name %>
+    </p>
+  </div>
+  <div class="container" id="playbook-container">
+    <div class="row">
+      <div id="playlines-container">
+        <ul ondragstart="" id="playlines">
+          <% if playbook.playlines.any? %>
+          <% playbook.playlines.sort_by(&:order_number).each do |playline| %>
+          <%= render 'playlines/show', playline: playline %>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <%= render 'playlines/form', playbook: playbook, playline: playline %>
+    </div>
+  </div>
+

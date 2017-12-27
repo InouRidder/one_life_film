@@ -7,4 +7,5 @@
 //= require plugins
 //= require active_classer
 //= require date_check
+//= require tabs
 

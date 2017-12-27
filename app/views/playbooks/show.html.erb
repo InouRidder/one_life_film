@@ -1,39 +1,57 @@
-<div class="alert alert-info alert-dismissible" id="change-notice" role="alert" hidden>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  Please save the order by clicking the save order button!
-  <button id="save-order" class="btn"> Save order </button>
+<div id="playbook-wrapper" style="background-color: #EEEE">
+  <div class="tabs">
+    <a class="tab half-size active" data-target="playbook">
+      <h3><%= @playbook.playlines.count %></h3>
+      <p>Draaiboek</p>
+    </a>
+    <a class="tab half-size" data-target="music">
+      <h3><%= @playbook.booking.songs.count %></h3>
+      <p>Muziek</p>
+    </a>
+  </div>
+
+  <div style="position: fixed" class="alert alert-info alert-dismissible" id="change-notice" role="alert" hidden>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    Please save the order by clicking the save order button!
+    <button id="save-order" class="btn"> Save order </button>
+  </div>
+
+  <div id="playbook" class="tab-content">
+    <div class="playbook-date text-center" style="padding: 100px 0px;">
+      <h1>
+        <%= @playbook.booking.date_wedding.strftime('%A, %b %d') %>
+      </h1>
+      <p>
+        By <%= @playbook.booking.name %>
+      </p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div id="playlines-container">
+          <ul ondragstart="" id="playlines">
+            <% if @playbook.playlines.any? %>
+              <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
+                <%= render 'playlines/show', playline: playline %>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+        <%= render 'playlines/form', playbook: @playbook, playline: @playline %>
+      </div>
+    </div>
+  </div>
+
+<div id="music" class="tab-content" hidden>
+  <h1 class="text-center">Welcome to your music</h1>
 </div>
 
-<div class="playbook-date text-center" style="padding: 100px 0px;">
-  <h1>
-    <%= @playbook.booking.date_wedding.strftime('%A, %b %d') %>
-  </h1>
-  <p>
-    By <%= @playbook.booking.name %>
-  </p>
-</div>
-<div class="container">
-  <div class="row">
-    <div id="playlines-container">
-      <ul ondragstart="" id="playlines">
-        <% if @playbook.playlines.any? %>
-          <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
-            <%= render 'playlines/show', playline: playline %>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-    <%= render 'playlines/form', playbook: @playbook, playline: @playline %>
-  </div>
 </div>
 
 
 
 <!-- soon as there is an order change -> pop up appears with 'save order' -->
 <script>
-  const changeNotice = document.getElementById('change-notice')
-
-
+const changeNotice = document.getElementById('change-notice')
   function handleDragStart(e) {
     this.style.opacity = '1';  // this / e.target is the source node.
   }
