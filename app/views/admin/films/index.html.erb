@@ -20,56 +20,72 @@
     </div>
 
 
+          <div class="container" style="display: flex; justify-content: space-between;">
+            <div id="el1">
+                  <p><a href="/admin/films/new" class="btn btn-primary" role="button"> Nieuwe film toevoegen! &raquo;</a> </p>
+            </div>
+            <div id="el2">
+              <form class="form-inline" action="<%= admin_films_path %>">
+                <div class="form-group">
+                  <input type="text" name="search" class="form-control" placeholder="Zoek een film">
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-default">Zoek!</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
         <table class="table table-striped table-hover">
-          <p><a href="/admin/films/new" class="btn btn-primary" role="button"> Nieuwe film toevoegen! &raquo;</a> </p>
-          <thead z>
-            <tr>
-              <th><h2>Alle films</h2></th>
-           </tr>
-         </thead>
+            <thead z>
+              <tr>
+                <th><h2>Alle films</h2></th>
+              </tr>
+            </thead>
 
-         <thead class="thead-inverse">
-          <tr>
-            <th>Name</th>
-            <th>Url</th>
-            <th>Link</th>
-            <th>Promo</th>
-            <th>Poster</th>
+            <thead class="thead-inverse">
+              <tr>
+                <th>Name</th>
+                <th>Url</th>
+                <th>Link</th>
+                <th>Promo</th>
+                <th>Poster</th>
 
-            <th>Show</th>
-            <th>Edit</th>
-            <th>Destroy</th>
-          </tr>
-        </thead>
-        <tbody>
-         <% @films.each do |film| %>
-          <tr>
-            <td><%= film.name %></td>
-            <td><%= film.video_url %></td>
-            <td><%= film.slug %></td>
-            <td><%= film.password %></td>
-            <td><%= film.promo %></td>
-            <td><%= film.poster %></td>
+                <th>Show</th>
+                <th>Edit</th>
+                <th>Destroy</th>
+              </tr>
+            </thead>
+            <tbody>
+             <% @films.each do |film| %>
+             <tr>
+              <td><%= film.name %></td>
+              <td><%= film.video_url %></td>
+              <td><%= film.slug %></td>
+              <td><%= film.password %></td>
+              <td><%= film.promo %></td>
+              <td><%= film.poster %></td>
 
-            <td><%= link_to 'Show', admin_film_path(film),
-            :class => "btn btn-primary"%></td>
-            <td><%= link_to 'Edit', edit_admin_film_path(film),
-            :class => "btn btn-warning"%></td>
-            <td><%= link_to 'Destroy', admin_film_path(film),
-            data: {confirm: 'Are you sure?'},
-            method: :delete,
-            :class => "btn btn-danger"%></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
+              <td><%= link_to 'Show', admin_film_path(film),
+              :class => "btn btn-primary"%></td>
+              <td><%= link_to 'Edit', edit_admin_film_path(film),
+              :class => "btn btn-warning"%></td>
+              <td><%= link_to 'Destroy', admin_film_path(film),
+              data: {confirm: 'Are you sure?'},
+              method: :delete,
+              :class => "btn btn-danger"%></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <%= paginate @films %>
     </div>
-    <%= paginate @films %>
   </div>
-</div>
 </div>
 
 

@@ -20,8 +20,12 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 
 
+
+# TRANSLATIONS
 gem 'rails-i18n', '5.0.3'
 
+# SEARCH
+gem 'pg_search'
 
 # PAGINATION
 gem 'kaminari'

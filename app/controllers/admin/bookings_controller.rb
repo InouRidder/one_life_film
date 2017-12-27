@@ -2,11 +2,17 @@ class Admin::BookingsController < Admin::AdminController
   before_action :set_booking, only: [:update, :edit, :destroy, :approve, :show]
 
   def index
-    @bookings = Booking.approved.this_month
-    @title = "Aankomende maand"
-    respond_to do |format|
-      format.html
-      format.js {render 'insert_bookings', bookings: @bookings, title: @title }
+    if query = params[:search]
+      @title = 'Zoekresultaten'
+      @search = true
+      @bookings = Booking.search_by_name_and_location_wedding(query)
+    else
+      @bookings = Booking.approved.this_month
+      @title = "Aankomende maand"
+      respond_to do |format|
+        format.html
+        format.js {render 'insert_bookings', bookings: @bookings, title: @title }
+      end
     end
   end
 
