@@ -2,6 +2,9 @@ class Booking < ApplicationRecord
   belongs_to :user, optional: true
   has_one :playbook
 
+  include PgSearch
+  pg_search_scope :search_by_name_and_location_wedding, :against => [:name, :location_wedding]
+
   # validates :phone_number, presence: true, format: { with: /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/, message: "please enter a valid phonenumber" }
   # validates :name, presence: true
   # validates :email_address, presence: true

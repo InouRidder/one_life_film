@@ -1,6 +1,9 @@
 class Film < ApplicationRecord
   paginates_per 10
 
+  include PgSearch
+  pg_search_scope :search_by_name_and_slug, :against => [:name, :slug]
+
   validates :name, presence: true
 
   extend FriendlyId

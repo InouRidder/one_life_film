@@ -2,7 +2,11 @@ class Admin::FilmsController < Admin::AdminController
   before_action :set_film, only: [:edit, :update, :destroy]
 
   def index
-    @films = Film.page(params[:page])
+    if query = params[:search]
+      @films = Film.search_by_name_and_slug(query).page(params[:page])
+    else
+      @films = Film.page(params[:page])
+    end
   end
 
   def new
