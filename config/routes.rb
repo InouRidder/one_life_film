@@ -36,6 +36,9 @@ Rails.application.routes.draw do
   resources :bookings, only: [:create]
 
   resources :playbooks, only: [:show] do
+    member do
+      get 'songs'
+    end
     resources :playlines, only: [:create, :update]
   end
 

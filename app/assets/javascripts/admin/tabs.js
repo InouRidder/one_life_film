@@ -7,3 +7,4 @@ tabs.forEach(function(tab){
     this.classList.add('active')
   });
 });
+
