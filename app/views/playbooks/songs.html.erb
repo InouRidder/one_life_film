@@ -1,36 +1,38 @@
-<div id="playbook-wrapper" style="background-color: #EEEE">
-  <div class="tabs">
-    <%= link_to playbook_path(@playbook), class: "tab half-size" do %>
-      <h3><%= @playbook.playlines.count %></h3>
-      <p>Draaiboek</p>
-    <% end %>
-    <%= link_to songs_playbook_path, class: "tab half-size active" do %>
-      <h3><%= @playbook.booking.songs.count %></h3>
-      <p>Muziek</p>
-    <% end %>
-  </div>
-
+<div id="playbook-wrapper">
   <div class="playbook-date text-center" style="padding: 100px 0px;">
-    <h1>
-    </h1>
-    <p>
-      By <%= @playbook.booking.name %>
-    </p>
-  </div>
-  <div class="container" id="playbook-container">
-    <div class="row">
-      <div id="playlines-container">
-        <ul ondragstart="" id="playlines">
-          <% if @playbook.playlines.any? %>
-            <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
-              <%= render 'playlines/show', playline: playline %>
-            <% end %>
+
+    <div class="container">
+      <div class="row">
+        <% if @songs.any? %>
+        <div class="col-xs-12 col-sm-3">
+          <% @playbook.booking.songs.where(category_id: 1).each do |song| %>
+            <%= song.name %>
           <% end %>
-        </ul>
+        </div>
+
+        <div class="col-xs-12 col-sm-3">
+          <% @songs.where(category_id: 2).each do |song| %>
+            <%= song.name %>
+          <% end %>
+        </div>
+
+        <div class="col-xs-12 col-sm-3">
+          <% @songs.where(category_id: 3).each do |song| %>
+            <%= song.name %>
+          <% end %>
+        </div>
+        <% else %>
+          <p>
+            No songs chosen yet!
+          </p>
+
+        <% end %>
       </div>
-      <%= render 'playlines/form', playbook: @playbook, playline: @playline %>
     </div>
   </div>
 </div>
 
 
+<script>
+
+</script>

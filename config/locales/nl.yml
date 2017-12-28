@@ -3,6 +3,8 @@ nl:
   about: "OVER ONS"
   gallery: "GALLERIJ"
   contact: "CONTACT"
+  playbook: "DRAAIBOEK"
+  music: 'MUZIEK'
   time:
     formats:
       long: "%Y-%m-%d %H:%M:%S"

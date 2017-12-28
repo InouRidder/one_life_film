@@ -9,7 +9,8 @@ class PlaybooksController < ApplicationController
 
   def songs
     @playbook = Playbook.find(params[:id])
+    @song_choice = SongChoice.new(playbook: @playbook)
+    @songs = @playbook.booking.songs
   end
-
 
 end

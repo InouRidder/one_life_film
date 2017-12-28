@@ -1,0 +1,28 @@
+        <header class="page-header clearfix">
+
+            <!--Logo Wrapper-->
+            <a href="<%= root_path %>" class="logo-wrapper">
+            <b>
+              <%= @playbook.booking.name %>
+            </b>
+            </a>
+
+            <!--Mobile Menu Icon-->
+            <a href="#" class="mobile-nav-button">
+                <i class="icon"></i>
+            </a>
+
+            <!--Menu Wrapper Starts-->
+              <nav class="manu-wrapper">
+                <ul>
+                  <li id="home">
+                    <%= link_to t('playbook'), playbook_path(@playbook) %>
+                  </li>
+                  <li id="gallery">
+                    <%= link_to t('music'), songs_playbook_path %>
+                  </li>
+                </ul>
+              </nav>
+            <!--Menu Wrapper End-->
+
+        </header>

@@ -1,15 +1,4 @@
-<div id="playbook-wrapper" style="background-color: #EEEE">
-  <div class="tabs">
-    <a class="tab half-size active" data-target="playbook">
-      <h3><%= @playbook.playlines.count %></h3>
-      <p>Draaiboek</p>
-    </a>
-    <a class="tab half-size" data-target="music">
-      <h3><%= @playbook.booking.songs.count %></h3>
-      <p>Muziek</p>
-    </a>
-  </div>
-
+<div id="playbook-wrapper">
   <div style="position: fixed" class="alert alert-info alert-dismissible" id="change-notice" role="alert" hidden>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     Please save the order by clicking the save order button!
