@@ -1,4 +1,4 @@
 class SongChoice < ApplicationRecord
-  belongs_to :booking
-  belongs_to :song
+  belongs_to :playbook
+  belongs_to :song, optional: true
 end

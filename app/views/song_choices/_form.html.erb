@@ -1,0 +1,11 @@
+<%= simple_form_for([playbook, song_choice], remote: true) do |f| %>
+    <div class="col-xs-12 col-sm-4">
+      <%= f.input :title, label: false, placeholder: 'Title of song' %>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <%= f.input :artist, label: false, placeholder: '...and the artist!' %>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <button type="submit" name="submit" id="contact-submit">SUBMIT</button>
+    </div>
+<% end %>

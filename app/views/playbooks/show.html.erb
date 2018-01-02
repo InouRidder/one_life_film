@@ -1,4 +1,4 @@
-<div id="playbook-wrapper">
+
   <div style="position: fixed" class="alert alert-info alert-dismissible" id="change-notice" role="alert" hidden>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     Please save the order by clicking the save order button!
@@ -25,16 +25,15 @@
             <% end %>
           </ul>
         </div>
-        <%= render 'playlines/form', playbook: @playbook, playline: @playline %>
+          <div class="row">
+            <%= render 'playlines/form', playbook: @playbook, playline: @playline %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-<div id="music" class="tab-content" hidden>
-  <h1 class="text-center">Welcome to your music</h1>
-</div>
 
-</div>
 
 
 
@@ -177,3 +176,8 @@ const changeNotice = document.getElementById('change-notice')
 
 </script>
 
+<%= content_for(:after_js) do %>
+<script>
+  $('#basicExample').timepicker();
+</script>
+<% end %>

@@ -33,7 +33,6 @@ gem 'kaminari'
 
 # NAMED ID's
 gem 'friendly_id', '~> 5.1.0'
-
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
@@ -46,7 +45,7 @@ source 'https://rails-assets.org' do
 end
 
 group :development, :test do
-
+  gem 'web-console'
   gem 'letter_opener'
   gem 'pry-byebug'
   gem 'pry-rails'

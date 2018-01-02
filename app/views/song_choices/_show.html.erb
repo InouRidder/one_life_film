@@ -1,0 +1,12 @@
+<div class="col-xs-12 col-sm-3">
+  <li id="song-choice-id[<%= song_choice.id %>]">
+    <p>
+      <%= song_choice.title %> - <%= song_choice.artist %>
+    </p>
+    <div class="song-choice-status">
+    <%= link_to  playbook_song_choice_path(playbook, song_choice), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <% end %>
+    </div>
+  </li>
+</div>

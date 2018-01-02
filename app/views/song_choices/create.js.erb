@@ -1,0 +1,9 @@
+var newSongChoiceForm = document.getElementById('new_song_choice');
+
+<% if @song_choice.errors.any? %>
+  newSongChoiceForm.innerHTML = "<%= j render 'song_choices/form', playbook: @playbook, song_choice: @song_choice %>";
+<% else %>
+  var song_choices = document.getElementById('songs-container');
+  song_choices.insertAdjacentHTML("beforeend", "<%= j render 'song_choices/show', song_choice: @song_choice, playbook: @playbook %>");
+  newSongChoiceForm.innerHTML = "<%= j render 'song_choices/form', playbook: @playbook, song_choice: SongChoice.new %>";
+<% end %>
