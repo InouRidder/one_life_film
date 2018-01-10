@@ -1,10 +1,7 @@
-<li draggable="true" class="line" id="playline-id[<%= playline.id %>]" data-id="<%= playline.id %>">
+<li draggable="true" class="line" id="playline-id[<%= playline.id %>]" data-id="<%= playline.id %>" data-time="<%= playline.begin_time.strftime('%H:%M') %>">
   <div class="line-name">
     <p>
       <%= playline.begin_time.strftime('%H:%M') %>
-    </p>
-    <p>
-      <%= playline.end_time.strftime('%H:%M') %>
     </p>
   </div>
   <div class="line-body">

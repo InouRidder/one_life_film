@@ -1,45 +1,54 @@
 
-  <div style="position: fixed" class="alert alert-info alert-dismissible" id="change-notice" role="alert" hidden>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    Please save the order by clicking the save order button!
-    <button id="save-order" class="btn"> Save order </button>
-  </div>
+<div style="position: fixed" class="alert alert-info alert-dismissible" id="change-notice" role="alert" hidden>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  Please save the order by clicking the save order button!
+  <button id="save-order" class="btn"> Save order </button>
+</div>
 
-  <div id="playbook" class="tab-content">
-    <div class="playbook-date text-center" style="padding: 100px 0px;">
-      <h1>
-        <%= @playbook.booking.date_wedding.strftime('%A, %b %d') %>
-      </h1>
-      <p>
-        By <%= @playbook.booking.name %>
-      </p>
-    </div>
-    <div class="container">
+<div id="playbook" class="tab-content">
+  <div class="playbook-date text-center" style="padding: 100px 0px;">
+    <h1>
+      <%= @playbook.booking.date_wedding.strftime('%A, %b %d') %>
+    </h1>
+    <p>
+      By <%= @playbook.booking.name %>
+    </p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div id="playlines-container">
+        <button type="submit" name="submit" id="sort-by-time">SORT BY TIME</button>
+        <ul ondragstart="" id="playlines">
+          <% if @playbook.playlines.any? %>
+          <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
+          <%= render 'playlines/show', playline: playline %>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
       <div class="row">
-        <div id="playlines-container">
-          <ul ondragstart="" id="playlines">
-            <% if @playbook.playlines.any? %>
-              <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
-                <%= render 'playlines/show', playline: playline %>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
-          <div class="row">
-            <%= render 'playlines/form', playbook: @playbook, playline: @playline %>
-          </div>
-        </div>
+        <%= render 'playlines/form', playbook: @playbook, playline: @playline %>
       </div>
     </div>
   </div>
+</div>
+</div>
 
+<script>
+  const timeButton = document.getElementById('sort-by-time');
+  let timedArray = [];
+  button.addEventListener('click', function(event){
+    var lines = document.querySelectorAll('.line');
+    // TO-DO SORT BY DATA ATTRIBUTE data-time
 
+  });
+</script>
 
 
 
 <!-- soon as there is an order change -> pop up appears with 'save order' -->
 <script>
-const changeNotice = document.getElementById('change-notice')
+  const changeNotice = document.getElementById('change-notice')
   function handleDragStart(e) {
     this.style.opacity = '1';  // this / e.target is the source node.
   }
@@ -158,26 +167,20 @@ const changeNotice = document.getElementById('change-notice')
     let count = 1
     // Update their order_number attribute in the database
     lines.forEach(function(line){
-    fetch(`/playlines/${line.getAttribute('data-id')}/set_order`, {
-      method: "PATCH",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
+      fetch(`/playlines/${line.getAttribute('data-id')}/set_order`, {
+        method: "PATCH",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           order_number: count,
           credentials: 'same-origin'
         })
       });
-    count ++;
+      count ++;
     });
     changeNotice.hidden = true;
   })
 
 </script>
-
-<%= content_for(:after_js) do %>
-<script>
-  $('#basicExample').timepicker();
-</script>
-<% end %>
