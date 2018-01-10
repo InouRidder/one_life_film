@@ -1,5 +1,5 @@
 class SongChoicesController < ApplicationController
-  before_action :set_playbook, only: [:create]
+  before_action :set_playbook, only: [:create, :destroy]
   before_action :set_song_choice, only: [:destroy]
   def create
     @song_choice = SongChoice.new(song_choice_params)

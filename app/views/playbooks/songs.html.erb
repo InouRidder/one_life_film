@@ -16,7 +16,7 @@
       <% end %>
     </div>
     <div class="row">
-      <%= render 'song_choices/form', playbook: @playbook, song_choice: @song_choice unless @songs.count >= 3 %>
+      <%= render 'song_choices/form', playbook: @playbook, song_choice: @song_choice unless @songs.count >= @playbook.allowed_songs %>
     </div>
   </div>
 </div>

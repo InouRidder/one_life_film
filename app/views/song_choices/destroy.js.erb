@@ -5,3 +5,9 @@ function remove(element) {
 line.classList.toggle('fade');
 window.setTimeout(remove(line), 3000);
 
+<% if @playbook.song_choices.count >= @playbook.allowed_songs %>
+  newSongChoiceForm.hidden = true;
+<% else %>
+  newSongChoiceForm.hidden = false;
+  newSongChoiceForm.innerHTML = "<%= j render 'song_choices/form', playbook: @playbook, song_choice: SongChoice.new %>";
+<% end %>

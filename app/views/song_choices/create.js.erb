@@ -5,5 +5,11 @@ var newSongChoiceForm = document.getElementById('new_song_choice');
 <% else %>
   var song_choices = document.getElementById('songs-container');
   song_choices.insertAdjacentHTML("beforeend", "<%= j render 'song_choices/show', song_choice: @song_choice, playbook: @playbook %>");
+<% end %>
+
+<% if @playbook.song_choices.count >= @playbook.allowed_songs %>
+  newSongChoiceForm.hidden = true;
+<% else %>
+  newSongChoiceForm.hidden = false;
   newSongChoiceForm.innerHTML = "<%= j render 'song_choices/form', playbook: @playbook, song_choice: SongChoice.new %>";
 <% end %>
