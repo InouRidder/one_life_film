@@ -3,6 +3,8 @@ nl:
   about: "OVER ONS"
   gallery: "GALLERIJ"
   contact: "CONTACT"
+  language-link: "/en"
+  language: "en_flag.png"
   playbook: "DRAAIBOEK"
   music: 'MUZIEK'
   time:

@@ -1,34 +1,37 @@
-        <header class="page-header clearfix">
+<header class="page-header clearfix">
 
-            <!--Logo Wrapper-->
-            <a href="<%= root_path %>" class="logo-wrapper">
-            <b>
-            ONELIFE FILM
-            </b>
-            </a>
+  <!--Logo Wrapper-->
+  <a href="<%= root_path %>" class="logo-wrapper">
+    <b>
+      ONELIFE FILM
+    </b>
+  </a>
 
-            <!--Mobile Menu Icon-->
-            <a href="#" class="mobile-nav-button">
-                <i class="icon"></i>
-            </a>
+  <!--Mobile Menu Icon-->
+  <a href="#" class="mobile-nav-button">
+    <i class="icon"></i>
+  </a>
 
-            <!--Menu Wrapper Starts-->
-              <nav class="manu-wrapper">
-                <ul>
-                  <li id="home">
-                    <%= link_to t('home'), root_path %>
-                  </li>
-                  <li id="gallery">
-                    <%= link_to t('gallery'), gallery_path %>
-                  </li>
-                  <li id="about">
-                    <%= link_to t('about'), about_path %>
-                  </li>
-                  <li id="contact">
-                    <%= link_to t('contact'), contact_path %>
-                  </li>
-                </ul>
-              </nav>
-            <!--Menu Wrapper End-->
+  <!--Menu Wrapper Starts-->
+  <nav class="manu-wrapper">
+    <ul>
+      <li id="home">
+        <%= link_to t('home'), root_path %>
+      </li>
+      <li id="gallery">
+        <%= link_to t('gallery'), gallery_path %>
+      </li>
+      <li id="about">
+        <%= link_to t('about'), about_path %>
+      </li>
+      <li id="contact">
+        <%= link_to t('contact'), contact_path %>
+      </li>
+        <a href="<%= t('language-link') %>"><img src="<%= image_path t('language') %>" alt="" style="width: 70%; margin: -50px 0px 0px 0px"></a>
+    </ul>
+  </nav>
+  <!--Menu Wrapper End-->
 
-        </header>
+
+
+</header>

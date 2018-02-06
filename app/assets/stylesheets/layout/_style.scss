@@ -337,10 +337,11 @@ button[type="submit"]{
     border-left:2px solid #000;
     text-transform:uppercase;
     vertical-align: middle;
-    margin-left: -4px;
     position:relative;
     height:38px;
     z-index:99;
+    margin-bottom: 8px;
+    border-radius: 2px;
 }
 button[type="submit"]:after,
 button[type="submit"]:before{

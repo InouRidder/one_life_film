@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20180110160253) do
 
   # These are extensions that must be enabled in order to support this database
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180110160253) do
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
+
 
   create_table "bookings", id: :serial, force: :cascade do |t|
     t.string "phone_number"
@@ -61,6 +63,7 @@ ActiveRecord::Schema.define(version: 20180110160253) do
     t.boolean "promo", default: false
     t.string "poster"
   end
+
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false

@@ -1,3 +1,4 @@
+
 class Admin::BookingsController < Admin::AdminController
   before_action :set_booking, only: [:update, :edit, :destroy, :approve, :show]
 

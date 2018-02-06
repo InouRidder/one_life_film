@@ -24,6 +24,8 @@ en:
   about: "ABOUT"
   gallery: "GALLERY"
   contact: "CONTACT"
+  language-link: "/"
+  language: "nl_flag.png"
   playbook: "PLAYBOOK"
   music: 'MUZIEK'
   time:

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
 
+
   get '/admin', to: 'admin/dashboards#show'
 
   namespace :admin do
@@ -47,6 +48,16 @@ Rails.application.routes.draw do
     member do
       patch 'set_order'
     end
+  end
+
+
+  resources :booking_forms do
+    resources :booking_line
+  end
+
+
+  scope :admin do
+    resources :bookings
   end
 
   scope '(:locale)', locale: /nl|en/ do
