@@ -1,7 +1,11 @@
-
 <div class="playbook-date text-center" style="padding: 100px 0px;">
-
   <div class="container">
+    <div id="song-selection-message">
+      <div id="total-songs">
+        <%= @playbook.song_choices.count %>
+      </div>
+      of <%= @playbook.allowed_songs %> chosen!
+    </div>
     <div class="row">
       <% if @songs.any? %>
       <% @songs.each do |song| %>
