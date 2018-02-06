@@ -1,5 +1,5 @@
-  <%= f.input :name, :input_html => {class: "form-control", placeholder: "Name" }, label: false %>
-  <%= f.input :category_id, collection: Category.all, :input_html => {class: "form-control", placeholder: "Categorie" }, label: false %>
-  <%= f.input :url, :input_html => {class: "form-control", placeholder: "Link" }, label: false %>
+  <%= f.input :name, :input_html => {class: "form-control", placeholder: "Name" } %>
+  <%= f.input :category_id, collection: Category.all, :input_html => {class: "form-control", placeholder: "Categorie" } %>
+  <%= f.input :url, :input_html => {class: "form-control", placeholder: "Link" } %>
   <%= f.submit class: "btn btn-primary" %>
 
