@@ -1,36 +1,26 @@
-<div id="playbook-wrapper" style="background-color: #EEEE">
-  <div class="tabs">
-    <%= link_to playbook_path(@playbook), class: "tab half-size" do %>
-      <h3><%= @playbook.playlines.count %></h3>
-      <p>Draaiboek</p>
-    <% end %>
-    <%= link_to songs_playbook_path, class: "tab half-size active" do %>
-      <h3><%= @playbook.booking.songs.count %></h3>
-      <p>Muziek</p>
-    <% end %>
-  </div>
-
-  <div class="playbook-date text-center" style="padding: 100px 0px;">
-    <h1>
-    </h1>
-    <p>
-      By <%= @playbook.booking.name %>
-    </p>
-  </div>
-  <div class="container" id="playbook-container">
-    <div class="row">
-      <div id="playlines-container">
-        <ul ondragstart="" id="playlines">
-          <% if @playbook.playlines.any? %>
-            <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
-              <%= render 'playlines/show', playline: playline %>
-            <% end %>
-          <% end %>
-        </ul>
+<div class="playbook-date text-center" style="padding: 100px 0px;">
+  <div class="container">
+    <div id="song-selection-message">
+      <div id="total-songs">
+        <%= @playbook.song_choices.count %>
       </div>
-      <%= render 'playlines/form', playbook: @playbook, playline: @playline %>
+      of <%= @playbook.allowed_songs %> chosen!
+    </div>
+    <div class="row">
+      <% if @songs.any? %>
+      <% @songs.each do |song| %>
+        <ul id="songs-container">
+          <%= render 'song_choices/show', song_choice: song, playbook: @playbook %>
+        </ul>
+      <% end %>
+      <% else %>
+      <p>
+        No songs chosen yet!
+      </p>
+      <% end %>
+    </div>
+    <div class="row">
+      <%= render 'song_choices/form', playbook: @playbook, song_choice: @song_choice unless @songs.count >= @playbook.allowed_songs %>
     </div>
   </div>
 </div>
-
-

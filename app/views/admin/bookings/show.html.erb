@@ -97,7 +97,7 @@
                 <i class="fa fa-music fa-5x"></i>
               </div>
               <div class="col-xs-9 text-right">
-                <div class="huge"><%= @booking.songs.count %></div>
+                <div class="huge"><%= @booking.playbook.song_choices.count %></div>
                 <div>Gekozen liedjes</div>
               </div>
             </div>
@@ -123,8 +123,8 @@
             <h3 class="panel-title"><i class="fa fa-book fa-fw"></i> Muziek keuzes</h3>
           </div>
           <div class="panel-body">
-            <% if @booking.songs.any? %>
-            <%= render 'songs/songs', songs: @booking.songs %>
+            <% if songs = @booking.playbook.song_choices %>
+            <%= render 'admin/songs/songs', songs: songs %>
             <% end %>
           </div>
         </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171227131806) do
+ActiveRecord::Schema.define(version: 20180110160253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20171227131806) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "booking_id"
+    t.integer "allowed_songs", default: 3
     t.index ["booking_id"], name: "index_playbooks_on_booking_id"
   end
 
@@ -94,11 +95,13 @@ ActiveRecord::Schema.define(version: 20171227131806) do
   end
 
   create_table "song_choices", force: :cascade do |t|
-    t.bigint "booking_id"
     t.bigint "song_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["booking_id"], name: "index_song_choices_on_booking_id"
+    t.string "title"
+    t.string "artist"
+    t.bigint "playbook_id"
+    t.index ["playbook_id"], name: "index_song_choices_on_playbook_id"
     t.index ["song_id"], name: "index_song_choices_on_song_id"
   end
 
@@ -130,7 +133,7 @@ ActiveRecord::Schema.define(version: 20171227131806) do
   end
 
   add_foreign_key "playlines", "playbooks"
-  add_foreign_key "song_choices", "bookings"
+  add_foreign_key "song_choices", "playbooks"
   add_foreign_key "song_choices", "songs"
   add_foreign_key "songs", "categories"
 end

@@ -40,6 +40,7 @@ Rails.application.routes.draw do
       get 'songs'
     end
     resources :playlines, only: [:create, :update]
+    resources :song_choices, only: [:create, :destroy]
   end
 
   resources :playlines, only: [:destroy, :edit, :update] do
