@@ -1,0 +1,4 @@
+const container = document.getElementById('songs-container');
+container.innerHTML = "<%= j render 'songs', songs: @songs %>";
+const title = document.getElementById('songs-title');
+title.innerHTML = "<%= j @title %>"

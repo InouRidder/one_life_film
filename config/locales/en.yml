@@ -26,6 +26,8 @@ en:
   contact: "CONTACT"
   language-link: "/"
   language: "nl_flag.png"
+  playbook: "PLAYBOOK"
+  music: 'MUZIEK'
   time:
     formats:
       long: "%Y-%m-%d %H:%M:%S"

@@ -1,0 +1,26 @@
+<div class="playbook-date text-center" style="padding: 100px 0px;">
+  <div class="container">
+    <div id="song-selection-message">
+      <div id="total-songs">
+        <%= @playbook.song_choices.count %>
+      </div>
+      of <%= @playbook.allowed_songs %> chosen!
+    </div>
+    <div class="row">
+      <% if @songs.any? %>
+      <% @songs.each do |song| %>
+        <ul id="songs-container">
+          <%= render 'song_choices/show', song_choice: song, playbook: @playbook %>
+        </ul>
+      <% end %>
+      <% else %>
+      <p>
+        No songs chosen yet!
+      </p>
+      <% end %>
+    </div>
+    <div class="row">
+      <%= render 'song_choices/form', playbook: @playbook, song_choice: @song_choice unless @songs.count >= @playbook.allowed_songs %>
+    </div>
+  </div>
+</div>
