@@ -1,26 +1,139 @@
-<div class="playbook-date text-center" style="padding: 100px 0px;">
-  <div class="container">
-    <div id="song-selection-message">
-      <div id="total-songs">
-        <%= @playbook.song_choices.count %>
-      </div>
-      of <%= @playbook.allowed_songs %> chosen!
-    </div>
-    <div class="row">
-      <% if @songs.any? %>
-      <% @songs.each do |song| %>
-        <ul id="songs-container">
-          <%= render 'song_choices/show', song_choice: song, playbook: @playbook %>
+<style>
+.square-box {
+  padding: 50px;
+}
+.song-row {
+  word-spacing: 10px;
+  letter-spacing: 2px;
+  margin: 2px;
+}
+
+.scroll-box {
+  max-height: 100vh;
+  width: 100%;
+  overflow: scroll;
+}
+
+.select-button {
+  margin: 0;
+  border: 2px solid #cccccc;
+  color: #444;
+  background: transparent;
+  display: inline-block;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  min-width: 80px;
+  outline: none;
+  padding: 10px 25px;
+  text-transform: capitalize;
+}
+
+.listen-button:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 100%;
+  top: 0;
+  background: #000;
+  height: 100%;
+  z-index: -1;
+}
+
+.listen-button:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 100%;
+  top: 0;
+  background: #ccc;
+  height: 100%;
+  z-index: -1;
+  transition: all .3s ease;
+}
+
+.listen-button {
+  text-rendering: auto;
+  transition: all .3s ease;
+  padding: 7px 15px;
+  color: #fff;
+  display: inline-block;
+  margin-bottom: 0;
+  border: none;
+  font-size: 15px;
+  background: none;
+  border-left: 2px solid #000;
+  text-transform: uppercase;
+  vertical-align: middle;
+  position: relative;
+  height: 38px;
+  z-index: 99;
+  border-radius: 2px;
+}
+
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="square-box scroll-box">
+        <ul>
+          <% @selection.each do |song| %>
+          <li>
+            <div class="song-row">
+              <%= song.title.upcase %>
+              -
+              <%= song.artist.upcase %>
+              <button class="listen-button">LISTEN</button>
+
+              <button class="select-button">SELECT</button>
+            </div>
+          </li>
+          <% end %>
         </ul>
-      <% end %>
-      <% else %>
-      <p>
-        No songs chosen yet!
-      </p>
-      <% end %>
+      </div>
     </div>
-    <div class="row">
-      <%= render 'song_choices/form', playbook: @playbook, song_choice: @song_choice unless @songs.count >= @playbook.allowed_songs %>
+    <div class="square-box">
+      <div class="col-xs-12 col-sm-6">
+        <div class="song-form">
+          <% unless @songs.count >= @playbook.allowed_songs %>
+          <%= simple_form_for([@playbook, @song_choice], remote: true) do |f| %>
+          <%= f.input :title, label: false, placeholder: 'Title of song' %>
+          <%= f.input :artist, label: false, placeholder: '...and the artist!' %>
+          <button type="submit" name="submit" id="contact-submit">ADD SONG</button>
+        </div>
+        <% end %>
+        <% else %>
+        <h3>
+          <%= @songs.count %> of <%= @playbook.allowed_songs %>
+        </h3>
+        <% end %>
+        <% if @songs.any? %>
+          <h4 class="text-center">
+            SELECTED SONGS
+          </h4>
+        <div class="selected-songs">
+          <% @songs.each do |song| %>
+          <ul>
+            <li>
+              <div class="song-row">
+                <%= song.title.upcase %>
+                -
+                <%= song.artist.upcase %>
+                <button class="listen-button">REMOVE</button>
+              </div>
+            </li>
+          </ul>
+          <% end %>
+          <% else %>
+          <p>
+            No songs chosen yet!
+          </p>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

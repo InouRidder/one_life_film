@@ -8,6 +8,7 @@ class PlaybooksController < ApplicationController
   end
 
   def songs
+    @selection = Song.all
     @song_choice = SongChoice.new(playbook: @playbook)
     @songs = @playbook.song_choices
   end
