@@ -7,9 +7,12 @@
 .line:last-child {
   border-bottom: none;
 }
-.line-body {
+.line-contact {
   flex-grow: 1;
+  width: 100px;
+  padding: 0 30px;
 }
+
 .line-name {
   padding-left: 10px;
   min-width: 100px;
@@ -26,6 +29,7 @@
 }
 .line-body {
   text-align: center;
+  flex-grow: 2;
   padding-left: 10px;
   font-size: 13px;
   color: rgba(0,0,0,0.7);
