@@ -1,9 +1,10 @@
-var line = document.getElementById('song-choice-id[<%= @song_choice.id %>]');
+var song = document.getElementById('song-choice-id[<%= @song_choice.id %>]');
+var newSongChoiceForm = document.getElementById('new_song_choice')
 function remove(element) {
   element.remove();
 }
-line.classList.toggle('fade');
-window.setTimeout(remove(line), 3000);
+song.classList.toggle('fade');
+window.setTimeout(remove(song), 3000);
 
 <% if @playbook.song_choices.count >= @playbook.allowed_songs %>
   newSongChoiceForm.hidden = true;
