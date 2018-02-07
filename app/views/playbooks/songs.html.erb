@@ -33,7 +33,7 @@
 
 
 .padding-top-50 {
-  padding-top: 50;
+  padding-top: 50px;
 }
 
 .song-row {
@@ -56,6 +56,9 @@
 </style>
 
 <div class="container">
+  <div id="message">
+
+  </div>
   <div class="row">
     <div class="col-xs-12 col-md-6">
       <div class="square-box scroll-box">
@@ -73,65 +76,68 @@
                 <%= song.artist.upcase %>
               </div>
               <div class="song-buttons">
-                <a href="<%= song.url %>">
+                <a href="<%= song.url %>" target="_blank">
                   <button class="select-button">LISTEN</button>
                 </a>
                 <%= simple_form_for([@playbook, SongChoice.new], remote: true) do |f| %>
                 <%= f.input :title, as: :hidden, input_html: { value: song.title } %>
                 <%= f.input :artist, as: :hidden, input_html: { value: song.artist } %>
                 <button type="submit" name="submit" class="select-button">SELECT</button>
-                  <% end %>
-                </div>
+                <% end %>
               </div>
-            </li>
-            <% end %>
-          </ul>
-        </div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
       </div>
-      <div class="square-box">
-        <div class="col-xs-12 col-md-6">
-          <h4>
-            Add your own song!
-          </h4>
-          <div class="song-form">
-            <% unless @songs.count >= @playbook.allowed_songs %>
-            <%= simple_form_for([@playbook, @song_choice], remote: true) do |f| %>
-            <%= f.input :title, label: false, placeholder: 'Title of song' %>
-            <%= f.input :artist, label: false, placeholder: '...and the artist!' %>
-            <button type="submit" name="submit" id="contact-submit">ADD SONG</button>
-          </div>
+    </div>
+    <div class="square-box">
+      <div class="col-xs-12 col-md-6">
+        <div id="song-form">
+        <h4>
+          Add your own song
+        </h4>
+          <% unless @songs.count >= @playbook.allowed_songs %>
+          <%= simple_form_for([@playbook, @song_choice], remote: true) do |f| %>
+          <%= f.input :title, label: false, placeholder: 'Title of song' %>
+          <%= f.input :artist, label: false, placeholder: '...and the artist!' %>
+          <button type="submit" name="submit" id="contact-submit">ADD SONG</button>
           <% end %>
           <% else %>
           <h3>
             <%= @songs.count %> of <%= @playbook.allowed_songs %>
           </h3>
           <% end %>
-          <% if @songs.any? %>
-          <div class="selected-songs padding-top-50">
+        </div>
+        <% if @songs.any? %>
+        <div class="songs-container padding-top-50">
           <h4>
-            Your selected songs
+            Your selection
           </h4>
-            <% @songs.each do |song| %>
-            <ul>
-              <li id=song-choice-id[<%= song.id %>]>
-                <div class="song-row">
-                  <%= song.title.upcase %>
-                  -
-                  <%= song.artist.upcase %>
-                  <%= link_to  playbook_song_choice_path(@playbook, song), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
-                  <button class="listen-button">REMOVE</button>
-                  <% end %>
-                </div>
-              </li>
-            </ul>
-            <% end %>
-            <% else %>
-            <p>
-              No songs chosen yet!
-            </p>
-            <% end %>
+          <div id="errors">
+
           </div>
+          <ul id="selected-songs">
+            <% @songs.each do |song| %>
+            <li id=song-choice-id[<%= song.id %>]>
+              <div class="song-row">
+                <%= song.title.upcase %>
+                -
+                <%= song.artist.upcase %>
+                <%= link_to  playbook_song_choice_path(@playbook, song), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
+                <button class="select-button">REMOVE</button>
+                <% end %>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+          <% else %>
+          <p>
+            No songs chosen yet!
+          </p>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>

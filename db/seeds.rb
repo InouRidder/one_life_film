@@ -2,6 +2,24 @@ require 'open-uri'
 require 'nokogiri'
 require 'pry'
 
+puts "Do you want to import the latest films? press y"
+answer = gets.chomp
+import_films if answer == 'y'
+
+def import_films
+  file = open('db/videos.html').read
+  html_doc = Nokogiri::HTML(file)
+  array = []
+  html_doc.search('.video_manager__table_item').each do |element|
+    attributes = element.search('.video_manager__table_cell--greedy').search('a').first.attributes
+    name = attributes["title"].value
+    url = "https://vimeo.com#{attributes["href"].value}"
+
+    film = Film.new(name: name, video_url: url).set_attributes
+    film.save
+  end
+end
+
 puts "Destroying all bookings"
 Booking.destroy_all
 

@@ -1,3 +1,4 @@
+require 'pry'
 class SongChoicesController < ApplicationController
   before_action :set_playbook, only: [:create, :destroy]
   before_action :set_song_choice, only: [:destroy]
