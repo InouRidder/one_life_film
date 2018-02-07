@@ -1,6 +1,6 @@
 require 'open-uri'
 require 'nokogiri'
-require 'pry'
+
 
 puts "Do you want to import the latest films? press y"
 answer = gets.chomp
