@@ -3,6 +3,7 @@ class PlaybooksController < ApplicationController
   layout 'client'
 
   def show
+    @times = Playline::TIMES
     @playline = Playline.new
     redirect_to root_path unless current_user.playbook == @playbook || current_user.admin
   end
@@ -19,3 +20,6 @@ class PlaybooksController < ApplicationController
     @playbook = Playbook.find(params[:id])
   end
 end
+
+
+

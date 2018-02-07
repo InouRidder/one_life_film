@@ -3,9 +3,11 @@ class PlaylinesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:set_order]
   before_action :set_playbook, only: [:create]
   before_action :set_playline, except: [:create]
+
   def create
     @playline = Playline.new(playline_params)
     @playline.playbook = @playbook
+    @times = Playline::TIMES
     @playline.set_order
     if @playline.save
       respond_to do |format|
@@ -69,6 +71,6 @@ class PlaylinesController < ApplicationController
   end
 
   def playline_params
-    params.require(:playline).permit(:begin_time, :end_time, :content, :location)
+    params.require(:playline).permit(:begin_time, :end_time, :content, :location, :contact, :phone_number)
   end
 end
