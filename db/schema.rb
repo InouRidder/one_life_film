@@ -1,4 +1,4 @@
-  # This file is auto-generated from the current state of the database. Instead
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,32 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110160253) do
+ActiveRecord::Schema.define(version: 20180206073338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string "namespace"
-    t.text "body"
-    t.string "resource_id", null: false
-    t.string "resource_type", null: false
-    t.string "author_type"
-    t.bigint "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
-  end
-
-  create_table "booking_forms", force: :cascade do |t|
-    t.bigint "booking_id"
-    t.string "wedding_plan"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["booking_id"], name: "index_booking_forms_on_booking_id"
-  end
 
   create_table "bookings", id: :serial, force: :cascade do |t|
     t.string "phone_number"
@@ -53,12 +31,6 @@ ActiveRecord::Schema.define(version: 20180110160253) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "films", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "video_url"
@@ -68,14 +40,6 @@ ActiveRecord::Schema.define(version: 20180110160253) do
     t.string "password"
     t.boolean "promo", default: false
     t.string "poster"
-  end
-
-  create_table "form_lines", force: :cascade do |t|
-    t.string "content"
-    t.bigint "booking_form_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["booking_form_id"], name: "index_form_lines_on_booking_form_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -122,12 +86,11 @@ ActiveRecord::Schema.define(version: 20180110160253) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "name"
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_songs_on_category_id"
+    t.string "title"
+    t.string "artist"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -151,5 +114,4 @@ ActiveRecord::Schema.define(version: 20180110160253) do
   add_foreign_key "playlines", "playbooks"
   add_foreign_key "song_choices", "playbooks"
   add_foreign_key "song_choices", "songs"
-  add_foreign_key "songs", "categories"
 end

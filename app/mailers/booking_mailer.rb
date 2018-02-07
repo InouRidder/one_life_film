@@ -8,6 +8,8 @@ class BookingMailer < ApplicationMailer
 
   def received(booking)
     @booking = booking
+
+    mail(to: 'info@onelifefilm.nl', subject: "Nieuwe aanvraag")
     mail(to: booking.email_address, subject: "Request received by OneLife")
   end
 

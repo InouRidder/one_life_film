@@ -1,32 +1,10 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.vecteezy.com/system/resources/previews/000/125/682/non_2x/vector-note-of-music-background-template.jpg');">
-        <div class="card-category">1<%= song_choice.artist %></div>
-        <div class="card-description">
-          <h2><%= song_choice.title %></h2>
-        </div>
-        <img class="card-user">
-        <div class="line-status song-choice-status">
-          <%= link_to  playbook_song_choice_path(playbook, song_choice), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
-          <% end %>
-        </div>
-      </div>
-      <!-- insert <div class="card"> -->
-      </div>
-    </div>
+<li id=song-choice-id[<%= song_choice.id %>]>
+  <div class="song-row">
+    <%= song_choice.title.upcase %>
+    -
+    <%= song_choice.artist.upcase %>
+    <%= link_to  playbook_song_choice_path(@playbook, song_choice), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
+    <button class="select-button">REMOVE</button>
+    <% end %>
   </div>
-
-  <iframe src="https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-
-  <li class="line">
-    <div class="line-body">
-      <p>
-        <strong>
-
-        </strong>
-      </p>
-    </div>
-
-  </li>
+</li>

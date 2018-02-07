@@ -1,15 +1,16 @@
-var newSongChoiceForm = document.getElementById('new_song_choice');
+var newSongChoiceForm = document.getElementById('song-form');
+var errors = document.getElementById('errors');
 
 <% if @song_choice.errors.any? %>
-  newSongChoiceForm.innerHTML = "<%= j render 'song_choices/form', playbook: @playbook, song_choice: @song_choice %>";
+  newSongChoiceForm.outerHTML = "<%= j render 'song_choices/form', playbook: @playbook, song_choice: @song_choice %>";
+  errors.innerHTML = "<h6 style='color: red;'> <%= j @song_choice.errors.full_messages.join(", ") %> </h6>"
 <% else %>
-  var song_choices = document.getElementById('songs-container');
+  var song_choices = document.getElementById('selected-songs');
   song_choices.insertAdjacentHTML("beforeend", "<%= j render 'song_choices/show', song_choice: @song_choice, playbook: @playbook %>");
 <% end %>
 
 <% if @playbook.song_choices.count >= @playbook.allowed_songs %>
-  newSongChoiceForm.hidden = true;
+  newSongChoiceForm.innerHTML = "<h3> <%= @playbook.song_choices.count %> of <%= @playbook.allowed_songs %> </h3>"
 <% else %>
-  newSongChoiceForm.hidden = false;
   newSongChoiceForm.innerHTML = "<%= j render 'song_choices/form', playbook: @playbook, song_choice: SongChoice.new %>";
 <% end %>

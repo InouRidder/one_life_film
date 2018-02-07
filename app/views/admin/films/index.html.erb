@@ -70,7 +70,7 @@
               <td><%= film.promo %></td>
               <td><%= film.poster %></td>
 
-              <td><%= link_to 'Show', admin_film_path(film),
+              <td><%= link_to 'Show', "https://www.onelifefilm.eu/films/#{film.slug}",
               :class => "btn btn-primary"%></td>
               <td><%= link_to 'Edit', edit_admin_film_path(film),
               :class => "btn btn-warning"%></td>
