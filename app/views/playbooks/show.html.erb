@@ -14,17 +14,39 @@
       By <%= @playbook.booking.name %>
     </p>
   </div>
+        <button type="submit" name="submit" id="sort-by-time">SORT BY TIME (in progress!)</button>
   <div class="container">
     <div class="row">
-      <div id="playlines-container">
-        <button type="submit" name="submit" id="sort-by-time">SORT BY TIME (in progress!)</button>
-        <ul ondragstart="" id="playlines">
+      <div>
+        <table>
+
+            <td>
+              Start time
+            </td>
+            <td>
+              Contact
+            </td>
+            <td>
+              Phone number
+            </td>
+            <td>
+              Location
+            </td>
+            <td>
+              Activity
+            </td>
+            <td>
+              Changes
+            </td>
+
+          <tbody id="playlines-container" ondragstart="" id="playlines">
           <% if @playbook.playlines.any? %>
-          <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
-          <%= render 'playlines/show', playline: playline %>
+            <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
+              <%= render 'playlines/show', playline: playline %>
+            <% end %>
           <% end %>
-          <% end %>
-        </ul>
+          </tbody>
+        </table>
       </div>
       <div class="row">
         <%= render 'playlines/form', playbook: @playbook, playline: @playline, times: @times %>
@@ -34,6 +56,13 @@
 </div>
 </div>
 
+<style>
+  .select {
+    width: 70px;
+    height: 70px;
+  }
+</style>
+
 <script>
   const timeButton = document.getElementById('sort-by-time');
   let timedArray = [];
@@ -42,12 +71,9 @@
     // TO-DO SORT BY DATA ATTRIBUTE data-time
 
   });
-</script>
 
+// soon as there is an order change -> pop up appears with 'save order'
 
-
-<!-- soon as there is an order change -> pop up appears with 'save order' -->
-<script>
   const changeNotice = document.getElementById('change-notice')
   function handleDragStart(e) {
     this.style.opacity = '1';  // this / e.target is the source node.

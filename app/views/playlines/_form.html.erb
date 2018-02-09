@@ -1,23 +1,11 @@
 
 <div class="playline-form" style="margin-top: 20px;">
   <%= simple_form_for([playbook, playline], remote: true) do |f| %>
-    <div class="col-xs-12 col-sm-2">
-      <%= f.input :begin_time, label: false, collection: times, selected: 5, height: '50px';%>
-    </div>
-    <div class="col-xs-12 col-sm-2">
+    <%= f.input :begin_time, label: false, collection: times, selected: 5, height: '50px';%>
     <%= f.input :contact, label: false, placeholder: "CONTACT", input_html: { class: 'form-contact' } %>
-    </div>
-    <div class="col-xs-12 col-sm-2">
-      <input type="text" name="playline[phone_number]" placeholder="PHONE NUMBER" required autocomplete="off">
-    </div>
-    <div class="col-xs-12 col-sm-2">
+    <input type="text" name="playline[phone_number]" placeholder="PHONE NUMBER" required autocomplete="off">
     <%= f.input :location, label: false, placeholder: "LOCATION", input_html: { class: 'form-location' } %>
-    </div>
-    <div class="col-xs-12 col-sm-2">
     <%= f.input :content, label: false, placeholder: "ACTIVITY", input_html: { class: 'form-content' } %>
-    </div>
-    <div class="col-xs-12 col-sm-2">
-      <button type="submit" name="submit" id="contact-submit">ADD LINE</button>
-    </div>
+    <button type="submit" name="submit" id="contact-submit">ADD LINE</button>
   <% end %>
 </div>

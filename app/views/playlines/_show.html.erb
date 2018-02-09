@@ -1,36 +1,59 @@
-<li draggable="true" class="line" id="playline-id[<%= playline.id %>]" data-id="<%= playline.id %>" data-time="<%= playline.begin_time.strftime('%H:%M') %>">
+<tr draggable="true" id="playline-id[<%= playline.id %>]" data-id="<%= playline.id %>" data-time="playline.begin_time %>">
+  <td>
+    <%= playline.begin_time %>
+  </td>
+  <td>
+    <%= playline.contact %>
+  </td>
+  <td>
+    <%= playline.phone_number %>
+  </td>
+  <td>
+    <%= playline.content %>
+  </td>
+  <td>
+    <%= playline.location %>
+  </td>
+  <td>
+    <%= link_to  playline_path(playline), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
+    <i class="fa fa-trash-o" aria-hidden="true"></i>
+  <% end %>
+  <%= link_to edit_playline_path(playline), remote: true do %>
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  <% end %>
+  </td>
+</tr>
+
+<!--
+<li draggable="true" class="line" id="playline-id[<%#= playline.id %>]" data-id="<%#= playline.id %>" data-time="<%#= playline.begin_time.strftime('%H:%M') %>">
   <div class="line-name">
     <p>
-      <%= playline.begin_time.strftime('%H:%M') %>
+
     </p>
   </div>
   <div class="line-contact">
     <p>
       <strong>
-      <%= playline.contact %>
+
       </strong>
     </p>
     <p>
-      <%= playline.phone_number %>
+
     </p>
   </div>
 
   <div class="line-body">
     <p>
       <strong>
-        <%= playline.content %>
+
       </strong>
     </p>
     <p>
-      <%= playline.location %>
+
     </p>
   </div>
   <div class="line-status">
-  <%= link_to  playline_path(playline), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
-    <i class="fa fa-trash-o" aria-hidden="true"></i>
-  <% end %>
-  <%= link_to edit_playline_path(playline), remote: true do %>
-    <i class="fa fa-pencil" aria-hidden="true"></i>
-  <% end %>
+
   </div>
 </li>
+ -->
