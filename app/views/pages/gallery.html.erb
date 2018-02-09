@@ -39,25 +39,26 @@
               <!--Masonry Wrapper Starts-->
               <div class="masonry gallery-default" data-items-columns="5" data-items-gap="8">
 
+
                 <% @films.each_with_index do |film, i|  %>
                 <% if [0,3,5].include?(i)  %>
-                <div class="item  double-height">
+                <div class="item double-height">
 
                   <a class="video-frame" href=<%= film.video_url %>>
 
-                    <div class="image-wrapper" data-backgroundimage="<%= film.poster if film.poster %>"></div>
+                    <div class="image-wrapper" data-backgroundimage="https://unsplash.it/400/400"></div>
                     <div class="caption-wrapper"></div>
 
                   </a>
 
                 </div>
-                  <% elsif [6,2,11].include?(i) %>
+                <% elsif [6,2,11].include?(i) %>
 
                 <div class="item double-width">
 
                   <a class="video-frame" href=<%= film.video_url %>>
 
-                    <div class="image-wrapper" data-backgroundimage="<%= film.poster if film.poster %>"></div>
+                    <div class="image-wrapper" data-backgroundimage="https://unsplash.it/400/400"></div>
                     <div class="caption-wrapper"></div>
 
                   </a>
@@ -72,14 +73,14 @@
 
                   <a class="video-frame" href=<%= film.video_url %>>
 
-                    <div class="image-wrapper" data-backgroundimage="<%= film.poster if film.poster %>"></div>
+                    <div class="image-wrapper" data-backgroundimage="https://unsplash.it/400/400"></div>
                     <div class="caption-wrapper"></div>
 
                   </a>
 
                 </div>
 
-                  <% end %>
+                <% end %>
                 <% end %>
 
                 <!--Items Starts-->
@@ -215,3 +216,10 @@
             <!--Content End-->
           </div>
 
+          <iframe class="home bg-video-wrapper" id="home-background" data-muted="true" src="https://player.vimeo.com/video/240032264?background=1" width="100%" height="100%" style="pointer-events: none;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+
+            <div class="cover-inner">
+              <h2>WELCOME TO ONELIFE</h2>
+              <p>Film Productions</p>
+            </div>
+          </iframe>

@@ -257,7 +257,7 @@ $(function () {
 	                    src: 'https://www.youtube.com/embed/%id%?autoplay=1'
 	                },
 	                vimeo: {
-	                    index: 'vimeo.com/',
+  	                    index: 'vimeo.com/',
 	                    id: '/',
 	                    src: 'https://player.vimeo.com/video/%id%?autoplay=1'
 	                },

@@ -9,6 +9,7 @@ class FilmsController < ApplicationController
 
   def show
     @film = Film.friendly.find(params[:id])
+    @film_id = @film.video_url.match(/\d+\z/)[0]
     if @film.password && session[:session_access].nil? && @film.password != ""
       redirect_to password_path(id: @film.id)
     end
