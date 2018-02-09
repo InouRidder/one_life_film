@@ -1,8 +1,9 @@
 class PlaylinesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:set_order]
-  skip_before_action :verify_authenticity_token, only: [:set_order]
+  skip_before_action :verify_authenticity_token, only: [:set_order, :update]
   before_action :set_playbook, only: [:create]
   before_action :set_playline, except: [:create]
+  before_action :set_times, except: [:set_order, :destroy]
 
   def create
     @playline = Playline.new(playline_params)
@@ -23,6 +24,7 @@ class PlaylinesController < ApplicationController
   end
 
   def edit
+    @times = Playline::TIMES
     respond_to do |format|
       format.js
     end
@@ -60,6 +62,10 @@ class PlaylinesController < ApplicationController
   end
 
   private
+
+  def set_times
+    @times = Playline::TIMES
+  end
 
   def set_playline
     @playline = Playline.find(params[:id])

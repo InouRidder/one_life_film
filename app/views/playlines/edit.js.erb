@@ -1,6 +1,32 @@
 var line = document.getElementById('playline-id[<%= @playline.id %>]');
-// line.classList.add('pre-animation');
-line.innerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline %>";
-// setTimeout(function(){
-//     line.classList.remove('pre-animation')
-// },4500)
+
+line.innerHTML = "<%= j render 'playlines/inline_form', playbook: @playbook, playline: @playline, times: @times %>";
+
+
+var saveButton = document.getElementById('save-line-button');
+saveButton.addEventListener('click', function(event) {
+  var id = saveButton.parentElement.parentElement.getAttribute('data-id')
+  buildObject(id);
+});
+
+function buildObject(id) {
+  var begin_time = document.getElementById('playline_begin_time').value;
+  var contact = document.getElementById('playline_contact').value;
+  var phone_number = document.getElementById('playline_phone_number').value;
+  var location = document.getElementById('playline_location').value;
+  var content = document.getElementById('playline_content').value;
+  var formData = {begin_time: begin_time, contact: contact, phone_number:phone_number, location: location, content: content }
+  var API_URL = "http://localhost:3000/";
+  var API_PATH = `playlines/${id}`;
+
+  fetch(API_URL + API_PATH, {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/text',
+      'Content-Type': 'application/text'
+    },
+    body: JSON.stringify(formData),
+       credentials: 'same-origin'
+  })
+}
+
