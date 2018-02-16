@@ -1,5 +1,5 @@
 class PlaylinesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:set_order]
+  skip_before_action :authenticate_user!, only: [:set_order, :update]
   skip_before_action :verify_authenticity_token, only: [:set_order, :update]
   before_action :set_playbook, only: [:create]
   before_action :set_playline, except: [:create]
@@ -34,14 +34,17 @@ class PlaylinesController < ApplicationController
   def update
     @playline.update(playline_params)
     @playbook = @playline.playbook
+    # binding.pry
     if @playline.save
       respond_to do |format|
         format.html { redirect_to playbook_path(@playbook) }
+        format.json { @playine.to_json }
         format.js
       end
     else
       respond_to do |format|
         format.html { render 'playbooks/show' }
+        format.json { @playine.to_json }
         format.js
       end
     end

@@ -14,7 +14,7 @@
   <td>
     <%= playline.content %>
   </td>
-  <td>
+  <td class="playline-changes">
     <%= link_to  playline_path(playline), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
     <i class="fa fa-trash-o" aria-hidden="true"></i>
   <% end %>

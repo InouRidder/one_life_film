@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'admin/dashboards#show'
 
+  get 'playlines/:id', to: 'playlines#update'
+
   namespace :admin do
     resources :bookings do
       collection do

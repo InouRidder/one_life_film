@@ -1,13 +1,18 @@
 var line = document.getElementById('playline-id[<%= @playline.id %>]');
+var changeButtons = document.querySelectorAll('.playline-changes');
+console.log('hello luca :italian:');
 
 line.innerHTML = "<%= j render 'playlines/inline_form', playbook: @playbook, playline: @playline, times: @times %>";
-
+toggleHide(changeButtons);
 
 var saveButton = document.getElementById('save-line-button');
 saveButton.addEventListener('click', function(event) {
   var id = saveButton.parentElement.parentElement.getAttribute('data-id')
   buildObject(id);
+  toggleHide(changeButtons);
 });
+
+// Dont allow editing of other lines while edit is open
 
 function buildObject(id) {
   var begin_time = document.getElementById('playline_begin_time').value;
@@ -15,18 +20,57 @@ function buildObject(id) {
   var phone_number = document.getElementById('playline_phone_number').value;
   var location = document.getElementById('playline_location').value;
   var content = document.getElementById('playline_content').value;
-  var formData = {begin_time: begin_time, contact: contact, phone_number:phone_number, location: location, content: content }
-  var API_URL = "http://localhost:3000/";
-  var API_PATH = `playlines/${id}`;
 
-  fetch(API_URL + API_PATH, {
-    method: 'PATCH',
+  fetch(`/playlines/${id}`, {
+    method: "PATCH",
     headers: {
-      'Accept': 'application/text',
-      'Content-Type': 'application/text'
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(formData),
-       credentials: 'same-origin'
+    body: JSON.stringify({
+      begin_time: begin_time,
+      contact: contact,
+      phone_number: phone_number,
+      location: location,
+      content: content,
+      credentials: 'same-origin'
+    })
   })
+  .then(response => response.json())
+  .then(data => appendElement(data));
+};
+
+
+function appendElement(data) {
+  line.outerHTML = `<tr draggable='true' id='playline-id[${data.id}]' data-time='${data.begin_time}' data-id='${ data.id }'>
+  <td>
+    ${data.begin_time}
+  </td>
+  <td>
+    ${data.contact}
+  </td>
+  <td>
+    ${data.phone_number}
+  </td>
+  <td>
+    ${data.location}
+  </td>
+  <td>
+    ${data.content}
+  </td>
+  <td class="playline-changes">
+    <a data-confirm="Sure?" data-remote="true" rel="nofollow" data-method="delete" href="/playlines/${data.id}">
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    </a>
+    <a data-remote="true" href="/playlines/${data.id}/edit">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </a>
+  </td>
+</tr>`
 }
+
+
+
+
+
 
