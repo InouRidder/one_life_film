@@ -24,8 +24,10 @@ function fetchData(id, body, line, callback) {
     },
     body: JSON.stringify(body)
   })
-  .then(response => response.json())
-  .then(data => callback(data, line));
+  .then(function(response) {
+    return response.json()
+  })
+  .then(function(data) { callback(data, line)});
 };
 
 
