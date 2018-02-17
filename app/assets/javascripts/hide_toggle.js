@@ -1,5 +1,5 @@
 function toggleHide(array) {
-  array.forEach((element) => {
+  array.forEach(function(element) {
     element.classList.toggle('hide')
   });
 };
