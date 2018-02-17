@@ -2,7 +2,7 @@ function saveOrder(lines) {
   count = 1
   for (i = 0; i < (lines.length); i ++) {
     var line = lines[i]
-    fetch(`/playlines/${line.getAttribute('data-id')}/set_order`, {
+    fetch("/playlines/" + line.getAttribute('data-id') + "/set_order", {
       method: "PATCH",
       headers: {
         'Accept': 'application/json',
