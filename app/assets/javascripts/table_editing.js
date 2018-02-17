@@ -26,7 +26,9 @@ function fetchData(id, body, line, callback) {
   .then(function(response) {
     return response.json()
   })
-  .then(function(data) { callback(data, line) });
+  .then(function(data) {
+    callback(data, line)
+  });
 };
 
 
