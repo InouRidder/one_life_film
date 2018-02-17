@@ -138,7 +138,7 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
-    pg (1.0.0)
+    pg (0.21.0)
     pg_search (2.1.2)
       activerecord (>= 4.2)
       activesupport (>= 4.2)
@@ -260,7 +260,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   listen (~> 3.0.5)
-  pg
+  pg (~> 0.20)
   pg_search
   postmark-rails
   pry-byebug
