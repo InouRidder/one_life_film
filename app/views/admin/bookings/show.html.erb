@@ -134,13 +134,34 @@
           <div class="panel-body">
             <% if @booking.playbook %>
             <div id="playlines-container">
-              <ul ondragstart="" id="playlines">
-                <% if @booking.playbook.playlines.any? %>
-                <% @booking.playbook.playlines.sort_by(&:order_number).each do |playline| %>
-                <%= render 'playlines/show', playline: playline %>
-                <% end %>
-                <% end %>
-              </ul>
+              <% if @booking.playbook.playlines.any? %>
+              <table class="table table-striped">
+                <td>
+                  Start time
+                </td>
+                <td>
+                  Contact
+                </td>
+                <td>
+                  Phone number
+                </td>
+                <td>
+                  Location
+                </td>
+                <td>
+                  Activity
+                </td>
+                <td>
+                  Changes
+                </td>
+                <tbody id="playlines">
+                  <% @booking.playbook.playlines.sort_by(&:order_number).each do |playline| %>
+                  <%= render 'playlines/show', playline: playline %>
+                  <% end %>
+                </tbody>
+              </table>
+
+              <% end %>
             </div>
             <% end %>
           </div>
