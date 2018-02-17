@@ -5,7 +5,7 @@ line.innerHTML = "<%= j render 'playlines/inline_form', playbook: @playbook, pla
 var saveButton = document.getElementById('save-line-button');
 saveButton.addEventListener('click', function(event) {
   var id = line.getAttribute('data-id')
-  let dataToUpdate = buildObject(line);
+  var dataToUpdate = buildObject(line);
   fetchData(id, dataToUpdate, line, appendRow);
 });
 
