@@ -18,7 +18,6 @@
     <div class="row">
       <button type="submit" name="submit" id="sort-by-time">SORT BY TIME</button>
       <table class="table table-striped">
-
         <td>
           Start time
         </td>
@@ -37,7 +36,7 @@
         <td>
           Changes
         </td>
-        <tbody id="playlines" ondragstart="">
+        <tbody id="playlines">
           <% if @playbook.playlines.any? %>
           <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
           <%= render 'playlines/show', playline: playline %>
@@ -177,7 +176,6 @@ function handleDragStart(e) {
     }
     return false;
   }
-
 
   const button = document.getElementById('save-order');
   button.addEventListener('click', function(event){

@@ -8,4 +8,13 @@ class Playline < ApplicationRecord
   def set_order
     self.order_number = self.playbook.playlines.length + 1
   end
+
+  def numeric_time
+    if begin_time.length > 1
+      time_array = begin_time.split(":")
+      time_array.first.to_i + 0.5
+    else
+      begin_time.to_i
+    end
+  end
 end

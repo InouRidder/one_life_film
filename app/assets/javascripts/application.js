@@ -9,5 +9,6 @@
 //= require date_check
 //= require hide_toggle
 //= require table_editing
+//= require sort_by_time
 
 
