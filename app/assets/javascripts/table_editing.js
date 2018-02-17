@@ -15,7 +15,7 @@ function buildObject(line) {
 };
 
 function fetchData(id, body, line, callback) {
-  fetch(`/playlines/${id}`, {
+  fetch("/playlines/" + id.toString() , {
     method: "PATCH",
     headers: {
       'Accept': 'application/json',
