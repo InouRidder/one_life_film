@@ -53,5 +53,5 @@ function sortTable() {
   saveOrder(rows);
 }
 
-const timeButton = document.getElementById('sort-by-time');
+var timeButton = document.getElementById('sort-by-time');
 timeButton.addEventListener('click', sortTable);
