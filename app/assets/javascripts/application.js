@@ -8,5 +8,6 @@
 //= require active_classer
 //= require date_check
 //= require hide_toggle
+//= require table_editing
 
 

@@ -34,7 +34,6 @@ class PlaylinesController < ApplicationController
   def update
     @playline.update(playline_params)
     @playbook = @playline.playbook
-    # binding.pry
     if @playline.save
       respond_to do |format|
         format.html { redirect_to playbook_path(@playbook) }
