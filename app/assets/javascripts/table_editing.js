@@ -1,4 +1,3 @@
-
 function buildObject(line) {
   var begin_time = line.querySelector('#playline_begin_time').value;
   var contact = line.querySelector('#playline_contact').value;
@@ -24,8 +23,10 @@ function fetchData(id, body, line, callback) {
     },
     body: JSON.stringify(body)
   })
-  .then(response => response.json())
-  .then(data => callback(data, line));
+  .then(function(response) {
+    return response.json()
+  })
+  .then(function(data) { callback(data, line) });
 };
 
 

@@ -19,7 +19,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise-i18n'
-gem 'webpacker', '~> 3.2'
+# gem 'webpacker', '~> 3.2'
 
 
 
