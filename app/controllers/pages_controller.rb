@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def gallery
-    @films = Film.where(promo: true)[0..13]
+    @films = Film.where(promo: true).first(10)
   end
 
   def about

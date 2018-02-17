@@ -1,6 +1,11 @@
 var line = document.getElementById('playline-id[<%= @playline.id %>]');
-// line.classList.add('pre-animation');
-line.innerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline %>";
-// setTimeout(function(){
-//     line.classList.remove('pre-animation')
-// },4500)
+var changeButtons = document.querySelectorAll('.playline-changes');
+line.innerHTML = "<%= j render 'playlines/inline_form', playbook: @playbook, playline: @playline, times: @times %>";
+
+var saveButton = document.getElementById('save-line-button');
+saveButton.addEventListener('click', function(event) {
+  var id = line.getAttribute('data-id')
+  let dataToUpdate = buildObject(line);
+  fetchData(id, dataToUpdate, line, appendRow);
+});
+

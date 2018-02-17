@@ -16,17 +16,38 @@
   </div>
   <div class="container">
     <div class="row">
-      <div id="playlines-container">
-        <button type="submit" name="submit" id="sort-by-time">SORT BY TIME (in progress!)</button>
-        <ul ondragstart="" id="playlines">
+      <button type="submit" name="submit" id="sort-by-time">SORT BY TIME</button>
+      <table class="table table-striped">
+
+        <td>
+          Start time
+        </td>
+        <td>
+          Contact
+        </td>
+        <td>
+          Phone number
+        </td>
+        <td>
+          Location
+        </td>
+        <td>
+          Activity
+        </td>
+        <td>
+          Changes
+        </td>
+        <tbody id="playlines" ondragstart="">
           <% if @playbook.playlines.any? %>
           <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
           <%= render 'playlines/show', playline: playline %>
           <% end %>
           <% end %>
-        </ul>
-      </div>
-      <div class="row">
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="playline-form col-xs-12 col-sm-9 col-sm-offset-1" style="margin-top: 20px;">
         <%= render 'playlines/form', playbook: @playbook, playline: @playline, times: @times %>
       </div>
     </div>
@@ -34,22 +55,20 @@
 </div>
 </div>
 
+
 <script>
-  const timeButton = document.getElementById('sort-by-time');
-  let timedArray = [];
-  button.addEventListener('click', function(event){
-    var lines = document.querySelectorAll('.line');
-    // TO-DO SORT BY DATA ATTRIBUTE data-time
+  // const timeButton = document.getElementById('sort-by-time');
+  // let timedArray = [];
+  // button.addEventListener('click', function(event){
+  //   var lines = document.querySelectorAll('.line');
+  //   // TO-DO SORT BY DATA ATTRIBUTE data-time
 
-  });
-</script>
+  // });
 
+// soon as there is an order change -> pop up appears with 'save order'
 
-
-<!-- soon as there is an order change -> pop up appears with 'save order' -->
-<script>
-  const changeNotice = document.getElementById('change-notice')
-  function handleDragStart(e) {
+const changeNotice = document.getElementById('change-notice')
+function handleDragStart(e) {
     this.style.opacity = '1';  // this / e.target is the source node.
   }
 

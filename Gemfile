@@ -34,7 +34,6 @@ gem 'kaminari'
 
 # NAMED ID's
 gem 'friendly_id', '~> 5.1.0'
-gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 # MAILING

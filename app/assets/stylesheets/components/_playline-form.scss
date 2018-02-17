@@ -1,15 +1,14 @@
-.line-form {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  padding-left: 20px;
+.select {
+  width: 134px;
+  height: 47px;
+  margin: 1px 0px;
 }
 
-.form-location {
-  width: 100%;
+#new_playline .select {
+  margin-bottom: 10px !important;
 }
 
 
-.form-content {
-  width: 100%;
+.hide {
+  display: none;
 }

@@ -1,0 +1,19 @@
+<% if @playline.errors.any? %>
+
+{ "id": "<%= @playline.id %>",
+  "location": "<%= @playline.location %>",
+  "begin_time": "<%= @playline.begin_time %>",
+  "contact": "<%= @playline.contact %>",
+  "content": "<%= @playline.content %>",
+  "phone_number": "<%= @playline.phone_number %>",
+  "errors": "<%= @playline.errors.to_json %>"
+}
+<% else %>
+{ "id": "<%= @playline.id %>",
+  "location": "<%= @playline.location %>",
+  "begin_time": "<%= @playline.begin_time %>",
+  "contact": "<%= @playline.contact %>",
+  "content": "<%= @playline.content %>",
+  "phone_number": "<%= @playline.phone_number %>"
+}
+<% end %>
