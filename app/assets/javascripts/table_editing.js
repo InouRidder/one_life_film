@@ -34,5 +34,5 @@ function fetchData(id, body, line, callback) {
 
 function appendRow(data, line) {
   var id = data.id.toString();
-  line.outerHTML = "<tr draggable='true' id='playline-id[" + id + "]' data-time='" + data.numeric_time + "' data-id='" + id + "'><td>" + data.begin_time + "</td><td>" + data.contact + "</td><td>" + data.phone_number + "</td><td>" + data.location + "</td> <td>" + data.content + "</td> <td class='playline-changes'><a data-confirm='Sure?'' data-remote='true' rel='nofollow' data-method='delete' href='/playlines/" + id + "'> <i class='fa fa-trash-o' aria-hidden='true'></i></a><a data-remote='true' href='/playlines/" + id + "/edit'> <i class='fa fa-pencil' aria-hidden='true'></i></a></td></tr>";
+  line.outerHTML = "<tr draggable='true' id='playline-id[" + id + "]' data-time='" + data.numeric_time + "' data-id='" + id + "'><td>" + data.begin_time + "</td><td>" + data.contact + "</td><td>" + data.phone_number + "</td><td>" + data.location + "</td> <td>" + data.content + "</td> <td class='playline-changes'><a data-confirm='Sure?'' data-remote='true' rel='nofollow' data-method='delete' href='/playlines/" + id + "'> <i class='fa fa-trash-o' aria-hidden='true'></i></a> <a data-remote='true' href='/playlines/" + id + "/edit'> <i class='fa fa-pencil' aria-hidden='true'></i></a></td></tr>";
 }
