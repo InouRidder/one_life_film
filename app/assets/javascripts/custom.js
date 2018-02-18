@@ -525,6 +525,15 @@ $(function () {
 // Home Background Youtube Video
 
 	if ($(".bg-video-wrapper").length > 0) {
+    // Adding a 'loading image' that loads until the video starts
+    // https://stackoverflow.com/questions/9097605/how-to-make-a-loading-image-when-loading-html5-video
+    // $('#home-background').on('loadstart', function (event) {
+    //   $(this).addClass('loading');
+    // });
+    // $('#home-background').on('canplay', function (event) {
+    //   $(this).removeClass('loading');
+    //   // $(this).attr('poster', '');
+    // });
 
 	 /*Mute Value*/
 	    var video_control = $(".bgvideo-controls"),
