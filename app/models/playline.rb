@@ -3,7 +3,7 @@ class Playline < ApplicationRecord
 
   belongs_to :playbook
   validates :location, :content, presence: true
-  validates :content, length: { minimum: 10 }
+  validates :content, length: { minimum: 2 }
 
   def set_order
     self.order_number = self.playbook.playlines.length + 1
