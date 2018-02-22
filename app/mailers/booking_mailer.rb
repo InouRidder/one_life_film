@@ -8,7 +8,6 @@ class BookingMailer < ApplicationMailer
 
   def received(booking)
     @booking = booking
-
     mail(to: 'info@onelifefilm.nl', subject: "Nieuwe aanvraag")
     mail(to: booking.email_address, subject: "Request received by OneLife")
   end
@@ -16,5 +15,10 @@ class BookingMailer < ApplicationMailer
   def approved(booking)
     @booking = booking
     mail(to: booking.email_address, subject: "Booking approved by OneLife")
+  end
+
+  def reminder(booking)
+    @booking = booking
+    mail(to: booking.email_address, subject: "We need more information! Your wedding is in #{booking.days_till_wedding} days")
   end
 end

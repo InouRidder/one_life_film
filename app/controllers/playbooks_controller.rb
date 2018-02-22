@@ -1,6 +1,7 @@
 class PlaybooksController < ApplicationController
   before_action :set_playbook
   before_action :set_counts
+
   layout 'client'
 
   def show

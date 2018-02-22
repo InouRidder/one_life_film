@@ -38,6 +38,11 @@ class Booking < ApplicationRecord
     end
   end
 
+  def days_till_wedding
+    (Date.today - self.date_wedding).to_i
+  end
+
+
   def decline
     self.status = 'declined'
   end
