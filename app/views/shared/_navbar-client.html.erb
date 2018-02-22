@@ -1,28 +1,41 @@
-        <header class="page-header clearfix">
+<style>
+.red {
+  color: red !important;
+}
 
-            <!--Logo Wrapper-->
-            <a href="<%= root_path %>" class="logo-wrapper">
-            <b>
-              <%= @playbook.booking.name %>
-            </b>
-            </a>
+.green {
+  color: green !important;
 
-            <!--Mobile Menu Icon-->
-            <a href="#" class="mobile-nav-button">
-                <i class="icon"></i>
-            </a>
+}
 
-            <!--Menu Wrapper Starts-->
-              <nav class="manu-wrapper">
-                <ul>
-                  <li id="home">
-                    <%= link_to t('playbook'), playbook_path(@playbook) %>
-                  </li>
-                  <li id="gallery">
-                    <%= link_to t('music'), songs_playbook_path %>
-                  </li>
-                </ul>
-              </nav>
-            <!--Menu Wrapper End-->
+.orange {
+  color: orange !important;
+}
+</style>
+<header class="page-header clearfix">
 
-        </header>
+  <!--Logo Wrapper-->
+  <%= link_to playbook_path(@playbook), class: "logo-wrapper" do %>
+  <%= @playbook.booking.name %>
+
+  <% end %>
+
+  <!--Mobile Menu Icon-->
+  <a href="#" class="mobile-nav-button">
+    <i class="icon"></i>
+  </a>
+
+  <!--Menu Wrapper Starts-->
+  <nav class="manu-wrapper">
+    <ul>
+      <li id="home">
+        <%= link_to t('playbook') + "(#{@count}) ", playbook_path(@playbook), class: @playbook.colored_playline_state %>
+      </li>
+      <li id="gallery">
+        <%= link_to t('music')+ "(#{@music_count})", songs_playbook_path, class: @playbook.colored_music_state %>
+      </li>
+    </ul>
+  </nav>
+  <!--Menu Wrapper End-->
+
+</header>
