@@ -25,3 +25,37 @@ class Playbook < ApplicationRecord
     end
   end
 end
+
+class Decorator
+
+  def initialize(component)
+    @component = component
+  end
+
+  def decorated
+    @component
+  end
+
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

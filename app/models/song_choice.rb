@@ -9,8 +9,6 @@ class SongChoice < ApplicationRecord
   def max_allowed_songs
     if self.playbook.allowed_songs <= self.playbook.song_choices.count
       errors.add(:maximum_songs, "reached (#{self.playbook.allowed_songs})")
-    # else
-    #   true
-    end
+   end
   end
 end
