@@ -11,6 +11,7 @@ gem 'redis'
 gem 'faker'
 gem 'coffee-rails'
 
+# Front end Set Up
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
@@ -18,10 +19,12 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+
+# Add translations for Devise
 gem 'devise-i18n'
 
-
-
+# Add decorators
+gem 'draper'
 
 # TRANSLATIONS
 gem 'rails-i18n', '5.0.3'
@@ -31,7 +34,6 @@ gem 'pg_search'
 
 # PAGINATION
 gem 'kaminari'
-
 
 # NAMED ID's
 gem 'friendly_id', '~> 5.1.0'
