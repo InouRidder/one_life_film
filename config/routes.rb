@@ -36,7 +36,11 @@ Rails.application.routes.draw do
     get 'aanvragen', to: 'bookings#requests'
   end
 
-  resources :bookings, only: [:create]
+  resources :bookings, only: [:create] do
+    member do
+      post 'send_reminder', to: 'bookings#send_reminder'
+    end
+  end
 
   resources :playbooks, only: [:show] do
     member do
@@ -50,11 +54,6 @@ Rails.application.routes.draw do
     member do
       patch 'set_order'
     end
-  end
-
-
-  resources :booking_forms do
-    resources :booking_line
   end
 
 

@@ -1,10 +1,10 @@
-var changeButtons = document.querySelectorAll('.playline-changes');
-toggleHide(changeButtons);
-console.log('hello luca :italian:');
+// var changeButtons = document.querySelectorAll('.playline-changes');
+// toggleHide(changeButtons);
+// console.log('hello luca :italian:');
 
-var line = document.getElementById('playline-id[<%= @playline.id %>]');
-<% if @playline.errors.any? %>
-  line.innerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline, times: @times %>";
-<% else %>
-  line.outerHTML =  "<%= j render 'playlines/show', playline: @playline %>";
-<% end %>
+// var line = document.getElementById('playline-id[<%= @playline.id %>]');
+// <% if @playline.errors.any? %>
+//   line.innerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline, times: @times %>";
+// <% else %>
+//   line.outerHTML =  "<%= j render 'playlines/show', playline: @playline %>";
+// <% end %>

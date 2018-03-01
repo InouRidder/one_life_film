@@ -15,7 +15,7 @@
   <meta name="keywords" content="One, Life, OneLife, Wedding, Trouwen, Trouwerij, Film, Weddingfilm" />
   <meta name="author" content="Inou Ridder">
   <!--Meta Tags End-->
-
+  <%= yield(:head) %>
   <title>OneLife</title>
 
   <%= csrf_meta_tags %>
@@ -23,12 +23,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 </head>
 <body>
 
-  <%= render 'shared/flashes' %>
   <%= render 'shared/navbar' %>
+  <%= render 'shared/flashes' %>
   <%= yield %>
   <%= render 'shared/footer' %>
   <%= javascript_include_tag 'application' %>
