@@ -1,0 +1,43 @@
+<div class="modal fade" id="checklist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">CHECKLIST</h4>
+      </div>
+      <div class="modal-body flexed-checklist">
+        <div id="checked-data" class="check-toggle">
+        <ul style="padding: 40px 90px;" class="text-center">
+          <% @booking.checklist.each do |key, value| %>
+          <li class="flexed-items">
+            <p>
+              <strong> <%= key.to_s.gsub("_", " ").upcase %>:</strong>
+            </p>
+            <p>
+              <%= key == "date_wedding" ? value.strftime('%A, %b %d') : value %>
+            </p>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <div id="checklist-form" class="check-toggle hide text-center">
+        <%= render 'checklist_form', booking: @booking %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="toggle-check check-toggle" type="submit" name="submit"> Edit </button>
+      <button class="toggle-check check-toggle hide" type="submit" name="submit"> Back </button>
+      <button type="submit" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+  var buttons = document.querySelectorAll('.toggle-check')
+  var toggles = document.querySelectorAll('.check-toggle');
+  buttons.forEach(button => {button.addEventListener('click', (e) => {
+    toggles.forEach(toggle => toggle.classList.toggle('hide'))
+  });
+})
+</script>

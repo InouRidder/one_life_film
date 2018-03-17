@@ -100,8 +100,6 @@ class Admin::BookingsController < Admin::AdminController
     BookingMailer.reminder(@booking).deliver_now
   end
 
-
-
 private
 
   def set_booking

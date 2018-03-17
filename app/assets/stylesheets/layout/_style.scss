@@ -273,10 +273,10 @@ input[type="reset"]:focus {
     border: 2px solid #ccc;
 	color: #444;
 }
-input[type="text"],
+
 input[type="email"],
-input[type="date"],
 input[type="password"],
+.spaced-form,
 textarea,select {
     outline: 0;
 	margin: 0;

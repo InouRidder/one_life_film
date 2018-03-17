@@ -24,6 +24,7 @@ class PlaybooksController < ApplicationController
 
   def set_playbook
     @playbook = Playbook.find(params[:id]).decorate
+    @booking = @playbook.booking
   end
 
   def set_counts

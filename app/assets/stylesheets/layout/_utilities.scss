@@ -30,3 +30,8 @@ strong {
   display: inline-block;
 }
 
+.flexed-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

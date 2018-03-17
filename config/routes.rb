@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     get 'aanvragen', to: 'bookings#requests'
   end
 
-  resources :bookings, only: [:create]
+  resources :bookings, only: [:create, :update]
 
   resources :playbooks, only: [:show] do
     member do

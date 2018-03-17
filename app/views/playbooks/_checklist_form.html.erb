@@ -1,0 +1,14 @@
+<%= simple_form_for booking, input_html: {class: "inline-form"} do |f| %>
+<%= f.input :phone_number, placeholder: "Bride phone", input_html: { class: "checklist-form-input"}  %>
+<%= f.input :groom_number, placeholder: "Groom phone", input_html: { class: "checklist-form-input"}  %>
+<%= f.input :name, placeholder: "Name bride & groom", input_html: { class: "checklist-form-input"}  %>
+<%= f.input :location_wedding, placeholder: "Location Wedding", input_html: { class: "checklist-form-input"}  %>
+<div class="input">
+  <label for="contact-date"> Date Wedding</label>
+  <input type="date" name="booking[date_wedding]" class="checklist-form-input" placeholder="DATE" required autocomplete="off" id="contact-date" value="<%= @booking.date_wedding %>" >
+</div>
+<input type="hidden" name="user">
+<div class="flexed-items">
+  <%= f.submit value: t('checklist.update_button') %>
+</div>
+<% end %>

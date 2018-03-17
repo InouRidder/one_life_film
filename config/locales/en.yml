@@ -7,6 +7,8 @@ en:
   language: "nl_flag.png"
   playbook: "PLAYBOOK"
   music: 'MUZIEK'
+  checklist:
+    update_button: "Update"
   music_data:
     message: "Please choose %{max_songs} songs"
   playbook_data:

@@ -9,7 +9,7 @@
             </strong>
           </h5>
         </div>
-        <button type="submit" name="submit" data-toggle="modal" data-target="#myModal">
+        <button type="submit" name="submit" data-toggle="modal" data-target="#infoModal">
           <%= t('playbook_data.how_to_use.button') %>
         </button>
       </div>
@@ -81,8 +81,8 @@
         </h4>
         <% unless @songs.count >= @playbook.allowed_songs %>
         <%= simple_form_for([@playbook, @song_choice], remote: true) do |f| %>
-        <%= f.input :title, label: false, placeholder: 'Title of song' %>
-        <%= f.input :artist, label: false, placeholder: '...and the artist!' %>
+        <%= f.input :title, label: false, placeholder: 'Title of song', input_html: {class: "spaced-form"} %>
+        <%= f.input :artist, label: false, placeholder: '...and the artist!', input_html: {class: "spaced-form"} %>
         <button type="submit" name="submit" id="contact-submit">ADD SONG</button>
         <% end %>
         <% else %>
