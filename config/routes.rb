@@ -7,8 +7,6 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
-
-
   get '/admin', to: 'admin/dashboards#show'
 
   get 'playlines/:id', to: 'playlines#update'
@@ -23,6 +21,7 @@ Rails.application.routes.draw do
       end
       member do
         patch 'approve', to: 'bookings#approve'
+        post 'send_reminder', to: 'bookings#send_reminder'
       end
     end
     resources :songs, except: [:show] do
@@ -36,11 +35,7 @@ Rails.application.routes.draw do
     get 'aanvragen', to: 'bookings#requests'
   end
 
-  resources :bookings, only: [:create] do
-    member do
-      post 'send_reminder', to: 'bookings#send_reminder'
-    end
-  end
+  resources :bookings, only: [:create]
 
   resources :playbooks, only: [:show] do
     member do

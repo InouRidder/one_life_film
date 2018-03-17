@@ -1,4 +1,5 @@
 var newSongChoiceForm = document.getElementById('song-form');
+var noSongMessage = document.getElementById('no-songs-message');
 var errors = document.getElementById('errors');
 
 <% if @song_choice.errors.any? %>
@@ -7,6 +8,7 @@ var errors = document.getElementById('errors');
 <% else %>
   var song_choices = document.getElementById('selected-songs');
   song_choices.insertAdjacentHTML("beforeend", "<%= j render 'song_choices/show', song_choice: @song_choice, playbook: @playbook %>");
+  noSongMessage.innerHTML = "";
 <% end %>
 
 <% if @playbook.song_choices.count >= @playbook.allowed_songs %>

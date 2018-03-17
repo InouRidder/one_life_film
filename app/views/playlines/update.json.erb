@@ -1,6 +1,7 @@
 <% if @playline.errors.any? %>
   { "id": "<%= @playline.id %>",
-    "location": "<%= @playline.location %>",
+    "city": "<%= @playline.city %>",
+    "address": "<%= @playline.address %>",
     "begin_time": "<%= @playline.begin_time %>",
     "contact": "<%= @playline.contact %>",
     "content": "<%= @playline.content %>",
@@ -10,7 +11,8 @@
   }
 <% else %>
   { "id": "<%= @playline.id %>",
-    "location": "<%= @playline.location %>",
+    "city": "<%= @playline.city %>",
+    "address": "<%= @playline.address %>",
     "begin_time": "<%= @playline.begin_time %>",
     "contact": "<%= @playline.contact %>",
     "numeric_time": "<%= @playline.numeric_time %>",

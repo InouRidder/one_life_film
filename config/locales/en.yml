@@ -1,24 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   home: "HOME"
   about: "ABOUT"
@@ -28,6 +7,25 @@ en:
   language: "nl_flag.png"
   playbook: "PLAYBOOK"
   music: 'MUZIEK'
+  music_data:
+    message: "Please choose %{max_songs} songs"
+  playbook_data:
+    day_format: 'DAY FORMAT'
+    sort_button: "SORT BY TIME"
+    how_to_use:
+      button: "MANUAL"
+      data_welcome: "Welcome to the OneLife Film preparation tool"
+      data_sub: "Through this tool you can pass on your choices of music and the planning of the wedding day to the video team. Considering this is a cloud based tool, all the data you fill in will be with the OneLife team as soon as you enter them"
+      data_content_playbook: "Through the day planning tool you can pass on all the important moments of the day and in doing so making sure that the video team knows where to be and at what time. To make sure the day goes as smoothly as possible, we also ask you for a contact person including their phone number for every moment and the city and address.\n We have added some initial events for you to follow. These events can be adjusted or removed by using respectively the pen or the gargbage button.\n After adjusting or removing the suggested events and replacing them with yours, you can also add custom events at the bottom of the tool. All events are ordered by time, hence after adding an event you can click on the SORT BY TIME button to make sure everyhing is back in the right order"
+      data_content_music: "On the left hand side you can see the OneLife Film music collection. These are all songs that have proven through our experience to work really well on wedding videos, and are beautiful songs too. To listen to the songs, click on 'listen', or to add it to your selection, click on 'select'.\n On the right hand side you will find a form where you can add music that is not included in our collection. Simply add the name of the artist and the title of the song.\n Just below the form you will your personal selection"
+    playbook_headers:
+      start_time: "Start time"
+      activity: "Activity"
+      contact: "Contact"
+      phone_number: "Phone Number"
+      address: "Address"
+      city: "City"
+      changes: "Changes"
   time:
     formats:
       long: "%Y-%m-%d %H:%M:%S"

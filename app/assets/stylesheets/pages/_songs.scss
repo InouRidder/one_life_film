@@ -1,0 +1,64 @@
+#message {
+  width: 50%;
+  padding: 5px;
+}
+.song-info {
+  padding: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.square-box {
+  border: 0.2px solid lightgrey;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px rgba(140,140,140,0.4);
+  min-height: 110vh;
+}
+.song-row {
+  margin: 2px;
+}
+
+.scroll-box {
+  max-height: 100vh;
+  width: 100%;
+  padding: 0px 10px;
+  overflow: scroll;
+}
+
+.select-button {
+  margin: 0;
+  border: 2px solid #cccccc;
+  color: #444;
+  background: transparent;
+  display: inline-block;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  min-width: 80px;
+  outline: none;
+  padding: 10px 22px;
+  text-transform: capitalize;
+}
+
+.padding-top-50 {
+  padding-top: 50px;
+}
+
+.song-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.song-title {
+  min-width: 100px;
+  max-width: 200px;
+}
+
+.song-artist {
+  min-width: 100px;
+  max-width: 200px;
+}

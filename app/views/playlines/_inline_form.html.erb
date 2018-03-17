@@ -1,21 +1,24 @@
 <%= simple_form_for([playbook, playline], remote: true) do |f| %>
 <td>
-  <%= f.input :begin_time, label: false, collection: times, prompt: "START TIME"%>
+  <%= f.input :begin_time, label: false, collection: times, prompt: t('playbook_data.playbook_headers.start_time')%>
   </td>
   <td>
-  <%= f.input :contact, label: false, placeholder: "CONTACT", input_html: { class: 'form-contact' } %>
+  <%= f.input :content, label: false, placeholder: t('playbook_data.playbook_headers.activity'), input_html: { class: 'form-content' } %>
+  </td>
+  <td>
+  <%= f.input :contact, label: false, placeholder: t('playbook_data.playbook_headers.contact'), input_html: { class: 'form-contact' } %>
 </td>
   <td>
-    <input type="text" name="playline[phone_number]" placeholder="PHONE NUMBER" required autocomplete="off" id="playline_phone_number" value="<%= playline.phone_number %>">
+    <input type="text" name="playline[phone_number]" placeholder="<%=   t('playbook_data.playbook_headers.phone_number') %>" required autocomplete="off" id="playline_phone_number" value="<%= playline.phone_number %>">
   </td>
   <td>
-  <%= f.input :location, label: false, placeholder: "LOCATION", input_html: { class: 'form-location' } %>
+  <%= f.input :address, label: false, placeholder: t('playbook_data.playbook_headers.address'), input_html: { class: 'form-location' } %>
   </td>
   <td>
-  <%= f.input :content, label: false, placeholder: "ACTIVITY", input_html: { class: 'form-content' } %>
+  <%= f.input :city, label: false, placeholder: t('playbook_data.playbook_headers.city'), input_html: { class: 'form-location' } %>
   </td>
   <td style="width:100%; height:100%; display:block; text-align:center">
-    <button type="submit" style="z-index: 9999; margin-top:4px; height: 45px;" name="submit" id="save-line-button">SAVE</button>
+    <button type="submit" style="z-index: 9999; margin-top:4px; height: 45px;" name="submit" id="save-line-button-<%= playline.id %>">SAVE</button>
   </td>
 <% end %>
 

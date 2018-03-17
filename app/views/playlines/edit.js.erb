@@ -1,11 +1,17 @@
-var line = document.getElementById('playline-id[<%= @playline.id %>]');
-var changeButtons = document.querySelectorAll('.playline-changes');
-line.innerHTML = "<%= j render 'playlines/inline_form', playbook: @playbook, playline: @playline, times: @times %>";
+function addListenerForUpdate(line) {
+  var saveButton = document.getElementById("save-line-button-<%= @playline.id %>");
+  saveButton.addEventListener('click', function(event) {
+    var id = line.getAttribute('data-id')
+    var dataToUpdate = buildObject(line);
+    fetchData(id, dataToUpdate, line, appendRow);
+  });
+}
 
-var saveButton = document.getElementById('save-line-button');
-saveButton.addEventListener('click', function(event) {
-  var id = line.getAttribute('data-id')
-  var dataToUpdate = buildObject(line);
-  fetchData(id, dataToUpdate, line, appendRow);
-});
+function changeLineToForm() {
+  const line = document.getElementById('playline-id[<%= @playline.id %>]');
+  var changeButtons = document.querySelectorAll('.playline-changes');
+  line.innerHTML = "<%= j render 'playlines/inline_form', playbook: @playbook, playline: @playline, times: @times %>";
+  addListenerForUpdate(line);
+}
 
+changeLineToForm();

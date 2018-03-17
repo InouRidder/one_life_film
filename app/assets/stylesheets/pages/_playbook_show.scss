@@ -1,0 +1,25 @@
+#playbook-wrapper {
+  min-height: 100vh;
+  background-color: #EEEE;
+}
+
+.playline-changes {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.booking-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px 50px;
+}
+
+.top-table-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}

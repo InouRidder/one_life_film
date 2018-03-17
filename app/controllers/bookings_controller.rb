@@ -18,9 +18,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  def send_reminder
-    BookingMailer.reminder(@booking).deliver_now
-  end
 
   private
 

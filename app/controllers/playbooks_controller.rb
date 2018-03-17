@@ -6,9 +6,12 @@ class PlaybooksController < ApplicationController
 
   def show
     @times = Playline::TIMES
-
+    @booking = @playbook.booking
     @playline = Playline.new
-    redirect_to root_path unless current_user.playbook == @playbook || current_user.admin
+    unless current_user.playbook == @playbook || current_user.admin
+      redirect_to root_path
+      flash[:alert] = "No access"
+    end
   end
 
   def songs
@@ -20,7 +23,7 @@ class PlaybooksController < ApplicationController
   private
 
   def set_playbook
-    @playbook = Playbook.find(params[:id])
+    @playbook = Playbook.find(params[:id]).decorate
   end
 
   def set_counts

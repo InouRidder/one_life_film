@@ -34,7 +34,6 @@ function sortTable() {
       shouldSwitch = false;
       /* Get the two elements you want to compare,
       one from current row and one from the next: */
-      debugger;
       x = parseFloat(rows[i].getAttribute('data-time'));
       y = parseFloat(rows[i + 1].getAttribute('data-time'));
       // Check if the two rows should switch place:
