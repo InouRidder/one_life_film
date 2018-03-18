@@ -7,7 +7,9 @@ class Playbook < ApplicationRecord
   def add_suggestive_lines
     prerequisites = Playline::SUGGESTED_LINES
     prerequisites.each do |prereq|
-      self.playlines.build(prereq).save
+      playline = Playline.new(prereq)
+      playline.playbook = self
+      playline.save
     end
   end
 end
