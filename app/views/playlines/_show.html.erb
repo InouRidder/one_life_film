@@ -1,6 +1,9 @@
-<tr draggable="true" id="playline-id[<%= playline.id %>]" data-id="<%= playline.id %>" data-time="<%= playline.numeric_time %>">
+<tr draggable="true" id="playline-id[<%= playline.id %>]" data-id="<%= playline.id %>" data-time="<%= playline.numeric_time %>" data-order="<%= playline.order_number %>">
   <td>
     <%= playline.begin_time %>
+  </td>
+  <td>
+    <%= playline.content %>
   </td>
   <td>
     <%= playline.contact %>
@@ -9,17 +12,17 @@
     <%= playline.phone_number %>
   </td>
   <td>
-    <%= playline.location %>
+    <%= playline.address %>
   </td>
   <td>
-    <%= playline.content %>
+    <%= playline.city %>
   </td>
   <td class="playline-changes">
     <%= link_to  playline_path(playline), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
-    <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <i class="fa fa-trash-o fa-1x" aria-hidden="true"></i>
   <% end %>
   <%= link_to edit_playline_path(playline), remote: true do %>
-    <i class="fa fa-pencil" aria-hidden="true"></i>
+    <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
   <% end %>
   </td>
 </tr>

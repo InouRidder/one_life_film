@@ -1,70 +1,24 @@
-<style>
-.square-box {
-  padding: 50px;
-}
-.song-row {
-  /*word-spacing: 10px;*/
-  /*letter-spacing: 2px;*/
-  margin: 2px;
-}
-
-.scroll-box {
-  max-height: 100vh;
-  width: 100%;
-  overflow: scroll;
-}
-
-.select-button {
-  margin: 0;
-  border: 2px solid #cccccc;
-  color: #444;
-  background: transparent;
-  display: inline-block;
-  cursor: pointer;
-  font-family: 'Lato', sans-serif;
-  font-size: 12px;
-  letter-spacing: 1px;
-  font-weight: 400;
-  min-width: 80px;
-  outline: none;
-  padding: 10px 22px;
-  text-transform: capitalize;
-}
-
-
-.padding-top-50 {
-  padding-top: 50px;
-}
-
-.song-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.song-title {
-  min-width: 100px;
-  max-width: 200px;
-}
-
-.song-artist {
-  min-width: 100px;
-  max-width: 200px;
-}
-
-
-</style>
-
 <div class="container">
-  <div id="message">
-
-  </div>
   <div class="row">
-    <div class="col-xs-12 col-md-6">
-      <div class="square-box scroll-box">
-        <h4>
-          Our Suggestions
-        </h4>
+    <div class="col-xs-12">
+      <div class="song-info">
+        <div id="message">
+          <h5>
+            <strong>
+              <%= t('music_data.message', max_songs: @playbook.allowed_songs) %>
+            </strong>
+          </h5>
+        </div>
+        <button type="submit" name="submit" data-toggle="modal" data-target="#infoModal">
+          <%= t('playbook_data.how_to_use.button') %>
+        </button>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 square-box ">
+      <h4>
+        OneLife Collection
+      </h4>
+      <div class="scroll-box">
         <ul>
           <% @selection.each do |song| %>
           <li>
@@ -91,53 +45,54 @@
         </ul>
       </div>
     </div>
-    <div class="square-box">
-      <div class="col-xs-12 col-md-6">
-        <div id="song-form">
-        <h4>
-          Add your own song
-        </h4>
-          <% unless @songs.count >= @playbook.allowed_songs %>
-          <%= simple_form_for([@playbook, @song_choice], remote: true) do |f| %>
-          <%= f.input :title, label: false, placeholder: 'Title of song' %>
-          <%= f.input :artist, label: false, placeholder: '...and the artist!' %>
-          <button type="submit" name="submit" id="contact-submit">ADD SONG</button>
-          <% end %>
-          <% else %>
-          <h3>
-            <%= @songs.count %> of <%= @playbook.allowed_songs %>
-          </h3>
-          <% end %>
-        </div>
-        <% if @songs.any? %>
-        <div class="songs-container padding-top-50">
-          <h4>
-            Your selection
-          </h4>
-          <div id="errors">
 
-          </div>
-          <ul id="selected-songs">
-            <% @songs.each do |song| %>
-            <li id=song-choice-id[<%= song.id %>]>
-              <div class="song-row">
-                <%= song.title.upcase %>
-                -
-                <%= song.artist.upcase %>
-                <%= link_to  playbook_song_choice_path(@playbook, song), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
-                <button class="select-button">REMOVE</button>
-                <% end %>
-              </div>
-            </li>
-            <% end %>
-          </ul>
+    <div class="col-xs-12 col-md-6 square-box">
+      <div class="songs-container padding-top-50">
+        <h4>
+          Selected
+        </h4>
+        <ul id="selected-songs">
+          <% if @songs.any? %>
+          <% @songs.each do |song| %>
+          <li id=song-choice-id[<%= song.id %>]>
+            <div class="song-row">
+              <%= song.title.upcase %>
+              -
+              <%= song.artist.upcase %>
+              <%= link_to  playbook_song_choice_path(@playbook, song), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
+              <button class="select-button">REMOVE</button>
+              <% end %>
+            </div>
+          </li>
+          <% end %>
           <% else %>
-          <p>
+          <p id="no-songs-message">
             No songs chosen yet!
           </p>
-          <% end %>
+        </ul>
+        <% end %>
+        <div id="errors">
+
         </div>
+      </div>
+      <div id="song-form">
+        <h4>
+          Add your own
+        </h4>
+        <% unless @songs.count >= @playbook.allowed_songs %>
+        <%= simple_form_for([@playbook, @song_choice], remote: true) do |f| %>
+        <%= f.input :title, label: false, placeholder: 'Title of song', input_html: {class: "spaced-form"} %>
+        <%= f.input :artist, label: false, placeholder: '...and the artist!', input_html: {class: "spaced-form"} %>
+        <button type="submit" name="submit" id="contact-submit">ADD SONG</button>
+        <% end %>
+        <% else %>
+        <h3>
+          <%= @songs.count %> of <%= @playbook.allowed_songs %>
+        </h3>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<%= render 'info', type: 'music' %>

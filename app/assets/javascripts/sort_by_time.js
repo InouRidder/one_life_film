@@ -1,20 +1,25 @@
 function saveOrder(lines) {
   count = 1
+  var idsAndCounts = {}
   for (i = 0; i < (lines.length); i ++) {
     var line = lines[i]
-    fetch("/playlines/" + line.getAttribute('data-id') + "/set_order", {
-      method: "PATCH",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        order_number: count,
-        credentials: 'same-origin'
-      })
-    });
+    var id = line.getAttribute('data-id')
+    if (line.getAttribute('data-order') != count) {
+      idsAndCounts[id] = count
+    }
     count ++;
   }
+  fetch("/playlines/set_order", {
+    method: "PATCH",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      new_order: idsAndCounts,
+      credentials: 'same-origin'
+    })
+  });
 }
 
 function sortTable() {
@@ -34,7 +39,6 @@ function sortTable() {
       shouldSwitch = false;
       /* Get the two elements you want to compare,
       one from current row and one from the next: */
-      debugger;
       x = parseFloat(rows[i].getAttribute('data-time'));
       y = parseFloat(rows[i + 1].getAttribute('data-time'));
       // Check if the two rows should switch place:

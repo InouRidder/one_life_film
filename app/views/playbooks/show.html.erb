@@ -1,41 +1,37 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div style="position: fixed" class="alert alert-info alert-dismissible" id="change-notice" role="alert" hidden>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  Please save the order by clicking the save order button!
-  <button id="save-order" class="btn"> Save order </button>
-</div>
-
 <div id="playbook" class="tab-content">
-  <div class="playbook-date text-center" style="padding: 20px 0px;">
-    <h1>
-      <%= @playbook.booking.date_wedding.strftime('%A, %b %d') %>
-    </h1>
-    <p>
-      By <%= @playbook.booking.name %>
-    </p>
-  </div>
   <div class="container">
     <div class="row">
-      <button type="submit" name="submit" id="sort-by-time">SORT BY TIME</button>
-      <table class="table table-striped">
+      <div class="top-table-data">
+        <h5>
+          <strong> <%= t('playbook_data.day_format') %></strong>
+        </h5>
+        <button type="submit" name="submit" data-toggle="modal" data-target="#infoModal">
+          <%= t('playbook_data.how_to_use.button') %>
+        </button>
+      </div>
+      <table class="table table-hover">
         <td>
-          Start time
+          <%= t('playbook_data.playbook_headers.start_time') %>
         </td>
         <td>
-          Contact
+          <%= t('playbook_data.playbook_headers.activity') %>
         </td>
         <td>
-          Phone number
+          <%= t('playbook_data.playbook_headers.contact') %>
         </td>
         <td>
-          Location
+          <%= t('playbook_data.playbook_headers.phone_number') %>
         </td>
         <td>
-          Activity
+          <%= t('playbook_data.playbook_headers.address') %>
         </td>
         <td>
-          Changes
+          <%= t('playbook_data.playbook_headers.city') %>
+        </td>
+        <td>
+          <%= t('playbook_data.playbook_headers.changes') %>
         </td>
         <tbody id="playlines">
           <% if @playbook.playlines.any? %>
@@ -47,7 +43,7 @@
       </table>
     </div>
     <div class="row">
-      <div class="playline-form col-xs-12 col-sm-9 col-sm-offset-1" style="margin-top: 20px;">
+      <div class="playline-form col-xs-12" style="margin-top: 20px;">
         <%= render 'playlines/form', playbook: @playbook, playline: @playline, times: @times %>
       </div>
     </div>
@@ -55,9 +51,7 @@
 </div>
 </div>
 
-<%= content_for(:after_js) do %>
-  <script>
-    var timeButton = document.getElementById('sort-by-time');
-    timeButton.addEventListener('click', sortTable);
-  </script>
-<% end %>
+
+<!-- Modal -->
+<%= render 'info', type: 'playbook' %>
+

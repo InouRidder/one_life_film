@@ -1,20 +1,24 @@
 <% if @playline.errors.any? %>
   { "id": "<%= @playline.id %>",
-    "location": "<%= @playline.location %>",
+    "city": "<%= @playline.city %>",
+    "address": "<%= @playline.address %>",
     "begin_time": "<%= @playline.begin_time %>",
     "contact": "<%= @playline.contact %>",
     "content": "<%= @playline.content %>",
+    "order_number": "<%= @playline.order_number %>",
     "numeric_time": "<%= @playline.numeric_time %>",
     "phone_number": "<%= @playline.phone_number %>",
     "errors": "<%= @playline.errors.to_json %>"
   }
 <% else %>
   { "id": "<%= @playline.id %>",
-    "location": "<%= @playline.location %>",
+    "city": "<%= @playline.city %>",
+    "address": "<%= @playline.address %>",
     "begin_time": "<%= @playline.begin_time %>",
     "contact": "<%= @playline.contact %>",
-    "numeric_time": "<%= @playline.numeric_time %>",
     "content": "<%= @playline.content %>",
+    "order_number": "<%= @playline.order_number %>",
+    "numeric_time": "<%= @playline.numeric_time %>",
     "phone_number": "<%= @playline.phone_number %>"
   }
 <% end %>

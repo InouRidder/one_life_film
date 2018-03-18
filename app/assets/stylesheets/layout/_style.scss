@@ -273,10 +273,10 @@ input[type="reset"]:focus {
     border: 2px solid #ccc;
 	color: #444;
 }
-input[type="text"],
+
 input[type="email"],
-input[type="date"],
 input[type="password"],
+.spaced-form,
 textarea,select {
     outline: 0;
 	margin: 0;
@@ -3064,6 +3064,25 @@ a, a:visited,a:after,a:before,button,ul li,ul li a,ol li, ol li a,li:after,.li:b
     right:-10px;
     left:auto;
 }
+@media (max-width: 550px) {
+  #home-background {
+    display: none;
+  }
+  #home-background-mobile {
+    display: inline;
+    background-image: asset-url('mobile_banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+  }
+}
+
+@media (min-width: 550px) {
+  #home-background-mobile {
+    display: none
+  }
+}
+
 .video-cover{
     background-color:transparent;
  }

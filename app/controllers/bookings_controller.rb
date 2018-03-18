@@ -1,12 +1,11 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :new, :create ]
-  before_action :set_booking, only: [:send_reminder]
+  skip_before_action :authenticate_user!, only: [ :new, :create]
+  before_action :set_booking, only: [:send_reminder, :update]
   def new
     @booking = Booking.new
   end
 
   def create
-    # TODO Booking wedding date not saved !
     @booking = Booking.new(booking_params)
     if @booking.save
       flash[:notice] = "We will address your request shortly"
@@ -18,9 +17,15 @@ class BookingsController < ApplicationController
     end
   end
 
-  def send_reminder
-    BookingMailer.reminder(@booking).deliver_now
+  def update
+    if @booking.update(booking_params)
+      redirect_to playbook_path(@booking.playbook)
+      flash[:notice] = "Checklist updated!"
+    else
+      render 'playbooks/show'
+    end
   end
+
 
   private
 
@@ -29,7 +34,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:phone_number, :date_wedding, :location_wedding, :name, :email_address, :subject, :description)
+    params.require(:booking).permit(:phone_number, :date_wedding, :location_wedding, :name, :email_address, :subject, :description, :groom_number)
   end
 
 end

@@ -42,6 +42,9 @@ class Booking < ApplicationRecord
     (Date.today - self.date_wedding).to_i
   end
 
+  def checklist
+    self.attributes.slice("phone_number", "name", "email_address", "location_wedding", "date_wedding", "groom_number")
+  end
 
   def decline
     self.status = 'declined'

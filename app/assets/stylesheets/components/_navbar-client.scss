@@ -4,9 +4,26 @@
 
 .green {
   color: green !important;
-
 }
 
 .orange {
   color: orange !important;
+}
+
+.hide {
+  display: none;
+}
+
+.checklist-form-input {
+  padding: 10px;
+  margin: 3px;
+}
+.input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.checklist-form {
+  width: 100%;
+  padding: 10px 40px;
 }

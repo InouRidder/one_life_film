@@ -1,0 +1,24 @@
+table th {
+  background-color: rgb(50,50,50);
+  border-radius: 0px;
+}
+th.datepicker-switch {
+  border-radius: 0px !important;
+}
+th.prev {
+  border-radius: 0px !important;
+  border-top-left-radius: 4px !important;
+}
+th.next {
+  border-radius: 0px !important;
+  border-top-right-radius: 4px !important;
+}
+th.dow {
+  background-color: rgb(164, 149, 95);
+  border-radius: 0px !important;
+}
+td.active.day {
+  color: #fff !important;
+  background-color: rgb(164, 149, 95) !important;
+  border-color: rgb(178, 164, 119) !important;
+}

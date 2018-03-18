@@ -96,7 +96,9 @@ class Admin::BookingsController < Admin::AdminController
     end
   end
 
-
+  def send_reminder
+    BookingMailer.reminder(@booking).deliver_now
+  end
 
 private
 

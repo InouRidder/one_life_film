@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180207142744) do
+ActiveRecord::Schema.define(version: 20180318090021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20180207142744) do
     t.date "date_wedding"
     t.string "status", default: "pending"
     t.bigint "user_id"
+    t.string "groom_number"
+    t.string "dress_code"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -40,6 +42,8 @@ ActiveRecord::Schema.define(version: 20180207142744) do
     t.string "password"
     t.boolean "promo", default: false
     t.string "poster"
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_films_on_booking_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -65,13 +69,14 @@ ActiveRecord::Schema.define(version: 20180207142744) do
   create_table "playlines", force: :cascade do |t|
     t.bigint "playbook_id"
     t.string "content"
-    t.string "location"
     t.string "begin_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "order_number"
     t.string "contact"
     t.string "phone_number"
+    t.string "city"
+    t.string "address"
     t.index ["playbook_id"], name: "index_playlines_on_playbook_id"
   end
 
@@ -113,6 +118,7 @@ ActiveRecord::Schema.define(version: 20180207142744) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "films", "bookings"
   add_foreign_key "playlines", "playbooks"
   add_foreign_key "song_choices", "playbooks"
   add_foreign_key "song_choices", "songs"

@@ -7,6 +7,27 @@ nl:
   language: "en_flag.png"
   playbook: "DRAAIBOEK"
   music: 'MUZIEK'
+  checklist:
+    update_button: "Bijwerken"
+  music_data:
+    message: "Kies %{max_songs} nummers"
+  playbook_data:
+    day_format: 'DAG INDELING'
+    sort_button: "SORTEER OP TIJD"
+    how_to_use:
+      button: "GEBRUIKSAANWIJZING"
+      data_welcome: "Welkom bij de OneLife Film voorbereidings tool"
+      data_sub: "Met deze tool kunt u de muziek keuze, dagindeling en essentiele checklist voor uw aankomende bruiloft aan het video team doorgeven. Aangezien dit cloud applicatie is, is alle informatie direct bij het OneLife team nadat u het doorgeeft."
+      data_content_playbook: "Met de dagindeling tool kunt u alle belangrijke evenementen doorgeven aan het video team, zodat zij weten waar en hoelaat ze ergens moeten zijn, en daarnaast ook wie ze kunnen bereiken zodat we zeker weten dat de dag soepel verloopt.\n We hebben initieel al een aantal evenementen toegevoegd, deze kunt u aanpassen door in de tabel onder 'aanpassingen' op de pen te klikken. Mocht u een evenement niet nodig hebben kunt u op de prullenbak klikken om deze te verwijderen.\n Daarnaast kunt u ook uw eigen evenementen toevoegen onderaan de tool. Alle evenementen worden gesorteerd op tijd. Wanneer de volgorde niet klopt, kunt u simpelweg de tijd aanpassen"
+      data_content_music: " Aan de linkerkant ziet u de OneLife film muziek collectie, dit zijn allen nummers die uit onze ervaring erg goed werken onder trouw films, u kunt deze beluisteren door op 'luisteren' te klikken, en u kunt deze selecteren door op 'selecten' te klikken.\n Daarnaast beschikt u ook over de mogelijkheid om uw eigen muziek toe te voegen, dit doet u aan de rechterkant door het formulier in te vullen, door simpelweg de artiest naam en de titel van het nummer in te vullen en dan op 'toevoegen drukken'.\n Onder het formulier vind u uw muziek selectie"
+    playbook_headers:
+      start_time: "Begin tijd"
+      activity: "Activiteit"
+      contact: "Contact"
+      phone_number: "Telefoon nummer"
+      address: "Adress"
+      city: "Stad"
+      changes: "Aanpassingen"
   time:
     formats:
       long: "%Y-%m-%d %H:%M:%S"
