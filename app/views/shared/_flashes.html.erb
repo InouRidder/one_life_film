@@ -11,9 +11,11 @@
   </div>
 <% end %>
 <% if notice || alert %>
-<script>
-  setTimeout(function(){
-  $('#flash').slideUp();
-}, 5000);
-</script>
+  <%= content_for(:after_js) do %>
+    <script>
+      setTimeout(function(){
+      $('#flash').slideUp();
+    }, 5000);
+    </script>
+  <% end %>
 <% end %>
