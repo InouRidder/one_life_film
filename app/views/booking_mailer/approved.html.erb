@@ -1,15 +1,241 @@
-<h1> Your booking has been approved ! </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 
-<h3>Playbook</h3>
+</head>
+<style>
+body {
+  padding: 40px;
+  background-color: rgb(249,249,249);
+  color: rgb(8,8,8);
+}
 
-<p>
-  What we need from you now is a playbook, basically what is going to happen on the day or days of your wedding. We have created a tool where you can easily create the playbook. The following link will guide you to the tool!
-</p>
-  <a href="http:/localhost:3000/playbooks/<%= @booking.playbook.id %>"> My playbook</a>
+h1,h2,h3,h4,h5 {
+  font-family: 'Open Sans', sans-serif;
+}
 
-<h3> Music </h3>
+p {
+  font-family: 'Roboto', sans-serif;
+  size: 30px;
+  line-height: 20px;
+}
+i:hover {
+  color: lightgrey;
+}
+.underline-title {
+    border-bottom: 7px solid rgba(164, 149, 95,0.7);
+  -webkit-box-shadow: inset 0 1px 0 rgba(164, 149, 95,0.38);
+  box-shadow: inset 0 -4px 0 rgba(164, 149, 95,0.38);
+  -webkit-transition: background .2s ease;
+  transition: background .2s ease;
+  height: 20px;
+  display: inline-block;
+}
+a {
+  color: rgb(8,8,8);
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(8,8,8);
+  text-decoration: none;
+}
+</style>
 
-<p>
-  We have created a library of music, of which we know it works really well with video. Please select a song from our library, if you prefer to choose your own music, please get in touch with us!
-</p>
+<body>
 
+
+<div class="container">
+  <div class="row">
+    <a href="http:/localhost:3000/playbooks/<%= @booking.playbook.id %>"> <h2>Persoonlijke pagina en <strong class="underline-title"> voorbereidings tool </strong></h2></a>
+  <br>
+  <br>
+  <h3>
+    Hi <%= @booking.name %>,
+  </h3>
+  <p>
+    Hoe gaat het met jullie?
+  </p>
+  <p>
+    Ik ben natuurlijk heel erg benieuwd naar de invulling van de trouwdag. Wat gaat er allemaal gebeuren?
+  </p>
+  <p>
+    Om alvast een beeld te krijgen van jullie trouwdag,  wil ik jullie vragen om mij in <strong> GROTE </strong> stappen een beeld te schetsen van deze dag. Om dit zo gemakkelijk mogelijk te maken, vragen wij u gebruik te maken van de <a href=""> tool </a> in uw persoonlijke webpagina op de OneLife film web applicatie.
+  </p>
+  <p>
+    Door op de link te klikken komt u in uw persoonlijke deel van onze website. Hier zal uiteindelijk ook uw film te vinden zijn, maar voor nu gebruiken we deze als tool om de voorbereiding te doen.
+    Er zijn twee dingen die we nodig hebben, uw muziek keuze en een dag indeling in grote lijnen.
+  </p>
+  <h2>Draaiboek</h2>
+  <p>
+    Als u naar de link gaat beland u in de tool in de sectie van het draaiboek. Hier hebben wij al een voorbeeld van een draaiboek voor u klaar staan, we vragen u deze aan te passen. Dat kan door op het pennetje aan de rechterkant te drukken onder het kopje 'aanpassingen'. Ook kunt een rij verwijderen door op de prullenbak te drukken.
+    Mocht u nog andere evenementen willen toevoegen, dan kunt u aan de onderkant van de tabel en formulier vinden waar u de informatie invult. De tool sorteert automatisch op tijd, dus wanneer de volgorde niet klopt kunt u de tijd aanpassen.
+  </p>
+
+  <h2>
+    Muziek
+  </h2>
+  <p> De tool hiervoor is te vinden onder het kopje 'Muziek' in uw persoonlijke webpagina. Hier vind u ook onze collectie van muziek waarvan wij geloven dat de nummers goed werken</p>
+  <br>
+  <p>
+    Dit  is een heel belangrijk onderdeel.
+  </p>
+  <p>
+    De editor gaat op jullie uitgekozen muziek de film op de trouwdag maken. We willen 3 verschillende muzieknummers,  zodat we allerlei emoties kunnen vangen.
+  </p>
+  <p>
+    Daarom vragen wij jullie een keus te maken voor 3 verschillende muzieknummers in OPBOUW van  tempo.
+  </p>
+  <p>
+    Hierbij een muziekkeuze voorbeeld  die helemaal klopt  qua oplopen in  tempo..
+  </p>
+  <p>
+    1.    The look of love – Diana Krall          Rustig
+    2.    Paradise - Coldplay                   Meer tempo
+    3.    Blessed- Tom Hangs & Shermanologyen       Uptempo
+  </p>
+
+  <p>
+    Nu heb ik jullie dit een voorbeeld gegeven die qua romantiek en opbouw met de juiste spanning helemaal goed is. Maar misschien houden jullie helemaal niet van Coldplay, en zijn collega’s : ) !
+    Dan kunnen jullie onderin nog allerlei muzieknummers vinden, die zijn al onderverdeeld in tempo zodat het makkelijk kiezen is.
+  </p>
+  <p>
+    Mocht ook daarin helemaal  niets tussen staan wat jullie mooi vinden, dan mogen jullie natuurlijk zelf deze uitdaging aan gaan.kunnen  Let dan wel goed op, dat de muziek duidelijk opbouwend is in tempo en dat het drie keer totaal andere nummers zijn.
+  </p>
+  <p>
+    De volgorde van de muziek mogen jullie los laten, deze wordt op jullie trouwdag pas gemaakt aan de hand van de film beelden..Allen blijft het up-tempo nummer natuurlijk wel als laatste, omdat hier de beelden van het feest op gemonteerd worden.
+  </p>
+
+
+  <p>
+    In aanloop naar  jullie trouwdag zijn er  vaak  zovéél andere dingen te doen. Het  kiezen van de muziek staat uiteraard zelden boven aan de lijst.
+  </p>
+  <p>
+    Daarom ga ik nu al jullie om de muziek keuze vragen.Dit geeft de ruimte, om er samen met ons er goed  naar te kijken. Wij weten natuurlijk heel goed wat beeld en geluid voor elkaar kunnen doen. Dit moet goed zijn en ook goed voelen.
+  </p>
+  <p>
+    Mochten jullie vragen hebben of mij als hulplijn willen gebruiken hoor ik het graag : )
+  </p>
+  <p>
+    Veel plezier met alle voorpret.
+  </p>
+  <p>
+    Groetjes,
+  </p>
+  <p>
+    Anouk
+  </p>
+  <p>
+    Planner van OneLife Film
+    m: 0031 (6) 10 55 15 88
+  </p>
+  <i>
+    <a href="https://www.onelifefilm.eu/films/nicolette-bas">
+      Kijk ook eens naar de Trouwfilm  van Nicolette van Dam en Bas Smit.
+    </a>
+  </i>
+  <br>
+  <a href="https://www.onelifefilm.eu">
+    Compilatie OneLife Film
+  </a>
+  <p>
+    KvK 52069427
+  </p>
+
+  <p>
+    Maak een keuze voor 1 muzieknummer in de 3 verschillende groepen.
+  </p>
+  <h4>
+    Rustig
+  </h4>
+  <p>
+    The look of love – Diana Krall
+    <br>
+    Just the way you are - Billy Joel
+    <br>
+    For once in my life- Frank Sinatra
+    <br>
+    Look at me- Carrie Underwood
+    <br>
+    I’m ready - Bryan Adems
+    <br>
+    Hold me - Anouk & Douwe bob
+    <br>
+    Eva Cassidy- field of gold
+    <br>
+    Over and over again - Nathan Sykes
+    <br>
+    A Thousand Years- Christna Perri
+    <br>
+    Perfect - Ed Sheeran whit Beyonce
+    <br>
+    Pui che puoi, Eros whit Cher
+    <br>
+    Lovin „ You - Minnie Riperton
+    <br>
+    Marry me- Train
+    <br>
+    Ilse de lange- you are the dream
+    <br>
+    What a wonderful world - Katie Melua and Eva Cassidy
+    <br>
+    Hold me- Anouk & Douwe Bob
+  </p>
+
+  <h4>
+    Meer tempo
+  </h4>
+  <p>
+    Lucky - Jason Mraz & Colbie Caillat
+    <br>
+    L-O- V- E -Nat king cole  of de versie van Joss Stone
+    <br>
+    Can’t take my eyes off you, Andy Willams & Denise van Outen
+    <br>
+    Cant’t get enough of your love  – Barry white
+    <br>
+    You to Me Are Everything - the real thing
+    <br>
+    Une belle histiore - Michel Fugain
+    <br>
+    Paradise - Coldplay
+    <br>
+    Just say Yes- Snow Patrol
+    <br>
+    A little piece of my life- Mario Biondi
+    <br>
+    You - Ten Sharp
+  </p>
+
+
+  <h3> Up tempo </h3>
+
+  <p>
+    Katy Perry- Chained to the Rhythem
+    <br>
+    Euphoria - Loreen
+    <br>
+    Ain’t nobody – Chaka Khan
+    <br>
+    Love never felt so good- Micheal Jackson
+    <br>
+    Hold my hand- Jess Glynne
+    <br>
+    I feel it coming - The Weeknd
+    <br>
+    Justin Timberlake-  Can’t stop the feeling
+    <br>
+    Loreen- Euphoria
+    <br>
+    Move on up- Curtis Mayfield
+    <br>
+    Blessed- Tom Hangs & Shermanology
+    <br>
+    Addicted to you - Avicii
+  </p>
+
+
+  </div>
+</div>

@@ -8,7 +8,7 @@ function addListenerForUpdate(line) {
 }
 
 function changeLineToForm() {
-  const line = document.getElementById('playline-id[<%= @playline.id %>]');
+  var line = document.getElementById('playline-id[<%= @playline.id %>]');
   var changeButtons = document.querySelectorAll('.playline-changes');
   line.innerHTML = "<%= j render 'playlines/inline_form', playbook: @playbook, playline: @playline, times: @times %>";
   addListenerForUpdate(line);

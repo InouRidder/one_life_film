@@ -38,3 +38,4 @@ parsed_doc.search('.chart-row__title').take(50).each do |element|
 end
 
 puts "Finished seeding"
+
