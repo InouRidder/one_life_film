@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   end
 
   resources :playlines, only: [:destroy, :edit, :update] do
-    member do
+    collection do
       patch 'set_order'
     end
   end

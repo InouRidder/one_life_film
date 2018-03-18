@@ -1,8 +1,9 @@
 function saveOrder(lines) {
   count = 1
+  var idsAndCounts = {}
   for (i = 0; i < (lines.length); i ++) {
     var line = lines[i]
-    var idsAndCounts = {}
+    var id = line.getAttribute('data-id')
     idsAndCounts[id] = count
     // Create object of id and count as value
     // Send single object, iterate over it in controller and save order number per id on each playline
@@ -16,7 +17,7 @@ function saveOrder(lines) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      order_number: count,
+      new_order: idsAndCounts,
       credentials: 'same-origin'
     })
   });

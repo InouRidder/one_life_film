@@ -1,8 +1,8 @@
 class PlaylinesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:set_order, :update]
-  skip_before_action :verify_authenticity_token, only: [:create, :set_order, :update]
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :set_order]
   before_action :set_playbook, only: [:create]
-  before_action :set_playline, except: [:create]
+  before_action :set_playline, except: [:create, :set_order]
   before_action :set_times, except: [:set_order, :destroy]
 
   def create
@@ -50,8 +50,14 @@ class PlaylinesController < ApplicationController
   end
 
   def set_order
-    @playline.order_number = params[:order_number]
-    @playline.save
+    new_order = params[:new_order]
+    new_order.each do |key, value|
+      playline = Playline.find(key)
+      playline.order_number = value
+      playline.save
+    end
+    # @playline.order_number = params[:order_number]
+    # @playline.save
   end
 
   def destroy
@@ -76,6 +82,10 @@ class PlaylinesController < ApplicationController
 
   def set_playbook
     @playbook = Playbook.find(params[:playbook_id])
+  end
+
+  def set_order_params
+    params.require(:new_order).permit(/\d/)
   end
 
   def playline_params
