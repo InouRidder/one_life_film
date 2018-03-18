@@ -14,7 +14,7 @@
               <strong> <%= key.to_s.gsub("_", " ").upcase %>:</strong>
             </p>
             <p>
-              <%= key == "date_wedding" ? value.strftime('%A, %b %d') : value %>
+              <%= (key == "date_wedding" && value) ? value.strftime('%A, %b %d') : value %>
             </p>
           </li>
           <% end %>
