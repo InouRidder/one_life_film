@@ -4,10 +4,9 @@ function saveOrder(lines) {
   for (i = 0; i < (lines.length); i ++) {
     var line = lines[i]
     var id = line.getAttribute('data-id')
-    idsAndCounts[id] = count
-    // Create object of id and count as value
-    // Send single object, iterate over it in controller and save order number per id on each playline
-    // This will result in a single request regardless of the amount of playlines.
+    if (line.getAttribute('data-order') != count) {
+      idsAndCounts[id] = count
+    }
     count ++;
   }
   fetch("/playlines/set_order", {
