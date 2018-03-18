@@ -1,21 +1,21 @@
 <%= simple_form_for([playbook, playline], remote: true) do |f| %>
 <td>
-  <%= f.input :begin_time, label: false, collection: times, prompt: t('playbook_data.playbook_headers.start_time')%>
+  <%= f.input :begin_time, label: false, collection: times, prompt: t('playbook_data.playbook_headers.start_time'), input_html: { class: 'form-content spaced-form' }%>
   </td>
   <td>
-  <%= f.input :content, label: false, placeholder: t('playbook_data.playbook_headers.activity'), input_html: { class: 'form-content' } %>
+  <%= f.input :content, label: false, placeholder: t('playbook_data.playbook_headers.activity'), input_html: { class: 'form-content spaced-form' } %>
   </td>
   <td>
-  <%= f.input :contact, label: false, placeholder: t('playbook_data.playbook_headers.contact'), input_html: { class: 'form-contact' } %>
+  <%= f.input :contact, label: false, placeholder: t('playbook_data.playbook_headers.contact'), input_html: { class: 'form-contact spaced-form' } %>
 </td>
   <td>
-    <input type="text" name="playline[phone_number]" placeholder="<%=   t('playbook_data.playbook_headers.phone_number') %>" required autocomplete="off" id="playline_phone_number" value="<%= playline.phone_number %>">
+    <input type="text" name="playline[phone_number]" placeholder="<%=   t('playbook_data.playbook_headers.phone_number') %>" required autocomplete="off" id="playline_phone_number" class="spaced-form" value="<%= playline.phone_number %>">
   </td>
   <td>
-  <%= f.input :address, label: false, placeholder: t('playbook_data.playbook_headers.address'), input_html: { class: 'form-location' } %>
+  <%= f.input :address, label: false, placeholder: t('playbook_data.playbook_headers.address'), input_html: { class: 'form-location spaced-form' } %>
   </td>
   <td>
-  <%= f.input :city, label: false, placeholder: t('playbook_data.playbook_headers.city'), input_html: { class: 'form-location' } %>
+  <%= f.input :city, label: false, placeholder: t('playbook_data.playbook_headers.city'), input_html: { class: 'form-location spaced-form' } %>
   </td>
   <td style="width:100%; height:100%; display:block; text-align:center">
     <button type="submit" style="z-index: 9999; margin-top:4px; height: 45px;" name="submit" id="save-line-button-<%= playline.id %>">SAVE</button>
