@@ -46,7 +46,7 @@
               </div>
               <div class="col-xs-9 text-right">
                 <div style='font-size: 15px;'><%= @booking.location_wedding %></div>
-                <div style='font-size: 15px;'><%= @booking.date_wedding.strftime('%A, %b %d') %></div>
+                <div style='font-size: 15px;'><%= @booking.date_wedding.strftime('%A, %b %d') if @booking.date_wedding %></div>
               </div>
             </div>
           </div>

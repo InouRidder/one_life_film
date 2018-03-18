@@ -1,6 +1,6 @@
   <div class="playbook-date text-center" style="padding: 100px 0px;">
     <h1>
-      <%= playbook.booking.date_wedding.strftime('%A, %b %d') %>
+      <%= playbook.booking.date_wedding.strftime('%A, %b %d') if playbook.booking.date_wedding %>
     </h1>
     <p>
       By <%= playbook.booking.name %>
