@@ -36,11 +36,10 @@
             <input class="spaced-form" type="text" name="booking[concerns]" placeholder="WHAT DO YOU WANT TO DO?" required autocomplete="off">
             <%= token_tag %>
             <input class="spaced-form" type="text" name="booking[location]" placeholder="LOCATION" required autocomplete="off">
-            <input class="spaced-form" type="date" name="booking[date_wedding]" placeholder="DATE" required autocomplete="off" id="contact-date" >
+            <input class="spaced-form datepicker" type="text" name="booking[date_wedding]" placeholder="DATE" required autocomplete="off" id="contact-date" data-provide='datepicker'>
             <p id="date-error-message"></p>
             <textarea name="booking[description]" placeholder="MESSAGE" required></textarea>
             <button type="submit" name="submit" id="contact-submit">SUBMIT</button>
-
           </form>
 
         </div>

@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/Nerian/bootstrap-datepicker-rails.git
+  revision: 94fc769914455f6f505b467011649d76b13ea112
+  specs:
+    bootstrap-datepicker-rails (1.7.1.1)
+      railties (>= 3.0)
+
+GIT
   remote: git://github.com/activeadmin/inherited_resources.git
   revision: 8603b3054683fa798134d76c12a32d9e287b307e
   specs:
@@ -258,6 +265,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  bootstrap-datepicker-rails!
   bootstrap-sass
   coffee-rails
   devise
