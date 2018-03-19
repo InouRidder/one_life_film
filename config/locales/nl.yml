@@ -1,10 +1,27 @@
 nl:
   home: "THUIS"
+  home_content:
+    title: "WELKOM BIJ ONELIFE FILM"
+    value_proposition: "De mooiste dag van je leven gefilmd en dezelfde dag gepresenteerd!"
   about: "OVER ONS"
   gallery: "GALLERIJ"
   contact: "CONTACT"
   language-link: "/en"
   language: "en_flag.png"
+  new_request:
+    title: "Aanvraag"
+    phone: "TELEFOON"
+    email: "EMAIL"
+    content: "Wilt u meer informatie over het laten maken van een film van een speciale gebeurtenis? Of wilt u meer informatie over OneLife Film dan kunt u contact met ons opnemen door middel van het onderstaande contactformulier. Maar als u ons belt dan kunnen wij u nog sneller van dienst zijn"
+    form:
+        name: "NAAM"
+        email: "EMAIL ADRES"
+        phone: "TELEFOON NUMMER"
+        concerns: "ONDERWERP"
+        location: "PLAATS"
+        date: "DATUM"
+        description: "BERICHT"
+        submit: "VERSTUUR"
   playbook: "DRAAIBOEK"
   music: 'MUZIEK'
   checklist:
