@@ -17,11 +17,18 @@ Rails.application.routes.draw do
         get 'all-bookings'
         get 'this-week'
         get 'old-bookings'
-        get 'old-requests'
       end
       member do
-        patch 'approve', to: 'bookings#approve'
         post 'send_reminder', to: 'bookings#send_reminder'
+      end
+    end
+    resources :requests do
+      member do
+        patch 'approve'
+        patch 'update_state'
+      end
+      collection do
+        get 'cancelled_requests'
       end
     end
     resources :songs, except: [:show] do

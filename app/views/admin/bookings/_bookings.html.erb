@@ -36,7 +36,7 @@
     data: {confirm: 'Are you sure?'},
     method: :delete,
     :class => "btn btn-danger"%></td>
-    <td><%= link_to 'Approve', approve_admin_booking_path(booking), data: {confirm: 'Are you sure?'},
+    <td><%= link_to 'Approve', approve_admin_request_path(booking), data: {confirm: 'Are you sure?'},
     method: :patch,
     :class => "btn btn-success" unless booking.approved? %></td>
   </tr>

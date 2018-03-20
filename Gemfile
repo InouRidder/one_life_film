@@ -27,7 +27,8 @@ gem 'autoprefixer-rails'
 gem 'devise-i18n'
 
 # Add decorators
-gem 'draper'
+gem 'draper', github: 'drapergem/draper'
+
 
 # TRANSLATIONS
 gem 'rails-i18n', '5.0.3'

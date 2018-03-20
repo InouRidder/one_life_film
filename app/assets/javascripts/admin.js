@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require admin/bootstrap.js
 //= require admin/tabs.js
+//= require admin/nav-tabs.js
 
 //= require_self
 

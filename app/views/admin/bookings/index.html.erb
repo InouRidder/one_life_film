@@ -41,15 +41,15 @@
       <p> <%= @search ? 'Zoekresultaten' : "Aankomende Maand" %></p>
       <% end %>
       <%= link_to this_week_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.approved.this_week.count %></h3>
+      <h3><%= Booking.def.this_week.count %></h3>
       <p>Deze week</p>
       <% end %>
       <%= link_to old_bookings_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.approved.old.count %></h3>
+      <h3><%= Booking.def.old.count %></h3>
       <p>Oude boekingen</p>
       <% end %>
       <%= link_to all_bookings_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.approved.count %></h3>
+      <h3><%= Booking.def.count %></h3>
       <p>Alle boekingen</p>
       <% end %>
     </div>

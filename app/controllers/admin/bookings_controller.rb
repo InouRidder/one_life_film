@@ -7,7 +7,7 @@ class Admin::BookingsController < Admin::AdminController
       @search = true
       @bookings = Booking.search_by_name_and_location_wedding(query)
     else
-      @bookings = Booking.approved.this_month
+      @bookings = Booking.def.this_month
       @title = "Aankomende maand"
       respond_to do |format|
         format.html
@@ -54,46 +54,24 @@ class Admin::BookingsController < Admin::AdminController
     redirect_to admin_aanvragen_path
   end
 
-  def requests
-    @bookings = Booking.requests
-    @title = 'Aanvragen'
-    respond_to do |format|
-      format.html
-      format.js { render 'insert_bookings' }
-    end
-  end
-
-  def old_requests
-    @title = 'Oude aanragen'
-    @bookings = Booking.old_requests
-    render 'insert_bookings'
-  end
 # BOOKINGS!
 
   def this_week
-    @bookings = Booking.approved.this_week
+    @bookings = Booking.def.this_week
     @title = 'Deze week'
     render 'insert_bookings'
   end
 
   def old_bookings
-    @bookings = Booking.approved.old
+    @bookings = Booking.def.old
     @title ='Oude boekingen'
     render 'insert_bookings'
   end
 
   def all_bookings
-    @bookings = Booking.approved
+    @bookings = Booking.def
     @title = 'Alle boekingen'
     render 'insert_bookings'
-  end
-
-  def approve
-    #  TODO fix wedding date being saved upon creation of booking
-    if @booking.approve
-      BookingServices.new(@booking).approve
-      redirect_to admin_bookings_path
-    end
   end
 
   def send_reminder

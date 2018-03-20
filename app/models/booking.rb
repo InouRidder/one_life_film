@@ -14,28 +14,29 @@ class Booking < ApplicationRecord
   # validates :location_wedding, presence: true
   # validates :date_wedding, presence: true, inclusion: { in: [Date.today..(Date.today + 730)] }
   # validates :description, presence: true
-
-  scope :approved, -> { where(status: 'approved') }
+  scope :def, -> { where(request: :false)}
   scope :declined, -> { where(status: 'declined') }
-  scope :requests, -> { where(status: 'pending') }
+  scope :requests, -> { where(request: true) }
   scope :this_month, -> { where('date_wedding BETWEEN ? AND ?', Date.current.beginning_of_month, (Date.current + 1.months).end_of_month) }
   scope :this_week, -> { where('date_wedding BETWEEN ? AND ?', Date.current.beginning_of_week, (Date.current + 1.months).end_of_week) }
   scope :old, -> { where('date_wedding <=  ? ', Date.today) }
-  scope :old_requests, -> { where("date_wedding <  ? ", Date.today) + declined }
+  scope :cancels, -> { where("date_wedding <  ? ", Date.today) + declined }
 
 # TO DO : bugs on booking index admin, aantal boekingen in OLD BOEKINGS veranderd niet
   def approved?
     status == 'approved'
   end
 
+  def approve
+    self.request = false
+  end
+
   def declined?
     status == 'declined'
   end
 
-  def approve
-    if self.name && self.email_address
-      self.status = 'approved'
-    end
+  def update_state(new_status)
+    self.status = new_status
   end
 
   def days_till_wedding
@@ -48,5 +49,12 @@ class Booking < ApplicationRecord
 
   def decline
     self.status = 'declined'
+  end
+
+  # should be decorator, but cant be with current draper gem - as it used by a different controller (requests)
+  def btn_state(btn)
+    if btn == self.status
+      "active-#{btn}"
+    end
   end
 end
