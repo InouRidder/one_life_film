@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resources :films
   end
 
-  resources :bookings, only: [:create, :update]
+  resources :requests, only: [:create]
 
   resources :playbooks, only: [:show] do
     member do
@@ -68,7 +68,7 @@ Rails.application.routes.draw do
     post 'password', to: 'films#password'
     get 'gallery', to: 'pages#gallery'
     get 'about', to: 'pages#about'
-    get 'contact', to: 'bookings#new'
+    get 'contact', to: 'requests#new'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

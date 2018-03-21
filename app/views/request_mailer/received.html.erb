@@ -48,32 +48,32 @@ a:hover {
 <div class="container">
   <div class="row">
   <h3>
-    Hi <%= @booking.name %>,
+    Hi <%= @request.names %>,
   </h3>
   <p>
     De aanvraag is binnengekomen! Het team van OneLife film neemt zo spoedig mogelijk contact met u op. De volgende data is bij ons binnengekomen.
       <div class="request-info">
         <ul>
           <li>
-            <%= @booking.email_address %>
+            <%= @request.email_address %>
           </li>
           <li>
-            <%= @booking.phone_number %>
+            <%= @request.phone_number %>
           </li>
           <li>
-            <%= @booking.date_wedding %>
+            <%= @request.date_wedding %>
           </li>
           <li>
-            <%= @booking.concerns %>
+            <%= @request.subject %>
           </li>
           <li>
-            <%= @booking.location_wedding %>
+            <%= @request.location_wedding %>
           </li>
           <li>
-            <%= @booking.subject %>
+            <%= @request.subject %>
           </li>
           <li>
-            <%= @booking.description %>
+            <%= @request.message %>
           </li>
         </ul>
 

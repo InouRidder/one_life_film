@@ -1,5 +1,5 @@
 class AddRequestToBookings < ActiveRecord::Migration[5.1]
   def change
-    add_column :bookings, :request, :boolean, default: true
+    add_reference :bookings, :request, foreign_key: true
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320103247) do
+ActiveRecord::Schema.define(version: 20180321025736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,18 +19,17 @@ ActiveRecord::Schema.define(version: 20180320103247) do
     t.string "phone_number"
     t.string "name"
     t.string "email_address"
-    t.string "concerns"
     t.string "location_wedding"
+    t.date "date_wedding"
     t.string "subject"
-    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "date_wedding"
-    t.string "status", default: "pending"
+    t.string "state", default: "definitief"
     t.bigint "user_id"
     t.string "groom_number"
     t.string "dress_code"
-    t.boolean "request", default: true
+    t.bigint "request_id"
+    t.index ["request_id"], name: "index_bookings_on_request_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -60,9 +59,9 @@ ActiveRecord::Schema.define(version: 20180320103247) do
   end
 
   create_table "playbooks", force: :cascade do |t|
+    t.bigint "booking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "booking_id"
     t.integer "allowed_songs", default: 3
     t.index ["booking_id"], name: "index_playbooks_on_booking_id"
   end
@@ -79,6 +78,19 @@ ActiveRecord::Schema.define(version: 20180320103247) do
     t.string "city"
     t.string "address"
     t.index ["playbook_id"], name: "index_playlines_on_playbook_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "phone_number"
+    t.string "names"
+    t.string "email_address"
+    t.string "location_wedding"
+    t.string "subject"
+    t.string "message"
+    t.string "source_reference"
+    t.date "date_wedding"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "song_choices", force: :cascade do |t|
@@ -119,7 +131,9 @@ ActiveRecord::Schema.define(version: 20180320103247) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "requests"
   add_foreign_key "films", "bookings"
+  add_foreign_key "playbooks", "bookings"
   add_foreign_key "playlines", "playbooks"
   add_foreign_key "song_choices", "playbooks"
   add_foreign_key "song_choices", "songs"
