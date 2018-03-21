@@ -4274,6 +4274,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
+  background-color: white;
 }
 .navbar-fixed-bottom {
   bottom: 0;
@@ -4597,7 +4598,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
+  background-color: #F2EFE9 !important;
   border-color: #080808;
 }
 .navbar-inverse .navbar-brand {

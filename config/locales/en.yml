@@ -1,5 +1,8 @@
 en:
   home: "HOME"
+  home_content:
+    title: "WELCOME TO ONELIFE FILM"
+    value_proposition: "The most beautiful day of your life filmed and presented the same day!"
   about: "ABOUT"
   gallery: "GALLERY"
   contact: "CONTACT"
@@ -7,6 +10,20 @@ en:
   language: "nl_flag.png"
   playbook: "PLAYBOOK"
   music: 'MUZIEK'
+  new_request:
+    title: "Application"
+    phone: "PHONE"
+    email: "EMAIL"
+    content: "Would you like more information about creating a movie of a special event? Or would you like more information about OneLife Film, in either cases you can use our contact form to get in touch. If you need to get in touch with us quicker, you can always reach us through phone."
+    form:
+      name: "YOUR NAME(S)"
+      email: "EMAIL ADDRESS"
+      phone: "PHONE NUMBER"
+      concerns: "SUBJECT"
+      location: "LOCATION"
+      date: "DATE"
+      description: "MESSAGE"
+      submit: "SEND "
   checklist:
     update_button: "Update"
   music_data:

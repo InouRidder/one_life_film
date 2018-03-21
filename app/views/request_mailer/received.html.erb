@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
+</head>
+<style>
+body {
+  padding: 40px;
+  background-color: rgb(249,249,249);
+  color: rgb(8,8,8);
+}
+
+h1,h2,h3,h4,h5 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  size: 30px;
+  line-height: 20px;
+}
+i:hover {
+  color: lightgrey;
+}
+.underline-title {
+    border-bottom: 7px solid rgba(164, 149, 95,0.7);
+  -webkit-box-shadow: inset 0 1px 0 rgba(164, 149, 95,0.38);
+  box-shadow: inset 0 -4px 0 rgba(164, 149, 95,0.38);
+  -webkit-transition: background .2s ease;
+  transition: background .2s ease;
+  height: 20px;
+  display: inline-block;
+}
+a {
+  color: rgb(8,8,8);
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(8,8,8);
+  text-decoration: none;
+}
+</style>
+
+<body>
+<div class="container">
+  <div class="row">
+  <h3>
+    Hi <%= @request.names %>,
+  </h3>
+  <p>
+    De aanvraag is binnengekomen! Het team van OneLife film neemt zo spoedig mogelijk contact met u op. De volgende data is bij ons binnengekomen.
+      <div class="request-info">
+        <ul>
+          <li>
+            <%= @request.email_address %>
+          </li>
+          <li>
+            <%= @request.phone_number %>
+          </li>
+          <li>
+            <%= @request.date_wedding %>
+          </li>
+          <li>
+            <%= @request.subject %>
+          </li>
+          <li>
+            <%= @request.location_wedding %>
+          </li>
+          <li>
+            <%= @request.subject %>
+          </li>
+          <li>
+            <%= @request.message %>
+          </li>
+        </ul>
+
+      </div>
+  </p>
+  <p>
+    Groetjes,
+  </p>
+  <p>
+    Inou.
+  </p>
+  <p>
+    Programmeur van OneLife Film
+    m: 0031 (6) 10 55 15 88
+  </p>
+  <i>
+    <a href="https://www.onelifefilm.eu/films/nicolette-bas">
+      Kijk ook eens naar de Trouwfilm  van Nicolette van Dam en Bas Smit.
+    </a>
+  </i>
+  <br>
+  <a href="https://www.onelifefilm.eu">
+    Compilatie OneLife Film
+  </a>
+  <p>
+    KvK 52069427
+  </p>
+  </div>
+</div>

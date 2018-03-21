@@ -1,13 +1,13 @@
 class Admin::BookingsController < Admin::AdminController
-  before_action :set_booking, only: [:update, :edit, :destroy, :approve, :show]
+  before_action :set_booking, only: [:update, :edit, :destroy, :approve, :show, :update_state]
 
   def index
     if query = params[:search]
       @title = 'Zoekresultaten'
       @search = true
-      @bookings = Booking.search_by_name_and_location_wedding(query)
+      @bookings = Booking.search_by_name_and_location_wedding(query).order(created_at: :desc).decorate
     else
-      @bookings = Booking.approved.this_month
+      @bookings = Booking.active.this_month.order(created_at: :desc).decorate
       @title = "Aankomende maand"
       respond_to do |format|
         format.html
@@ -54,46 +54,30 @@ class Admin::BookingsController < Admin::AdminController
     redirect_to admin_aanvragen_path
   end
 
-  def requests
-    @bookings = Booking.requests
-    @title = 'Aanvragen'
-    respond_to do |format|
-      format.html
-      format.js { render 'insert_bookings' }
+  def update_state
+    #  TODO fix wedding date being saved upon creation of booking
+    @booking.update_state(params[:new_state])
+    if @booking.save
+      redirect_to admin_bookings_path
     end
   end
 
-  def old_requests
-    @title = 'Oude aanragen'
-    @bookings = Booking.old_requests
-    render 'insert_bookings'
-  end
-# BOOKINGS!
-
   def this_week
-    @bookings = Booking.approved.this_week
+    @bookings = Booking.active.this_week.order(created_at: :desc).decorate
     @title = 'Deze week'
     render 'insert_bookings'
   end
 
   def old_bookings
-    @bookings = Booking.approved.old
+    @bookings = Booking.active.old.order(created_at: :desc).decorate
     @title ='Oude boekingen'
     render 'insert_bookings'
   end
 
   def all_bookings
-    @bookings = Booking.approved
+    @bookings = Booking.active.order(created_at: :desc).decorate
     @title = 'Alle boekingen'
     render 'insert_bookings'
-  end
-
-  def approve
-    #  TODO fix wedding date being saved upon creation of booking
-    if @booking.approve
-      BookingServices.new(@booking).approve
-      redirect_to admin_bookings_path
-    end
   end
 
   def send_reminder

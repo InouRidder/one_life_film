@@ -1,0 +1,6 @@
+const container = document.getElementById('booking-container');
+container.innerHTML = "<%= j render 'requests', requests: @requests, cancellation: @cancellation %>";
+const title = document.getElementById('booking-title');
+title.innerHTML = "<%= j @title %>"
+const th = document.getElementById('toggle-th')
+th.innerHTML = "Reden"

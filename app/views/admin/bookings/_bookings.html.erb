@@ -10,7 +10,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>Location</th>
-      <th>Phone</th>
+      <th>Songs</th>
 
       <th>Playlines</th>
 
@@ -21,24 +21,28 @@
   <tbody>
     <% bookings.each do |booking| %>
    <tr>
-    <td><%= booking.name %></td>
-    <td><%= booking.email_address %></td>
+    <td>
+      <%= link_to admin_booking_path(booking) do %>
+        <%= booking.name %>
+      <% end %>
+    </td>
+    <td>
+      <%= booking.email_address %>
+      <br>
+      <%= booking.phone_number %>
+    </td>
     <td><%= booking.location_wedding %></td>
-    <td><%= booking.phone_number %></td>
+    <td><%= booking.playbook.song_choices.count %></td>
     <td><%= booking.playbook ? booking.playbook.playlines.try(:count) : 0  %></td>
-    <td><%= booking.status %></td>
+<td class="request-status">
+    <%= link_to "Film", update_state_admin_booking_path(booking, new_state: 'film'), method: :patch, class: "state-btn #{booking.btn_state('film')}" %>
 
-    <td><%= link_to 'Show', admin_booking_path(booking),
-    :class => "btn btn-primary"%></td>
-    <td><%= link_to 'Edit', edit_admin_booking_path(booking),
-    :class => "btn btn-warning"%></td>
-    <td><%= link_to 'Decline', admin_booking_path(booking),
-    data: {confirm: 'Are you sure?'},
-    method: :delete,
-    :class => "btn btn-danger"%></td>
-    <td><%= link_to 'Approve', approve_admin_booking_path(booking), data: {confirm: 'Are you sure?'},
-    method: :patch,
-    :class => "btn btn-success" unless booking.approved? %></td>
+    <%= link_to "Factuur", update_state_admin_booking_path(booking, new_state: 'invoice'), method: :patch, class: "state-btn #{ booking.btn_state('invoice')}" %>
+
+    <%= link_to "Betaling", update_state_admin_booking_path(booking, new_state: 'payment'), method: :patch, class: "state-btn #{ booking.btn_state('payment')}" %>
+  </td>
+
+
   </tr>
   <% end %>
 </tbody>

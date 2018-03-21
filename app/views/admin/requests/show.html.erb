@@ -1,0 +1,46 @@
+<div id="page-wrapper">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-phone fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right">
+                <div style='font-size: 15px;'><%= @request.phone_number %></div>
+                <div style='font-size: 15px;'> <%= @request.email_address %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-location-arrow fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right">
+                <div style='font-size: 15px;'><%= @request.location_wedding %></div>
+                <div style='font-size: 15px;'><%= @request.date_wedding.strftime('%A, %b %d') if @request.date_wedding %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- /.container-fluid -->
+
+  </div>
+
+
+
+
+  <!-- flex 0 0 1/total   : tijdlijn! -->

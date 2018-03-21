@@ -1,0 +1,23 @@
+<tr>
+  <td>
+    <%= link_to admin_request_path(request) do %>
+      <%= request.names %>
+    <% end %>
+  </td>
+  <td>
+    <%= request.email_address %>
+    <br>
+    <%= request.phone_number %>
+  </td>
+  <td>
+    <%= request.location_wedding %>
+  </td>
+
+<td class="request-cancelled">
+  <p> Cancelled</p>
+  <%= link_to 'Zet actief', update_state_admin_request_path(request, new_state: 'pending'),
+  method: :patch,
+  class: "req-btn " %>
+</td>
+  <td> Hier komt de reden</td>
+</tr>

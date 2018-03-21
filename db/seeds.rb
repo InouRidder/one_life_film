@@ -2,6 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 
 
+User.create(email: 'a@a.a', password: 'password', admin: true)
 
 file = open('db/videos.html').read
 html_doc = Nokogiri::HTML(file)
@@ -16,12 +17,18 @@ html_doc.search('.video_manager__table_item').each do |element|
 end
 
 
-puts "Destroying all bookings"
+puts "Destroying all bookings & requests"
+Request.destroy_all
 Booking.destroy_all
+
+puts "Creating 15 fake requests"
+15.times do
+  Request.create(email_address: Faker::Internet.email, names: Faker::Name.unique.name, date_wedding: Date.today + rand(100), subject: Faker::Hacker.say_something_smart , location_wedding: Faker::Address.street_address, state: ['pending', 'approved', 'quotation', 'first_contact', 'declined'].sample)
+end
 
 puts "Creating 10 fake bookings"
 10.times do
-  booking = Booking.create(email_address: Faker::Internet.email, name: Faker::Name.unique.name, date_wedding: Date.today + rand(100), subject: Faker::Hacker.say_something_smart , location_wedding: Faker::Address.street_address, status: ['pending', 'approved'].sample)
+  booking = Booking.create(email_address: Faker::Internet.email, name: Faker::Name.unique.name, date_wedding: Date.today + rand(100), subject: Faker::Hacker.say_something_smart , location_wedding: Faker::Address.street_address, state: ['film', 'invoice', 'paid'].sample)
   Playbook.create(allowed_songs: 3, booking: booking)
 end
 

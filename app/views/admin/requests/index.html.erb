@@ -1,0 +1,23 @@
+<div id="page-wrapper">
+
+  <div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="tabs">
+      <%= link_to admin_requests_path, class: "tab half-size active", remote: true do %>
+      <h3><%= @requests.count %></h3>
+      <p>Aanvragen</p>
+      <% end %>
+      <%= link_to cancelled_requests_admin_requests_path, class: "tab half-size", remote: true do %>
+      <h3><%= Request.cancels.count %></h3>
+      <p>Cancels & Verlopen aanvragen</p>
+      <% end %>
+    </div>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container" id="booking-container">
+        <%= render 'requests', requests: @requests %>
+      </div>
+    </div>
+  </div>
+</div>

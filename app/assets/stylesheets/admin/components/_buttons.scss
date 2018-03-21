@@ -1,0 +1,62 @@
+.state-btn {
+  padding: 8px;
+  background-color: rgb(250,250,250);
+  border: 1px solid rgb(200,200,200);
+  border-radius: 4px;
+  transition: ease 200ms;
+  color: black;
+  text-decoration: none;
+}
+
+.state-btn:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+.definitive {
+
+}
+
+.cancelled {
+
+}
+
+.active-invoice {
+  background-color: #0075C4;
+  color: white;
+  font-size: bold;
+}
+
+.active-payment {
+  background-color: #8EA604;
+  color: white;
+  font-size: bold;
+}
+
+.active-film {
+  background-color: #EFA00B;
+  color: white;
+  font-size: bold;
+}
+
+.active-first_contact {
+  background-color: #A5C882;
+  color: white;
+  font-size: bold;
+}
+.active-quotation {
+  background-color: #4392F1;
+  color: white;
+  font-size: bold;
+}
+.active-feedback {
+  background-color:#FF934F;
+  color: white;
+  font-size: bold;
+}
+
+.active-cancelled {
+  background-color: #BB4D00;
+  color: white;
+  font-size: bold;
+}

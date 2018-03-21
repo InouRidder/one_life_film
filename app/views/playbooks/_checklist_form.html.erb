@@ -5,7 +5,7 @@
 <%= f.input :location_wedding, placeholder: "Location Wedding", input_html: { class: "checklist-form-input"}  %>
 <div class="input">
   <label for="contact-date"> Date Wedding</label>
-  <input type="text" name="booking[date_wedding]" class="checklist-form-input" placeholder="DATE" required autocomplete="off" id="contact-date" value="<%= @booking.date_wedding %>" data-provide="datepicker">
+  <input type="text" name="booking[date_wedding]" class="checklist-form-input" placeholder="DATE" required autocomplete="off" id="contact-date" value="<%= @booking.date_wedding %>" data-provide="datepicker" data-date-format="dd-mm-yyyy">
 </div>
 <input type="hidden" name="user">
 <div class="flexed-items">

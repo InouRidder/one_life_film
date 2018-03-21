@@ -1,0 +1,27 @@
+<table class="table table-striped table-hover">
+  <thead z>
+    <tr>
+      <th><h2><%= @title %></h2 id="booking-title"></th>
+      </tr>
+    </thead>
+
+    <thead class="thead-inverse">
+      <tr>
+        <th>Naam</th>
+        <th>Contact</th>
+        <th><%= @cancellations ? 'Reden' : 'Lokatie' %></th>
+        <th>Status</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% requests.each do |request| %>
+      <% unless request.cancelled? %>
+        <%= render 'active', request: request %>
+      <% else %>
+        <%= render 'cancels', request: request %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

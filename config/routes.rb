@@ -2,13 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # without the following devise & active_admin are not friends, bug unsolved
-  devise_scope :user do
-    get '/users/sign_out', to: 'devise/sessions#destroy'
-  end
+  get '/admin', to: 'admin/requests#index'
 
-  get '/admin', to: 'admin/dashboards#show'
-
+  # please tell me I can delete this horrible route.
   get 'playlines/:id', to: 'playlines#update'
 
   namespace :admin do
@@ -17,11 +13,19 @@ Rails.application.routes.draw do
         get 'all-bookings'
         get 'this-week'
         get 'old-bookings'
-        get 'old-requests'
       end
       member do
-        patch 'approve', to: 'bookings#approve'
+        patch 'update_state'
         post 'send_reminder', to: 'bookings#send_reminder'
+      end
+    end
+    resources :requests do
+      member do
+        patch 'approve'
+        patch 'update_state'
+      end
+      collection do
+        get 'cancelled_requests'
       end
     end
     resources :songs, except: [:show] do
@@ -32,10 +36,9 @@ Rails.application.routes.draw do
       end
     end
     resources :films
-    get 'aanvragen', to: 'bookings#requests'
   end
 
-  resources :bookings, only: [:create, :update]
+  resources :requests, only: [:create]
 
   resources :playbooks, only: [:show] do
     member do
@@ -66,7 +69,7 @@ Rails.application.routes.draw do
     post 'password', to: 'films#password'
     get 'gallery', to: 'pages#gallery'
     get 'about', to: 'pages#about'
-    get 'contact', to: 'bookings#new'
+    get 'contact', to: 'requests#new'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
