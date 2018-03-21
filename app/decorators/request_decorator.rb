@@ -1,4 +1,4 @@
-class BookingDecorator < ApplicationDecorator
+class RequestDecorator < ApplicationDecorator
   delegate_all
 
   def btn_state(btn)

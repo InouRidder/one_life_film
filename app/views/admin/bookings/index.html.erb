@@ -8,19 +8,21 @@
 
   <div class="container-fluid">
 
-    <div class="container" style="display: flex; justify-content: flex-start;">
-      <div id="flex-child">
-        <p><a href="/admin/bookings/new" class="btn btn-primary" role="button"> Add a new booking! &raquo;</a> </p>
-      </div>
-      <div id="flex-child">
-        <form class="form-inline" action="<%= admin_bookings_path %>">
-          <div class="form-group">
-            <input type="text" name="search" class="form-control" placeholder="Zoek een boeking">
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-default" date-remote="true">Zoek!</button>
-          </div>
-        </form>
+    <div class="container">
+      <div style="display: flex; justify-content: space-between;">
+        <div id="flex-child">
+          <p><a href="/admin/bookings/new" class="btn btn-primary" role="button"> Add a new booking! &raquo;</a></p>
+        </div>
+        <div id="flex-child">
+          <form class="form-inline" action="<%= admin_bookings_path %>">
+            <div class="form-group">
+              <input type="text" name="search" class="form-control" placeholder="Zoek een boeking">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-default" date-remote="true">Zoek!</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 
@@ -31,15 +33,15 @@
       <p> <%= @search ? 'Zoekresultaten' : "Aankomende Maand" %></p>
       <% end %>
       <%= link_to this_week_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.def.this_week.count %></h3>
+      <h3><%= Booking.active.this_week.count %></h3>
       <p>Deze week</p>
       <% end %>
       <%= link_to old_bookings_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.def.old.count %></h3>
+      <h3><%= Booking.active.old.count %></h3>
       <p>Oude boekingen</p>
       <% end %>
       <%= link_to all_bookings_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.def.count %></h3>
+      <h3><%= Booking.active.count %></h3>
       <p>Alle boekingen</p>
       <% end %>
     </div>

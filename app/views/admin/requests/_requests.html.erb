@@ -16,7 +16,7 @@
     </thead>
 
     <tbody>
-      <% requests.order(created_at: :asc).each do |request| %>
+      <% requests.each do |request| %>
       <% unless request.cancelled? %>
         <%= render 'active', request: request %>
       <% else %>

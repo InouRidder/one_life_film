@@ -7,6 +7,7 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.string :location_wedding
       t.date :date_wedding
       t.string :subject
+      t.string :state
 
       t.timestamps
     end

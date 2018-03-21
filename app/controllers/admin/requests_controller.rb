@@ -5,7 +5,7 @@ class Admin::RequestsController < Admin::AdminController
   end
 
   def index
-    @requests = Booking.requests.active
+    @requests = Request.active.order(created_at: :asc).decorate
     @title = 'Aanvragen'
     respond_to do |format|
       format.html
@@ -16,7 +16,7 @@ class Admin::RequestsController < Admin::AdminController
   def cancelled_requests
     @title = 'Cancels'
     @cancellation = true
-    @requests = Booking.cancels
+    @requests = Request.cancels.order(created_at: :asc).decorate
     render 'insert_cancellations'
   end
 
@@ -44,7 +44,7 @@ class Admin::RequestsController < Admin::AdminController
   private
 
   def set_request
-    @request = Booking.find(params[:id])
+    @request = Request.find(params[:id]).decorate
   end
 
 

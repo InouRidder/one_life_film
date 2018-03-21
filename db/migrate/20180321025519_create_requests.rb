@@ -9,6 +9,7 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.string :message
       t.string :source_reference
       t.date :date_wedding
+      t.string :state, default: 'pending'
 
       t.timestamps
     end

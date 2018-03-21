@@ -7,7 +7,6 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
-    binding.pry
     if @request.save
       flash[:notice] = "We will address your request shortly"
       RequestMailer.received(@request).deliver_now

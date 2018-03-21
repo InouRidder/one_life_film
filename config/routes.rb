@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         get 'old-bookings'
       end
       member do
+        patch 'update_state'
         post 'send_reminder', to: 'bookings#send_reminder'
       end
     end

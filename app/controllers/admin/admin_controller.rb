@@ -13,10 +13,10 @@ class Admin::AdminController < ApplicationController
   end
 
   def set_counts
-    @rt_requests = Booking.rt_requests
-    @rt_invoices = Booking.rt_invoices
-    @rt_cancels = Booking.rt_cancels
-    @rt_bookings = Booking.rt_bookings
+    @rt_requests = Request.rt_requests
+    @rt_quotations = Request.rt_quotations
+    @rt_cancels = Request.rt_cancels
+    @rt_bookings = Booking.active.count
   end
 
 end

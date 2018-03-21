@@ -9,7 +9,7 @@
       <p>Aanvragen</p>
       <% end %>
       <%= link_to cancelled_requests_admin_requests_path, class: "tab half-size", remote: true do %>
-      <h3><%= Booking.cancels.count %></h3>
+      <h3><%= Request.cancels.count %></h3>
       <p>Cancels & Verlopen aanvragen</p>
       <% end %>
     </div>

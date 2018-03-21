@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20180321025736) do
     t.string "location_wedding"
     t.date "date_wedding"
     t.string "subject"
+    t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "state", default: "definitief"
     t.bigint "user_id"
     t.string "groom_number"
     t.string "dress_code"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20180321025736) do
     t.string "message"
     t.string "source_reference"
     t.date "date_wedding"
+    t.string "state", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -4,20 +4,23 @@
 
     <!-- Page Heading -->
     <div class="row">
-      <div class="col-xs-10">
+      <div class="col-xs-12" style="display: flex; justify-content: space-between; align-items: center;">
         <h1 class="page-header">
-          Dashboard <small><%= @booking.name %></small>
+          Boeking <small><%= @booking.name %></small>
         </h1>
-        <ol class="breadcrumb">
-          <li class="active">
-            <i class="fa fa-dashboard"></i> Dashboard
-          </li>
-        </ol>
-      </div>
-      <div class="col-xs-2">
-        <%= link_to "Send Reminder!", send_reminder_admin_booking_path(@booking), remote: true, method: :post, class: "btn btn-primary"  %>
+        <div class="booking-actions">
+          <%= link_to "Stuur herinnerings email!", send_reminder_admin_booking_path(@booking), remote: true, method: :post, class: "btn btn-primary"  %>
+          <%= link_to 'Pas booking aan', edit_admin_booking_path(@booking),
+          :class => "btn btn-warning"%>
+          <%= link_to 'Cancel', admin_booking_path(@booking),
+          data: {confirm: 'Are you sure?'},
+          method: :delete,
+          :class => "btn btn-danger"%>
+        </div>
       </div>
     </div>
+
+
     <!-- /.row -->
 
     <div class="row">
