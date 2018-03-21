@@ -1,28 +1,18 @@
+<style>
+  .booking-active {
+    color: white !important;
+    background-color: black !important;
+  }
+</style>
 <div id="page-wrapper">
 
   <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header">
-          Bookings
-        </h1>
-        <ol class="breadcrumb">
-          <li>
-            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-          </li>
-          <li class="active">
-            <i class="fa fa-desktop"></i> bookings
-          </li>
-        </ol>
-      </div>
-    </div>
-    <div class="container" style="display: flex; justify-content: space-between;">
-      <div id="el1">
+    <div class="container" style="display: flex; justify-content: flex-start;">
+      <div id="flex-child">
         <p><a href="/admin/bookings/new" class="btn btn-primary" role="button"> Add a new booking! &raquo;</a> </p>
       </div>
-      <div id="el2">
+      <div id="flex-child">
         <form class="form-inline" action="<%= admin_bookings_path %>">
           <div class="form-group">
             <input type="text" name="search" class="form-control" placeholder="Zoek een boeking">

@@ -1,31 +1,46 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="flexed-nav">
   <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <a class="navbar-brand" href="/admin">OneLife Admin</a>
+  <div class="navbar-header" id="flexed-nav">
+    <a class="navbar-brand black-text" href="/admin">OneLife Admin</a>
   </div>
-
+  <div class="realtime-info">
+  <div class="rt-info-stat"> Openstaande facturen: <%= @rt_invoices %> </div>
+  <div class="rt-info-stat"> Openstaande aanvragen: <%= @rt_requests %> </div>
+  <div class="rt-info-stat"> Cancels: <%= @rt_cancels %> </div>
+  <div class="rt-info-stat"> Boekingen: <%= @rt_bookings %></div>
+  </div>
   <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
   <div class="collapse navbar-collapse navbar-ex1-collapse" style="z-index: 99;">
     <ul class="nav navbar-nav side-nav">
+      <style>
+      .black-text {
+        color: black !important;
+      }
+      .navbar-inverse {
+        border: none !important;
+      }
+      #no-effect:hover {
+        color: white !important;
+        background-color: black !important;
+      }
+
+    </style>
       <li class="nav-tab">
-        <a href="/admin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-      </li>
-      <li class="nav-tab">
-        <a href="/admin/requests"><i class="fa fa-fw fa-question" aria-hidden="true"></i>
+        <a id="no-effect" class="black-text" href="/admin/requests"><i class="fa fa-fw fa-question" aria-hidden="true"></i>
         Aanvragen</a>
       </li>
       <li class="nav-tab">
-        <a href="/admin/bookings"><i class="fa fa-fw fa-plane"></i> Boekingen </a>
+        <a id="no-effect" class="black-text" href="/admin/bookings"><i class="fa fa-fw fa-plane"></i> Boekingen </a>
+      </li>
+      <li class="nav-tab film-active">
+        <a id="no-effect" class="black-text" href="/admin/films"><i class="fa fa-fw fa-video-camera"></i> Films </a>
       </li>
       <li class="nav-tab">
-        <a href="/admin/films"><i class="fa fa-fw fa-video-camera"></i> Films </a>
-      </li>
-      <li class="nav-tab">
-        <a href="/admin/songs"> <i class="fa fa-fw fa-music" aria-hidden="true"></i>
+        <a id="no-effect" class="black-text" href="/admin/songs"> <i class="fa fa-fw fa-music" aria-hidden="true"></i>
         Liedjes (COMING SOON)</a>
       </li>
       <li>
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "black-text", id: "no-effect" %>
       </li>
     </ul>
   </div>

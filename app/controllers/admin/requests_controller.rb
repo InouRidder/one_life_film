@@ -1,11 +1,11 @@
 class Admin::RequestsController < Admin::AdminController
   before_action :set_request, only: [:show, :update_state, :destroy, :approve]
-
+  skip_before_action :set_counts, only: [:update_state, :approve, :destroy, :cancelled_requests]
   def show
   end
 
   def index
-    @bookings = Booking.requests.where.not(status: 'declined')
+    @requests = Booking.requests.active
     @title = 'Aanvragen'
     respond_to do |format|
       format.html
@@ -15,8 +15,9 @@ class Admin::RequestsController < Admin::AdminController
 
   def cancelled_requests
     @title = 'Cancels'
-    @bookings = Booking.cancels
-    render 'insert_requests'
+    @cancellation = true
+    @requests = Booking.cancels
+    render 'insert_cancellations'
   end
 
   def update_state

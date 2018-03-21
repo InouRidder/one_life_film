@@ -2,13 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # without the following devise & active_admin are not friends, bug unsolved
-  devise_scope :user do
-    get '/users/sign_out', to: 'devise/sessions#destroy'
-  end
+  get '/admin', to: 'admin/requests#index'
 
-  get '/admin', to: 'admin/dashboards#show'
-
+  # please tell me I can delete this horrible route.
   get 'playlines/:id', to: 'playlines#update'
 
   namespace :admin do
@@ -39,7 +35,6 @@ Rails.application.routes.draw do
       end
     end
     resources :films
-    get 'aanvragen', to: 'bookings#requests'
   end
 
   resources :bookings, only: [:create, :update]

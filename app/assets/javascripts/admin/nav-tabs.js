@@ -1,5 +1,5 @@
-var tabs = document.querySelectorAll('.nav-tab')
-tabs.forEach(function(tab){
+var navTabs = document.querySelectorAll('.nav-tab')
+navTabs.forEach(function(tab){
   tab.addEventListener('click', function(){
     tabs.forEach(function(tab){
       tab.classList.remove('active')

@@ -1111,6 +1111,9 @@ th {
     float: right;
   }
 }
+.navbar-header {
+  background-color: white;
+}
 .navbar-collapse {
   padding-right: 15px;
   padding-left: 15px;
