@@ -8,7 +8,7 @@
   <thead class="thead-inverse">
     <tr>
       <th>Name</th>
-      <th>Email</th>
+      <th>Contact</th>
       <th>Location</th>
       <th>Songs</th>
 
@@ -25,6 +25,8 @@
       <%= link_to admin_booking_path(booking) do %>
         <%= booking.name %>
       <% end %>
+      <br>
+      <%= booking.date_wedding.strftime('%A, %b %d') %>
     </td>
     <td>
       <%= booking.email_address %>

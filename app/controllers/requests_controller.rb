@@ -24,7 +24,7 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:phone_number, :date_wedding, :location_wedding, :names, :email_address, :subject, :message)
+    params.require(:request).permit(:phone_number, :date_wedding, :location_wedding, :name, :email_address, :subject, :message)
   end
 
 end

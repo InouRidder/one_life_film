@@ -1,5 +1,7 @@
 class Request < ApplicationRecord
   has_one :booking
+  has_many :comments, as: :commentable
+  default_scope -> { where("state != 'approved'") }
 
   scope :active, -> { where("state != 'declined' AND date_wedding >= ? ", Date.today)}
   scope :cancels, -> { where("date_wedding <  ?", Date.today).or(where(state: 'declined')) }
@@ -11,6 +13,14 @@ class Request < ApplicationRecord
 
   def update_state(new_state)
     self.state = new_state
+  end
+
+  def transferrable_attributes
+    self.attributes.except!("id", "message", "created_at", "updated_at", "state", "source_reference", "subject").merge(request_id: self.id)
+  end
+
+  def presentable_attributes
+    self.attributes.except!("id")
   end
 
   def approved?

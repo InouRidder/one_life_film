@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321025736) do
+ActiveRecord::Schema.define(version: 20180321055645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", id: :serial, force: :cascade do |t|
     t.string "phone_number"
+    t.string "phone_number_partner"
     t.string "name"
     t.string "email_address"
     t.string "location_wedding"
     t.date "date_wedding"
     t.string "subject"
-    t.string "state"
+    t.string "state", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -31,6 +32,18 @@ ActiveRecord::Schema.define(version: 20180321025736) do
     t.bigint "request_id"
     t.index ["request_id"], name: "index_bookings_on_request_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.string "author"
+    t.integer "commentable_id"
+    t.string "commentable_type"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "films", id: :serial, force: :cascade do |t|
@@ -82,7 +95,7 @@ ActiveRecord::Schema.define(version: 20180321025736) do
 
   create_table "requests", force: :cascade do |t|
     t.string "phone_number"
-    t.string "names"
+    t.string "name"
     t.string "email_address"
     t.string "location_wedding"
     t.string "subject"

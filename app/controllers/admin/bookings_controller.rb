@@ -7,7 +7,7 @@ class Admin::BookingsController < Admin::AdminController
       @search = true
       @bookings = Booking.search_by_name_and_location_wedding(query).order(created_at: :desc).decorate
     else
-      @bookings = Booking.active.this_month.order(created_at: :desc).decorate
+      @bookings = Booking.active.order(created_at: :desc).decorate
       @title = "Aankomende maand"
       respond_to do |format|
         format.html

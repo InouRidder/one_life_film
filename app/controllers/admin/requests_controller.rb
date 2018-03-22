@@ -1,7 +1,9 @@
 class Admin::RequestsController < Admin::AdminController
   before_action :set_request, only: [:show, :update_state, :destroy, :approve]
   skip_before_action :set_counts, only: [:update_state, :approve, :destroy, :cancelled_requests]
+
   def show
+    @request = @request.decorate
   end
 
   def index
@@ -23,16 +25,20 @@ class Admin::RequestsController < Admin::AdminController
   def update_state
     #  TODO fix wedding date being saved upon creation of booking
     @request.update_state(params[:new_state])
-    if @request.save
-      BookingServices.new(@request).approve if @request.approved?
-      redirect_to admin_requests_path
-    end
+    @request.save
+    redirect_to admin_requests_path
   end
 
   def approve
-    @request.approve
-    @request.save
-    redirect_to admin_bookings_path
+    @request.update_state("approved")
+    if @request.save && @request.approved?
+      booking = Booking.new(@request.transferrable_attributes)
+      booking.save
+      redirect_to admin_bookings_path
+    else
+      redirect_to admin_requests_path
+      flash[:notice] = "Could not approve booking"
+    end
   end
 
   def destroy
@@ -44,7 +50,7 @@ class Admin::RequestsController < Admin::AdminController
   private
 
   def set_request
-    @request = Request.find(params[:id]).decorate
+    @request = Request.find(params[:id])
   end
 
 

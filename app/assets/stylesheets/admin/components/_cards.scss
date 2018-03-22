@@ -1,0 +1,19 @@
+.data-card {
+  padding: 30px !important;
+  box-shadow: 1px 1px 1px rgba(200,200,200,0.9);
+  background-color: rgb(250,250,250);
+  color: black;
+  margin: 0px 10px;
+  min-height: 200px;
+  border-radius: 4px;
+  p {
+    font-size: 14px;
+  }
+  h5 {
+    font-size: 30px;
+  }
+}
+
+.data-list {
+  padding: 50px;
+}

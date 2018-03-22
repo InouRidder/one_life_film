@@ -14,11 +14,17 @@
 }
 
 .definitive {
-
+  text-decoration: underline #95C623;
 }
 
 .cancelled {
+  text-decoration: underline #E55812;
+}
 
+.active-pending {
+  background-color: #DB162F;
+  color: white;
+  font-size: bold;
 }
 
 .active-invoice {

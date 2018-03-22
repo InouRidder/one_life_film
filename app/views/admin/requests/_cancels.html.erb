@@ -1,7 +1,7 @@
 <tr>
   <td>
     <%= link_to admin_request_path(request) do %>
-      <%= request.names %>
+      <%= request.name %>
     <% end %>
   </td>
   <td>
@@ -10,7 +10,7 @@
     <%= request.phone_number %>
   </td>
   <td>
-    <%= request.location_wedding %>
+    <%= request.created_at.strftime('%A, %b %d') %>
   </td>
 
 <td class="request-cancelled">

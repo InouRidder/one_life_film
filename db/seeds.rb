@@ -23,7 +23,7 @@ Booking.destroy_all
 
 puts "Creating 15 fake requests"
 15.times do
-  Request.create(email_address: Faker::Internet.email, names: Faker::Name.unique.name, date_wedding: Date.today + rand(100), subject: Faker::Hacker.say_something_smart , location_wedding: Faker::Address.street_address, state: ['pending', 'approved', 'quotation', 'first_contact', 'declined'].sample)
+  Request.create(email_address: Faker::Internet.email, name: Faker::Name.unique.name, date_wedding: Date.today + rand(100), subject: Faker::Hacker.say_something_smart , location_wedding: Faker::Address.street_address, state: ['pending', 'approved', 'quotation', 'first_contact', 'declined'].sample, phone_number: ("0".."10").to_a.shuffle.join(""))
 end
 
 puts "Creating 10 fake bookings"

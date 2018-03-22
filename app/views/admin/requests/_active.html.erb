@@ -1,8 +1,10 @@
 <tr id="active-requests">
   <td>
     <%= link_to admin_request_path(request) do %>
-      <%= request.names %>
+      <%= request.name %>
     <% end %>
+    <br>
+    <%= request.location_wedding %>
   </td>
   <td>
     <%= request.email_address %>
@@ -10,20 +12,25 @@
     <%= request.phone_number %>
   </td>
   <td>
-    <%= request.location_wedding %>
+    <%= request.created_at.strftime('%A, %b %d') %>
   </td>
   <td class="request-status">
+    <%= link_to "Nieuw", update_state_admin_request_path(request, new_state: 'pending'), method: :patch, class: "state-btn #{request.btn_state('pending')}" %>
     <%= link_to "Eerste contact", update_state_admin_request_path(request, new_state: 'first_contact'), method: :patch, class: "state-btn #{request.btn_state('first_contact')}" %>
 
     <%= link_to "Offerte", update_state_admin_request_path(request, new_state: 'quotation'), method: :patch, class: "state-btn #{ request.btn_state('quotation')}" %>
 
     <%= link_to "Terugkoppeling", update_state_admin_request_path(request, new_state: 'feedback'), method: :patch, class: "state-btn #{ request.btn_state('feedback')}" %>
+
+  </td>
+  <td class="action-buttons">
     <%= link_to 'Definitief', approve_admin_request_path(request), data: {confirm: 'De aanvraag wordt omgezet in een boeking, weet je het zeker?'},
     method: :patch, class: "state-btn definitive" %>
-
+    <br>
+    <br>
     <%= link_to 'Cancel', admin_request_path(request),
     data: {confirm: 'Are you sure?'},
     method: :delete,
     class: "state-btn cancelled" %>
-  </td>
+    </td>
 </tr>
