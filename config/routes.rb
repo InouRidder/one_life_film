@@ -19,6 +19,7 @@ Rails.application.routes.draw do
         patch 'update_state'
         post 'send_reminder', to: 'bookings#send_reminder'
       end
+      resources :comments, only: [:create]
     end
     resources :requests do
       member do
