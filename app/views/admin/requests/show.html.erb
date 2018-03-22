@@ -3,24 +3,24 @@
 <div id="page-wrapper">
   <div class="container-fluid">
     <div class="data-list">
-      <ul class="list-inline">
-        <li class="data-card">
+      <div class="flexed-cards">
+        <div class="data-card">
           <h5> Bericht </h5>
           <h6><%= @request.subject %></h6>
           <p><%= @request.message %></p>
           <p>Via: <%= @request.source_reference %></p>
-        </li>
-        <li class="data-card">
+        </div>
+        <div class="data-card">
           <h5> Praktisch </h5>
           <p> <%= @request.date_wedding %> </p>
           <p> <%= @request.location_wedding %> </p>
-        </li>
-        <li class="data-card">
+        </div>
+        <div class="data-card">
           <h5> Status </h5>
           <p> <%= @request.pretty_state %></p>
-          <p> <%= @request.created_at.strftime('%A, %b %d') %> </p>
-        </li>
-        <li class="data-card">
+          <p> Aanvraag binnengekomen op <%= @request.created_at.strftime('%A, %b %d') %> </p>
+        </div>
+        <div class="data-card">
           <h5>
             Contact
           </h5>
@@ -30,8 +30,17 @@
           <p>
             <%= @request.phone_number %>
           </p>
-        </li>
-      </ul>
+        </div>
+      </div>
+      <h3 class="padding-100">
+        Notities
+      </h3>
+      <div class="comments">
+        <% @request.comments.order(created_at: :asc).each do |comment|  %>
+          <%= render 'admin/comments/show', comment: comment %>
+        <% end %>
+        <%= render 'admin/comments/form', commentable: @request.object, comment: @comment %>
+      </div>
 
     </div>
 

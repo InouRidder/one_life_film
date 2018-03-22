@@ -4,6 +4,7 @@ class Admin::RequestsController < Admin::AdminController
 
   def show
     @request = @request.decorate
+    @comment = Comment.new
   end
 
   def index

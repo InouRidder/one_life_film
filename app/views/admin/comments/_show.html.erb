@@ -1,0 +1,15 @@
+<div class="comment-card">
+  <p>
+    <%= comment.content %>
+  </p>
+  <p>
+    <small>
+    Toegevoegd op: <%= comment.created_at.strftime("%a %m/%d/%y") %>
+    </small>
+  </p>
+  <p>
+    <small>
+    - <%= comment.author ? comment.author : comment.user.try(:email) %>
+    </small>
+  </p>
+</div>

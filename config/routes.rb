@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
 
   get '/admin', to: 'admin/requests#index'
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
         patch 'approve'
         patch 'update_state'
       end
+      resources :comments, only: [:create]
       collection do
         get 'cancelled_requests'
       end
