@@ -6,43 +6,59 @@
       <div class="flexed-cards">
         <div class="data-card">
           <h5> Bericht </h5>
-          <h6><%= @request.subject %></h6>
-          <p><%= @request.message %></p>
-          <p>Via: <%= @request.source_reference %></p>
+          <div class="data-content">
+            <h6><%= @request.subject %></h6>
+            <p><%= @request.message %></p>
+            <p>Via: <%= @request.source_reference %></p>
+          </div>
         </div>
         <div class="data-card">
+          <div class="data-content">
           <h5> Praktisch </h5>
-          <p> <%= @request.date_wedding %> </p>
-          <p> <%= @request.location_wedding %> </p>
+            <p> <%= @request.date_wedding %> </p>
+            <p> <%= @request.location_wedding %> </p>
+          </div>
         </div>
         <div class="data-card">
           <h5> Status </h5>
-          <p> <%= @request.pretty_state %></p>
-          <p> Aanvraag binnengekomen op <%= @request.created_at.strftime('%A, %b %d') %> </p>
+          <div class="data-content">
+            <p> <%= @request.pretty_state %></p>
+            <p> Aanvraag binnengekomen op <%= @request.created_at.strftime('%A, %b %d') %> </p>
+          </div>
         </div>
         <div class="data-card">
           <h5>
             Contact
           </h5>
-          <p>
-            <%= @request.email_address %>
-          </p>
-          <p>
-            <%= @request.phone_number %>
-          </p>
+          <div class="data-content">
+            <p>
+              <%= @request.email_address %>
+            </p>
+            <p>
+              <%= @request.phone_number %>
+            </p>
+          </div>
         </div>
       </div>
-      <h3 class="padding-100">
-        Notities
-      </h3>
-      <div class="comments">
-        <% @request.comments.order(created_at: :asc).each do |comment|  %>
-          <%= render 'admin/comments/show', comment: comment %>
-        <% end %>
-        <%= render 'admin/comments/form', commentable: @request.object, comment: @comment %>
+    </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-book fa-fw"></i> Notities</h3>
+            </div>
+            <div class="panel-body">
+              <div class="comments">
+                <% @request.comments.order(created_at: :asc).each do |comment|  %>
+                <%= render 'admin/comments/show', comment: comment %>
+                <% end %>
+                <%= render 'admin/comments/form', commentable: @request.object, comment: @comment %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-    </div>
 
 
   </div>
@@ -53,4 +69,4 @@
 
 
 
-  <!-- flex 0 0 1/total   : tijdlijn! -->
+<!-- flex 0 0 1/total   : tijdlijn! -->
