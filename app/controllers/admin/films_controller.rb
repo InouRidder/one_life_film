@@ -10,12 +10,19 @@ class Admin::FilmsController < Admin::AdminController
   end
 
   def new
+    if id = params[:booking_id]
+      @booking = Booking.find(id)
+    end
     @film = Film.new
   end
 
   def create
     @film = Film.new(film_params)
     if @film.save
+      if booking = @film.booking
+        booking.filmed!
+        booking.save
+      end
       redirect_to admin_film_path(@film)
     else
       render :new
@@ -45,7 +52,7 @@ class Admin::FilmsController < Admin::AdminController
   end
 
   def film_params
-    params.require(:film).permit(:password, :name, :video_url, :slug, :promo, :poster)
+    params.require(:film).permit(:password, :name, :video_url, :slug, :promo, :poster, :booking_id)
   end
 
 

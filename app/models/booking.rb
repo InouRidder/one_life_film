@@ -6,6 +6,7 @@ class Booking < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :request, optional: true
   has_one :playbook
+  has_one :film
   has_many :song_choices
   has_many :songs, through: :song_choices
   pg_search_scope :search_by_name_and_location_wedding, :against => [:name, :location_wedding]
@@ -29,6 +30,14 @@ class Booking < ApplicationRecord
 
 
 # TO DO : bugs on booking index admin, aantal boekingen in OLD BOEKINGS veranderd niet
+
+  def filmed?
+    filmed
+  end
+
+  def filmed!
+    self.filmed = true
+  end
 
   def update_state(new_state)
     self.state = new_state

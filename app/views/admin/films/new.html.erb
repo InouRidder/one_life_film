@@ -27,9 +27,9 @@
     <div class="jumbotron">
 
       <!-- TODO: GOOGLE SYNTAX TO SEND DATA TO ADMIN_CONTROLLER -->
-      <h1>Add Film</h1>
+      <h1>Voeg film toe <% "aan #{@booking.name}" if @booking %>  </h1>
       <%= simple_form_for @film, :url => url_for(:action => 'create', :controller => 'admin/films'), :method => :post do |f| %>
-      <%= render 'form', f: f %>
+      <%= render 'form', f: f, booking: @booking %>
       <% end %>
 
     </div>

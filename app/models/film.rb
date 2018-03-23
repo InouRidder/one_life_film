@@ -2,6 +2,7 @@ class Film < ApplicationRecord
   include PgSearch
   pg_search_scope :search_by_name_and_slug, :against => [:name, :slug]
   has_many :comments, as: :commentable
+  belongs_to :booking, optional: true
 
   paginates_per 10
   validates :name, presence: true

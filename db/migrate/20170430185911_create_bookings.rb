@@ -9,6 +9,7 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.date :date_wedding
       t.string :subject
       t.string :state, default: "pending"
+      t.boolean :filmed, default: false
 
       t.timestamps
     end
