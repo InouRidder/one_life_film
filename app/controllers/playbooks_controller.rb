@@ -20,6 +20,11 @@ class PlaybooksController < ApplicationController
     @songs = @playbook.song_choices
   end
 
+  def film
+    @film = @booking.film
+    @film_id = @film.video_url.match(/\d+\z/)[0]
+  end
+
   private
 
   def set_playbook

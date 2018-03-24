@@ -25,6 +25,11 @@
           CHECKLIST
         </a>
       </li>
+      <% if @booking.filmed? %>
+      <li id="film">
+        <%= link_to "FILM", film_playbook_path(@playbook), type: "submit" %>
+      </li>
+      <% end %>
     </ul>
   </nav>
   <!--Menu Wrapper End-->

@@ -38,7 +38,9 @@ Rails.application.routes.draw do
         get 'end'
       end
     end
-    resources :films
+    resources :films do
+      resources :comments, only: [:create]
+    end
   end
 
   resources :requests, only: [:create]
@@ -46,6 +48,7 @@ Rails.application.routes.draw do
   resources :playbooks, only: [:show] do
     member do
       get 'songs'
+      get 'film'
     end
     resources :playlines, only: [:create, :update]
     resources :song_choices, only: [:create, :destroy]
