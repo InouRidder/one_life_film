@@ -7,11 +7,18 @@ class Admin::BookingsController < Admin::AdminController
       @search = true
       @bookings = Booking.search_by_name_and_location_wedding(query).order(created_at: :desc).decorate
     else
-      @bookings = Booking.active.order(created_at: :desc).decorate
-      @title = "Aankomende maand"
+      @months = Date::MONTHNAMES.compact
+      @month = params[:month] || @months[Date.today.month - 1]
+      @year = params[:year] || Date.today.year
+      @years = (1980..2028).to_a
+      @bookings = Booking.by_month("#{@month} #{@year}").decorate
+      @bookings_per_day = {}
+      @bookings.each do |booking|
+        @bookings_per_day[booking.date_wedding] ? @bookings_per_day[booking.date_wedding] << booking : @bookings_per_day[booking.date_wedding] = [booking]
+      end
       respond_to do |format|
         format.html
-        format.js {render 'insert_bookings', bookings: @bookings, title: @title }
+        format.js {render 'insert_bookings', bookings_per_day: @bookings_per_day, title: @month, year: @year }
       end
     end
   end
@@ -57,27 +64,10 @@ class Admin::BookingsController < Admin::AdminController
   def update_state
     #  TODO fix wedding date being saved upon creation of booking
     @booking.update_state(params[:new_state])
+
     if @booking.save
-      redirect_to admin_bookings_path
+      redirect_to admin_bookings_path(month: @booking.date_wedding.strftime("%B"), year: @booking.date_wedding.year )
     end
-  end
-
-  def this_week
-    @bookings = Booking.active.this_week.order(created_at: :desc).decorate
-    @title = 'Deze week'
-    render 'insert_bookings'
-  end
-
-  def old_bookings
-    @bookings = Booking.active.old.order(created_at: :desc).decorate
-    @title ='Oude boekingen'
-    render 'insert_bookings'
-  end
-
-  def all_bookings
-    @bookings = Booking.active.order(created_at: :desc).decorate
-    @title = 'Alle boekingen'
-    render 'insert_bookings'
   end
 
   def send_reminder

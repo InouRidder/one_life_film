@@ -1,6 +1,9 @@
 class Booking < ApplicationRecord
   include PgSearch
   has_many :comments, as: :commentable
+  by_star_field :date_wedding
+
+  default_scope { order(date_wedding: :desc) }
 
 
   belongs_to :user, optional: true

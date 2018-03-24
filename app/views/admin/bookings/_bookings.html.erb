@@ -19,8 +19,10 @@
     </tr>
   </thead>
   <tbody>
-    <% bookings.each do |booking| %>
    <tr>
+    <% bookings_per_day.each do |day, bookings| %>
+    <h6><%= day.strftime("%a %m/%d/%y") %></h6>
+    <% bookings.each do |booking| %>
     <td>
       <%= link_to admin_booking_path(booking) do %>
         <%= booking.name %>
@@ -38,16 +40,15 @@
     <td><%= booking.playbook ? booking.playbook.playlines.try(:count) : 0  %></td>
     <td class="request-status">
       <% if booking.filmed %>
-        <%= link_to "Film", admin_film_path(booking.film), class: "state-btn active-film" %>
+        <%= link_to "Film", film_playbook_path(booking.playbook), class: "state-btn active-film" %>
       <% else %>
         <%= link_to "Film", new_admin_film_path(booking_id: booking.id), class: "state-btn" %>
       <% end %>
       <%= link_to "Factuur", update_state_admin_booking_path(booking, new_state: 'invoice'), method: :patch, class: "state-btn #{ booking.btn_state('invoice')}" %>
       <%= link_to "Betaling", update_state_admin_booking_path(booking, new_state: 'payment'), method: :patch, class: "state-btn #{ booking.btn_state('payment')}" %>
     </td>
-
-
-  </tr>
+      <% end %>
+    </tr>
   <% end %>
 </tbody>
 </table>

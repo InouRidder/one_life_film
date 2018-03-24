@@ -5,8 +5,8 @@ class PlaybooksController < ApplicationController
   layout 'client'
 
   def show
+    redirect_to film_playbook_path(@booking) if @booking.filmed?
     @times = Playline::TIMES
-    @booking = @playbook.booking
     @playline = Playline.new
     unless current_user.playbook == @playbook || current_user.admin
       redirect_to root_path

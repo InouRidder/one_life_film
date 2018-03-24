@@ -26,6 +26,13 @@ GIT
       activesupport (~> 5.0)
       request_store (~> 1.0)
 
+GIT
+  remote: git://github.com/radar/by_star
+  revision: 422c06ec1ea8ce633aca014a4403fbac92630057
+  specs:
+    by_star (3.0.0)
+      activesupport (> 3)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -272,6 +279,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-datepicker-rails!
   bootstrap-sass
+  by_star!
   coffee-rails
   devise
   devise-i18n

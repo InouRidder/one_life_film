@@ -35,10 +35,11 @@ Rails.application.routes.draw do
         get 'end'
       end
     end
+    resources :films
   end
-    resources :films, only: [] do
-      resources :comments, only: [:create]
-    end
+  resources :films, only: [] do
+    resources :comments, only: [:create]
+  end
 
   resources :requests, only: [:create]
 
