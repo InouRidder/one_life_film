@@ -46,6 +46,8 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 # MAILING
 gem 'postmark-rails'
 
+# Sort by month
+gem 'by_star', git: "git://github.com/radar/by_star"
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-classnames'

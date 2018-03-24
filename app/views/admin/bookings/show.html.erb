@@ -9,6 +9,7 @@
           Boeking <small><%= @booking.name %></small>
         </h1>
         <div class="booking-actions">
+          <%= link_to "Voeg film toe", new_admin_film_path(booking_id: @booking.id), class: "btn btn-primary" %>
           <%= link_to "Stuur herinnerings email!", send_reminder_admin_booking_path(@booking), remote: true, method: :post, class: "btn btn-primary"  %>
           <%= link_to 'Pas booking aan', edit_admin_booking_path(@booking),
           :class => "btn btn-warning"%>

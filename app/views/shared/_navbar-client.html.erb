@@ -14,6 +14,7 @@
   <!--Menu Wrapper Starts-->
   <nav class="manu-wrapper">
     <ul>
+      <% unless @booking.filmed? %>
       <li id="home">
         <%= link_to t('playbook') + @playbook.counted_playline_state, playbook_path(@playbook), class: @playbook.colored_playline_state %>
       </li>
@@ -25,6 +26,11 @@
           CHECKLIST
         </a>
       </li>
+      <% else %>
+      <li id="film">
+        <%= link_to "FILM", film_playbook_path(@playbook), type: "submit" %>
+      </li>
+      <% end %>
     </ul>
   </nav>
   <!--Menu Wrapper End-->

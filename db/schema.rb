@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180321055645) do
     t.date "date_wedding"
     t.string "subject"
     t.string "state", default: "pending"
+    t.boolean "filmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"

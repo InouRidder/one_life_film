@@ -24,5 +24,6 @@
       <%= yield %>
     </div>
     <%= javascript_include_tag 'admin' %>
+    <%= yield(:after_js) %>
   </body>
 </html>

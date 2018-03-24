@@ -5,8 +5,8 @@ class PlaybooksController < ApplicationController
   layout 'client'
 
   def show
+    redirect_to film_playbook_path(@booking) if @booking.filmed?
     @times = Playline::TIMES
-    @booking = @playbook.booking
     @playline = Playline.new
     unless current_user.playbook == @playbook || current_user.admin
       redirect_to root_path
@@ -18,6 +18,11 @@ class PlaybooksController < ApplicationController
     @selection = Song.all
     @song_choice = SongChoice.new(playbook: @playbook)
     @songs = @playbook.song_choices
+  end
+
+  def film
+    @film = @booking.film
+    @film_id = @film.video_url.match(/\d+\z/)[0]
   end
 
   private

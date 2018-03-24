@@ -1,9 +1,4 @@
-<style>
-  .booking-active {
-    color: white !important;
-    background-color: black !important;
-  }
-</style>
+
 <div id="page-wrapper">
 
   <div class="container-fluid">
@@ -12,6 +7,37 @@
       <div style="display: flex; justify-content: space-between;">
         <div id="flex-child">
           <p><a href="/admin/bookings/new" class="btn btn-primary" role="button"> Voeg een boeking too! &raquo;</a></p>
+        </div>
+        <style>
+          .years {
+            width: 300px;
+            height: 45px;
+            display: flex;
+            overflow-x: hidden;
+            overflow: scroll;
+          }
+          .year {
+            padding:10px;
+            border: solid 0.2px lightgrey;
+            text-decoration: none;
+            color: black;
+            transition: 200ms ease;
+          }
+          .year:hover {
+            text-decoration: none;
+            color: black;
+            background-color: rgb(240,240,240);
+          }
+          .active-year {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+          }
+        </style>
+        <div class="years">
+          <% @years.each do |year| %>
+            <%= link_to year, admin_bookings_path(year: year), class: "year #{'active-year' if year == @year.to_i}" %>
+          <% end %>
         </div>
         <div id="flex-child">
           <form class="form-inline" action="<%= admin_bookings_path %>">
@@ -25,26 +51,20 @@
         </div>
       </div>
     </div>
-
-
+  <% unless @search %>
     <div class="tabs">
-      <%= link_to admin_bookings_path, class: "tab active", remote: true do %>
-      <h3><%= @bookings.count %></h3>
-      <p> <%= @search ? 'Zoekresultaten' : "Aankomende Maand" %></p>
-      <% end %>
-      <%= link_to this_week_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.active.this_week.count %></h3>
-      <p>Deze week</p>
-      <% end %>
-      <%= link_to old_bookings_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.active.old.count %></h3>
-      <p>Oude boekingen</p>
-      <% end %>
-      <%= link_to all_bookings_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.active.count %></h3>
-      <p>Alle boekingen</p>
+      <% @months.each do |month| %>
+        <%= link_to admin_bookings_path(month: month, year: @year), class: "tab #{'active' if month == @month}", remote: true do %>
+        <h3>
+          <%= month %>
+        </h3>
+        <p>
+          <%= @year %>
+        </p>
+        <% end %>
       <% end %>
     </div>
+    <% end %>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -52,7 +72,7 @@
         <% if @search %>
         <%= link_to 'Verwijder zoekresultaten', admin_bookings_path, class: 'btn btn-default' %>
         <% end %>
-        <%= render 'bookings', bookings: @bookings %>
+        <%= render 'bookings', bookings_per_day: @bookings_per_day %>
       </div>
     </div>
   </div>

@@ -16,6 +16,7 @@
 //= require admin/bootstrap.js
 //= require admin/tabs.js
 //= require admin/nav-tabs.js
+//= require bootstrap-datepicker
 
 //= require_self
 

@@ -5,9 +5,6 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'admin/requests#index'
 
-  # please tell me I can delete this horrible route.
-  get 'playlines/:id', to: 'playlines#update'
-
   namespace :admin do
     resources :bookings do
       collection do
@@ -40,12 +37,16 @@ Rails.application.routes.draw do
     end
     resources :films
   end
+  resources :films, only: [] do
+    resources :comments, only: [:create]
+  end
 
   resources :requests, only: [:create]
 
   resources :playbooks, only: [:show] do
     member do
       get 'songs'
+      get 'film'
     end
     resources :playlines, only: [:create, :update]
     resources :song_choices, only: [:create, :destroy]

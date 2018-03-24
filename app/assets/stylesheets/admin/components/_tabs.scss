@@ -1,8 +1,7 @@
-
 .tabs {
   background: white;
   display: flex;
-  padding: 10px 0px 0 0px
+  padding: 10px 0px 0 0px;
 }
 .tabs a {
   color: white;
@@ -23,9 +22,9 @@
 }
 .tab {
   background: #222222;
-  flex: 0 0 25%;
   text-align: center;
   padding: 20px 0;
+  flex: 0 0 8.33333333%;
 }
 
 .half-size {

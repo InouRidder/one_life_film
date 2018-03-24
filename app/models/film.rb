@@ -1,10 +1,14 @@
 class Film < ApplicationRecord
   include PgSearch
   pg_search_scope :search_by_name_and_slug, :against => [:name, :slug]
+
   has_many :comments, as: :commentable
+  belongs_to :booking, optional: true
+
+  validates :video_url, presence: true
+  validates :name, presence: true
 
   paginates_per 10
-  validates :name, presence: true
 
   extend FriendlyId
   friendly_id :name, use: :slugged

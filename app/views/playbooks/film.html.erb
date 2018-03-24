@@ -1,0 +1,27 @@
+<!--Content Starts-->
+<div class="main-container short-width" style="margin-top: 40px; margin-bottom: 100px;">
+  <h4 style="text-align: center;"> <%= @film.name %></h4>
+  <!--Wide Wrapper Starts-->
+  <div class="wide portfolio-one" data-items-gap="15">
+
+    <!--Items Starts-->
+    <div class="item">
+      <div class="project">
+
+        <iframe src="https://player.vimeo.com/video/<%= @film_id %>?color=a39254&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0"  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+      </div>
+    </div>
+    <!--Items End-->
+
+  </div>
+  <!--Wide Wrapper End-->
+  <div class="row" style="margin-top: 40px; margin-bottom: 100px;">
+    <div class="col-md-6 col-md-offset-3 col-xs-12">
+      <% @film.comments.each do |comment| %>
+        <%= render 'comments/show', comment: comment %>
+      <% end %>
+      <%= render 'comments/form', commentable: @film %>
+  </div>
+</div>
+<!--Content End-->
