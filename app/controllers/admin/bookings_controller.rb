@@ -10,7 +10,7 @@ class Admin::BookingsController < Admin::AdminController
       @months = Date::MONTHNAMES.compact
       @month = params[:month] || @months[Date.today.month - 1]
       @year = params[:year] || Date.today.year
-      @years = (1980..2028).to_a
+      @years = (2016..2028).to_a
       @bookings = Booking.by_month("#{@month} #{@year}").decorate
       @bookings_per_day = {}
       @bookings.each do |booking|
