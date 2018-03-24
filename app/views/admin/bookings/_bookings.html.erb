@@ -18,10 +18,10 @@
 
     </tr>
   </thead>
-  <tbody>
-   <tr>
     <% bookings_per_day.each do |day, bookings| %>
     <h6><%= day.strftime("%a %m/%d/%y") %></h6>
+  <tbody>
+   <tr>
     <% bookings.each do |booking| %>
     <td>
       <%= link_to admin_booking_path(booking) do %>
@@ -49,6 +49,6 @@
     </td>
       <% end %>
     </tr>
-  <% end %>
 </tbody>
+  <% end %>
 </table>
