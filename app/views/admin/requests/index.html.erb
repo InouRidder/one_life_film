@@ -8,6 +8,10 @@
       <h3><%= @requests.count %></h3>
       <p>Aanvragen</p>
       <% end %>
+      <%= link_to new_arrivals_admin_requests_path, class: "tab half-size active", remote: true do %>
+      <h3><%= @rt_new %></h3>
+      <p>Nieuwe aanvragen</p>
+      <% end %>
       <%= link_to cancelled_requests_admin_requests_path, class: "tab half-size", remote: true do %>
       <h3><%= Request.cancels.count %></h3>
       <p>Cancels & Verlopen aanvragen</p>

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
       collection do
         get 'cancelled_requests'
+        get 'new_arrivals'
       end
     end
     resources :songs, except: [:show] do

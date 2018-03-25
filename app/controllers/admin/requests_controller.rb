@@ -16,6 +16,12 @@ class Admin::RequestsController < Admin::AdminController
     end
   end
 
+  def new_arrivals
+    @title = 'Nieuwe Aanvragen'
+    @requests = Request.new_arrivals.order(created_at: :asc).decorate
+    render 'insert_requests'
+  end
+
   def cancelled_requests
     @title = 'Cancels'
     @cancellation = true

@@ -7,11 +7,11 @@ class Request < ApplicationRecord
 
   scope :active, -> { where("state != 'declined' AND date_wedding >= ? ", Date.today)}
   scope :cancels, -> { where("date_wedding <  ?", Date.today).or(where(state: 'declined')) }
-
+  scope :new_arrivals, -> {where("state = 'pending'")}
   scope :rt_quotations, -> {where(state: 'quotation').count}
   scope :rt_requests, -> {active.count}
   scope :rt_cancels, -> {cancels.count}
-  scope :rt_new, -> {where("state = 'pending'").count}
+  scope :rt_new, -> {new_arrivals.count}
 
 
   def update_state(new_state)
