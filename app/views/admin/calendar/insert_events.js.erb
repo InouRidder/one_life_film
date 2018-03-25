@@ -1,4 +1,4 @@
 const container = document.getElementById('booking-container');
-container.innerHTML = "<%= j render 'bookings', bookings: @bookings %>";
+container.innerHTML = "<%= j render 'events', events_per_day: @events_per_day %>";
 const title = document.getElementById('booking-title');
 title.innerHTML = "<%= j @title %>"

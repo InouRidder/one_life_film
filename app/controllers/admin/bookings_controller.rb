@@ -6,28 +6,12 @@ class Admin::BookingsController < Admin::AdminController
       @title = 'Zoekresultaten'
       @search = true
       @bookings = Booking.search_by_name_and_location_wedding(query).order(created_at: :desc).decorate
-      @events_per_day = {}
-      @bookings.each do |booking|
-        @events_per_day[booking.date_wedding] ? @events_per_day[booking.date_wedding][:bookings]<< booking : @events_per_day[booking.date_wedding] = {bookings: [booking] , requests: []}
-      end
     else
-      @months = Date::MONTHNAMES.compact
-      @month = params[:month] || @months[Date.today.month - 1]
-      @year = params[:year] || Date.today.year
-      @years = (2016..2028).to_a
-      @bookings = Booking.by_month("#{@month} #{@year}").decorate
-      @requests = Request.by_month("#{@month} #{@year}").where("state != 'declined'").decorate
-      @events_per_day = {}
-      @bookings.each do |booking|
-        @events_per_day[booking.date_wedding] ? @events_per_day[booking.date_wedding][:bookings]<< booking : @events_per_day[booking.date_wedding] = {bookings: [booking] , requests: []}
-      end
-      @requests.each do |request|
-        @events_per_day[request.date_wedding] ? @events_per_day[request.date_wedding][:requests] << request : @events_per_day[request.date_wedding] = {bookings: [], requests: [request]}
-      end
-      @events_per_day = @events_per_day.sort.to_h
+      @bookings = Booking.active.order(created_at: :desc).decorate
+      @title = "Aankomende maand"
       respond_to do |format|
         format.html
-        format.js {render 'insert_bookings', events_per_day: @events_per_day, title: @month, year: @year }
+        format.js {render 'insert_bookings', bookings: @bookings, title: @title }
       end
     end
   end
@@ -75,6 +59,24 @@ class Admin::BookingsController < Admin::AdminController
     @booking.save
     @booking = @booking.decorate
     render 'update_state'
+  end
+
+  def this_week
+    @bookings = Booking.active.this_week.order(created_at: :desc).decorate
+    @title = 'Deze week'
+    render 'insert_bookings'
+  end
+
+  def old_bookings
+    @bookings = Booking.active.old.order(created_at: :desc).decorate
+    @title ='Oude boekingen'
+    render 'insert_bookings'
+  end
+
+  def all_bookings
+    @bookings = Booking.active.order(created_at: :desc).decorate
+    @title = 'Alle boekingen'
+    render 'insert_bookings'
   end
 
   def send_reminder

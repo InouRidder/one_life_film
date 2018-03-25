@@ -1,8 +1,4 @@
-<style>
-  .tab {
-    flex: 0 0 25% !important;
-  }
-</style>
+
 <div id="page-wrapper">
 
   <div class="container-fluid">
@@ -12,6 +8,13 @@
         <div id="flex-child">
           <p><a href="/admin/bookings/new" class="btn btn-primary" role="button"> Voeg een boeking too! &raquo;</a></p>
         </div>
+        <% unless @search %>
+          <div class="years">
+            <% @years.each do |year| %>
+              <%= link_to year, admin_calendar_index_path(year: year), class: "year #{'active-year' if year == @year.to_i}" %>
+            <% end %>
+          </div>
+        <% end %>
         <div id="flex-child">
           <form class="form-inline" action="<%= admin_bookings_path %>">
             <div class="form-group">
@@ -24,34 +27,28 @@
         </div>
       </div>
     </div>
-
-
+  <% unless @search %>
     <div class="tabs">
-      <%= link_to admin_bookings_path, class: "tab active", remote: true do %>
-      <h3><%= @bookings.count %></h3>
-      <p> <%= @search ? 'Zoekresultaten' : "Aankomende Maand" %></p>
-      <% end %>
-      <%= link_to this_week_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.active.this_week.count %></h3>
-      <p>Deze week</p>
-      <% end %>
-      <%= link_to old_bookings_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.active.old.count %></h3>
-      <p>Oude boekingen</p>
-      <% end %>
-      <%= link_to all_bookings_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.active.count %></h3>
-      <p>Alle boekingen</p>
+      <% @months.each do |month| %>
+        <%= link_to admin_calendar_index_path(month: month, year: @year), class: "tab #{'active' if month == @month}", remote: true do %>
+        <h3>
+          <%= month %>
+        </h3>
+        <p>
+          <%= @year %>
+        </p>
+        <% end %>
       <% end %>
     </div>
+    <% end %>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container" id="booking-container">
         <% if @search %>
-        <%= link_to 'Verwijder zoekresultaten', admin_bookings_path, class: 'btn btn-default' %>
+        <%= link_to 'Verwijder zoekresultaten', admin_calendar_index_path, class: 'btn btn-default' %>
         <% end %>
-        <%= render 'bookings', bookings: @bookings %>
+        <%= render 'events', events_per_day: @events_per_day %>
       </div>
     </div>
   </div>
