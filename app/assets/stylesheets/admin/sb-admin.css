@@ -48,7 +48,19 @@
 .rt-info-stat {
   padding: 10px 20px;
   background-color: #F2EFE8;
+  color: black;
+  text-decoration: none;
 }
+.rt-info-stat a {
+  color: black;
+  text-decoration: none;
+}
+.rt-info-stat:hover {
+  color: black;
+  text-decoration: none;
+  background-color: lightgrey;
+}
+
 .realtime-info {
   display: flex;
   justify-content: flex-end;

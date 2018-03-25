@@ -5,7 +5,6 @@ class Booking < ApplicationRecord
 
   default_scope { order(date_wedding: :desc) }
 
-
   belongs_to :user, optional: true
   belongs_to :request, optional: true
   has_one :playbook

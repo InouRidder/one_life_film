@@ -1,0 +1,24 @@
+.years {
+  width: 300px;
+  height: 45px;
+  display: flex;
+  overflow-x: hidden;
+  overflow: scroll;
+}
+.year {
+  padding:10px;
+  border: solid 0.2px lightgrey;
+  text-decoration: none;
+  color: black;
+  transition: 200ms ease;
+}
+.year:hover {
+  text-decoration: none;
+  color: black;
+  background-color: rgb(240,240,240);
+}
+.active-year {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}

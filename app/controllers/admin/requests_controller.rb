@@ -27,7 +27,7 @@ class Admin::RequestsController < Admin::AdminController
     #  TODO fix wedding date being saved upon creation of booking
     @request.update_state(params[:new_state])
     @request.save
-    redirect_to admin_requests_path
+    redirect_back(fallback_location: admin_requests_path, month: @request.date_wedding.strftime("%B"), year: @request.date_wedding.year )
   end
 
   def approve
