@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     if @request.save
-      flash[:notice] = "We will address your request shortly"
+      flash[:notice] = "We komen binnen twee weken bij je terug! Kijk in je mail voor de confirmatie."
       RequestMailer.received(@request).deliver_now
       redirect_to root_path
     else
