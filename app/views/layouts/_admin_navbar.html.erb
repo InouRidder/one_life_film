@@ -11,6 +11,11 @@
     </div>
     <div class="rt-info-stat">
       <%= link_to admin_requests_path do %>
+        Nieuwe aanvragen: <%= @rt_new_requests %>
+      <% end %>
+    </div>
+    <div class="rt-info-stat">
+      <%= link_to admin_requests_path do %>
         Openstaande aanvragen: <%= @rt_requests %>
       <% end %>
     </div>

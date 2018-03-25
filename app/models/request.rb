@@ -11,6 +11,7 @@ class Request < ApplicationRecord
   scope :rt_quotations, -> {where(state: 'quotation').count}
   scope :rt_requests, -> {active.count}
   scope :rt_cancels, -> {cancels.count}
+  scope :rt_new, -> {where("state = 'pending'").count}
 
 
   def update_state(new_state)
