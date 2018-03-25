@@ -40,8 +40,8 @@
       <p>Oude boekingen</p>
       <% end %>
       <%= link_to all_bookings_admin_bookings_path, class: "tab", remote: true do %>
-      <h3><%= Booking.active.count %></h3>
-      <p>Alle boekingen</p>
+      <h3><%= Booking.count %></h3>
+      <p>Archief</p>
       <% end %>
     </div>
 

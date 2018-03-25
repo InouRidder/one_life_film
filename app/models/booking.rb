@@ -5,6 +5,8 @@ class Booking < ApplicationRecord
 
   default_scope { order(date_wedding: :desc) }
 
+  paginates_per 10
+
   belongs_to :user, optional: true
   belongs_to :request, optional: true
   has_one :playbook
@@ -29,9 +31,6 @@ class Booking < ApplicationRecord
   # REAL TIME DATA : RT
 
   scope :rt_bookings, -> {active.where("request = 'false'").count}
-
-
-# TO DO : bugs on booking index admin, aantal boekingen in OLD BOEKINGS veranderd niet
 
   def filmed?
     filmed

@@ -7,7 +7,8 @@ class Admin::BookingsController < Admin::AdminController
       @search = true
       @bookings = Booking.search_by_name_and_location_wedding(query).order(created_at: :desc).decorate
     else
-      @bookings = Booking.active.order(created_at: :desc).decorate
+      @bookings = Booking.active.page(params[:page]).decorate
+      @paginated = true
       @title = "Aankomende maand"
       respond_to do |format|
         format.html
@@ -62,19 +63,22 @@ class Admin::BookingsController < Admin::AdminController
   end
 
   def this_week
-    @bookings = Booking.active.this_week.order(created_at: :desc).decorate
+    @paginated = false
+    @bookings = Booking.active.this_week.decorate
     @title = 'Deze week'
     render 'insert_bookings'
   end
 
   def old_bookings
-    @bookings = Booking.active.old.order(created_at: :desc).decorate
+    @paginated = true
+    @bookings = Booking.active.old.page(params[:page]).decorate
     @title ='Oude boekingen'
     render 'insert_bookings'
   end
 
   def all_bookings
-    @bookings = Booking.active.order(created_at: :desc).decorate
+    @paginated = false
+    @bookings = Booking.page(params[:page]).decorate
     @title = 'Alle boekingen'
     render 'insert_bookings'
   end
@@ -88,7 +92,6 @@ private
   def set_booking
     @booking = Booking.find(params[:id])
   end
-
 
   def booking_params
     params.require(:booking).permit(:phone_number, :date_wedding, :location_wedding, :name, :email_address, :subject, :description)

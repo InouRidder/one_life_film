@@ -22,5 +22,6 @@
     <% bookings.each do |booking| %>
       <%= render 'show', booking: booking %>
   <% end %>
+  <%= paginate bookings.object if @paginated %>
 </tbody>
 </table>
