@@ -1,0 +1,2 @@
+let booking = document.getElementById('booking-<%= @booking.id %>')
+booking.outerHTML = "<%= j render 'admin/bookings/show', booking: @booking %>"

@@ -23,7 +23,7 @@
 <% end %>
     <tbody>
       <% events[:bookings].each do |booking| %>
-        <%= render 'admin/bookings/active', booking: booking %>
+        <%= render 'admin/bookings/show', booking: booking %>
       <% end %>
     </tbody>
   </table>
@@ -48,7 +48,7 @@
 
     <tbody>
     <% events[:requests].each do |request| %>
-      <%= render 'admin/requests/active', request: request %>
+      <%= render 'admin/requests/show', request: request %>
     <% end %>
     </tbody>
   </table>

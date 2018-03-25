@@ -72,9 +72,9 @@ class Admin::BookingsController < Admin::AdminController
 
   def update_state
     @booking.update_state(params[:new_state])
-    if @booking.save
-      redirect_to admin_bookings_path(month: @booking.date_wedding.strftime("%B"), year: @booking.date_wedding.year )
-    end
+    @booking.save
+    @booking = @booking.decorate
+    render 'update_state'
   end
 
   def send_reminder

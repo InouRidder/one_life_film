@@ -19,9 +19,9 @@
     <tbody>
       <% requests.each do |request| %>
       <% unless request.cancelled? %>
-        <%= render 'active', request: request %>
+        <%= render 'show', request: request %>
       <% else %>
-        <%= render 'cancels', request: request %>
+        <%= render 'cancelled', request: request %>
       <% end %>
     <% end %>
   </tbody>
