@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-
   devise_for :users
 
-  get '/admin', to: 'admin/requests#index'
+  get '/admin', to: 'admin/calendar#index'
 
   namespace :admin do
+    resources :calendar, only: [:index]
     resources :bookings do
       collection do
         get 'all-bookings'

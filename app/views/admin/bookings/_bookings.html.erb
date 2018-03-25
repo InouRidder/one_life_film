@@ -1,56 +1,26 @@
-<% events_per_day.each do |day, events| %>
-<h2><%= day.strftime('%A, %b %d') %></h2>
-<table class="table table-striped table-hover bookings-table">
-<% if events[:bookings].any? %>
-  <thead>
+<table class="table table-striped table-hover">
+  <thead z>
     <tr>
-      <h2> <small> Boekingen </small> </h2>
-      </tr>
-    </thead>
-    <thead class="thead-inverse">
-      <tr>
-        <th>Name</th>
-        <th>Contact</th>
-        <th>Location</th>
-        <th>Songs</th>
-
-        <th>Playlines</th>
-
-        <th>Status</th>
-
-      </tr>
-    </thead>
-<% end %>
-    <tbody>
-      <% events[:bookings].each do |booking| %>
-        <%= render 'admin/bookings/show', booking: booking %>
-      <% end %>
-    </tbody>
-  </table>
-
-<% if events[:requests].any? %>
-  <table class="table table-striped table-hover requests-table">
-  <thead>
-    <tr>
-    <h2> <small> Aanvragen</small></h2>
+      <th><h2><%= @title %></h2 id="booking-title"></th>
     </tr>
   </thead>
-      <thead class="thead-inverse">
-      <tr>
-        <th>Naam</th>
-        <th>Contact</th>
-        <th>Datum ingediend</th>
-        <th>Status</th>
-        <th>Acties</th>
 
-      </tr>
-    </thead>
+  <thead class="thead-inverse">
+    <tr>
+      <th>Name</th>
+      <th>Contact</th>
+      <th>Location</th>
+      <th>Songs</th>
 
-    <tbody>
-    <% events[:requests].each do |request| %>
-      <%= render 'admin/requests/show', request: request %>
-    <% end %>
-    </tbody>
-  </table>
+      <th>Playlines</th>
+
+      <th>Status</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% bookings.each do |booking| %>
+      <%= render 'show', booking: booking %>
   <% end %>
-<% end %>
+</tbody>
+</table>
