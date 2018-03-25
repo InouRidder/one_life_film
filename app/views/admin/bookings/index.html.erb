@@ -28,7 +28,7 @@
 
     <div class="tabs">
       <%= link_to admin_bookings_path, class: "tab active", remote: true do %>
-      <h3><%= @bookings.count %></h3>
+      <h3><%= Booking.active.count %></h3>
       <p> <%= @search ? 'Zoekresultaten' : "Aankomende Maand" %></p>
       <% end %>
       <%= link_to this_week_admin_bookings_path, class: "tab", remote: true do %>

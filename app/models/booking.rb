@@ -5,7 +5,7 @@ class Booking < ApplicationRecord
 
   default_scope { order(date_wedding: :desc) }
 
-  paginates_per 10
+  paginates_per 20
 
   belongs_to :user, optional: true
   belongs_to :request, optional: true
