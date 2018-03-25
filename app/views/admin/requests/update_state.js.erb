@@ -1,0 +1,2 @@
+let request = document.getElementById('request-<%= @request.id %>')
+request.outerHTML = "<%= j render 'admin/requests/show', request: @request %>"

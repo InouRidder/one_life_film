@@ -8,37 +8,13 @@
         <div id="flex-child">
           <p><a href="/admin/bookings/new" class="btn btn-primary" role="button"> Voeg een boeking too! &raquo;</a></p>
         </div>
-        <style>
-          .years {
-            width: 300px;
-            height: 45px;
-            display: flex;
-            overflow-x: hidden;
-            overflow: scroll;
-          }
-          .year {
-            padding:10px;
-            border: solid 0.2px lightgrey;
-            text-decoration: none;
-            color: black;
-            transition: 200ms ease;
-          }
-          .year:hover {
-            text-decoration: none;
-            color: black;
-            background-color: rgb(240,240,240);
-          }
-          .active-year {
-            background-color: black;
-            color: white;
-            text-decoration: none;
-          }
-        </style>
-        <div class="years">
-          <% @years.each do |year| %>
-            <%= link_to year, admin_bookings_path(year: year), class: "year #{'active-year' if year == @year.to_i}" %>
-          <% end %>
-        </div>
+        <% unless @search %>
+          <div class="years">
+            <% @years.each do |year| %>
+              <%= link_to year, admin_bookings_path(year: year), class: "year #{'active-year' if year == @year.to_i}" %>
+            <% end %>
+          </div>
+        <% end %>
         <div id="flex-child">
           <form class="form-inline" action="<%= admin_bookings_path %>">
             <div class="form-group">
@@ -72,7 +48,7 @@
         <% if @search %>
         <%= link_to 'Verwijder zoekresultaten', admin_bookings_path, class: 'btn btn-default' %>
         <% end %>
-        <%= render 'bookings', bookings_per_day: @bookings_per_day %>
+        <%= render 'bookings', events_per_day: @events_per_day %>
       </div>
     </div>
   </div>

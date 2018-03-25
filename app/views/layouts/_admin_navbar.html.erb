@@ -4,10 +4,27 @@
     <a class="navbar-brand black-text" href="/admin">OneLife Admin</a>
   </div>
   <div class="realtime-info">
-  <div class="rt-info-stat"> Openstaande offertes: <%= @rt_quotations %> </div>
-  <div class="rt-info-stat"> Openstaande aanvragen: <%= @rt_requests %> </div>
-  <div class="rt-info-stat"> Cancels: <%= @rt_cancels %> </div>
-  <div class="rt-info-stat"> Boekingen: <%= @rt_bookings %></div>
+    <div class="rt-info-stat">
+      <%= link_to admin_requests_path do %>
+        Openstaande offertes: <%= @rt_quotations %>
+      <% end %>
+    </div>
+    <div class="rt-info-stat">
+      <%= link_to admin_requests_path do %>
+        Openstaande aanvragen: <%= @rt_requests %>
+      <% end %>
+    </div>
+    <div class="rt-info-stat">
+      <%= link_to admin_requests_path do %>
+        Cancels: <%= @rt_cancels %>
+      <% end %>
+    </div>
+
+    <div class="rt-info-stat">
+      <%= link_to admin_bookings_path do %>
+         Boekingen: <%= @rt_bookings %>
+      <% end %>
+    </div>
   </div>
   <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
   <div class="collapse navbar-collapse navbar-ex1-collapse" style="z-index: 99;">
@@ -28,6 +45,9 @@
       <li class="nav-tab" id="request-nav">
         <a id="no-effect" class="black-text" href="/admin/requests"><i class="fa fa-fw fa-question" aria-hidden="true"></i>
         Aanvragen</a>
+      </li>
+      <li class="nav-tab" id="booking-nav">
+        <a id="no-effect" class="black-text" href="/admin/bookings"><i class="fa fa-fw fa-calendar"></i> Calendar </a>
       </li>
       <li class="nav-tab" id="booking-nav">
         <a id="no-effect" class="black-text" href="/admin/bookings"><i class="fa fa-fw fa-plane"></i> Boekingen </a>

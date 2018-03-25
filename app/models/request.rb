@@ -3,6 +3,8 @@ class Request < ApplicationRecord
   has_many :comments, as: :commentable
   default_scope -> { where("state != 'approved'") }
 
+  by_star_field :date_wedding
+
   scope :active, -> { where("state != 'declined' AND date_wedding >= ? ", Date.today)}
   scope :cancels, -> { where("date_wedding <  ?", Date.today).or(where(state: 'declined')) }
 
