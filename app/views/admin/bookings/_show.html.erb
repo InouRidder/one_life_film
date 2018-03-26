@@ -1,10 +1,12 @@
 <tr id="booking-<%= booking.id %>">
   <td>
+    <h5>
+      <%= booking.date_wedding.strftime('%A, %b %d') %>
+    </h5>
     <%= link_to admin_booking_path(booking) do %>
     <%= booking.name %>
     <% end %>
     <br>
-    <%= booking.date_wedding.strftime('%A, %b %d') %>
   </td>
   <td>
     <%= booking.email_address %>

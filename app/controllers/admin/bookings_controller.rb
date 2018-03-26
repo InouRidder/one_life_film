@@ -9,7 +9,7 @@ class Admin::BookingsController < Admin::AdminController
     else
       @bookings = Booking.active.page(params[:page]).decorate
       @paginated = true
-      @title = "Aankomende maand"
+      @title = "Actieve bookingen"
       respond_to do |format|
         format.html
         format.js {render 'insert_bookings', bookings: @bookings, title: @title }
@@ -62,22 +62,8 @@ class Admin::BookingsController < Admin::AdminController
     render 'update_state'
   end
 
-  def this_week
-    @paginated = false
-    @bookings = Booking.active.this_week.decorate
-    @title = 'Deze week'
-    render 'insert_bookings'
-  end
-
-  def old_bookings
-    @paginated = true
-    @bookings = Booking.active.old.page(params[:page]).decorate
-    @title ='Oude boekingen'
-    render 'insert_bookings'
-  end
-
   def all_bookings
-    @paginated = false
+    @paginated = true
     @bookings = Booking.page(params[:page]).decorate
     @title = 'Alle boekingen'
     render 'insert_bookings'

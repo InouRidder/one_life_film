@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   has_many :comments, as: :commentable
   by_star_field :date_wedding
 
-  default_scope { order(date_wedding: :desc) }
+  default_scope { order(date_wedding: :asc) }
 
   paginates_per 20
 

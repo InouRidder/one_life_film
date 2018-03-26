@@ -8,8 +8,8 @@ class Admin::RequestsController < Admin::AdminController
   end
 
   def index
-    @requests = Request.active.order(created_at: :asc).decorate
-    @title = 'Aanvragen'
+    @requests = Request.active.order(date_wedding: :asc).decorate
+    @title = 'Actieve Aanvragen'
     respond_to do |format|
       format.html
       format.js { render 'insert_requests' }
@@ -18,14 +18,14 @@ class Admin::RequestsController < Admin::AdminController
 
   def new_arrivals
     @title = 'Nieuwe Aanvragen'
-    @requests = Request.new_arrivals.order(created_at: :asc).decorate
+    @requests = Request.new_arrivals.order(date_wedding: :asc).decorate
     render 'insert_requests'
   end
 
   def cancelled_requests
     @title = 'Cancels'
     @cancellation = true
-    @requests = Request.cancels.order(created_at: :asc).decorate
+    @requests = Request.cancels.order(date_wedding: :asc).decorate
     render 'insert_cancellations'
   end
 
