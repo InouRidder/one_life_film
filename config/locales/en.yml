@@ -21,7 +21,7 @@ en:
       phone: "PHONE NUMBER"
       concerns: "SUBJECT"
       location: "LOCATION"
-      date: "DATE"
+      date: "WEDDING DATE"
       description: "MESSAGE"
       submit: "SEND "
   checklist:
