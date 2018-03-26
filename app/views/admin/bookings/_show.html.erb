@@ -1,10 +1,12 @@
 <tr id="booking-<%= booking.id %>">
   <td>
+    <h5>
+      <%= booking.date_wedding.strftime('%A, %b %d') %>
+    </h5>
     <%= link_to admin_booking_path(booking) do %>
     <%= booking.name %>
     <% end %>
     <br>
-    <%= booking.date_wedding.strftime('%A, %b %d') %>
   </td>
   <td>
     <%= booking.email_address %>
@@ -15,7 +17,7 @@
   <td><%= booking.playbook.song_choices.count %></td>
   <td><%= booking.playbook ? booking.playbook.playlines.try(:count) : 0  %></td>
   <td class="request-status">
-    <% if booking.filmed %>
+    <% if booking.filmed? %>
     <%= link_to "Film", film_playbook_path(booking.playbook), class: "state-btn active-film" %>
     <% else %>
     <%= link_to "Film", new_admin_film_path(booking_id: booking.id), class: "state-btn" %>

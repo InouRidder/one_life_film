@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   has_many :comments, as: :commentable
   by_star_field :date_wedding
 
-  default_scope { order(date_wedding: :desc) }
+  default_scope { order(date_wedding: :asc) }
 
   paginates_per 20
 
@@ -13,7 +13,7 @@ class Booking < ApplicationRecord
   has_one :film
   has_many :song_choices
   has_many :songs, through: :song_choices
-  pg_search_scope :search_by_name_and_location_wedding, :against => [:name, :location_wedding]
+  pg_search_scope :search_by_text, :against => [:name, :location_wedding, :email_address]
 
   # validates :phone_number, presence: true, format: { with: /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/, message: "please enter a valid phonenumber" }
   # validates :name, presence: true

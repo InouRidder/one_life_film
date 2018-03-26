@@ -16,6 +16,7 @@ class Admin::AdminController < ApplicationController
     @rt_requests = Request.rt_requests
     @rt_quotations = Request.rt_quotations
     @rt_cancels = Request.rt_cancels
+    @rt_new_requests = Request.rt_new
     @rt_bookings = Booking.active.count
   end
 

@@ -1,5 +1,8 @@
 <tr>
   <td>
+    <h5>
+      <%= request.date_wedding.strftime('%A, %b %d') %>
+    </h5>
     <%= link_to admin_request_path(request) do %>
       <%= request.name %>
     <% end %>

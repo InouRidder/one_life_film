@@ -9,8 +9,6 @@ Rails.application.routes.draw do
     resources :bookings do
       collection do
         get 'all-bookings'
-        get 'this-week'
-        get 'old-bookings'
       end
       member do
         patch 'update_state'
@@ -26,6 +24,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
       collection do
         get 'cancelled_requests'
+        get 'new_arrivals'
       end
     end
     resources :songs, except: [:show] do

@@ -1,15 +1,17 @@
 class Admin::BookingsController < Admin::AdminController
   before_action :set_booking, only: [:update, :edit, :destroy, :approve, :show, :update_state]
+  skip_before_action :set_counts, only: [:create, :update, :update_state, :destroy, :all_bookings, :send_reminder]
 
   def index
-    if query = params[:search]
+    if query = params[:search] || params[:search_date]
       @title = 'Zoekresultaten'
       @search = true
-      @bookings = Booking.search_by_name_and_location_wedding(query).order(created_at: :desc).decorate
+      @bookings = params[:search] ? Booking.search_by_text(query) : Booking.by_day(Date.parse(query))
+      @bookings = @bookings.order(created_at: :desc).decorate
     else
       @bookings = Booking.active.page(params[:page]).decorate
       @paginated = true
-      @title = "Aankomende maand"
+      @title = "Actieve bookingen"
       respond_to do |format|
         format.html
         format.js {render 'insert_bookings', bookings: @bookings, title: @title }
@@ -62,22 +64,8 @@ class Admin::BookingsController < Admin::AdminController
     render 'update_state'
   end
 
-  def this_week
-    @paginated = false
-    @bookings = Booking.active.this_week.decorate
-    @title = 'Deze week'
-    render 'insert_bookings'
-  end
-
-  def old_bookings
-    @paginated = true
-    @bookings = Booking.active.old.page(params[:page]).decorate
-    @title ='Oude boekingen'
-    render 'insert_bookings'
-  end
-
   def all_bookings
-    @paginated = false
+    @paginated = true
     @bookings = Booking.page(params[:page]).decorate
     @title = 'Alle boekingen'
     render 'insert_bookings'

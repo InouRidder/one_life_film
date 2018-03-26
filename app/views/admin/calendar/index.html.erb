@@ -4,10 +4,7 @@
   <div class="container-fluid">
 
     <div class="container">
-      <div style="display: flex; justify-content: space-between;">
-        <div id="flex-child">
-          <p><a href="/admin/bookings/new" class="btn btn-primary" role="button"> Voeg een boeking too! &raquo;</a></p>
-        </div>
+      <div style="display: flex; justify-content: center; align-items: center;">
         <% unless @search %>
           <div class="years">
             <% @years.each do |year| %>
@@ -15,19 +12,8 @@
             <% end %>
           </div>
         <% end %>
-        <div id="flex-child">
-          <form class="form-inline" action="<%= admin_bookings_path %>">
-            <div class="form-group">
-              <input type="text" name="search" class="form-control" placeholder="Zoek een boeking">
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-default" date-remote="true">Zoek!</button>
-            </div>
-          </form>
-        </div>
       </div>
     </div>
-  <% unless @search %>
     <div class="tabs">
       <% @months.each do |month| %>
         <%= link_to admin_calendar_index_path(month: month, year: @year), class: "tab #{'active' if month == @month}", remote: true do %>
@@ -40,14 +26,10 @@
         <% end %>
       <% end %>
     </div>
-    <% end %>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container" id="booking-container">
-        <% if @search %>
-        <%= link_to 'Verwijder zoekresultaten', admin_calendar_index_path, class: 'btn btn-default' %>
-        <% end %>
         <%= render 'events', events_per_day: @events_per_day %>
       </div>
     </div>
