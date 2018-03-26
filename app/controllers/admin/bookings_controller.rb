@@ -2,10 +2,11 @@ class Admin::BookingsController < Admin::AdminController
   before_action :set_booking, only: [:update, :edit, :destroy, :approve, :show, :update_state]
 
   def index
-    if query = params[:search]
+    if query = params[:search] || params[:search_date]
       @title = 'Zoekresultaten'
       @search = true
-      @bookings = Booking.search_by_name_and_location_wedding(query).order(created_at: :desc).decorate
+      @bookings = params[:search] ? Booking.search_by_text(query) : Booking.by_day(Date.parse(query))
+      @bookings = @bookings.order(created_at: :desc).decorate
     else
       @bookings = Booking.active.page(params[:page]).decorate
       @paginated = true
