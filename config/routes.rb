@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'admin/calendar#index'
 
+  resources :bookings, only: :update
+
   namespace :admin do
     resources :calendar, only: [:index]
     resources :bookings do
@@ -39,6 +41,7 @@ Rails.application.routes.draw do
   resources :films, only: [] do
     resources :comments, only: [:create]
   end
+
 
   resources :requests, only: [:create]
 
