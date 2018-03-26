@@ -1,5 +1,6 @@
 class Admin::BookingsController < Admin::AdminController
   before_action :set_booking, only: [:update, :edit, :destroy, :approve, :show, :update_state]
+  skip_before_action :set_counts, only: [:create, :update, :update_state, :destroy, :all_bookings, :send_reminder]
 
   def index
     if query = params[:search] || params[:search_date]
