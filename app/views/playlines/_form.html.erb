@@ -1,25 +1,41 @@
 <%= simple_form_for([playbook, playline], remote: true) do |f| %>
-  <div class="flexed-items">
-    <div class="flex-child">
-      <%= f.input :begin_time, label: false, collection: times, prompt: t('playbook_data.playbook_headers.start_time'), input_html: { class: 'form-content spaced-form' } %>
+  <div class="spaced-around">
+    <a href="#" class="time-picker-element-<%= playline.id %>" data-time-direction="up" data-time-type="hour">
+      <i class="fa fa-sort-asc fa-1x" aria-hidden="true"></i>
+    </a>
+    <a href="#" class="time-picker-element-<%= playline.id %>" data-time-direction="up" data-time-type="minute">
+      <i class="fa fa-sort-asc fa-1x" aria-hidden="true"></i>
+    </a>
+  </div>
+  <div class="inline-form">
+    <div class="inline-form-element time-picker">
+      <%= f.input :begin_time, label: false, prompt: t('playbook_data.playbook_headers.start_time'), input_html: { class: 'inline-input', id: "time-input-#{playline.id}", value: (playline.begin_time.nil? ? "12:00" : playline.begin_time) }, as: :string, readonly: true %>
     </div>
-    <div class="flex-child">
-      <%= f.input :content, label: false, placeholder: t('playbook_data.playbook_headers.activity'), input_html: { class: 'form-content spaced-form' } %>
+    <div class="inline-form-element">
+      <%= f.input :content, label: false, placeholder: t('playbook_data.playbook_headers.activity'), input_html: { class: 'inline-input' } %>
     </div>
-    <div class="flex-child">
-      <%= f.input :contact, label: false, placeholder: t('playbook_data.playbook_headers.contact'), input_html: { class: 'form-contact spaced-form' } %>
+    <div class="inline-form-element">
+      <%= f.input :contact, label: false, placeholder: t('playbook_data.playbook_headers.contact'), input_html: { class: 'inline-input' } %>
     </div>
-    <div class="flex-child">
-      <input type="text" name="playline[phone_number]" class="spaced-form" placeholder="<%= t('playbook_data.playbook_headers.phone_number') %>" required autocomplete="off">
+    <div class="inline-form-element">
+      <input type="text" name="playline[phone_number]" class="inline-input" placeholder="<%= t('playbook_data.playbook_headers.phone_number') %>" required autocomplete="off" value="<%= playline.phone_number %>">
     </div>
-    <div class="flex-child">
-      <%= f.input :address, label: false, placeholder: t('playbook_data.playbook_headers.address'), input_html: { class: 'form-location spaced-form' } %>
+    <div class="inline-form-element">
+      <%= f.input :address, label: false, placeholder: t('playbook_data.playbook_headers.address'), input_html: { class: ' inline-input' } %>
     </div>
-    <div class="flex-child">
-      <%= f.input :city, label: false, placeholder: t('playbook_data.playbook_headers.city'), input_html: { class: 'form-location spaced-form' } %>
+    <div class="inline-form-element">
+      <%= f.input :city, label: false, placeholder: t('playbook_data.playbook_headers.city'), input_html: { class: 'inline-input' } %>
     </div>
-    <div class="flex-child">
-      <button type="submit" name="submit" id="contact-submit">ADD LINE</button>
+    <div class="inline-form-element">
+      <%= f.submit value: "ADD LINE" %>
     </div>
+  </div>
+  <div class="spaced-around">
+    <a href="#" class="time-picker-element-<%= playline.id %>" data-time-direction="down" data-time-type="hour">
+      <i class="fa fa-sort-desc fa-1x" aria-hidden="true"></i>
+    </a>
+    <a href="#" class="time-picker-element-<%= playline.id %>" data-time-direction="down" data-time-type="minute">
+      <i class="fa fa-sort-desc fa-1x" aria-hidden="true"></i>
+    </a>
   </div>
 <% end %>

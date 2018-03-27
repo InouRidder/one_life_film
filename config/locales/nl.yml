@@ -38,10 +38,10 @@ nl:
       data_content_playbook: "Met de dagindeling tool kunt u alle belangrijke evenementen doorgeven aan het video team, zodat zij weten waar en hoelaat ze ergens moeten zijn, en daarnaast ook wie ze kunnen bereiken zodat we zeker weten dat de dag soepel verloopt.\n We hebben initieel al een aantal evenementen toegevoegd, deze kunt u aanpassen door in de tabel onder 'aanpassingen' op de pen te klikken. Mocht u een evenement niet nodig hebben kunt u op de prullenbak klikken om deze te verwijderen.\n Daarnaast kunt u ook uw eigen evenementen toevoegen onderaan de tool. Alle evenementen worden gesorteerd op tijd. Wanneer de volgorde niet klopt, kunt u simpelweg de tijd aanpassen"
       data_content_music: " Aan de linkerkant ziet u de OneLife film muziek collectie, dit zijn allen nummers die uit onze ervaring erg goed werken onder trouw films, u kunt deze beluisteren door op 'luisteren' te klikken, en u kunt deze selecteren door op 'selecten' te klikken.\n Daarnaast beschikt u ook over de mogelijkheid om uw eigen muziek toe te voegen, dit doet u aan de rechterkant door het formulier in te vullen, door simpelweg de artiest naam en de titel van het nummer in te vullen en dan op 'toevoegen drukken'.\n Onder het formulier vind u uw muziek selectie"
     playbook_headers:
-      start_time: "Begin tijd"
+      start_time: "Start"
       activity: "Activiteit"
       contact: "Contact"
-      phone_number: "Telefoon nummer"
+      phone_number: "Telefoon"
       address: "Adress"
       city: "Stad"
       changes: "Aanpassingen"

@@ -11,3 +11,4 @@
 //= require hide_toggle
 //= require table_editing
 //= require sort_by_time
+//= require time_picker

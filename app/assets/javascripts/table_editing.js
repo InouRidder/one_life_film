@@ -29,7 +29,6 @@ function fetchData(id, body, line, callback) {
     return response.json()
   })
   .then(function(data) {
-    console.log("hi")
     callback(data, line);
     sortTable();
   });

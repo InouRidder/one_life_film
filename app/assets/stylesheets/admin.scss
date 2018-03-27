@@ -1,11 +1,13 @@
+// Admin bootstrap template
 @import "admin/bootstrap.min.css";
 @import "admin/sb-admin.css";
 @import "admin/simple_form";
-@import "admin/scene_show";
-@import "admin/components/index";
-@import "admin/pages/index";
-@import "bootstrap-datepicker";
 
+// Gems
+@import "bootstrap-datepicker";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+@import "admin/pages/index";
+@import "admin/components/index";
 
