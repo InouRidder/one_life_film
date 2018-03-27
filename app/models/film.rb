@@ -4,6 +4,7 @@ class Film < ApplicationRecord
 
   has_many :comments, as: :commentable
   belongs_to :booking, optional: true
+  before_save :set_attributes
 
   validates :video_url, presence: true
   validates :name, presence: true
@@ -16,7 +17,16 @@ class Film < ApplicationRecord
   def set_attributes
     set_slug
     set_password
-    self
+    set_vimeo_id
+  end
+
+  def set_vimeo_id
+   matched = self.video_url.match(/\d+\z/)
+    if matched
+      self.vimeo_id = matched
+    else
+      self.vimeo_id = nil
+    end
   end
 
   def set_slug

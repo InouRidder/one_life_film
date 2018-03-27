@@ -24,7 +24,7 @@ class PlaybooksController < ApplicationController
 
   def film
     @film = @booking.film
-    @film_id = @film.video_url.match(/\d+\z/)[0]
+    @film_id = @film.vimeo_id
   end
 
   private

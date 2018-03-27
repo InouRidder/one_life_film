@@ -34,6 +34,7 @@ class Admin::FilmsController < Admin::AdminController
   end
 
   def edit
+    @booking = false
   end
 
   def update
