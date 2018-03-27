@@ -9,7 +9,7 @@ class FilmsController < ApplicationController
 
   def show
     @film = Film.friendly.find(params[:id])
-    @film_id = @film.video_url.match(/\d+\z/)[0]
+    @film_id = @film.vimeo_id
     if @film.password && session[:session_access].nil? && @film.password != ""
       redirect_to password_path(id: @film.id)
     end
@@ -32,7 +32,7 @@ class FilmsController < ApplicationController
   end
 
   def create
-    @film = Film.new(film_params).set_attributes
+    @film = Film.new(film_params)
     if @film.save
       redirect_to film_path(@film)
     else
