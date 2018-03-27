@@ -1,6 +1,6 @@
 function timePicking(id) {
-  const timePickers = document.querySelectorAll('.time-picker-element-' + id);
-  let timeInput = document.getElementById('time-input-' + id );
+  var timePickers = document.querySelectorAll('.time-picker-element-' + id);
+  var timeInput = document.getElementById('time-input-' + id );
   function setTime(currentHour, currentMinute){
     currentMinute = currentMinute.toString()
     if (currentMinute.length === 1) {
@@ -12,18 +12,18 @@ function timePicking(id) {
   timePickers.forEach(function(picker) {
     picker.addEventListener('click', function(event){
       event.preventDefault();
-      let currentValue = timeInput.value.split(":");
+      var currentValue = timeInput.value.split(":");
 
-      let currentHour = parseInt(currentValue[0]);
-      let currentMinute = parseInt(currentValue[1]);
-      let type = picker.getAttribute('data-time-type');
-      let direction = picker.getAttribute('data-time-direction');
+      var currentHour = parseInt(currentValue[0]);
+      var currentMinute = parseInt(currentValue[1]);
+      var type = picker.getAttribute('data-time-type');
+      var direction = picker.getAttribute('data-time-direction');
 
       if (type === 'hour') {
         direction === 'up' ? currentHour++ : currentHour--
       }
       else {
-        direction === 'up' ? currentMinute++ : currentMinute--
+        direction === 'up' ? currentMinute += 5 : currentMinute -= 5
       }
 
       if (currentHour >= 24){
@@ -44,4 +44,4 @@ function timePicking(id) {
   })
 }
 
-timePicking("")
+timePicking("");
