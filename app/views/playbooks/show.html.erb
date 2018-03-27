@@ -11,36 +11,38 @@
           <%= t('playbook_data.how_to_use.button') %>
         </button>
       </div>
-      <table class="table table-hover">
-        <td>
-          <%= t('playbook_data.playbook_headers.start_time') %>
-        </td>
-        <td>
-          <%= t('playbook_data.playbook_headers.activity') %>
-        </td>
-        <td>
-          <%= t('playbook_data.playbook_headers.contact') %>
-        </td>
-        <td>
-          <%= t('playbook_data.playbook_headers.phone_number') %>
-        </td>
-        <td>
-          <%= t('playbook_data.playbook_headers.address') %>
-        </td>
-        <td>
-          <%= t('playbook_data.playbook_headers.city') %>
-        </td>
-        <td>
-          <%= t('playbook_data.playbook_headers.changes') %>
-        </td>
-        <tbody id="playlines">
+      <div class="table-responsive">
+        <div class="table-head">
+          <div class="table-header">
+            <%= t('playbook_data.playbook_headers.start_time') %>
+          </div>
+          <div class="table-header">
+            <%= t('playbook_data.playbook_headers.activity') %>
+          </div>
+          <div class="table-header">
+            <%= t('playbook_data.playbook_headers.contact') %>
+          </div>
+          <div class="table-header">
+            <%= t('playbook_data.playbook_headers.phone_number') %>
+          </div>
+          <div class="table-header">
+            <%= t('playbook_data.playbook_headers.address') %>
+          </div>
+          <div class="table-header">
+            <%= t('playbook_data.playbook_headers.city') %>
+          </div>
+          <div class="table-header">
+            <%= t('playbook_data.playbook_headers.changes') %>
+          </div>
+        </div>
+        <div class="table-body" id="playlines">
           <% if @playbook.playlines.any? %>
           <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
           <%= render 'playlines/show', playline: playline %>
           <% end %>
           <% end %>
-        </tbody>
-      </table>
+        </div>
+      </div>
     </div>
     <div class="row">
       <div class="playline-form col-xs-12" style="margin-top: 20px;">
