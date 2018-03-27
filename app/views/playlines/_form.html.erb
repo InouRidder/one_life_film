@@ -10,7 +10,6 @@
   <div class="inline-form">
     <div class="inline-form-element time-picker">
       <%= f.input :begin_time, label: false, prompt: t('playbook_data.playbook_headers.start_time'), input_html: { class: 'inline-input', id: "time-input-#{playline.id}", value: (playline.begin_time.nil? ? "12:00" : playline.begin_time) }, as: :string, readonly: true %>
-
     </div>
     <div class="inline-form-element">
       <%= f.input :content, label: false, placeholder: t('playbook_data.playbook_headers.activity'), input_html: { class: 'inline-input' } %>
@@ -19,7 +18,7 @@
       <%= f.input :contact, label: false, placeholder: t('playbook_data.playbook_headers.contact'), input_html: { class: 'inline-input' } %>
     </div>
     <div class="inline-form-element">
-      <input type="text" name="playline[phone_number]" class="inline-input" placeholder="<%= t('playbook_data.playbook_headers.phone_number') %>" required autocomplete="off">
+      <input type="text" name="playline[phone_number]" class="inline-input" placeholder="<%= t('playbook_data.playbook_headers.phone_number') %>" required autocomplete="off" value="<%= playline.phone_number %>">
     </div>
     <div class="inline-form-element">
       <%= f.input :address, label: false, placeholder: t('playbook_data.playbook_headers.address'), input_html: { class: ' inline-input' } %>
