@@ -23,7 +23,7 @@ function timePicking(id) {
         direction === 'up' ? currentHour++ : currentHour--
       }
       else {
-        direction === 'up' ? currentMinute++ : currentMinute--
+        direction === 'up' ? currentMinute += 5 : currentMinute -= 5
       }
 
       if (currentHour >= 24){
@@ -44,4 +44,4 @@ function timePicking(id) {
   })
 }
 
-timePicking("")
+timePicking("");
