@@ -31,7 +31,7 @@ function sortTable() {
   while (switching) {
     // Start by saying: no switching is done:
     switching = false;
-    rows = table.getElementsByTagName("tr");
+    rows = table.querySelectorAll(".table-row");
     /* Loop through all table rows (except the
     first, which contains table headers): */
     for (i = 0; i < (rows.length - 1); i++) {

@@ -1,5 +1,6 @@
 var newLineForm = document.getElementById('new_playline');
 
+console.log("helloooooo");
 <% if @playline.errors.any? %>
   newLineForm.outerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline, times: @times %>";
 <% else %>

@@ -1,23 +1,16 @@
 <%= simple_form_for([playbook, playline], remote: true) do |f| %>
+  <div class="spaced-around">
+    <a href="#" class="time-picker-element-<%= playline.id %>" data-time-direction="up" data-time-type="hour">
+      <i class="fa fa-sort-asc fa-1x" aria-hidden="true"></i>
+    </a>
+    <a href="#" class="time-picker-element-<%= playline.id %>" data-time-direction="up" data-time-type="minute">
+      <i class="fa fa-sort-asc fa-1x" aria-hidden="true"></i>
+    </a>
+  </div>
   <div class="inline-form">
     <div class="inline-form-element time-picker">
-      <div class="spaced-around">
-        <a href="#" class="time-picker-element" data-time-direction="up" data-time-type="hour">
-          <i class="fa fa-sort-asc fa-1x" aria-hidden="true"></i>
-        </a>
-        <a href="#" class="time-picker-element" data-time-direction="up" data-time-type="minute">
-          <i class="fa fa-sort-asc fa-1x" aria-hidden="true"></i>
-        </a>
-      </div>
-      <%= f.input :begin_time, label: false, prompt: t('playbook_data.playbook_headers.start_time'), input_html: { class: 'inline-input', id: 'time-input', value: "12:00" }, as: :string %>
-      <div class="spaced-around">
-        <a href="#" class="time-picker-element" data-time-direction="down" data-time-type="hour">
-          <i class="fa fa-sort-desc fa-1x" aria-hidden="true"></i>
-        </a>
-        <a href="#" class="time-picker-element" data-time-direction="down" data-time-type="minute">
-          <i class="fa fa-sort-desc fa-1x" aria-hidden="true"></i>
-        </a>
-      </div>
+      <%= f.input :begin_time, label: false, prompt: t('playbook_data.playbook_headers.start_time'), input_html: { class: 'inline-input', id: "time-input-#{playline.id}", value: (playline.begin_time.nil? ? "12:00" : playline.begin_time) }, as: :string, readonly: true %>
+
     </div>
     <div class="inline-form-element">
       <%= f.input :content, label: false, placeholder: t('playbook_data.playbook_headers.activity'), input_html: { class: 'inline-input' } %>
@@ -35,7 +28,15 @@
       <%= f.input :city, label: false, placeholder: t('playbook_data.playbook_headers.city'), input_html: { class: 'inline-input' } %>
     </div>
     <div class="inline-form-element">
-      <button type="submit" name="submit" id="contact-submit">ADD LINE</button>
+      <%= f.submit value: "ADD LINE" %>
     </div>
-</div>
+  </div>
+  <div class="spaced-around">
+    <a href="#" class="time-picker-element-<%= playline.id %>" data-time-direction="down" data-time-type="hour">
+      <i class="fa fa-sort-desc fa-1x" aria-hidden="true"></i>
+    </a>
+    <a href="#" class="time-picker-element-<%= playline.id %>" data-time-direction="down" data-time-type="minute">
+      <i class="fa fa-sort-desc fa-1x" aria-hidden="true"></i>
+    </a>
+  </div>
 <% end %>

@@ -1,17 +1,18 @@
-function addListenerForUpdate(line) {
-  var saveButton = document.getElementById("save-line-button-<%= @playline.id %>");
-  saveButton.addEventListener('click', function(event) {
-    var id = line.getAttribute('data-id')
-    var dataToUpdate = buildObject(line);
-    fetchData(id, dataToUpdate, line, appendRow);
-  });
-}
+// function addListenerForUpdate(line) {
+//   var saveButton = document.getElementById("save-line-button-<%= @playline.id %>");
+//   saveButton.addEventListener('click', function(event) {
+//     var id = line.getAttribute('data-id')
+//     var dataToUpdate = buildObject(line);
+//     fetchData(id, dataToUpdate, line, appendRow);
+//   });
+// }
 
 function changeLineToForm() {
   var line = document.getElementById('playline-id[<%= @playline.id %>]');
   var changeButtons = document.querySelectorAll('.playline-changes');
-  line.outerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline, times: @times %>";
-  addListenerForUpdate(line);
+  line.innerHTML = "<%= j render 'playlines/form', playbook: @playbook, playline: @playline, times: @times %>";
+  timePicking("<%= @playline.id %>")
+  // addListenerForUpdate(line);
 }
 
 changeLineToForm();
