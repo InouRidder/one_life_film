@@ -1,4 +1,4 @@
-<%= simple_form_for([playbook, playline], remote: true) do |f| %>
+<%= simple_form_for([booking, playline], url: url, remote: true) do |f| %>
   <div class="spaced-around">
     <a href="#" class="time-picker-element-<%= playline.id %>" data-time-direction="up" data-time-type="hour">
       <i class="fa fa-sort-asc fa-1x" aria-hidden="true"></i>

@@ -36,9 +36,9 @@
           </div>
         </div>
         <div class="table-body" id="playlines">
-            <% if @playbook.playlines.any? %>
-            <% @playbook.playlines.sort_by(&:order_number).each do |playline| %>
-              <%= render 'playlines/show', playline: playline %>
+            <% if @booking.playlines.any? %>
+            <% @booking.playlines.sort_by(&:order_number).each do |playline| %>
+              <%= render 'client/playlines/show', playline: playline %>
             <% end %>
           <% end %>
         </div>
@@ -46,7 +46,7 @@
     </div>
     <div class="row">
       <div class="playline-form col-xs-12" style="margin-top: 20px;">
-        <%= render 'playlines/form', playbook: @playbook, playline: @playline, times: @times %>
+        <%= render 'client/playlines/form', booking: @booking, playline: @playline, url: client_booking_playlines_path(@booking) %>
       </div>
     </div>
   </div>

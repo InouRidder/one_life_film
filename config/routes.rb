@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get '/admin', to: 'admin/calendar#index'
+  # ADMIN PAGES
 
-  resources :bookings, only: :update
+  get '/admin', to: 'admin/calendar#index'
 
   namespace :admin do
     resources :calendar, only: [:index]
@@ -38,32 +38,33 @@ Rails.application.routes.draw do
     end
     resources :films
   end
+
+
   resources :films, only: [] do
     resources :comments, only: [:create]
   end
-
-
   resources :requests, only: [:create]
 
-  resources :playbooks, only: [:show] do
-    member do
-      get 'songs'
-      get 'film'
+  # CLIENT PAGES
+
+  namespace :client do
+    resources :bookings, only: [:show, :update] do
+      member do
+        get 'songs'
+        get 'film'
+      end
+      resources :playlines, only: [:create]
+      resources :song_choices, only: [:create, :destroy]
     end
-    resources :playlines, only: [:create, :update]
-    resources :song_choices, only: [:create, :destroy]
-  end
 
-  resources :playlines, only: [:destroy, :edit, :update] do
-    collection do
-      patch 'set_order'
+    resources :playlines, only: [:destroy, :edit, :update] do
+      collection do
+        patch 'set_order'
+      end
     end
   end
 
-
-  scope :admin do
-    resources :bookings
-  end
+  # PUBLIC PAGES
 
   scope '(:locale)', locale: /nl|en/ do
 

@@ -18,6 +18,7 @@ class Film < ApplicationRecord
     set_slug
     set_password
     set_vimeo_id
+    self
   end
 
   def set_vimeo_id

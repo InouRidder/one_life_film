@@ -56,7 +56,7 @@
         </div>
       </div>
       <div class="col-lg-3 col-md-6">
-        <% if @booking.playbook %>
+        <% if @booking %>
         <div class="panel panel-yellow">
           <div class="panel-heading">
             <div class="row">
@@ -64,12 +64,12 @@
                 <i class="fa fa-book fa-5x"></i>
               </div>
               <div class="col-xs-9 text-right">
-                <div class="huge"><%= @booking.playbook.playlines.count %></div>
+                <div class="huge"><%= @booking.playlines.count %></div>
                 <div>Zie klant applicatie</div>
               </div>
             </div>
           </div>
-          <a href="<%= playbook_path(@booking.playbook) %>">
+          <a href="<%= client_booking_path(@booking) %>">
             <div class="panel-footer">
               <span class="pull-left">Zie klant applicatie</span>
               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -100,13 +100,13 @@
                 <i class="fa fa-music fa-5x"></i>
               </div>
               <div class="col-xs-9 text-right">
-                <div class="huge"><%= @booking.playbook.song_choices.count %></div>
+                <div class="huge"><%= @booking.song_choices.count %></div>
                 <div>Gekozen liedjes</div>
               </div>
             </div>
           </div>
-          <% if @booking.playbook %>
-          <a href="<%= playbook_path(@booking.playbook) %>">
+          <% if @booking %>
+          <a href="<%= client_booking_path(@booking) %>">
             <div class="panel-footer">
               <span class="pull-left">Zie klant applicatie</span>
               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -126,7 +126,7 @@
             <h3 class="panel-title"><i class="fa fa-book fa-fw"></i> Muziek keuzes</h3>
           </div>
           <div class="panel-body">
-            <% if songs = @booking.playbook.song_choices %>
+            <% if songs = @booking.song_choices %>
             <%= render 'admin/songs/songs', songs: songs %>
             <% end %>
           </div>
@@ -138,34 +138,41 @@
             <h3 class="panel-title"><i class="fa fa-book fa-fw"></i> Draaiboek</h3>
           </div>
           <div class="panel-body">
-            <% if @booking.playbook %>
+            <% if @booking %>
             <div id="playlines-container">
-              <% if @booking.playbook.playlines.any? %>
-              <table class="table table-striped">
-                <td>
-                  Start time
-                </td>
-                <td>
-                  Contact
-                </td>
-                <td>
-                  Phone number
-                </td>
-                <td>
-                  Location
-                </td>
-                <td>
-                  Activity
-                </td>
-                <td>
-                  Changes
-                </td>
-                <tbody id="playlines">
-                  <% @booking.playbook.playlines.sort_by(&:order_number).each do |playline| %>
-                  <%= render 'playlines/show', playline: playline %>
+              <% if @booking.playlines.any? %>
+              <div class="table-responsive">
+                <div class="table-head">
+                  <div class="table-header">
+                    <%= t('playbook_data.playbook_headers.start_time') %>
+                  </div>
+                  <div class="table-header">
+                    <%= t('playbook_data.playbook_headers.activity') %>
+                  </div>
+                  <div class="table-header">
+                    <%= t('playbook_data.playbook_headers.contact') %>
+                  </div>
+                  <div class="table-header">
+                    <%= t('playbook_data.playbook_headers.phone_number') %>
+                  </div>
+                  <div class="table-header">
+                    <%= t('playbook_data.playbook_headers.address') %>
+                  </div>
+                  <div class="table-header">
+                    <%= t('playbook_data.playbook_headers.city') %>
+                  </div>
+                  <div class="table-header">
+                    <%= t('playbook_data.playbook_headers.changes') %>
+                  </div>
+                </div>
+                <div class="table-body" id="playlines">
+                  <% if @booking.playlines.any? %>
+                  <% @booking.playlines.sort_by(&:order_number).each do |playline| %>
+                  <%= render 'client/playlines/show', playline: playline %>
                   <% end %>
-                </tbody>
-              </table>
+                  <% end %>
+                </div>
+              </div>
 
               <% end %>
             </div>

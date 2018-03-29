@@ -3,16 +3,16 @@ var newSongChoiceForm = document.getElementById('song-form')
 var errors = document.getElementById('errors');
 var noSongMessage = document.getElementById('no-songs-message');
 song.remove();
-<% if @playbook.song_choices.count >= @playbook.allowed_songs %>
+<% if @booking.song_choices.count >= @booking.max_songs %>
   newSongChoiceForm.hidden = true;
 <% else %>
   errors.innerHTML = ""
   newSongChoiceForm.hidden = false;
-  newSongChoiceForm.innerHTML = "<%= j render 'song_choices/form', playbook: @playbook, song_choice: SongChoice.new %>";
+  newSongChoiceForm.innerHTML = "<%= j render 'client/song_choices/form', booking: @booking, song_choice: SongChoice.new %>";
 <% end %>
 
 
-<% if @playbook.song_choices.count == 0 %>
+<% if @booking.song_choices.count == 0 %>
   noSongMessage.innerHTML = "<p>No songs selected!</p>"
 <% end %>
 
