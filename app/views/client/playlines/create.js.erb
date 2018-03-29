@@ -1,0 +1,12 @@
+var newLineForm = document.getElementById('new_playline');
+
+<% if @playline.errors.any? %>
+  newLineForm.outerHTML = "<%= j render 'client/playlines/form', booking: @booking, playline: @playline, url: client_booking_playline_path(@booking, @playline) %>";
+<% else %>
+  var lines = document.getElementById('playlines');
+  lines.insertAdjacentHTML("beforeend", "<%= j render 'client/playlines/show', playline: @playline %>");
+  var line = document.getElementById('playline-id[<%= @playline.id %>]');
+  newLineForm.innerHTML = "<%= j render 'client/playlines/form', booking: @booking, playline: Playline.new, url: client_booking_playlines_path(@booking) %>";
+<% end %>
+
+sortTable();

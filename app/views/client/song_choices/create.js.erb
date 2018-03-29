@@ -1,0 +1,18 @@
+var newSongChoiceForm = document.getElementById('song-form');
+var noSongMessage = document.getElementById('no-songs-message');
+var errors = document.getElementById('errors');
+
+<% if @song_choice.errors.any? %>
+  newSongChoiceForm.outerHTML = "<%= j render 'client/song_choices/form', booking: @booking, song_choice: @song_choice %>";
+  errors.innerHTML = "<h6 style='color: red;'> <%= j @song_choice.errors.full_messages.join(", ") %> </h6>"
+<% else %>
+  var song_choices = document.getElementById('selected-songs');
+  song_choices.insertAdjacentHTML("beforeend", "<%= j render 'client/song_choices/show', song_choice: @song_choice, booking: @booking %>");
+  noSongMessage.innerHTML = "";
+<% end %>
+
+<% if @booking.song_choices.count >= @booking.max_songs %>
+  newSongChoiceForm.innerHTML = "<h3> <%= @booking.song_choices.count %> of <%= @booking.max_songs %> </h3>"
+<% else %>
+  newSongChoiceForm.innerHTML = "<%= j render 'client/song_choices/form', booking: @booking, song_choice: SongChoice.new %>";
+<% end %>

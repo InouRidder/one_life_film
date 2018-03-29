@@ -16,10 +16,10 @@
     <ul>
       <% unless @booking.filmed? %>
       <li id="home">
-        <%= link_to t('playbook') + @playbook.counted_playline_state, playbook_path(@playbook), class: @playbook.colored_playline_state %>
+        <%= link_to t('playbook') + @booking.counted_playline_state, client_booking_path(@booking), class: @booking.colored_playline_state %>
       </li>
       <li id="gallery">
-        <%= link_to t('music')+ @playbook.counted_music_state, songs_playbook_path, class: @playbook.colored_music_state %>
+        <%= link_to t('music')+ @booking.counted_music_state, songs_client_booking_path(@booking), class: @booking.colored_music_state %>
       </li>
       <li id="gallery">
         <a type="submit" href="" name="submit" data-toggle="modal" data-target="#checklist">
@@ -28,7 +28,7 @@
       </li>
       <% else %>
       <li id="film">
-        <%= link_to "FILM", film_playbook_path(@playbook), type: "submit" %>
+        <%= link_to "FILM", film_client_booking_path(@booking), type: "submit" %>
       </li>
       <% end %>
     </ul>

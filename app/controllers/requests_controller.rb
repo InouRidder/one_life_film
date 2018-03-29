@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :new, :create]
   before_action :set_request, only: [:send_reminder, :update]
+
   def new
     @request = Request.new
   end

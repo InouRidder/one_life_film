@@ -1,10 +1,10 @@
 class Playline < ApplicationRecord
 
-  belongs_to :playbook
+  belongs_to :booking
   validates :content, length: { minimum: 2 }
 
   def set_order
-    self.order_number = self.playbook.playlines.length + 1
+    self.order_number = self.booking.playlines.length + 1
   end
 
   def numeric_time

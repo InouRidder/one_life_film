@@ -1,4 +1,4 @@
-<%= simple_form_for booking, input_html: {class: "inline-form"} do |f| %>
+<%= simple_form_for booking, url: client_booking_path(booking), input_html: {class: "inline-form"} do |f| %>
 <%= f.input :phone_number, placeholder: "Bride phone", input_html: { class: "checklist-form-input"}  %>
 <%= f.input :groom_number, placeholder: "Groom phone", input_html: { class: "checklist-form-input"}  %>
 <%= f.input :name, placeholder: "Name bride & groom", input_html: { class: "checklist-form-input"}  %>

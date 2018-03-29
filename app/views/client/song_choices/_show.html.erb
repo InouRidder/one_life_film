@@ -3,7 +3,7 @@
     <%= song_choice.title.upcase %>
     -
     <%= song_choice.artist.upcase %>
-    <%= link_to  playbook_song_choice_path(@playbook, song_choice), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
+    <%= link_to  client_booking_song_choice_path(@booking, song_choice), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
     <button class="select-button">REMOVE</button>
     <% end %>
   </div>

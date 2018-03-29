@@ -14,8 +14,8 @@
     <%= booking.phone_number %>
   </td>
   <td><%= booking.location_wedding %></td>
-  <td><%= booking.playbook.song_choices.count %></td>
-  <td><%= booking.playbook ? booking.playbook.playlines.try(:count) : 0  %></td>
+  <td><%= booking.song_choices.count %></td>
+  <td><%= booking.playlines.try(:count)  %></td>
   <td class="request-status">
     <% if booking.filmed? %>
     <%= link_to "Film", film_playbook_path(booking.playbook), class: "state-btn active-film" %>

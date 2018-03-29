@@ -5,8 +5,6 @@ class BookingServices
 
   def approve
     user = User.find_or_create(@booking.email_address)
-    playbook = Playbook.create(booking: @booking)
-    playbook.save
     user.save
     @booking.user = user
     @booking.save

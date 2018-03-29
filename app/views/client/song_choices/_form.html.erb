@@ -1,7 +1,7 @@
 <h4>
   Add your own song
 </h4>
-<%= simple_form_for([playbook, song_choice], remote: true) do |f| %>
+<%= simple_form_for([booking, song_choice], url: client_booking_song_choices_path(booking), remote: true) do |f| %>
   <%= f.input :title, input_html: {class: "spaced-form"}, label: false, placeholder: 'Title of song' %>
   <%= f.input :artist, input_html: {class: "spaced-form"}, label: false, placeholder: '...and the artist!' %>
   <button type="submit" name="submit" id="contact-submit">ADD SONG</

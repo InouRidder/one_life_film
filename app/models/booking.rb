@@ -2,6 +2,7 @@ class Booking < ApplicationRecord
   include PgSearch
   has_many :comments, as: :commentable
   by_star_field :date_wedding
+  after_create :add_suggestive_lines
 
   default_scope { order(date_wedding: :asc) }
 
@@ -9,8 +10,8 @@ class Booking < ApplicationRecord
 
   belongs_to :user, optional: true
   belongs_to :request, optional: true
-  has_one :playbook
   has_one :film
+  has_many :playlines
   has_many :song_choices
   has_many :songs, through: :song_choices
   pg_search_scope :search_by_text, :against => [:name, :location_wedding, :email_address]
@@ -56,6 +57,12 @@ class Booking < ApplicationRecord
     BookingServices.new(self).approve
   end
 
-  # should be decorator, but cant be with current draper gem - as it used by a different controller (requests)
-
+  def add_suggestive_lines
+    prerequisites = Playline::SUGGESTED_LINES
+    prerequisites.each do |prereq|
+      playline = Playline.new(prereq)
+      playline.booking = self
+      playline.save
+    end
+  end
 end

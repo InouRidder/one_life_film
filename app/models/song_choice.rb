@@ -1,5 +1,5 @@
 class SongChoice < ApplicationRecord
-  belongs_to :playbook
+  belongs_to :booking
   belongs_to :song, optional: true
   validates :title, :artist, presence: true
   validate :max_allowed_songs
@@ -7,8 +7,8 @@ class SongChoice < ApplicationRecord
   private
 
   def max_allowed_songs
-    if self.playbook.allowed_songs <= self.playbook.song_choices.count
-      errors.add(:maximum_songs, "reached (#{self.playbook.allowed_songs})")
+    if self.booking.max_songs <= self.booking.song_choices.count
+      errors.add(:maximum_songs, "reached (#{self.booking.max_songs})")
    end
   end
 end

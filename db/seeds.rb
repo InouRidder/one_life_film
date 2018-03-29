@@ -29,7 +29,6 @@ end
 puts "Creating 10 fake bookings"
 10.times do
   booking = Booking.create(email_address: Faker::Internet.email, name: Faker::Name.unique.name, date_wedding: Date.today + rand(100), subject: Faker::Hacker.say_something_smart , location_wedding: Faker::Address.street_address, state: ['film', 'invoice', 'paid'].sample)
-  Playbook.create(allowed_songs: 3, booking: booking)
 end
 
 puts "Scraping 50 songs & Inserting into DB"

@@ -10,6 +10,7 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.string :subject
       t.string :state, default: "pending"
       t.boolean :filmed, default: false
+      t.integer :max_songs, default: 3
 
       t.timestamps
     end

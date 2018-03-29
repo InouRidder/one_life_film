@@ -1,0 +1,7 @@
+var line = document.getElementById('playline-id[<%= @playline.id %>]');
+<% if @playline.errors.any? %>
+  line.innerHTML = "<%= j render 'client/playlines/form', booking: @booking, playline: @playline, url: client_playline_path(@playline) %>";
+<% else %>
+  line.outerHTML =  "<%= j render 'client/playlines/show', playline: @playline %>";
+  sortTable();
+<% end %>

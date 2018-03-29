@@ -5,7 +5,7 @@
         <div id="message">
           <h5>
             <strong>
-              <%= t('music_data.message', max_songs: @playbook.allowed_songs) %>
+              <%= t('music_data.message', max_songs: @booking.max_songs) %>
             </strong>
           </h5>
         </div>
@@ -33,7 +33,7 @@
                 <a href="<%= song.url %>" target="_blank">
                   <button class="select-button">LISTEN</button>
                 </a>
-                <%= simple_form_for([@playbook, SongChoice.new], remote: true) do |f| %>
+                <%= simple_form_for([@booking, SongChoice.new], remote: true, url: client_booking_song_choices_path(@booking),) do |f| %>
                 <%= f.input :title, as: :hidden, input_html: { value: song.title } %>
                 <%= f.input :artist, as: :hidden, input_html: { value: song.artist } %>
                 <button type="submit" name="submit" class="select-button">SELECT</button>
@@ -59,7 +59,7 @@
               <%= song.title.upcase %>
               -
               <%= song.artist.upcase %>
-              <%= link_to  playbook_song_choice_path(@playbook, song), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
+              <%= link_to  client_booking_song_choice_path(@booking, song), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
               <button class="select-button">REMOVE</button>
               <% end %>
             </div>
@@ -79,15 +79,15 @@
         <h4>
           Add your own
         </h4>
-        <% unless @songs.count >= @playbook.allowed_songs %>
-        <%= simple_form_for([@playbook, @song_choice], remote: true) do |f| %>
+        <% unless @songs.count >= @booking.max_songs %>
+        <%= simple_form_for([@booking, @song_choice], url: client_booking_song_choices_path(@booking), remote: true) do |f| %>
         <%= f.input :title, label: false, placeholder: 'Title of song', input_html: {class: "spaced-form"} %>
         <%= f.input :artist, label: false, placeholder: '...and the artist!', input_html: {class: "spaced-form"} %>
         <button type="submit" name="submit" id="contact-submit">ADD SONG</button>
         <% end %>
         <% else %>
         <h3>
-          <%= @songs.count %> of <%= @playbook.allowed_songs %>
+          <%= @songs.count %> of <%= @booking.max_songs %>
         </h3>
         <% end %>
       </div>

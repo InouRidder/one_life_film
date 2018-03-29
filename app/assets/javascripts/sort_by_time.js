@@ -1,5 +1,5 @@
 function saveOrder(lines) {
-  count = 1
+  var count = 1
   var idsAndCounts = {}
   for (i = 0; i < (lines.length); i ++) {
     var line = lines[i]
@@ -9,7 +9,7 @@ function saveOrder(lines) {
     }
     count ++;
   }
-  fetch("/playlines/set_order", {
+  fetch("/client/playlines/set_order", {
     method: "PATCH",
     headers: {
       'Accept': 'application/json',

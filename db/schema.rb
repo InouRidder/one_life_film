@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20180327111540) do
     t.string "subject"
     t.string "state", default: "pending"
     t.boolean "filmed", default: false
+    t.integer "max_songs", default: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -73,16 +74,8 @@ ActiveRecord::Schema.define(version: 20180327111540) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "playbooks", force: :cascade do |t|
-    t.bigint "booking_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "allowed_songs", default: 3
-    t.index ["booking_id"], name: "index_playbooks_on_booking_id"
-  end
-
   create_table "playlines", force: :cascade do |t|
-    t.bigint "playbook_id"
+    t.bigint "booking_id"
     t.string "content"
     t.string "begin_time"
     t.datetime "created_at", null: false
@@ -92,7 +85,7 @@ ActiveRecord::Schema.define(version: 20180327111540) do
     t.string "phone_number"
     t.string "city"
     t.string "address"
-    t.index ["playbook_id"], name: "index_playlines_on_playbook_id"
+    t.index ["booking_id"], name: "index_playlines_on_booking_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -110,13 +103,13 @@ ActiveRecord::Schema.define(version: 20180327111540) do
   end
 
   create_table "song_choices", force: :cascade do |t|
+    t.bigint "booking_id"
     t.bigint "song_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "artist"
-    t.bigint "playbook_id"
-    t.index ["playbook_id"], name: "index_song_choices_on_playbook_id"
+    t.index ["booking_id"], name: "index_song_choices_on_booking_id"
     t.index ["song_id"], name: "index_song_choices_on_song_id"
   end
 
@@ -149,8 +142,7 @@ ActiveRecord::Schema.define(version: 20180327111540) do
 
   add_foreign_key "bookings", "requests"
   add_foreign_key "films", "bookings"
-  add_foreign_key "playbooks", "bookings"
-  add_foreign_key "playlines", "playbooks"
-  add_foreign_key "song_choices", "playbooks"
+  add_foreign_key "playlines", "bookings"
+  add_foreign_key "song_choices", "bookings"
   add_foreign_key "song_choices", "songs"
 end
