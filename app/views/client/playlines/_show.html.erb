@@ -18,10 +18,10 @@
     <%= playline.city %>
   </div>
   <div class="table-row-element">
-    <%= link_to  client_playline_path(playline), method: :delete, data: {confirm: "Sure?"}, remote: true do %>
+    <%= link_to  client_playline_path(playline), method: :delete, data: {confirm: "Sure?"}, class: "grey-background-button", remote: true do %>
     <i class="fa fa-trash-o fa-1x" aria-hidden="true"></i>
   <% end %>
-  <%= link_to edit_client_playline_path(playline), remote: true do %>
+  <%= link_to edit_client_playline_path(playline), class: "grey-background-button", remote: true do %>
     <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
   <% end %>
   </div>

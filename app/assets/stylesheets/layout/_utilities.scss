@@ -10,11 +10,22 @@
   padding-bottom: 5em;
 }
 
-.spaced-around {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 8%;
+@media (min-width: 730px) {
+  .spaced-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 8%;
+  }
+}
+
+@media (max-width: 730px) {
+  .spaced-around {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 }
 
 strong {
