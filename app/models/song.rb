@@ -4,9 +4,9 @@ class Song < ApplicationRecord
 
   paginates_per 10
 
-  scope :begin, -> { where(category_id: 1)}
-  scope :middle, -> { where(category_id: 2)}
-  scope :end, -> { where(category_id: 3)}
+  scope :slow, -> { where(label: "slow")}
+  scope :medium, -> { where(label: "med")}
+  scope :up, -> { where(label: "up")}
 
   include PgSearch
   pg_search_scope :search_by_name, :against => [:name]

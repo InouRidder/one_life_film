@@ -33,7 +33,7 @@ end
 
 puts "Scraping 50 songs & Inserting into DB"
 
-
+Song.destroy_all
 # Rustig
 # The look of love – Diana Krall
 Song.create(title: "The look of love", artist: "Diana Krall", spotify_uri: "spotify:track:18BItNMXs9uGTSTucXXBpJ", label: "slow")
@@ -59,28 +59,28 @@ Song.create(title: "Over and over Again", artist: "Nathan Sykes", spotify_uri: "
 
 # Meer tempo
 
-Song.create(title: "L-O-V-E", artist: "Nat king cole", spotify_uri: "spotify:track:7E3rc13GL2I5wA6CIFXaxs", label: "mid")
+Song.create(title: "L-O-V-E", artist: "Nat king cole", spotify_uri: "spotify:track:7E3rc13GL2I5wA6CIFXaxs", label: "med")
 # Lucky - Jason Mraz & Colbie Caillat
 
-Song.create(title: "L-O-V-E", artist: "Joss Stone", spotify_uri: "spotify:track:4MymCsjbOkhuP2kWNSZgLo", label: "mid")
+Song.create(title: "L-O-V-E", artist: "Joss Stone", spotify_uri: "spotify:track:4MymCsjbOkhuP2kWNSZgLo", label: "med")
 
 
-Song.create(title: "Can't take my eyes off you", artist: "Andy Willams & Denise van Outen", spotify_uri: "spotify:track:4SHZsQIdS2N1E5yqvoXF8o", label: "mid")
+Song.create(title: "Can't take my eyes off you", artist: "Andy Willams & Denise van Outen", spotify_uri: "spotify:track:4SHZsQIdS2N1E5yqvoXF8o", label: "med")
 
 # Cant’t get enough of your love  – Barry white
-Song.create(title: "Can't get enough of your love", artist: "Barry White", spotify_uri: "spotify:track:1RG0HipdMCcaW9xJjyKiUb", label: "mid")
+Song.create(title: "Can't get enough of your love", artist: "Barry White", spotify_uri: "spotify:track:1RG0HipdMCcaW9xJjyKiUb", label: "med")
 
 # You to Me Are Everything - the real thing
-Song.create(title: "You are my everything", artist: "The real thing", spotify_uri: "spotify:track:0vbjScjOnbC4QfgzYLYXrR", label: "mid")
+Song.create(title: "You are my everything", artist: "The real thing", spotify_uri: "spotify:track:0vbjScjOnbC4QfgzYLYXrR", label: "med")
 
 #  -
-Song.create(title: "Une belle histiore", artist: "Michel Fugain", spotify_uri: "spotify:track:1GdtMDRiaF1EnG2LJpELme", label: "mid")
+Song.create(title: "Une belle histiore", artist: "Michel Fugain", spotify_uri: "spotify:track:1GdtMDRiaF1EnG2LJpELme", label: "med")
 
 # Paradise - Coldplay
-Song.create(title: "Paradise", artist: "Coldplay", spotify_uri: "spotify:track:6nek1Nin9q48AVZcWs9e9D", label: "mid")
+Song.create(title: "Paradise", artist: "Coldplay", spotify_uri: "spotify:track:6nek1Nin9q48AVZcWs9e9D", label: "med")
 
 # Just say Yes- Snow Patrol
-Song.create(title: "Just say Yes", artist: "Snow Patrol", spotify_uri: "spotify:track:4NjepGD2BJeOo4Ne3GkWue", label: "mid")
+Song.create(title: "Just say Yes", artist: "Snow Patrol", spotify_uri: "spotify:track:4NjepGD2BJeOo4Ne3GkWue", label: "med")
 
 # Up tempo
 

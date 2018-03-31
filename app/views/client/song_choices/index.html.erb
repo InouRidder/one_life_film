@@ -14,38 +14,31 @@
         </button>
       </div>
     </div>
-    <div class="col-xs-12 col-md-6 square-box ">
-      <h4>
-        OneLife Collection
-      </h4>
-      <div class="scroll-box">
-        <ul>
-          <% @selection.each do |song| %>
-          <li>
-            <div class="">
-
-              <iframe src="https://open.spotify.com/embed?uri=<%= song.spotify_uri %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
-              <div class="song-buttons">
-                <style>
-                  .no-height: {
-                    height: 0px !important;
-                  }
-                </style>
-                <%= simple_form_for([@booking, SongChoice.new], input_html: {class: "no-height"}, remote: true, url: client_booking_song_choices_path(@booking),) do |f| %>
-                <%= f.input :title, as: :hidden, input_html: { value: song.title } %>
-                <%= f.input :artist, as: :hidden, input_html: { value: song.artist } %>
-                <button type="submit" name="submit" class="select-button" style="width: 100.2%; margin-top: -123px;">SELECT</button>
-                <% end %>
-              </div>
-            </div>
-          </li>
+    <div class="col-xs-12 col-md-6 square-box">
+      <ul class="steps steps-5" id="steps-diy">
+        <li class="active tab" data-target="#step1">
+          <%= link_to client_booking_song_choices_path(type: "slow"), remote: true do %>
+              Slow
           <% end %>
+        </li>
+        <li class="tab" data-target="#step2">
+          <%= link_to client_booking_song_choices_path(type: "med"), remote: true do %>
+              Medium
+          <% end %>
+        </li>
+        <li class="tab" data-target="#step3">
+          <%= link_to client_booking_song_choices_path(type: "up"), remote: true do %>
+              Up
+          <% end %>
+        </li>
+      </ul>
+      <div class="scroll-box">
+        <ul id="songs-container">
+          <%= render 'songs', selection: @selection, booking: @booking  %>
         </ul>
       </div>
     </div>
-
-    <div class="col-xs-12 col-md-6 square-box">
+    <div class="col-xs-12 col-md-6">
       <div class="songs-container padding-top-50">
         <h4>
           Selected
@@ -95,4 +88,9 @@
 </div>
 
 
-<%= render 'info', type: 'music' %>
+<%= render 'client/bookings/info', type: 'music' %>
+
+
+
+
+

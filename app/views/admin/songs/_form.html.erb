@@ -1,5 +1,6 @@
   <%= f.input :title, :input_html => {class: "form-control", placeholder: "Titel" } %>
   <%= f.input :artist, :input_html => {class: "form-control", placeholder: "Artiest" } %>
   <%= f.input :spotify_uri, :input_html => {class: "form-control", placeholder: "Spotify URI" } %>
+  <%= f.input :label, collection: ["slow", "med", "up"], :input_html => {class: "form-control" }%>
   <%= f.submit class: "btn btn-primary" %>
 

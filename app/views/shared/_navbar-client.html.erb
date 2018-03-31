@@ -19,7 +19,7 @@
         <%= link_to t('playbook') + @booking.counted_playline_state, client_booking_path(@booking), class: @booking.colored_playline_state %>
       </li>
       <li id="gallery">
-        <%= link_to t('music')+ @booking.counted_music_state, songs_client_booking_path(@booking), class: @booking.colored_music_state %>
+        <%= link_to t('music')+ @booking.counted_music_state, client_booking_song_choices_path(@booking), class: @booking.colored_music_state %>
       </li>
       <li id="gallery">
         <a type="submit" href="" name="submit" data-toggle="modal" data-target="#checklist">
@@ -37,6 +37,6 @@
 
 </header>
 
-<%= render 'checklist' %>
+<%= render 'client/bookings/checklist' %>
 
 
