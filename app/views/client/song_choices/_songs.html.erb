@@ -1,0 +1,15 @@
+<% selection.each do |song| %>
+	<li>
+	  <iframe src="https://open.spotify.com/embed?uri=<%= song.spotify_uri %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+	  <div class="song-buttons">
+	    <style>
+
+	  </style>
+	  <%= simple_form_for([booking, SongChoice.new], input_html: {class: "no-height"}, remote: true, url: client_booking_song_choices_path(booking),) do |f| %>
+	  <%= f.input :title, as: :hidden, input_html: { value: song.title } %>
+	  <%= f.input :artist, as: :hidden, input_html: { value: song.artist } %>
+	  <button type="submit" name="submit" class="select-button" style="width: 100.2%; margin-top: -123px;">SELECT</button>
+	  <% end %>
+	</li>
+<% end %>

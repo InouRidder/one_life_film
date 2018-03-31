@@ -1,0 +1,4 @@
+var songContainer = document.getElementById('songs-container')
+var newSongs = "<%= j render 'client/song_choices/songs', selection: @selection, booking: @booking %>"
+songContainer.innerHTML = newSongs;
+console.log("hi");

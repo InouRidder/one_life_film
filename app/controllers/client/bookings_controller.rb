@@ -14,12 +14,6 @@ class Client::BookingsController < ApplicationController
     end
   end
 
-  def songs
-    @selection = Song.all
-    @song_choice = SongChoice.new(booking: @booking)
-    @songs = @booking.song_choices
-  end
-
   def film
     @film = @booking.film
     @film_id = @film.vimeo_id

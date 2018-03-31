@@ -50,11 +50,10 @@ Rails.application.routes.draw do
   namespace :client do
     resources :bookings, only: [:show, :update] do
       member do
-        get 'songs'
         get 'film'
       end
       resources :playlines, only: [:create]
-      resources :song_choices, only: [:create, :destroy]
+      resources :song_choices, only: [:index, :create, :destroy]
     end
 
     resources :playlines, only: [:destroy, :edit, :update] do

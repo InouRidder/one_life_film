@@ -12,3 +12,4 @@
 //= require table_editing
 //= require sort_by_time
 //= require time_picker
+//= require client_tabs

@@ -10,6 +10,10 @@
   padding-bottom: 5em;
 }
 
+.no-height {
+  height: 0px !important;
+}
+
 @media (min-width: 730px) {
   .spaced-around {
     display: flex;

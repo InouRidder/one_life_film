@@ -36,3 +36,84 @@
   color: black;
 }
 
+.steps {
+  padding: 0;
+  overflow: hidden;
+}
+.steps a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.steps li {
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+  width: 33.3333%; /* 100 / number of steps */
+  height: 70px; /* total height */
+  list-style-type: none;
+  padding: 5px 5px 5px 30px; /* padding around text, last should include arrow width */
+  border-right: 3px solid white; /* width: gap between arrows, color: background of document */
+  position: relative;
+}
+/* remove extra padding on the first object since it doesn't have an arrow to the left */
+.steps li:first-child {
+  padding-left: 5px;
+}
+/* white arrow to the left to "erase" background (starting from the 2nd object) */
+.steps li:nth-child(n+2)::before {
+  position: absolute;
+  top:0;
+  left:0;
+  display: block;
+  border-left: 25px solid white; /* width: arrow width, color: background of document */
+  border-top: 35px solid transparent; /* width: half height */
+  border-bottom: 40px solid transparent; /* width: half height */
+  width: 0;
+  height: 0;
+  content: " ";
+}
+
+.steps li:last-child::after {
+  display: none;
+}
+/* colored arrow to the right */
+.steps li::after {
+  z-index: 1; /* need to bring this above the next item */
+  position: absolute;
+  top: 0;
+  right: -25px; /* arrow width (negated) */
+  display: block;
+  border-left: 25px solid #7c8437; /* width: arrow width */
+  border-top: 35px solid transparent; /* width: half height */
+  border-bottom: 40px solid transparent; /* width: half height */
+  width:0;
+  height:0;
+  content: " ";
+}
+
+/* Setup colors (both the background and the arrow) */
+
+/* Completed */
+.steps li { background-color: lightgrey; color: red;}
+.steps li::after { border-left-color: lightgrey; color: red; }
+
+/* Current */
+.steps li.active { background-color: rgb(159, 145, 91); }
+.steps li.active::after { border-left-color: rgb(159, 145, 91); }
+
+/* Following */
+.steps li.current ~ li { background-color: #EBEBEB; }
+.steps li.current ~ li::after { border-left-color: #EBEBEB; }
+
+/* Hover for completed and current */
+.steps li:hover {background-color: rgb(206, 195, 154)}
+.steps li:hover::after {border-left-color: rgb(206, 195, 154)}
+
+
+
+
