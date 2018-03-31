@@ -105,21 +105,21 @@ ActiveRecord::Schema.define(version: 20180327111540) do
   create_table "song_choices", force: :cascade do |t|
     t.bigint "booking_id"
     t.bigint "song_id"
+    t.string "artist"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
-    t.string "artist"
     t.index ["booking_id"], name: "index_song_choices_on_booking_id"
     t.index ["song_id"], name: "index_song_choices_on_song_id"
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
+    t.string "artist"
+    t.string "title"
+    t.string "spotify_uri"
+    t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
-    t.string "artist"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|

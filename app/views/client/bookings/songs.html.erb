@@ -22,21 +22,20 @@
         <ul>
           <% @selection.each do |song| %>
           <li>
-            <div class="song-row">
-              <div class="song-title">
-                <%= song.title.upcase %>
-              </div>
-              <div class="song-artist">
-                <%= song.artist.upcase %>
-              </div>
+            <div class="">
+
+              <iframe src="https://open.spotify.com/embed?uri=<%= song.spotify_uri %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
               <div class="song-buttons">
-                <a href="<%= song.url %>" target="_blank">
-                  <button class="select-button">LISTEN</button>
-                </a>
-                <%= simple_form_for([@booking, SongChoice.new], remote: true, url: client_booking_song_choices_path(@booking),) do |f| %>
+                <style>
+                  .no-height: {
+                    height: 0px !important;
+                  }
+                </style>
+                <%= simple_form_for([@booking, SongChoice.new], input_html: {class: "no-height"}, remote: true, url: client_booking_song_choices_path(@booking),) do |f| %>
                 <%= f.input :title, as: :hidden, input_html: { value: song.title } %>
                 <%= f.input :artist, as: :hidden, input_html: { value: song.artist } %>
-                <button type="submit" name="submit" class="select-button">SELECT</button>
+                <button type="submit" name="submit" class="select-button" style="width: 100.2%; margin-top: -123px;">SELECT</button>
                 <% end %>
               </div>
             </div>
@@ -94,5 +93,6 @@
     </div>
   </div>
 </div>
+
 
 <%= render 'info', type: 'music' %>

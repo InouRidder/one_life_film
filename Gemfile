@@ -53,6 +53,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-classnames'
 end
 
+gem 'rest-client'
+
 group :development, :test do
   gem 'web-console'
   gem 'letter_opener'
