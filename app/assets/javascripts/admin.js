@@ -19,6 +19,6 @@
 //= require admin/nav-tabs.js
 //= require admin/init_datepicker.js
 //= require admin/set_active_admin_tab.js
-
+//= require turbolinks
 //= require_self
 
