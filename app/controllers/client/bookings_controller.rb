@@ -4,7 +4,7 @@ class Client::BookingsController < ApplicationController
 
   def show
     if @booking.filmed?
-      redirect_to film_playbook_path(@playbook)
+      redirect_to film_client_booking_path(@booking)
     end
     @times = Playline::TIMES
     @playline = Playline.new
