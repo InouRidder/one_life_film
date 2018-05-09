@@ -10,6 +10,7 @@
   <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
   <title> Admin </title>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'admin', defer: true  %>
 
 </head>
 
@@ -19,7 +20,6 @@
       <%= render 'layouts/admin_navbar.html.erb'%>
       <%= yield %>
     </div>
-    <%= javascript_include_tag 'admin' %>
     <%= yield(:after_js) %>
   </body>
 </html>
