@@ -18,7 +18,7 @@
   <td><%= booking.playlines.try(:count)  %></td>
   <td class="request-status">
     <% if booking.filmed? %>
-    <%= link_to "Film", film_playbook_path(booking.playbook), class: "state-btn active-film" %>
+    <%= link_to "Film", film_client_booking_path(booking), class: "state-btn active-film" %>
     <% else %>
     <%= link_to "Film", new_admin_film_path(booking_id: booking.id), class: "state-btn" %>
     <% end %>
