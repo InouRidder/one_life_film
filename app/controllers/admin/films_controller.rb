@@ -24,7 +24,7 @@ class Admin::FilmsController < Admin::AdminController
         booking.save
       end
       if booking
-        redirect_to film_booking_path(booking.playbook)
+        redirect_to film_client_booking_path(booking)
       else
         redirect_to film_path(@film)
       end
