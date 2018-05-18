@@ -5,6 +5,10 @@ table th {
 th.datepicker-switch {
   border-radius: 0px !important;
 }
+th.prev.disabled {
+  background-color: lightgrey;
+  visibility: inherit !important;
+}
 th.prev {
   border-radius: 0px !important;
   border-top-left-radius: 4px !important;

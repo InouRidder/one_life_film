@@ -1,11 +1,15 @@
 function setActiveTab() {
   var locationArray = window.location.href.split("/")
-  var id = locationArray[locationArray.length - 1]
-  if (id == 'admin') {
-    id = 'calendar'
+  var location = locationArray[locationArray.length - 1]
+  if (location == 'admin') {
+    location = 'calendar'
   }
-  var toActiveTab = document.getElementById(id)
-  toActiveTab.classList.add('active-tab')
+  var locations = ['calendar', 'bookings', 'films', 'songs', 'requests']
+  if (locations.includes(location)) {
+    var toActiveTab = document.getElementById(location);
+    toActiveTab.classList.add('active-tab');
+  }
+  return true;
 }
 
 document.addEventListener('DOMContentLoaded', setActiveTab);

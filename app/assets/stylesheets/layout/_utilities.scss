@@ -17,7 +17,7 @@
 @media (min-width: 730px) {
   .spaced-around {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     width: 8%;
   }
