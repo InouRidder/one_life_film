@@ -39,7 +39,7 @@
             <input class="spaced-form" type="text" name="request[subject]" placeholder="<%= t('new_request.form.concerns') %>" required autocomplete="off">
             <%= token_tag %>
             <input class="spaced-form" type="text" name="request[location_wedding]" placeholder="<%= t('new_request.form.location') %>" required autocomplete="off">
-            <input class="spaced-form datepicker" type="text" name="request[date_wedding]" placeholder="<%= t('new_request.form.date') %>" required autocomplete="off" id="contact-date" data-provide='datepicker-inline' data-date-format="dd-mm-yyyy">
+            <input class="spaced-form datepicker" type="text" name="request[date_wedding]" placeholder="<%= t('new_request.form.date') %>" required autocomplete="off" id="contact-date">
             <p id="date-error-message"></p>
             <textarea name="request[message]" placeholder="<%= t('new_request.form.description') %>" required></textarea>
             <button type="submit" name="submit" id="contact-submit"><%= t('new_request.form.submit') %></button>
