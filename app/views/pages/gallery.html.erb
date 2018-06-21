@@ -5,47 +5,47 @@
 <div class="preloader"><i class="p-in"></i></div>
 <!--Preloader End-->
 
-<!--Main Wrapper Starts-->
-<div class="main-wrapper animsition">
-  <!--Content Starts-->
-  <div class="main-container short-width">
+<div class="main-container short-width fixed-header fixed-footer">
+
+	<!--Filter Wrapper Starts-->
+	<div class="isotope-filter" style="margin-top: -50px;">
+		<ul>
+			<li>
+				<a class="active" href="#" data-filter="*">All</a>
+			</li>
+			<li>
+				<a href="#" data-filter="filter-wedding">Wedding</a>
+			</li>
+			<li>
+				<a href="#" data-filter="filter-compilation">Compilation</a>
+			</li>
+			<li>
+				<a href="#" data-filter="filter-life">Life</a>
+			</li>
+		</ul>
+	</div>
+	<!--Filter Wrapper End-->
+
+	<!--Wide Wrapper Starts-->
+	<div class="wide gallery-wide" data-items-gap="10">
+
+		<!--Items Starts-->
+
+		<% @films.each_with_index do |film, i|  %>
+
+		<div class="item <%= i % 2 == 0 ? 'filter-wedding' : 'filter-compilation'  %>">
+
+			<div class="zoom-hover">
+
+				<iframe src="https://player.vimeo.com/video/<%=  film.video_url.match(/\d+\z/)[0] %>?color=a39254&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen scrolling="no"></iframe>
+			</div>
+
+		</div>
+		<% end %>
+		<!--If you don't need zoom animation on hover, you can remove the (zoom-hover) div-->
 
 
-    <!--Masonry Wrapper Starts-->
-    <div class="masonry gallery-default" data-items-columns="5" data-items-gap="8">
+	</div>
+	<!--Wide Wrapper End-->
 
-
-      <% @films.each_with_index do |film, i|  %>
-      <% if [0,3,5].include?(i)  %>
-
-      <div class="item double-height">
-
-        <iframe src="https://player.vimeo.com/video/<%=  film.video_url.match(/\d+\z/)[0] %>?color=a39254&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0"  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-      </div>
-
-      <% elsif [6,2,11].include?(i) %>
-
-      <div class="item double-width">
-
-        <iframe src="https://player.vimeo.com/video/<%=  film.video_url.match(/\d+\z/)[0] %>?color=a39254&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0"  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-      </div>
-
-      <% else %>
-
-      <div class="item">
-
-          <iframe src="https://player.vimeo.com/video/<%=  film.video_url.match(/\d+\z/)[0] %>?color=a39254&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0"  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-      </div>
-
-      <% end %>
-      <% end %>
-
-
-    </div>
-    <!--Masonry Wrapper End-->
-  </div>
-  <!--Content End-->
 </div>
-
