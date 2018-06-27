@@ -27,7 +27,7 @@
 	<!--Filter Wrapper End-->
 
 	<!--Wide Wrapper Starts-->
-	<div class="wide gallery-wide" data-items-gap="10">
+	<div class="wide gallery-wide" id="gallery-container" data-items-gap="10">
 
 		<!--Items Starts-->
 
@@ -35,10 +35,13 @@
 
 		<div class="item <%= i % 2 == 0 ? 'filter-wedding' : 'filter-compilation'  %>">
 
-			<div class="zoom-hover">
+			<div class="zoom-hover iframe-wrapper">
 
-				<iframe src="https://player.vimeo.com/video/<%=  film.video_url.match(/\d+\z/)[0] %>?color=a39254&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen scrolling="no"></iframe>
+				<iframe src="https://player.vimeo.com/video/<%=  film.video_url.match(/\d+\z/)[0] %>?controls=0" frameborder="0" scrolling="yes"></iframe>
 			</div>
+
+
+      <!-- title=0&byline=0&portrait=0&transparent=0&autoplay=1 -->
 
 		</div>
 		<% end %>
@@ -49,3 +52,26 @@
 	<!--Wide Wrapper End-->
 
 </div>
+
+  <script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+const iFrames = document.querySelectorAll('.iframe-wrapper');
+
+function createPlayer(iframe) {
+    var player = new Vimeo.Player(iframe);
+    return player
+}
+
+iFrames.forEach(frame => {
+  var iframe = frame.querySelector('iframe')
+  var player = createPlayer(iframe);
+  frame.addEventListener('click', function() {
+    player.getPaused().then(function(paused) {
+      paused ? player.play() : player.pause();
+        // paused = whether or not the player is paused
+    }).catch(function(error) {
+      console.log(error);
+    });
+  })
+})
+</script>

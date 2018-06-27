@@ -16,6 +16,7 @@
 //= require sort_by_time
 //= require time_picker
 //= require client_tabs
+//= require vimeo_iframe
 
 //= require turbolinks
 //= require_self
