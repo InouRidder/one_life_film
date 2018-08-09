@@ -1,14 +1,10 @@
 <div class="active-classer" id="home"></div>
 
-  <!--Preloader Starts-->
-  <div class="preloader"><i class="p-in"></i></div>
-  <!--Preloader End-->
-
-
+<!--Preloader Starts-->
+<div class="preloader"><i class="p-in"></i></div>
+<!--Preloader End-->
 
 <!--Main Wrapper Starts-->
-
-
 <div class="main-wrapper animsition">
 
     <!--Content Starts-->
@@ -19,13 +15,27 @@
 
         <div class="home bg-video-wrapper" data-muted="true" data-property="{videoURL: 'https://youtu.be/A7GUAtlSWXA?autoplay=1&loop=1'}"></div>
         <!--Background Video Wrapper-->
-          <div class="cover-inner">
-              <h2><%= t('home_content.title') %></h2>
-              <p><%= t('home_content.value_proposition') %>
+        <style>
+          .text-shadow {
+            text-shadow: 1px 1px black;
+          }
+          #disappearing-title {
+            transition: 2000ms ease;
+          }
+        </style>
+          <div class="cover-inner" id="disappearing-title">
+              <h2 class="text-shadow"><%= t('home_content.title') %></h2>
+              <p class="text-shadow"><%= t('home_content.value_proposition') %>
               </p>
           </div>
-
       </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          setInterval(function(){
+            document.getElementById('disappearing-title').style.opacity = 0;
+          }, 5000);
+        })
+      </script>
       <style>
         #white {
           color: white !important;
@@ -37,11 +47,8 @@
         <div class="cover-wrapper" id="home-background-mobile">
           <!--Background Video Wrapper-->
             <div class="cover-inner" style="color: white !important;">
-              <h2 id="white">
-                WELCOME TO ONELIFE
-              </h2>
-              <p id="white">
-                De mooiste dag van je leven gefilmd en dezelfde dag gepresenteerd!
+              <h2 id="white"><%= t('home_content.title') %></h2>
+              <p id="white"><%= t('home_content.value_proposition') %>
               </p>
             </div>
         </div>
