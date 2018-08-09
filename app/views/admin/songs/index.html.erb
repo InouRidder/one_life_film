@@ -1,3 +1,8 @@
+<style>
+  .tab {
+    flex: 0 0 25% !important;
+  }
+</style>
 <div id="page-wrapper">
 
   <div class="container-fluid">
@@ -38,19 +43,19 @@
     <div class="tabs">
       <%= link_to admin_songs_path, class: "tab active", remote: true do %>
       <h3></h3>
-      <p>Allemaal</p>
+      <p>All</p>
       <% end %>
-      <%= link_to begin_admin_songs_path, class: "tab", remote: true do %>
+      <%= link_to slow_admin_songs_path, class: "tab", remote: true do %>
       <h3></h3>
-      <p>Begin</p>
+      <p>Slow</p>
       <% end %>
-      <%= link_to middle_admin_songs_path, class: "tab", remote: true do %>
+      <%= link_to medium_admin_songs_path, class: "tab", remote: true do %>
       <h3></h3>
-      <p>Midden</p>
+      <p>Medium</p>
       <% end %>
-      <%= link_to end_admin_songs_path, class: "tab", remote: true do %>
+      <%= link_to up_admin_songs_path, class: "tab", remote: true do %>
       <h3></h3>
-      <p>Eind</p>
+      <p>Up</p>
       <% end %>
     </div>
 
@@ -66,7 +71,6 @@
           No songs
         <% end %>
       </div>
-      <%= paginate @songs unless @search %>
     </div>
   </div>
 </div>

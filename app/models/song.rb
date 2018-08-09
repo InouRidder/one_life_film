@@ -9,6 +9,6 @@ class Song < ApplicationRecord
   scope :up, -> { where(label: "up")}
 
   include PgSearch
-  pg_search_scope :search_by_name, :against => [:name]
+  pg_search_scope :search_by_title_and_artist, :against => [:title, :artist]
 
 end

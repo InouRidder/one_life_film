@@ -1,12 +1,22 @@
 class Admin::FilmsController < Admin::AdminController
-  before_action :set_film, only: [:edit, :update, :destroy]
+  before_action :set_film, only: [:edit, :update, :destroy, :show]
 
   def index
     if query = params[:search]
       @films = Film.search_by_name_and_slug(query).page(params[:page])
+    elsif params[:promo]
+      @films = Film.promos.page(params[:page])
     else
       @films = Film.page(params[:page])
     end
+
+    respond_to do |format|
+      format.html
+      format.js {render 'insert_films', bookings: @films }
+    end
+  end
+
+  def show
   end
 
   def new

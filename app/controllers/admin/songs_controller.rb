@@ -4,7 +4,7 @@ class Admin::SongsController < Admin::AdminController
   def index
     if query = params[:search]
       @search = true
-      @songs = Song.search_by_name(query)
+      @songs = Song.search_by_title_and_artist(query)
     else
       @songs = Song.page(params[:page])
       respond_to do |format|
@@ -43,21 +43,21 @@ class Admin::SongsController < Admin::AdminController
     redirect_to admin_songs_path
   end
 
-  def begin
-    @title = "Begin"
-    @songs = Song.begin
+  def slow
+    @title = "Slow temp"
+    @songs = Song.slow.page(params[:page])
     render 'insert_songs'
   end
 
-  def middle
-    @title = "Midden"
-    @songs = Song.middle
+  def medium
+    @title = "Med tempo"
+    @songs = Song.medium.page(params[:page])
     render 'insert_songs'
   end
 
-  def end
-    @title = "Einde"
-    @songs = Song.end
+  def up
+    @title = "Up tempo"
+    @songs = Song.up.page(params[:page])
     render 'insert_songs'
   end
 

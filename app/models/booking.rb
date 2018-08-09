@@ -10,9 +10,9 @@ class Booking < ApplicationRecord
 
   belongs_to :user, optional: true
   belongs_to :request, optional: true
-  has_one :film
-  has_many :playlines
-  has_many :song_choices
+  has_one :film, dependent: :nullify
+  has_many :playlines, dependent: :destroy
+  has_many :song_choices, dependent: :destroy
   has_many :songs, through: :song_choices
   pg_search_scope :search_by_text, :against => [:name, :location_wedding, :email_address]
 
