@@ -4,8 +4,15 @@ class Admin::FilmsController < Admin::AdminController
   def index
     if query = params[:search]
       @films = Film.search_by_name_and_slug(query).page(params[:page])
+    elsif params[:promo]
+      @films = Film.promos.page(params[:page])
     else
       @films = Film.page(params[:page])
+    end
+
+    respond_to do |format|
+      format.html
+      format.js {render 'insert_films', bookings: @films }
     end
   end
 

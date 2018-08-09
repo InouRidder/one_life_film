@@ -1,12 +1,6 @@
 <div class="active-classer" id="gallery" style="width:100%; margin:10px;"></div>
-
-
 <!--Preloader Starts-->
-<div class="preloader"><i class="p-in"></i></div>
-<!--Preloader End-->
-
 <div class="main-container short-width fixed-header fixed-footer">
-
 	<!--Filter Wrapper Starts-->
 	<div class="isotope-filter" style="margin-top: -50px;">
 		<ul>
@@ -25,12 +19,10 @@
 		</ul>
 	</div>
 	<!--Filter Wrapper End-->
-
 	<!--Wide Wrapper Starts-->
 	<div class="wide gallery-wide" id="gallery-container" data-items-gap="10">
 
 		<!--Items Starts-->
-
 		<% @films.each_with_index do |film, i|  %>
 
 		<div class="item <%= i % 2 == 0 ? 'filter-wedding' : 'filter-compilation'  %>">
@@ -50,7 +42,7 @@
 
 </div>
 
-  <script src="https://player.vimeo.com/api/player.js"></script>
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
 const iFrames = document.querySelectorAll('.iframe-wrapper');
 
