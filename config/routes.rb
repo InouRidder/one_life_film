@@ -31,9 +31,9 @@ Rails.application.routes.draw do
     end
     resources :songs, except: [:show] do
       collection do
-        get 'begin'
-        get 'middle'
-        get 'end'
+        get 'slow'
+        get 'medium'
+        get 'up'
       end
     end
     resources :films
