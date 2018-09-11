@@ -16,17 +16,17 @@
     </div>
     <div class="col-xs-12 col-md-6 square-box">
       <ul class="steps steps-5" id="steps-diy">
-        <li class="active tab" data-target="#step1">
+        <li class="active tab" data-type="slow">
           <%= link_to client_booking_song_choices_path(type: "slow"), remote: true do %>
               Slow
           <% end %>
         </li>
-        <li class="tab" data-target="#step2">
+        <li class="tab" data-type="med">
           <%= link_to client_booking_song_choices_path(type: "med"), remote: true do %>
               Medium
           <% end %>
         </li>
-        <li class="tab" data-target="#step3">
+        <li class="tab" data-type="up">
           <%= link_to client_booking_song_choices_path(type: "up"), remote: true do %>
               Up
           <% end %>

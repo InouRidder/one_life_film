@@ -9,6 +9,7 @@
 	  <%= simple_form_for([booking, SongChoice.new], input_html: {class: "no-height"}, remote: true, url: client_booking_song_choices_path(booking),) do |f| %>
 	  <%= f.input :title, as: :hidden, input_html: { value: song.title } %>
 	  <%= f.input :artist, as: :hidden, input_html: { value: song.artist } %>
+    <%= f.input :song_id, as: :hidden, input_html: { value: song.id } %>
 	  <button type="submit" name="submit" class="select-button" style="width: 100.2%; margin-top: -123px;">SELECT</button>
 	  <% end %>
 	</li>

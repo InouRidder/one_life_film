@@ -4,7 +4,7 @@
 //= require admin/bootstrap.js
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
-//= require admin/tabs.js
+//= require tabs.js
 //= require admin/nav-tabs.js
 //= require init_datepicker.js
 //= require admin/set_active_admin_tab.js

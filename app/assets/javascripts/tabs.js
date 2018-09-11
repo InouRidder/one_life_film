@@ -10,6 +10,8 @@ function setTab() {
   });
 }
 
+setTab();
+
 document.addEventListener("turbolinks:load", function() {
   setTab();
 })

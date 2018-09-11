@@ -4,6 +4,8 @@ class SongChoice < ApplicationRecord
   validates :title, :artist, presence: true
   validate :max_allowed_songs
 
+  paginates_per 10
+
   private
 
   def max_allowed_songs
