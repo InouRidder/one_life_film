@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resources :films
   end
 
+  get 'bruiloft/:id', to: 'films#show'
 
   resources :films, only: [] do
     resources :comments, only: [:create]
