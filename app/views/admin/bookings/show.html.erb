@@ -126,9 +126,7 @@
             <h3 class="panel-title"><i class="fa fa-book fa-fw"></i> Muziek keuzes</h3>
           </div>
           <div class="panel-body">
-            <% if songs = @booking.song_choices %>
-            <%= render 'admin/songs/songs', songs: songs %>
-            <% end %>
+            <%= render 'admin/songs/songs', songs: @booking.song_choices.page(params[:page]) %>
           </div>
         </div>
       </div>

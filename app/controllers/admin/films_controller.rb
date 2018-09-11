@@ -3,11 +3,11 @@ class Admin::FilmsController < Admin::AdminController
 
   def index
     if query = params[:search]
-      @films = Film.search_by_name_and_slug(query).page(params[:page])
+      @films = Film.search_by_name_and_slug(query).order(created_at: :desc).page(params[:page])
     elsif params[:promo]
-      @films = Film.promos.page(params[:page])
+      @films = Film.promos.order(created_at: :desc).page(params[:page])
     else
-      @films = Film.page(params[:page])
+      @films = Film.order(created_at: :desc).page(params[:page])
     end
 
     respond_to do |format|
@@ -57,7 +57,7 @@ class Admin::FilmsController < Admin::AdminController
 
   def destroy
     @film.destroy
-    redirect_to films_path
+    redirect_to admin_films_path
   end
 
   private

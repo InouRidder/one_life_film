@@ -2,9 +2,10 @@ class Client::SongChoicesController < ApplicationController
   before_action :set_booking, only: [:create, :destroy, :index]
   before_action :set_song_choice, only: [:destroy]
   layout 'client'
+
   def index
-    label = params[:type] || "slow"
-    @selection = Song.where(label: label)
+    @label = params[:type] || "slow"
+    @selection = Song.where(label: @label)
     @song_choice = SongChoice.new(booking: @booking)
     @songs = @booking.song_choices
     respond_to do |format|

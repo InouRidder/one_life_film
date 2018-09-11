@@ -57,8 +57,7 @@ class Booking < ApplicationRecord
   end
 
   def add_suggestive_lines
-    prerequisites = Playline::SUGGESTED_LINES
-    prerequisites.each do |prereq|
+    Playline::SUGGESTED_LINES.each do |prereq|
       playline = Playline.new(prereq)
       playline.booking = self
       playline.save

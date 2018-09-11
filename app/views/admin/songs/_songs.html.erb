@@ -9,7 +9,6 @@
     <tr>
       <th>Name</th>
       <th>Link</th>
-
     </tr>
   </thead>
   <tbody>
@@ -17,9 +16,6 @@
    <tr>
     <td><%= song.artist %></td>
     <td><%= song.title %></td>
-
-
-
     <td><%= link_to 'Edit', edit_admin_song_path(song),
     :class => "btn btn-warning" %></td>
     <td><%= link_to 'Verwijder', admin_song_path(song),
@@ -30,5 +26,5 @@
   <% end %>
 </tbody>
 </table>
-<%= paginate @songs unless @search %>
+<%= paginate songs unless @search %>
 
