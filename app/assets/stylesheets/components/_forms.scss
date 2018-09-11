@@ -6,7 +6,7 @@
   .inline-form {
     display: flex;
     .inline-form-element {
-      width: 15% !important;
+      width: 15%;
       font-size: 15px;
       margin-right: 1px;
 
@@ -14,8 +14,8 @@
     .inline-form-element:nth-child(1) {
       width: 8% !important;
     }
-    .inline-form-element:nth-child(2) {
-      width: 22% !important;
+    .inline-form-element:nth-child(3) {
+      width: 21% !important;
     }
     .inline-form-element:last-child {
       display: flex;
@@ -40,8 +40,8 @@
 
 .inline-input {
   outline: 0;
-  padding: 13px 10px;
-  border:1px solid #ccc;
+  padding: 12px 5px;
+  border: none;
   margin-top: 2px;
   width: 100%;
   background-color:transparent;
