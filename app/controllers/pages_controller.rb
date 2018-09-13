@@ -5,7 +5,8 @@ class PagesController < ApplicationController
   end
 
   def gallery
-    @films = Film.where(promo: true).first(10)
+    @first_film = Film.find(217)
+    @films = Film.where(promo: true).first(10) - @first_film
   end
 
   def about
