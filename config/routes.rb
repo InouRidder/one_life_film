@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   end
 
   get 'bruiloft/:id', to: 'films#show'
+  # verborgen -- > TO DO: Verborgen?
 
   resources :films, only: [] do
     resources :comments, only: [:create]
