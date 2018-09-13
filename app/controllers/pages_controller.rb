@@ -7,7 +7,6 @@ class PagesController < ApplicationController
   def gallery
     @films = Film.promos
     @first_film = Film.find(217)
-    @films.insert(0, @first_film)
   end
 
   def about
