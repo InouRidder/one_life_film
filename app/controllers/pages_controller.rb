@@ -5,7 +5,8 @@ class PagesController < ApplicationController
   end
 
   def gallery
-    @films = Film.promos.insert(0, @first_film)
+    @first_film = Film.find(217)
+    @films = Film.promos.insert(0, @first_film).compact
   end
 
   def about
