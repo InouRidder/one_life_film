@@ -9,7 +9,7 @@ class Film < ApplicationRecord
   validates :video_url, presence: true
   validates :name, presence: true
 
-  scope :promos, -> {where(promo: true)}
+  scope :promos, -> {where(promo: true).first(10)}
 
   paginates_per 10
 

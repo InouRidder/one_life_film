@@ -14,15 +14,8 @@
 	<!--Filter Wrapper End-->
 	<!--Wide Wrapper Starts-->
 	<div class="wide gallery-wide" id="gallery-container" data-items-gap="10">
-
-    <div class="item">
-      <div class="zoom-hover iframe-wrapper">
-        <iframe src="https://player.vimeo.com/video/<%=  @first_film.video_url.match(/\d+\z/)[0] %>?controls=0" frameborder="0" scrolling="yes"></iframe>
-      </div>
-    </div>
 		<!--Items Starts-->
 		<% @films.each do |film|  %>
-
 		<div class="item">
 			<div class="zoom-hover iframe-wrapper">
 				<iframe src="https://player.vimeo.com/video/<%=  film.video_url.match(/\d+\z/)[0] %>?controls=0" frameborder="0" scrolling="yes"></iframe>
