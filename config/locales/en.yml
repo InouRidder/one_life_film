@@ -1,9 +1,18 @@
 en:
+  about:
+    photography: "Photograpy"
+    film: "Film"
+    about: "ABOUT"
+    who_are: "WHO ARE WE"
+    who_are_content: "OneLife FILM captures unforgettable moments of life in an atmospheric film. Guided by your music, the highlights of your wedding will be eternalised by our team. A professional camerman will, very discretely, be with you throughout the wedding day up until the opening dance and he will be capturing the most beautiful moments. After the first film images have been captured, the editor will start editing your own wedding film. This will be edited on your own favorite music, music and image will synchronously guide the film. On the night of your wedding, or at what other moment we discuss, the film will be displayed and in doing so all the guests can enjoy your unforgettable day! <a href='/contact'> Call or email </a> for more information about OneLife FILM. We would happily discuss with you all the possibilities."
+    a_story_about_us: "A story about us"
+    a_story_about_us_content: "The most beautiful gift ”ever”! Early in the moring on the day of the wedding you will find Sket, armed with a camera, on your doorstep - surprise!! The whole day he has moved around us almost unnoticable making friends with everyone while capturing this incredibly important day for us. The height of joy of the day came at the end of the evening, on a big screen the wedding film that was completely finished and edited was presented! In a few minutes guided by our favorite music all the important and beautiful moments of the day came by, the 'yes' moment, our friends and family, dancing and very human moments, everything passed by in a few minutes. This important day to us, entirely on film in a few minutes captured in a fantastic, romantic, beautiful document full of love! ALL IS LOVE!!!"
+    what_we_do: "WHAT WE DO"
+  wedding: 'wedding films'
   home: "HOME"
   home_content:
     title: "WELCOME TO ONELIFE FILM"
     value_proposition: "The most beautiful day of your life filmed and presented the same day!"
-  about: "ABOUT"
   gallery: "GALLERY"
   contact: "CONTACT"
   language-link: "/"
@@ -14,7 +23,7 @@ en:
     title: "Application"
     phone: "PHONE"
     email: "EMAIL"
-    content: "Would you like more information about creating a movie of a special event? Or would you like more information about OneLife Film, in either cases you can use our contact form to get in touch. If you need to get in touch with us quicker, you can always reach us through phone."
+    content: "Would you like more information about creating a wedding film? You can reach us via the contact form. You can also reach us through the phone number below. In either cases we will try to answer your questions as soon as possible."
     form:
       name: "YOUR NAME(S)"
       email: "EMAIL ADDRESS"

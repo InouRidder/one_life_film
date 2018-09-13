@@ -5306,7 +5306,7 @@ p.category {
 .do-item .image-wrapper{
     width: 100%;
     position: relative;
-    padding-bottom:50%;
+    padding-bottom:100%;
     margin-bottom:20px;
 }
 
@@ -5321,6 +5321,7 @@ p.category {
 }
 .member-item img{
    width:100%;
+   height: 500px;
 }
 .member-item h5{
     margin-bottom:5px;
@@ -5479,7 +5480,7 @@ h1.fourty-four-tittle{
     position:relative;
 }
 .fixed-header {
-    margin-top: 76px;
+   margin-top: 76px;
 }
 .fixed-footer{
     margin-bottom:36px;

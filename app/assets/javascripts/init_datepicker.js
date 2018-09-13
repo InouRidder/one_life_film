@@ -1,5 +1,4 @@
 document.addEventListener('turbolinks:load', function() {
-  console.log('loaded');
   $('.datepicker').datepicker({
      format: 'dd/mm/yyyy',
       startDate: '-3d'

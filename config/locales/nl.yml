@@ -1,9 +1,18 @@
 nl:
+  about:
+    photography: "Fotografie"
+    film: "Film"
+    about: "OVER ONS"
+    who_are: "WIE ZIJN WIJ"
+    who_are_content: "OneLife FILM legt onvergetelijke gebeurtenissen van het leven vast in een sfeervolle filmclip. Begeleid door jouw favoriete muziek worden de highlights van je bruiloft, je verjaardag, een herinnering aan een dierbare of de doop van je kind vereeuwigd. Een professioneel cameraman beleeft de hele trouwdag discreet met jullie mee. De gehele trouwdag tot en met de openingsdans zal hij heel ongedwongen de mooiste momenten van jullie trouwdag vastleggen. Nadat de eerste filmbeelden gemaakt zijn, start de editor met de montage van jullie eigen trouwfilm. Deze wordt gemonteerd op jullie eigen favoriete muziek, zodat beeld en geluid een eenheid vormen. Op de feestavond, in overleg wordt jullie eigen spectaculaire trouwfilm op een groot scherm vertoond, zodat iedereen kan genieten van jullie onvergetelijke dag! Bel of mail voor meer informatie met OneLife FILM. Wij vertellen je graag over alle mogelijkheden."
+    a_story_about_us: "Een verhaal over ons"
+    a_story_about_us_content: "Het mooiste kado ”ever”! Op de trouwdag ´s morgens vroeg staat Sket, gewapend met camera, op de stoep – verrassing!! De hele dag heeft hij heerlijk om ons heen bewogen om deze, voor ons zo belangrijke dag, vast te leggen. Het hoogtepunt kwam aan het einde van de avond... op een groot scherm werd (de inmiddels gemonteerde) ”clip” vertoond! Op een heerlijk nummer, de mooiste momenten, ons ja-woord, onze lieve vrienden en familie; alles kwam in deze paar minuten voorbij... Onze belangrijkste dag van kop tot staart in een paar minuten samengevat in een fantastisch, romantisch, mooi en liefdevol document!! ALLES IS LIEFDE!!!"
+    what_we_do: "WAT WIJ DOEN"
+  wedding: 'trouwfilms'
   home: "THUIS"
   home_content:
     title: "WELKOM BIJ ONELIFE FILM"
     value_proposition: "De mooiste dag van je leven gefilmd en dezelfde dag gepresenteerd!"
-  about: "OVER ONS"
   gallery: "GALLERIJ"
   contact: "CONTACT"
   language-link: "/en"
@@ -12,7 +21,7 @@ nl:
     title: "Aanvraag"
     phone: "TELEFOON"
     email: "EMAIL"
-    content: "Wilt u meer informatie over het laten maken van een film van een speciale gebeurtenis? Of wilt u meer informatie over OneLife Film dan kunt u contact met ons opnemen door middel van het onderstaande contactformulier. Maar als u ons belt dan kunnen wij u nog sneller van dienst zijn"
+    content: "Wilt u meer informatie over het maken van een trouwfilm? Dan kunt u contact met ons opnemen door middel van het contactformulier. Wij zijn telefonisch bereikbaar op het onderstaande telefoonnummer. We zullen zo snel mogelijk uw vragen beantwoorden"
     form:
         name: "NAAM"
         email: "EMAIL ADRES"

@@ -53,16 +53,17 @@ $(function () {
 
 
 // Background Images
-
+  document.addEventListener('turbolinks:load', function() {
     $('[data-backgroundimage]').each(function () {
         var element = $(this),
-        	bgimg = element.data('backgroundimage');
+          bgimg = element.data('backgroundimage');
         if (bgimg.match('^rgb') || bgimg.match('^#')) {
             element.css('background-color', bgimg);
         } else {
             element.css('background-image', 'url(' + bgimg + ')');
         };
     });
+  })
 
 
 
