@@ -53,7 +53,6 @@ $(function () {
 
 
 // Background Images
-  document.addEventListener('turbolinks:load', function() {
     $('[data-backgroundimage]').each(function () {
         var element = $(this),
           bgimg = element.data('backgroundimage');
@@ -63,7 +62,6 @@ $(function () {
             element.css('background-image', 'url(' + bgimg + ')');
         };
     });
-  })
 
 
 

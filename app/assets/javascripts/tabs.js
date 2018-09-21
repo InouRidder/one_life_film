@@ -12,6 +12,6 @@ function setTab() {
 
 setTab();
 
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener("DOMContentLoaded", function() {
   setTab();
 })

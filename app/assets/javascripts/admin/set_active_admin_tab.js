@@ -14,7 +14,7 @@ function setActiveTab() {
 
 document.addEventListener('DOMContentLoaded', setActiveTab);
 
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener("DOMContentLoaded", function() {
   setActiveTab();
 })
 

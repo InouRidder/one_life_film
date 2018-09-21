@@ -17,6 +17,5 @@
 //= require time_picker
 //= require client_tabs
 
-//= require turbolinks
 //= require_self
 

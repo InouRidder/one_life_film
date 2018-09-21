@@ -1,4 +1,4 @@
-document.addEventListener('turbolinks:load', function() {
+document.addEventListener('DOMContentLoaded', function() {
   $('.datepicker').datepicker({
      format: 'dd/mm/yyyy',
       startDate: '-3d'

@@ -43,7 +43,7 @@ function timePicking(id) {
     })
   })
 }
-document.addEventListener('turbolinks:load', function() {
+document.addEventListener('DOMContentLoaded', function() {
   timePicking("");
 })
 
