@@ -5,8 +5,6 @@ class PagesController < ApplicationController
   end
 
   def gallery
-    @films = Film.promos
-    @first_film = Film.find(217)
   end
 
   def about
