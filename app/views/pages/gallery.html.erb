@@ -102,26 +102,3 @@
   </div>
 
 </div>
-
-<script src="https://player.vimeo.com/api/player.js"></script>
-<script>
-  var iFrames = document.querySelectorAll('.iframe-wrapper');
-
-  function createPlayer(iframe) {
-    var player = new Vimeo.Player(iframe);
-    return player
-  }
-
-  iFrames.forEach(frame => {
-    var iframe = frame.querySelector('iframe')
-    var player = createPlayer(iframe);
-    frame.addEventListener('click', function() {
-      player.getPaused().then(function(paused) {
-        paused ? player.play() : player.pause();
-        // paused = whether or not the player is paused
-      }).catch(function(error) {
-        console.log(error);
-      });
-    })
-  })
-</script>
