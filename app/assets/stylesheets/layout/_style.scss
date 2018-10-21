@@ -733,8 +733,9 @@ blockquote p:last-child {
 .video-frame{
     display:block;
 }
+
 .video-frame:after{
-    content: "\f04b";
+    content: ">";
     position:absolute;
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
@@ -761,7 +762,7 @@ blockquote p:last-child {
 /* ======= Map Icon on Anchor For Popup ====== */
 
 .map-frame:after{
-    content: "\f041";
+    content: "\f095";
     position:absolute;
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
