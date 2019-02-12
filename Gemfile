@@ -31,6 +31,8 @@ gem 'devise-i18n'
 # Add decorators
 gem 'draper', github: 'drapergem/draper'
 
+gem 'recaptcha'
+
 
 # TRANSLATIONS
 gem 'rails-i18n', '5.0.3'
