@@ -42,6 +42,7 @@
             <input class="spaced-form datepicker" type="text" name="request[date_wedding]" placeholder="<%= t('new_request.form.date') %>" required autocomplete="off" id="contact-date">
             <p id="date-error-message"></p>
             <textarea name="request[message]" placeholder="<%= t('new_request.form.description') %>" required></textarea>
+            <%= recaptcha_tags %>
             <button type="submit" name="submit" id="contact-submit"><%= t('new_request.form.submit') %></button>
           </form>
 

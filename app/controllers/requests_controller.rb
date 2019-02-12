@@ -8,7 +8,8 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
-    if @request.save
+    binding.pry
+    if verify_recaptcha(model: @request) && @request.save
       flash[:notice] = "We komen binnen twee weken bij je terug! Kijk in je mail voor de confirmatie."
       RequestMailer.received(@request).deliver_now
       redirect_to root_path
