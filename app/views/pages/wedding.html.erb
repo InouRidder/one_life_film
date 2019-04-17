@@ -1,0 +1,42 @@
+<!--Content Starts-->
+<!--Tittle Section Starts-->
+<!--If header is fixed or header tag has a class "fixed" you have to add a class "fixed-header"" with this "page-content-wrapper" element -->
+<div class="active-classer" id="wedding"></div>
+<div class="page-content-wrapper" data-backgroundimage="<%= image_path 'about-background' %>
+">
+
+  <div class="text-center transparent-bg-8 pt80 pb80 pl20 pr20">
+
+    <h4 class="page-tittle"><%= capitalized_sentence(t('the_wedding')) %></h4>
+
+  </div>
+
+</div>
+<!--Tittle Section End-->
+
+
+
+<!--Intro Section Starts-->
+<div class="page-content-wrapper">
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1 text-center pt100 pb110 mb0">
+
+      <p><%= raw t('the_wedding_content.concept_description') %></p>
+
+      </div>
+    </div>
+  </div>
+  <!--Intro Section End-->
+
+  <!--Fullwidth Section Starts-->
+  <div class="page-content-wrapper clearfix">
+
+    <div class="col-sm-6 equal-height" style="min-height: 584px"data-backgroundimage="<%= image_path 'the_wedding_description_image' %>"></div>
+
+    <div class="col-sm-6 equal-height opposite-bg pt150 pb150 pl100 pr100">
+      <h4><%= t('the_wedding_content.what_we_offer') %></h4>
+      <p><%= raw t('the_wedding_content.what_we_offer_content') %></p>
+    </div>
+
+  </div>
+  <!--Fullwidth Section End-->

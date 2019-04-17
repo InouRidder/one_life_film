@@ -9,13 +9,6 @@
 
     <h4 class="page-tittle"><%= t('about.about').try(:capitalize) %></h4>
 
-    <ul class="breadcrumb">
-      <li><a href="/"><%= t('home').try(:capitalize) %></a></li>
-      <li class="active"><%= t('about.about').try(:capitalize) %></li>
-    </ul>
-
-    <i class="i-box mt10"></i>
-
   </div>
 
 </div>
@@ -29,7 +22,6 @@
     <div class="col-md-10 col-md-offset-1 text-center pt100 pb110 mb0">
 
       <h4><%= t('about.who_are') %></h4>
-      <i class="d-line d-center mb20 mt10"></i>
       <p><%= t('about.who_are_content') %></p>
 
       </div>
@@ -53,47 +45,6 @@
 
   </div>
   <!--Fullwidth Section End-->
-
-
-
-  <!--Do Section Starts -->
-  <div class="page-content-wrapper">
-    <div class="container">
-
-      <div class="text-center pt80 pb60">
-
-        <h4><%= t('about.what_we_do') %></h4>
-        <i class="d-line d-center mb60 mt10"></i>
-
-        <div class="row">
-
-
-
-          <div class="col-md-3 equal-height col-md-offset-3">
-            <div class="do-item">
-
-              <div class="image-wrapper" data-backgroundimage="<%= image_path 'camera' %>"></div>
-              <h5><%= t('about.film') %></h5>
-            </div>
-          </div>
-
-          <div class="col-md-3 equal-height">
-            <div class="do-item">
-
-              <div class="image-wrapper" data-backgroundimage="<%= image_path 'fotografie' %>"></div>
-              <h5><%= t('about.photography') %></h5>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-  <!--Do Section End -->
-
-
 
   <!--Team Section Starts-->
   <div class="page-content-wrapper off-bg">
@@ -119,7 +70,7 @@
               </div>
 
               <h5>ANOUK</h5>
-              <p>EDITOR</p>
+              <p> EDITOR / WEDDING-PLANNING </p>
 
             </div>
 
@@ -168,24 +119,6 @@
             <div class="member-item text-left">
               <div class="relative overflow-h mb30">
 
-                <%= image_tag 'arbel' %>
-
-
-              </div>
-
-              <h5>ARBEL</h5>
-              <p>EDITOR</p>
-
-            </div>
-
-          </div>
-
-
-          <div class="col-md-4">
-
-            <div class="member-item text-left">
-              <div class="relative overflow-h mb30">
-
                 <%= image_tag 'pieter' %>
 
 
@@ -197,6 +130,25 @@
             </div>
 
           </div>
+
+          <div class="col-md-4">
+
+            <div class="member-item text-left">
+              <div class="relative overflow-h mb30">
+
+                <%= image_tag 'jozef' %>
+
+
+              </div>
+
+              <h5>JOZEF</h5>
+              <p>CAMERA</p>
+
+            </div>
+
+          </div>
+
+
 
           <div class="col-md-4">
 
@@ -223,40 +175,4 @@
 
   </div>
   <!--Team Section End-->
-
-
-
-  <!--Clients Section Starts-->
-  <div class="page-content-wrapper">
-
-    <div class="container">
-
-      <div class="clients text-center">
-
-        <div class="row">
-
-          <div class="col-sm-3">
-            <%= image_tag 'foto1' %>
-          </div>
-
-          <div class="col-sm-3">
-            <%= image_tag 'foto2' %>
-          </div>
-
-          <div class="col-sm-3">
-            <%= image_tag 'foto5' %>
-          </div>
-
-          <div class="col-sm-3">
-            <%= image_tag 'foto3' %>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-  <!--Clients Section End-->
 
