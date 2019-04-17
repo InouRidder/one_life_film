@@ -1,0 +1,262 @@
+<!--Content Starts-->
+<!--Tittle Section Starts-->
+<!--If header is fixed or header tag has a class "fixed" you have to add a class "fixed-header"" with this "page-content-wrapper" element -->
+<div class="active-classer" id="about"></div>
+<div class="page-content-wrapper" data-backgroundimage="<%= image_path 'about-background' %>
+">
+
+  <div class="text-center transparent-bg-8 pt80 pb80 pl20 pr20">
+
+    <h4 class="page-tittle"><%= t('about.about').try(:capitalize) %></h4>
+
+    <ul class="breadcrumb">
+      <li><a href="/"><%= t('home').try(:capitalize) %></a></li>
+      <li class="active"><%= t('about.about').try(:capitalize) %></li>
+    </ul>
+
+    <i class="i-box mt10"></i>
+
+  </div>
+
+</div>
+<!--Tittle Section End-->
+
+
+
+<!--Intro Section Starts-->
+<div class="page-content-wrapper">
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1 text-center pt100 pb110 mb0">
+
+      <h4><%= t('about.who_are') %></h4>
+      <i class="d-line d-center mb20 mt10"></i>
+      <p><%= t('about.who_are_content') %></p>
+
+      </div>
+    </div>
+  </div>
+  <!--Intro Section End-->
+
+
+
+  <!--Fullwidth Section Starts-->
+  <div class="page-content-wrapper clearfix">
+
+    <div class="col-sm-6 equal-height" style="min-height: 584px"data-backgroundimage="<%= image_path 'camera' %>"></div>
+
+    <div class="col-sm-6 equal-height opposite-bg pt150 pb150 pl100 pr100">
+
+      <h5> <%= t('about.a_story_about_us') %> </h5>
+      <p><%= t('about.a_story_about_us_content') %></p>
+
+    </div>
+
+  </div>
+  <!--Fullwidth Section End-->
+
+
+
+  <!--Do Section Starts -->
+  <div class="page-content-wrapper">
+    <div class="container">
+
+      <div class="text-center pt80 pb60">
+
+        <h4><%= t('about.what_we_do') %></h4>
+        <i class="d-line d-center mb60 mt10"></i>
+
+        <div class="row">
+
+
+
+          <div class="col-md-3 equal-height col-md-offset-3">
+            <div class="do-item">
+
+              <div class="image-wrapper" data-backgroundimage="<%= image_path 'camera' %>"></div>
+              <h5><%= t('about.film') %></h5>
+            </div>
+          </div>
+
+          <div class="col-md-3 equal-height">
+            <div class="do-item">
+
+              <div class="image-wrapper" data-backgroundimage="<%= image_path 'fotografie' %>"></div>
+              <h5><%= t('about.photography') %></h5>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!--Do Section End -->
+
+
+
+  <!--Team Section Starts-->
+  <div class="page-content-wrapper off-bg">
+
+    <div class="container">
+      <div class="text-center pt80 pb50">
+
+        <h4>Ons Team</h4>
+        <i class="d-line d-center mb60 mt10"></i>
+
+
+        <div class="row">
+
+          <div class="col-md-4">
+
+            <div class="member-item text-left">
+              <div class="relative overflow-h mb30">
+
+                <%= image_tag 'anouk' %>
+
+
+
+              </div>
+
+              <h5>ANOUK</h5>
+              <p>EDITOR</p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="col-md-4">
+
+            <div class="member-item text-left">
+              <div class="relative overflow-h mb30">
+
+                <%= image_tag 'sket' %>
+
+
+              </div>
+
+              <h5>SKET</h5>
+              <p>CAMERA</p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="col-md-4">
+
+            <div class="member-item text-left">
+              <div class="relative overflow-h mb30">
+
+                <%= image_tag 'michiel' %>
+
+
+              </div>
+
+              <h5>MICHIEL</h5>
+              <p>CAMERA</p>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-4">
+
+            <div class="member-item text-left">
+              <div class="relative overflow-h mb30">
+
+                <%= image_tag 'arbel' %>
+
+
+              </div>
+
+              <h5>ARBEL</h5>
+              <p>EDITOR</p>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-md-4">
+
+            <div class="member-item text-left">
+              <div class="relative overflow-h mb30">
+
+                <%= image_tag 'pieter' %>
+
+
+              </div>
+
+              <h5>PIETER</h5>
+              <p>CAMERA</p>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-4">
+
+            <div class="member-item text-left">
+              <div class="relative overflow-h mb30">
+
+                <%= image_tag 'inou' %>
+
+              </div>
+
+              <h5>INOU</h5>
+              <p>TECH</p>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!--Team Section End-->
+
+
+
+  <!--Clients Section Starts-->
+  <div class="page-content-wrapper">
+
+    <div class="container">
+
+      <div class="clients text-center">
+
+        <div class="row">
+
+          <div class="col-sm-3">
+            <%= image_tag 'foto1' %>
+          </div>
+
+          <div class="col-sm-3">
+            <%= image_tag 'foto2' %>
+          </div>
+
+          <div class="col-sm-3">
+            <%= image_tag 'foto5' %>
+          </div>
+
+          <div class="col-sm-3">
+            <%= image_tag 'foto3' %>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <!--Clients Section End-->
+

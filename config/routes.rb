@@ -78,6 +78,7 @@ Rails.application.routes.draw do
     get 'gallery', to: 'pages#gallery'
     get 'about', to: 'pages#about'
     get 'contact', to: 'requests#new'
+    get 'wedding', to: 'pages#wedding'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
