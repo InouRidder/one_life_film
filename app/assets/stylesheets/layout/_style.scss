@@ -735,7 +735,7 @@ blockquote p:last-child {
 }
 
 .video-frame:after{
-    content: ">";
+    content: "\f04b";
     position:absolute;
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
@@ -3873,7 +3873,10 @@ a, a:visited,a:after,a:before,button,ul li,ul li a,ol li, ol li a,li:after,.li:b
     top:0;
 }
 .caption-wrapper{
-    opacity:0;
+  opacity:0;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
 @media (min-width: 600px) {
