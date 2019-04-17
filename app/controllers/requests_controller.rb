@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     if verify_recaptcha(model: @request) && @request.save
       flash[:notice] = "We komen binnen twee weken bij je terug! Kijk in je mail voor de confirmatie."
-      RequestMailer.received(@request).deliver_now
+      send_request_emails
       redirect_to root_path
     else
       flash[:alert] = "Please review the errors below"
@@ -19,6 +19,11 @@ class RequestsController < ApplicationController
   end
 
   private
+
+  def send_request_emails
+    RequestMailer.received(@request).deliver_now
+    RequestMailer.notify_of_new_request(@request).deliver_now
+  end
 
   def set_request
     @request = Request.find(params[:id])
