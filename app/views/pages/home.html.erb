@@ -15,20 +15,14 @@
 
         <div class="home bg-video-wrapper" data-muted="true" data-property="{videoURL: 'https://youtu.be/A7GUAtlSWXA?autoplay=1&loop=1'}"></div>
         <!--Background Video Wrapper-->
-        <style>
-          .text-shadow {
-            text-shadow: 1px 1px black;
-          }
-          #disappearing-title {
-            transition: 2000ms ease;
-          }
-        </style>
-          <div class="cover-inner" id="disappearing-title">
-              <h2 class="text-shadow"><%= t('home_content.title') %></h2>
-              <p class="text-shadow"><%= t('home_content.value_proposition') %>
-              </p>
-          </div>
+        <div class="cover-inner">
+            <h2 class="text-shadow"><%= t('home_content.title') %></h2>
+            <p class="text-shadow"><%= t('home_content.value_proposition') %>
+            </p>
+        </div>
       </div>
+      <!--
+        Remove dissappearing title script, script now stays
       <script>
         document.addEventListener('DOMContentLoaded', function() {
           setInterval(function(){
@@ -36,14 +30,7 @@
           }, 5000);
         })
       </script>
-      <style>
-        #white {
-          color: white !important;
-        }
-        #fifty {
-          size: 50px;
-        }
-      </style>
+       -->
         <div class="cover-wrapper" id="home-background-mobile">
           <!--Background Video Wrapper-->
             <div class="cover-inner" style="color: white !important;">
