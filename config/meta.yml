@@ -1,0 +1,6 @@
+# config/meta.yml
+
+meta_title: "OneLife Film"
+meta_description: "De mooiste dag van je leven gefilmd en dezelfde dag gepresenteerd"
+meta_image: "one_life_logo.png" # Une image dans votre dossier app/assets/images/
+
