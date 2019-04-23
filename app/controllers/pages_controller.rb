@@ -18,8 +18,7 @@ class PagesController < ApplicationController
   end
 
   def robots
-    render :robots
-
+    respond_to :text
   end
 
   private
