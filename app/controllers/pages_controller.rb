@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   breadcrumb 'Home', :root
-  before_action :add_breadcrumb_to_action, except: :home
+  before_action :add_breadcrumb_to_action, except: [ :home, :robots ]
   skip_before_action :authenticate_user!
 
 
@@ -15,6 +15,11 @@ class PagesController < ApplicationController
   end
 
   def wedding
+  end
+
+  def robots
+    render :robots
+
   end
 
   private

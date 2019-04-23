@@ -70,8 +70,9 @@ Rails.application.routes.draw do
   get "/422", to: "errors#unacceptable"
   get "/500", to: "errors#internal_error"
 
-  # SITEMAP
+  # SEO
   get '/sitemap.xml' => 'sitemaps#index', defaults: { format: 'xml' }
+  get "/robots.:format", to: "pages#robots"
 
 
   # PUBLIC PAGES
