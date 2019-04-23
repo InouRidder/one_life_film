@@ -22,3 +22,13 @@
 </div>
 <!--Content End-->
 
+<script type="application/ld+json">
+  {
+  "@context": "https://www.onelifefilm.nl/",
+  "@type": "Film",
+  "name": "<%= @film.name %>",
+  "author": "OneLife Film",
+  "video": "https://player.vimeo.com/video/<%= @film_id %>",
+  "description": "Trouwfilm gemaakt door OneLife film"
+}
+</script>
