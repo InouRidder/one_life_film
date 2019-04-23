@@ -70,6 +70,10 @@ Rails.application.routes.draw do
   get "/422", to: "errors#unacceptable"
   get "/500", to: "errors#internal_error"
 
+  # SITEMAP
+  get '/sitemap.xml' => 'sitemaps#index', defaults: { format: 'xml' }
+
+
   # PUBLIC PAGES
 
   scope '(:locale)', locale: /nl|en/ do
