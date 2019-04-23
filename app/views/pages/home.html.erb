@@ -1,5 +1,6 @@
-<div class="active-classer" id="home"></div>
+<% content_for :meta_title, "#{t('home')} | #{DEFAULT_META["meta_title"]}" %>
 
+<div class="active-classer" id="home"></div>
 <!--Preloader Starts-->
 <div class="preloader"><i class="p-in"></i></div>
 <!--Preloader End-->
@@ -44,5 +45,25 @@
     <!--Content End-->
 </div>
 <!--Main Wrapper End-->
+<nav aria-label="breadcrumb" style="padding-left: 75px">
+  <ol class='breadcrumbs'>
+    <% breadcrumb_trail do |crumb| %>
+      <li class="<%= crumb.current? ? 'current' : '' %>">
+        <%= link_to crumb.name, crumb.url, (crumb.current? ? {'aria-current' => 'page'} : {}) %>
+        <% unless crumb.current? %><span>::</span><% end %>
+      </li>
+    <% end %>
+  </ol>
+</nav>
 
-
+<script type="application/ld+json">
+  {
+  "@context": "https://www.onelifefilm.nl/",
+  "@type": "Home",
+  "name": "Home Page",
+  "description": "OneLife Film - De mooiste dag van je leven gefilmd en dezelfde dag gepresenteerd",
+  "author": "OneLife Film",
+  "video": "https://youtu.be/A7GUAtlSWXA",
+  "description": "Compilatie video OneLife film"
+}
+</script>

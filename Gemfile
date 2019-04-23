@@ -11,6 +11,7 @@ gem 'redis'
 gem 'faker'
 gem 'coffee-rails'
 gem 'turbolinks', '~> 5.0.0'
+gem 'loaf'
 
 
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',

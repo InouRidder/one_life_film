@@ -1,4 +1,5 @@
 class FilmsController < ApplicationController
+  breadcrumb 'Films', :gallery
   before_action :set_film, only: [:edit, :update, :destroy, :password]
   skip_before_action :authenticate_user!, only: [ :show, :password ]
 
@@ -13,6 +14,7 @@ class FilmsController < ApplicationController
     if @film.password && session[:session_access].nil? && @film.password != ""
       redirect_to password_path(id: @film.id)
     end
+    breadcrumb @film.name, film_path(@film)
     session.delete(:session_access)
   end
 

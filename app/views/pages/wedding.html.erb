@@ -1,6 +1,7 @@
 <!--Content Starts-->
 <!--Tittle Section Starts-->
 <!--If header is fixed or header tag has a class "fixed" you have to add a class "fixed-header"" with this "page-content-wrapper" element -->
+<% content_for :meta_title, "#{t('the_wedding')} | #{DEFAULT_META["meta_title"]}" %>
 <div class="active-classer" id="wedding"></div>
 <div class="page-content-wrapper" data-backgroundimage="<%= image_path 'about-background' %>
 ">
@@ -40,3 +41,26 @@
 
   </div>
   <!--Fullwidth Section End-->
+
+<nav aria-label="breadcrumb" style="padding-left: 75px">
+  <ol class='breadcrumbs'>
+    <% breadcrumb_trail do |crumb| %>
+      <li class="<%= crumb.current? ? 'current' : '' %>">
+        <%= link_to crumb.name, crumb.url, (crumb.current? ? {'aria-current' => 'page'} : {}) %>
+        <% unless crumb.current? %><span>::</span><% end %>
+      </li>
+    <% end %>
+  </ol>
+</nav>
+
+<script type="application/ld+json">
+  {
+  "@context": "https://www.onelifefilm.nl/wedding",
+  "@type": "Wedding",
+  "name": "Bruiloft",
+  "image": "<%= image_path 'the_wedding_description_image' %>",
+  "description": "OneLife Film - De mooiste dag van je leven gefilmd en dezelfde dag gepresenteerd - De Bruiloft",
+  "author": "OneLife Film",
+  "description": "Compilatie video OneLife film"
+}
+</script>

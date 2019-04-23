@@ -1,3 +1,5 @@
+<% content_for :meta_title, "#{@film.name} | #{DEFAULT_META["meta_title"]}" %>
+
 <!--Content Starts-->
 <div class="main-container short-width" style="margin-top: 40px; margin-bottom: 100px;">
   <h4 style="text-align: center;"> <%= @film.name %></h4>
@@ -20,3 +22,24 @@
 </div>
 <!--Content End-->
 
+<nav aria-label="breadcrumb" style="padding-left: 75px">
+  <ol class='breadcrumbs'>
+    <% breadcrumb_trail do |crumb| %>
+      <li class="<%= crumb.current? ? 'current' : '' %>">
+        <%= link_to crumb.name, crumb.url, (crumb.current? ? {'aria-current' => 'page'} : {}) %>
+        <% unless crumb.current? %><span>::</span><% end %>
+      </li>
+    <% end %>
+  </ol>
+</nav>
+
+<script type="application/ld+json">
+  {
+  "@context": "https://www.onelifefilm.nl/",
+  "@type": "Film",
+  "name": "<%= @film.name %>",
+  "author": "OneLife Film",
+  "video": "https://player.vimeo.com/video/<%= @film_id %>",
+  "description": "Trouwfilm gemaakt door OneLife film"
+}
+</script>

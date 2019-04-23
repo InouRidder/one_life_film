@@ -65,6 +65,16 @@ Rails.application.routes.draw do
     end
   end
 
+  # ERROR PAGES
+  get "/404", to: "errors#not_found"
+  get "/422", to: "errors#unacceptable"
+  get "/500", to: "errors#internal_error"
+
+  # SEO
+  get '/sitemap.xml' => 'sitemaps#index', defaults: { format: 'xml' }
+  get "/robots.:format", to: "pages#robots"
+
+
   # PUBLIC PAGES
 
   scope '(:locale)', locale: /nl|en/ do

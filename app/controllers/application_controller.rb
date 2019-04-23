@@ -13,24 +13,3 @@ class ApplicationController < ActionController::Base
   end
 
 end
-
-
-
-
-
-
-
-
-def BookingsController
-  def create
-    @booking = Booking.new(booking_params)
-    @booking.start_datetime = DateTime.parse("#{booking_params[:start_date]} #{booking_params[:start_time]}")
-    @booking.save
-  end
-
-  private
-
-  def booking_params
-    params.require(:booking).permit(:start_time, :start_date, :capacity, :price)
-  end
-end

@@ -16,6 +16,9 @@ Rails.application.configure do
 #   :password => ENV['MAILGUN_PASSWORD']
 # }
 
+  # Custom errors
+  config.exceptions_app = self.routes
+
 
   # Settings specified here will take precedence over those in config/application.rb.
 

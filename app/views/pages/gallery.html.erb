@@ -1,3 +1,5 @@
+<% content_for :meta_title, "#{t('gallery')} | #{DEFAULT_META["meta_title"]}" %>
+
 <div class="active-classer" id="gallery" style="width:100%; margin:10px;"></div>
 <!--Preloader Starts-->
 <div class="main-container short-width fixed-header fixed-footer">
@@ -149,3 +151,27 @@
   </div>
 
 </div>
+
+<nav aria-label="breadcrumb" style="padding-left: 75px">
+  <ol class='breadcrumbs'>
+    <% breadcrumb_trail do |crumb| %>
+      <li class="<%= crumb.current? ? 'current' : '' %>">
+        <%= link_to crumb.name, crumb.url, (crumb.current? ? {'aria-current' => 'page'} : {}) %>
+        <% unless crumb.current? %><span>::</span><% end %>
+      </li>
+    <% end %>
+  </ol>
+</nav>
+
+<script type="application/ld+json">
+  {
+  "@context": "https://www.onelifefilm.nl/",
+  "@type": "Gallery",
+  "name": "Gallerij",
+  "description": "OneLife Film - De mooiste dag van je leven gefilmd en dezelfde dag gepresenteerd",
+  "author": "OneLife Film",
+  "image": "<%= image_path 'gallery_8' %>",
+  "video": "https://vimeo.com/132738834"
+  "description": "Wedding films OneLife Film"
+}
+</script>

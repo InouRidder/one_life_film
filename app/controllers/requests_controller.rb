@@ -1,4 +1,6 @@
 class RequestsController < ApplicationController
+  breadcrumb 'Home', :root
+  before_action :set_crumb, only: :new
   skip_before_action :authenticate_user!, only: [ :new, :create]
   before_action :set_request, only: [:send_reminder, :update]
 
@@ -19,6 +21,10 @@ class RequestsController < ApplicationController
   end
 
   private
+
+  def set_crumb
+    breadcrumb 'Contact', contact_path
+  end
 
   def send_request_emails
     RequestMailer.received(@request).deliver_now
