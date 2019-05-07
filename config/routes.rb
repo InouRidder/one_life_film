@@ -6,6 +6,11 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'admin/calendar#index'
 
+  get '/bruiloft', to: redirect('/wedding')
+  get '/over-onelife-film', to: redirect('/about')
+  get '/ervaringen', to: redirect('/about')
+  get '/verjaardag', to: redirect('/')
+
   namespace :admin do
     resources :calendar, only: [:index]
     resources :bookings do
