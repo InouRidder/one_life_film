@@ -17,10 +17,10 @@
      <tr>
       <td><%= film.name %></td>
       <td><%= film.video_url %></td>
-      <td><%= "https://www.onelifefilm.eu/films/#{film.slug}" %></td>
+      <td><%= "https://onelifefilm.nl/films/#{film.slug}" %></td>
       <td><%= film.promo ? 'ja' : 'nee' %></td>
 
-      <td><%= link_to 'Show', "https://www.onelifefilm.eu/films/#{film.slug}",
+      <td><%= link_to 'Show', "https://onelifefilm.nl/films/#{film.slug}",
       :class => "btn btn-primary"%></td>
       <td><%= link_to 'Edit', edit_admin_film_path(film),
       :class => "btn btn-warning"%></td>

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/over-onelife-film', to: redirect('/about')
   get '/ervaringen', to: redirect('/about')
   get '/verjaardag', to: redirect('/')
+  get '/relaties/compilatie', to: redirect('/')
+  get '/relaties/nicolette_bas_short', to: redirect('/gallery')
 
   namespace :admin do
     resources :calendar, only: [:index]
