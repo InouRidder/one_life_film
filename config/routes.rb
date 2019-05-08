@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/ervaringen', to: redirect('/about')
   get '/verjaardag', to: redirect('/')
   get '/relaties/compilatie', to: redirect('/')
-  get '/relaties/nicolette_bas_short', to: redirect('/gallery')
+  get '/relaties/nicolette_bas_short', to: redirect('/films/nicolette-bas-trouwfilm-short')
 
   namespace :admin do
     resources :calendar, only: [:index]
