@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/relaties/compilatie', to: redirect('/')
   get '/relaties/nicolette_bas_short', to: redirect('/films/nicolette-bas-trouwfilm-short')
 
+  match '(*any)', to: redirect(subdomain: ''), via: :all, constraints: {subdomain: 'www'}
+
   namespace :admin do
     resources :calendar, only: [:index]
     resources :bookings do
