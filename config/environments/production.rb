@@ -5,20 +5,10 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.delivery_method     = :postmark
   config.action_mailer.postmark_settings   = { api_key: ENV['POSTMARK_SERVER_API_KEY'] }
-  config.action_mailer.default_url_options = { host: "onelifefilm.herokuapp.com" }
-
-# config.action_mailer.smtp_settings = {
-#   :authentication => :plain,  # check if necessarys
-#   :address => "smtp.mailgun.org",
-#   :port => 587,
-#   :domain => ENV['MAILGUN_DOMAIN'],
-#   :user_name => ENV['MAILGUN_USERNAME'],
-#   :password => ENV['MAILGUN_PASSWORD']
-# }
+  config.action_mailer.default_url_options = { host: "www.onelifefilm.nl" }
 
   # Custom errors
   config.exceptions_app = self.routes
-
 
   # Settings specified here will take precedence over those in config/application.rb.
 
