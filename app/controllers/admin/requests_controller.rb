@@ -8,7 +8,7 @@ class Admin::RequestsController < Admin::AdminController
   end
 
   def index
-    @requests = Request.active.order(date_wedding: :asc).decorate
+    @requests = Request.active.order(created_at: :desc).decorate
     @title = 'Actieve Aanvragen'
     respond_to do |format|
       format.html
