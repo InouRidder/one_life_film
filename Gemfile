@@ -63,7 +63,6 @@ gem 'rest-client'
 group :development, :test do
   gem 'web-console'
   gem 'letter_opener'
-  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
   gem 'listen', '~> 3.0.5'
