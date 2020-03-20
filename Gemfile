@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+
 ruby '2.4.3'
 
-gem 'rails', '5.1.4'
+gem 'actionmailer'
+gem 'rails'
 gem 'puma'
 gem 'pg', '~> 0.20'
 gem 'figaro'
@@ -13,16 +17,15 @@ gem 'coffee-rails'
 gem 'turbolinks', '~> 5.0.0'
 gem 'loaf'
 
-
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
-
 # Front end Set Up
-gem 'sass-rails'
+gem 'sassc-rails'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
+
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
@@ -34,9 +37,8 @@ gem 'draper', github: 'drapergem/draper'
 
 gem 'recaptcha'
 
-
 # TRANSLATIONS
-gem 'rails-i18n', '5.0.3'
+gem 'rails-i18n'
 
 # SEARCH
 gem 'pg_search'

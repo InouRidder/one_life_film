@@ -55,6 +55,7 @@
     display: none;
   }
 }
+
 @media (max-width: 730px) {
   #inline-timepicking {
     display: none;
@@ -67,7 +68,7 @@
 }
 
 @media (max-width: 733px) {
-  .inline-form: {
+  .inline-form {
     display: block !important;
   }
 }
