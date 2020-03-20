@@ -3,7 +3,7 @@
 <div id="page-wrapper">
   <div class="container-fluid">
     <h2 class="text-center">
-      <%= @request.date_wedding.strftime('%A, %b %d') %>
+      <%= @request.date_wedding&.strftime('%A, %b %d') %>
     <small>Bruiloft datum</small>
     </h2>
     <div class="data-list">
