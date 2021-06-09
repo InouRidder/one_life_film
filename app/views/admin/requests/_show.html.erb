@@ -1,8 +1,5 @@
 <tr id="request-<%= request.id %>">
   <td>
-    <h6>
-      <%= request.date_wedding&.strftime('%A, %b %d, %Y') %>
-    </h6>
     <%= link_to admin_request_path(request) do %>
       <%= request.name %>
     <% end %>
@@ -15,6 +12,9 @@
   </td>
   <td>
     <%= request.created_at.strftime('%A, %b %d') %>
+  </td>
+  <td>
+    <%= request.date_wedding&.strftime('%A, %b %d, %Y') %>
   </td>
   <td class="request-status">
     <%= link_to "Nieuw", update_state_admin_request_path(request, new_state: 'pending'), method: :patch, class: "state-btn #{request.btn_state('pending')}", remote: true %>
