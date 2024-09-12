@@ -2,12 +2,12 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
-ruby '2.4.3'
+ruby '3.0.6'
 
 gem 'actionmailer'
 gem 'rails'
 gem 'puma'
-gem 'pg', '~> 0.20'
+gem 'pg', '>= 1.2.3'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
@@ -17,8 +17,9 @@ gem 'coffee-rails'
 gem 'turbolinks', '~> 5.0.0'
 gem 'loaf'
 
-gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
-                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+gem 'bootstrap-datepicker-rails', git: 'https://github.com/Nerian/bootstrap-datepicker-rails.git'
+gem 'by_star', git: 'https://github.com/radar/by_star.git'
+
 # Front end Set Up
 gem 'sassc-rails'
 gem 'jquery-rails'
@@ -53,9 +54,6 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 # MAILING
 gem 'postmark-rails'
 
-# Sort by month
-gem 'by_star', git: "git://github.com/radar/by_star"
-
 source 'https://rails-assets.org' do
   gem 'rails-assets-classnames'
 end
@@ -67,7 +65,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'pry-rails'
   gem 'spring'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '~> 3.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
