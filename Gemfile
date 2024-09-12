@@ -16,6 +16,8 @@ gem 'faker'
 gem 'coffee-rails'
 gem 'turbolinks', '~> 5.0.0'
 gem 'loaf'
+gem 'ostruct'
+gem 'mutex_m'
 
 gem 'bootstrap-datepicker-rails', git: 'https://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'by_star', git: 'https://github.com/radar/by_star.git'
@@ -25,7 +27,7 @@ gem 'sassc-rails'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'bootstrap-sass'
-gem 'font-awesome-sass'
+gem "font-awesome-sass"
 
 gem 'simple_form'
 gem 'autoprefixer-rails'

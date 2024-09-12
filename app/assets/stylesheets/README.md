@@ -59,7 +59,7 @@ Look at your main `application.scss` file to see how SCSS files are imported.
 // External libraries
 @import "bootstrap";
 @import "font-awesome-sprockets";
-@import "font-awesome";
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
 
 // Your CSS
 @import "layout/index";
