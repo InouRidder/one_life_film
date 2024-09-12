@@ -2,7 +2,13 @@
 
 <!--Content Starts-->
 <div class="main-container short-width" style="margin-top: 40px; margin-bottom: 100px;">
-  <h4 style="text-align: center;"> <%= @film.name %></h4>
+  <h4 style="text-align: center;"> 
+    <%= @film.name %>
+    <% if @film.name == "KLOSTERS 5th - 8th September" %>
+      <br>
+      <%= link_to "privé", "https://www.prive.no" if @film.name == "KLOSTERS 5th - 8th September" %>
+    <% end %>
+  </h4>
   <!--Wide Wrapper Starts-->
   <div class="wide portfolio-one" data-items-gap="15">
 
@@ -33,8 +39,6 @@
       <% end %>
     </ol>
   </nav>
-<% else %>
-  <%= link_to "privé", "https://www.prive.no" %>
 <% end %>
 
 <script type="application/ld+json">

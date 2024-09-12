@@ -48,10 +48,10 @@
   <%= javascript_include_tag 'application' %>
 </head>
 <body>
-  <%= render 'shared/navbar' unless request.original_url.include?('Kloster') %>
+  <%= render 'shared/navbar' unless request.original_url.include?('klosters') %>
   <%= render 'shared/flashes' %>
   <%= yield %>
-  <%= render 'shared/footer' unless request.original_url.include?('Kloster') %>
+  <%= render 'shared/footer' unless request.original_url.include?('klosters') %>
   <%= yield(:after_js) %>
 
 </body>
