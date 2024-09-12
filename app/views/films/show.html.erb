@@ -22,16 +22,20 @@
 </div>
 <!--Content End-->
 
-<nav aria-label="breadcrumb" style="padding-left: 75px">
-  <ol class='breadcrumbs'>
-    <% breadcrumb_trail do |crumb| %>
-      <li class="<%= crumb.current? ? 'current' : '' %>">
-        <%= link_to crumb.name, crumb.url, (crumb.current? ? {'aria-current' => 'page'} : {}) %>
-        <% unless crumb.current? %><span>::</span><% end %>
-      </li>
-    <% end %>
-  </ol>
-</nav>
+<% if @film.name != "KLOSTERS 5th - 8th September" %>
+  <nav aria-label="breadcrumb" style="padding-left: 75px">
+    <ol class='breadcrumbs'>
+      <% breadcrumb_trail do |crumb| %>
+        <li class="<%= crumb.current? ? 'current' : '' %>">
+          <%= link_to crumb.name, crumb.url, (crumb.current? ? {'aria-current' => 'page'} : {}) %>
+          <% unless crumb.current? %><span>::</span><% end %>
+        </li>
+      <% end %>
+    </ol>
+  </nav>
+<% else %>
+  <%= link_to "privé", "https://www.prive.no" %>
+<% end %>
 
 <script type="application/ld+json">
   {
