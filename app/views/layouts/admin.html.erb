@@ -16,8 +16,8 @@
 
   <body>
      <div id="wrapper">
-      <%= render 'shared/flashes.html.erb' %>
-      <%= render 'layouts/admin_navbar.html.erb'%>
+      <%= render 'shared/flashes' %>
+      <%= render 'layouts/admin_navbar'%>
       <%= yield %>
     </div>
     <%= yield(:after_js) %>
