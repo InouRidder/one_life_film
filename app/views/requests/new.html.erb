@@ -28,6 +28,9 @@
           <!--form-->
           <div class="message"></div>
           <form id="name" method="POST" action="/requests" name="request">
+            <div style="position: absolute; left: -9999px;" aria-hidden="true">
+              <input type="text" name="request[website]" tabindex="-1" autocomplete="off">
+            </div>
             <input class="spaced-form" type="text" name="request[name]" placeholder="<%= t('new_request.form.name') %>" required autocomplete="off">
             <input class="spaced-form" type="email" name="request[email_address]" placeholder="<%= t('new_request.form.email') %>" required autocomplete="off">
             <input class="spaced-form" type="text" name="request[phone_number]" placeholder="<%= t('new_request.form.phone') %>" required autocomplete="off">

@@ -9,6 +9,9 @@ class RequestsController < ApplicationController
   end
 
   def create
+    if params[:request][:website].present?
+      redirect_to root_path and return
+    end
     @request = Request.new(request_params)
     if verify_recaptcha(model: @request) && @request.save
       flash[:notice] = "We komen binnen twee weken bij je terug! Kijk in je mail voor de confirmatie."
