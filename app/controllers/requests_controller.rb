@@ -9,7 +9,7 @@ class RequestsController < ApplicationController
   end
 
   def create
-    if params[:request][:website].present?
+    if params.dig(:request, :website).present?
       redirect_to root_path and return
     end
     @request = Request.new(request_params)
