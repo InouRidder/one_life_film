@@ -14,21 +14,6 @@ class Request < ApplicationRecord
 
   validate :not_spam_content
 
-  private
-
-  def not_spam_content
-    text_to_check = [message, name, subject].compact.join(' ')
-    if SPAM_PATTERNS.any? { |pattern| text_to_check.match?(pattern) }
-      errors.add(:base, "Your message could not be submitted")
-    end
-    if text_to_check.scan(/https?:\/\//).count > 2
-      errors.add(:base, "Your message could not be submitted")
-    end
-    if message.present? && message.length > 20 && message == message.upcase
-      errors.add(:base, "Your message could not be submitted")
-    end
-  end
-
   by_star_field :date_wedding
 
   scope :active, -> { where("state != 'declined' AND date_wedding >= ? ", Date.today)}
@@ -67,5 +52,18 @@ class Request < ApplicationRecord
     self.state = 'declined'
   end
 
+  private
 
+  def not_spam_content
+    text_to_check = [message, name, subject].compact.join(' ')
+    if SPAM_PATTERNS.any? { |pattern| text_to_check.match?(pattern) }
+      errors.add(:base, "Your message could not be submitted")
+    end
+    if text_to_check.scan(/https?:\/\//).count > 2
+      errors.add(:base, "Your message could not be submitted")
+    end
+    if message.present? && message.length > 20 && message == message.upcase
+      errors.add(:base, "Your message could not be submitted")
+    end
+  end
 end
