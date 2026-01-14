@@ -9,6 +9,7 @@ class Request < ApplicationRecord
     /tinyurl\.com/i,
     /goo\.gl/i,
     /t\.co\//i,
+    /t\.me\//i,
     /\bhttps?:\/\/[^\s]+\.(ru|cn|xyz|top|click|loan|work)\b/i,
   ].freeze
 
