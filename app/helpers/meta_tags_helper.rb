@@ -4,6 +4,8 @@ module MetaTagsHelper
   end
 
   def meta_description
+    return "" if content_for?(:hide_meta_description)
+
     content_for?(:meta_description) ? content_for(:meta_description) : DEFAULT_META["meta_description"]
   end
 
